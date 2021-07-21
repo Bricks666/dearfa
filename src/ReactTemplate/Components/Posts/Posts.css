@@ -1,0 +1,12 @@
+/* POSTS */
+
+.posts {
+  display: grid;
+  row-gap: 20px;
+}
+
+/* HEADING */
+.posts__heading {
+  margin: 0;
+  font-size: 20px;
+}

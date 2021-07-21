@@ -1,0 +1,6 @@
+/* CREATED POSTS */
+
+.created-posts {
+  display: grid;
+  row-gap: 10px;
+}

@@ -1,0 +1,21 @@
+/* USER PROFILE */
+
+.user-profile {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+/* PHOTO */
+.user-profile__photo {
+  order: -1;
+  grid-row: span 2;
+  border: 1px dashed black;
+}
+
+/*  FULL NAME */
+.user-profile__full-name {
+  margin: 0;
+  align-self: start;
+}

@@ -1,0 +1,44 @@
+/* MAKE POST */
+
+.make-post {
+  display: grid;
+  row-gap: 10px;
+}
+
+/* MAKE POST TEXTAREA */
+
+.make-post__textarea {
+  resize: none;
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  background-color: rgb(216, 213, 213);
+  font-size: 16px;
+  color: gray;
+}
+
+.make-post__textarea::placeholder {
+  font-size: 16px;
+  color: gray;
+}
+
+/* MAKE POST BUTTON */
+
+.make-post__button {
+  width: 150px;
+  padding: 5px 10px;
+  justify-self: end;
+  border-radius: none;
+  border: none;
+  background-color: yellowgreen;
+  transition-property: background-color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.15s;
+  color: white;
+}
+
+.make-post__button:hover {
+  background-color: olivedrab;
+}

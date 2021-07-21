@@ -1,0 +1,37 @@
+/* NAVIGATION */
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVIGATION LIST */
+
+.navigation__list {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  row-gap: 10px;
+}
+
+/* NAVIGATION ITEM */
+
+.navigation__item {
+  list-style: none;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+/* NAVIGATION ITEM HIDDEN */
+
+.navigation__item_hidden {
+  visibility: hidden;
+  height: 2em;
+}
+
+/* NAVIGATION LINK */
+
+.navigation__link {
+  color: whitesmoke;
+  text-decoration: none;
+}

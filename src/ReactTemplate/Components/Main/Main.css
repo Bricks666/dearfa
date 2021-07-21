@@ -1,0 +1,30 @@
+/* MAIN */
+
+.main {
+  width: 100%;
+  min-height: 100px;
+
+  display: grid;
+  row-gap: 20px;
+}
+
+/*PICTURE */
+
+.main__picture {
+  width: 100%;
+  min-height: 150px;
+  background-color: burlywood;
+  color: whitesmoke;
+}
+
+/* USER PROFILE */
+
+.main__user-profile {
+  margin-bottom: 10px;
+}
+
+/* POSTS */
+
+.main__posts {
+  margin-bottom: 10px;
+}

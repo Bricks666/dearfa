@@ -1,0 +1,40 @@
+/* ABOUT LIST */
+
+.about-list {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: max-content 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: end;
+  }
+
+  /* TERM */
+
+  .about-list__term {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  /* DESCRIPTION */
+
+  .about-list__description {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  /* LINK */
+
+  .about-list__link {
+    color: inherit;
+  }
+
+  /* LINK DISABLE */
+
+  .about-list__link_disable {
+    text-decoration: none;
+    pointer-events: none;
+  }
