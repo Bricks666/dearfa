@@ -35,3 +35,7 @@
   color: whitesmoke;
   text-decoration: none;
 }
+
+.navigation__link-current-page {
+  text-decoration: underline;
+}

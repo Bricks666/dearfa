@@ -1,6 +1,6 @@
-/* MAIN */
+/* PROFILE */
 
-.main {
+.profile {
   width: 100%;
   min-height: 100px;
 
@@ -10,7 +10,7 @@
 
 /*PICTURE */
 
-.main__picture {
+.profile__picture {
   width: 100%;
   min-height: 150px;
   background-color: burlywood;
@@ -19,12 +19,12 @@
 
 /* USER PROFILE */
 
-.main__user-profile {
+.profile__user-profile {
   margin-bottom: 10px;
 }
 
 /* POSTS */
 
-.main__posts {
+.profile__posts {
   margin-bottom: 10px;
 }

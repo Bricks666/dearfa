@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "./Components/Header/Header";
-import Main from "./Components/Main/Main";
+import Profile from "./Components/Profile/Profile";
 import Navigation from "./Components/Navigation/Navigation";
 
-import "./ReactTemplate.css";
+import "./Main.css";
 
 function ReactTemplate() {
   return (
@@ -11,7 +11,7 @@ function ReactTemplate() {
       <h1 className="visibility-hidden">Моя социальная сеть</h1>
       <Header className="page__header" />
       <Navigation className="page__nav" />
-      <Main className="page__main" />
+      <Profile className="page__main" />
     </div>
   );
 }
