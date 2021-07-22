@@ -12,7 +12,7 @@ function NavigetionItem(props) {
         className={
           "navigation__link " +
           (props.isCurrentPage === "true"
-            ? "navigation__link-current-page"
+            ? "navigation__link_current-page"
             : "")
         }
         href="#1"

@@ -1,23 +1,24 @@
 /* HEADER */
 
 .header {
-    width: 100%;
-    min-width: 500px;
-    min-height: 50px;
+  width: 100%;
+  min-height: 50px;
 
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 
-  /* HEADER LOGO */
+  background-color: darkgreen;
+}
 
-  .header__logo {
-    margin-left: 20px;
+/* HEADER LOGO */
 
-    color: whitesmoke;
-    font-size: 14px;
-    font-weight: 700;
+.header__logo {
+  margin-left: 20px;
 
-    width: 120px;
-    height: auto;
-  }
+  color: whitesmoke;
+  font-size: 14px;
+  font-weight: 700;
+
+  width: 120px;
+  height: auto;
+}

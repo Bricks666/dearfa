@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "./Components/Header/Header";
-import Profile from "./Components/Profile/Profile";
-import Navigation from "./Components/Navigation/Navigation";
+import Header from "../Header/Header";
+import Profile from "../Profile/Profile";
+import Navigation from "../Navigation/Navigation";
 
-import "./Main.css";
+import "./Page.css";
 
-function ReactTemplate() {
+function Page() {
   return (
     <div className="page" id="1">
       <h1 className="visibility-hidden">Моя социальная сеть</h1>
@@ -16,4 +16,4 @@ function ReactTemplate() {
   );
 }
 
-export default ReactTemplate;
+export default Page;

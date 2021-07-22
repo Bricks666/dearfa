@@ -1,8 +1,12 @@
 /* NAVIGATION */
 
 .navigation {
+  padding: 10%;
+
   display: flex;
   flex-direction: column;
+
+  background-color: darkgreen;
 }
 
 /* NAVIGATION LIST */
@@ -36,6 +40,6 @@
   text-decoration: none;
 }
 
-.navigation__link-current-page {
+.navigation__link_current-page {
   text-decoration: underline;
 }

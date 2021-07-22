@@ -1,14 +1,14 @@
 /* PROFILE */
 
 .profile {
-  width: 100%;
-  min-height: 100px;
+
+  background-color:ghostwhite;
 
   display: grid;
   row-gap: 20px;
 }
 
-/*PICTURE */
+/* PICTURE */
 
 .profile__picture {
   width: 100%;
