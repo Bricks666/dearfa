@@ -12,12 +12,21 @@
 /* PHOTO */
 .user-info__photo {
   order: -1;
+
   grid-row: span 2;
+
   border: 1px dashed black;
 }
 
 /*  FULL NAME */
 .user-info__full-name {
   margin: 0;
+
   align-self: start;
+}
+
+/* ABOUT USER */
+
+.user-info__about-user {
+  margin: 0;
 }

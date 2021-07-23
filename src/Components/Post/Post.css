@@ -2,10 +2,14 @@
 
 .post {
   display: grid;
+
   grid-template-columns: min-content 1fr;
   grid-template-rows: min-content 1fr;
+
   column-gap: 16px;
+
   border: 1px solid silver;
+
   padding: 15px 20px;
 }
 
@@ -14,17 +18,21 @@
 .post__author {
   margin: 0;
   padding: 10px 0;
+
   font-size: 20px;
 }
 
 /* PHOTO */
 
 .post__photo {
+  order: -1;
+
+  grid-row: span 2;
+
   width: 150px;
   height: 150px;
+
   border: 1px dashed black;
-  order: -1;
-  grid-row: span 2;
 }
 
 /* CONTENT */

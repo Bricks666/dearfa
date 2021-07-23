@@ -1,9 +1,10 @@
+import Logo from "../Logo/Logo";
 import "./Header.css";
 
 function Header(props) {
   return (
     <header className={props.className + " header"}>
-      <img className="header__logo" src="" alt="Логотип" />
+      <Logo className="header__logo" src="" alt="Logo" />
     </header>
   );
 }

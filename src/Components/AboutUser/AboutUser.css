@@ -1,40 +1,46 @@
 /* ABOUT LIST */
 
-.about-me-list {
+.about-user {
   display: grid;
-  padding: 0;
-  margin: 0;
+
   grid-template-columns: max-content 1fr;
+
   column-gap: 10px;
   row-gap: 10px;
+
   align-items: end;
+
+  padding: 0;
 }
 
 /* TERM */
 
-.about-me-list__term {
+.about-user__term {
   padding: 0;
   margin: 0;
+
   font-size: 18px;
 }
 
 /* DESCRIPTION */
 
-.about-me-list__description {
+.about-user__description {
   padding: 0;
   margin: 0;
+
   font-size: 18px;
 }
 
 /* LINK */
 
-.about-me-list__link {
+.about-user__link {
   color: inherit;
 }
 
 /* LINK DISABLE */
 
-.about-me-list__link_disable {
+.about-user__link_disable {
   text-decoration: none;
+
   pointer-events: none;
 }

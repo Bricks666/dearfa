@@ -1,16 +1,16 @@
 /* PAGE */
 
 .page {
-  margin: 0 5%;
-
   display: grid;
-
-  column-gap: 16px;
-  row-gap: 16px;
 
   grid-template-columns: 200px 1fr;
   grid-template-rows: auto minmax(min-content, 550px) 1fr;
   grid-template-areas: "header header" "nav main" ". main";
+
+  column-gap: 16px;
+  row-gap: 16px;
+
+  margin: 0 5%;
 }
 
 /* PAGE HEADER */

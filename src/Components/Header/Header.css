@@ -1,11 +1,11 @@
 /* HEADER */
 
 .header {
-  width: 100%;
-  min-height: 50px;
-
   display: flex;
+
   align-items: center;
+
+  min-height: 50px;
 
   background-color: darkgreen;
 }
@@ -15,10 +15,5 @@
 .header__logo {
   margin-left: 20px;
 
-  color: whitesmoke;
-  font-size: 14px;
-  font-weight: 700;
-
   width: 120px;
-  height: auto;
 }

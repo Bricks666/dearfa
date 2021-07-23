@@ -2,19 +2,20 @@
 
 .make-post {
   display: grid;
+
   row-gap: 10px;
 }
 
-/* MAKE POST TEXTAREA */
+/* NEW POST TEXT */
 
-.make-post__textarea {
+.make-post__new-post-text {
   resize: none;
 
-  width: 100%;
   min-height: 100px;
-  padding: 10px;
 
   margin: 0;
+  padding: 10px;
+
   border: none;
 
   background-color: rgb(216, 213, 213);
@@ -23,30 +24,30 @@
   color: gray;
 }
 
-.make-post__textarea::placeholder {
+.make-post__new-post-text::placeholder {
   font-size: 16px;
   color: gray;
 }
 
-/* MAKE POST BUTTON */
+/* BUTTON */
 
 .make-post__button {
+  justify-self: end;
+
   width: 150px;
 
   padding: 5px 10px;
-
-  justify-self: end;
 
   border-radius: none;
   border: none;
 
   background-color: yellowgreen;
 
+  color: white;
+
   transition-property: background-color;
   transition-timing-function: ease-in-out;
   transition-duration: 0.15s;
-
-  color: white;
 }
 
 .make-post__button:hover {

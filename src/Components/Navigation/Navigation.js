@@ -1,6 +1,6 @@
 import "./Navigation.css";
 
-function NavigetionItem(props) {
+function NavigationItem(props) {
   return (
     <li
       className={
@@ -26,12 +26,12 @@ function Navigation(props) {
   return (
     <nav className={props.className + " navigation"}>
       <ul className="navigation__list">
-        <NavigetionItem linkText="Профиль" isCurrentPage="true" />
-        <NavigetionItem linkText="Сообщения" />
-        <NavigetionItem linkText="Новости" />
-        <NavigetionItem linkText="Музыка" />
-        <NavigetionItem isHidden="true" />
-        <NavigetionItem linkText="Настройки" />
+        <NavigationItem linkText="Профиль" isCurrentPage="true" />
+        <NavigationItem linkText="Сообщения" />
+        <NavigationItem linkText="Новости" />
+        <NavigationItem linkText="Музыка" />
+        <NavigationItem isHidden="true" />
+        <NavigationItem linkText="Настройки" />
       </ul>
     </nav>
   );

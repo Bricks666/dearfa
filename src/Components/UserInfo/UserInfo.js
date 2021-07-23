@@ -1,4 +1,4 @@
-import AboutList from "../AboutList/AboutList";
+import AboutUser from "../AboutUser/AboutUser";
 import Picture from "../Picture/Picture";
 import "./UserInfo.css";
 
@@ -12,7 +12,7 @@ function UserInfo(props) {
         twoXUrl=""
         alt="Ваша аватарка"
       />
-      <AboutList className=""/>
+      <AboutUser className="user-info__about-user" />
     </div>
   );
 }

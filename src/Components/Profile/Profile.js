@@ -8,7 +8,7 @@ function Profile(props) {
     <main className={props.className + " profile"}>
       <Picture
         className="profile__picture"
-        oneXurl=""
+        oneXUrl=""
         twoXUrl=""
         alt="Ваш фон"
       />
