@@ -1,6 +1,6 @@
 /* MAKE POST */
 
-.make-post {
+.makePost {
   display: grid;
 
   row-gap: 10px;
@@ -8,7 +8,7 @@
 
 /* NEW POST TEXT */
 
-.make-post__new-post-text {
+.newPostText {
   resize: none;
 
   min-height: 100px;
@@ -18,20 +18,25 @@
 
   border: none;
 
-  background-color: rgb(216, 213, 213);
+  background-color: var(--white-lighter);
 
   font-size: 16px;
-  color: gray;
+  color: var(--grey);
 }
 
-.make-post__new-post-text::placeholder {
+.newPostText::placeholder {
   font-size: 16px;
-  color: gray;
+  color: var(--grey);
+}
+
+.newPostText:focus {
+    outline-color: var(--blue);
+    outline-width: 3px;
 }
 
 /* BUTTON */
 
-.make-post__button {
+.button {
   justify-self: end;
 
   width: 150px;
@@ -41,15 +46,15 @@
   border-radius: none;
   border: none;
 
-  background-color: yellowgreen;
+  background-color: var(--blue-light);
 
-  color: white;
+  color: var(--white-lighter);
 
   transition-property: background-color;
   transition-timing-function: ease-in-out;
   transition-duration: 0.15s;
 }
 
-.make-post__button:hover {
-  background-color: olivedrab;
+.button:hover {
+  background-color: var(--blue);
 }

@@ -7,12 +7,12 @@
 
   min-height: 50px;
 
-  background-color: darkgreen;
+  background-color: var(--blue-light);
 }
 
 /* HEADER LOGO */
 
-.header__logo {
+.logo {
   margin-left: 20px;
 
   width: 120px;

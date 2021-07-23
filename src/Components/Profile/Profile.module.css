@@ -1,8 +1,7 @@
 /* PROFILE */
 
 .profile {
-
-  background-color:ghostwhite;
+  background-color: var(--white);
 
   display: grid;
   row-gap: 20px;
@@ -10,21 +9,25 @@
 
 /* PICTURE */
 
-.profile__picture {
+.image {
   width: 100%;
   min-height: 150px;
-  background-color: burlywood;
-  color: whitesmoke;
+
+  background-color: var(--violet-lighter);
+
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 700;
 }
 
 /* USER PROFILE */
 
-.profile__user-profile {
+.userInfo {
   margin-bottom: 10px;
 }
 
 /* POSTS */
 
-.profile__posts {
+.posts {
   margin-bottom: 10px;
 }

@@ -1,0 +1,45 @@
+/* DIALOGS */
+
+.dialogs {
+  display: grid;
+
+  grid-template-columns: minmax(min-content, 400px) 1fr;
+  grid-template-rows: min-content 1fr;
+
+  row-gap: 5px;
+  column-gap: 40px;
+}
+
+/* HEADING */
+
+.heading {
+  grid-column: span 2;
+
+  margin: 0;
+  padding: 10px 15px;
+
+  font-size: 24px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+/* DIALOGS LIST */
+
+.dialogsList {
+  position: relative;
+
+  margin: 0;
+  margin-left: 20px;
+}
+
+.dialogsList::after {
+  content: "";
+
+  position: absolute;
+  right: -22px;
+
+  width: 4px;
+  height: 100%;
+
+  background-color: var(--grey-light);
+}

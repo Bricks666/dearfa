@@ -1,6 +1,6 @@
 /* USER INFO */
 
-.user-info {
+.userInfo {
   display: grid;
 
   grid-template-columns: 150px 1fr;
@@ -10,23 +10,23 @@
 }
 
 /* PHOTO */
-.user-info__photo {
+.photo {
   order: -1;
 
   grid-row: span 2;
-
-  border: 1px dashed black;
 }
 
 /*  FULL NAME */
-.user-info__full-name {
+.fullName {
+  align-self: start;
+
   margin: 0;
 
-  align-self: start;
+  font-size: 24px;
 }
 
 /* ABOUT USER */
 
-.user-info__about-user {
+.aboutUser {
   margin: 0;
 }

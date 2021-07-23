@@ -1,0 +1,18 @@
+/* DIALOGS LIST */
+
+.dialogsList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;;
+
+  padding: 0;
+}
+
+/* DIALOG */
+
+.dialog {
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}

@@ -1,6 +1,6 @@
 /* ABOUT LIST */
 
-.about-user {
+.aboutUser {
   display: grid;
 
   grid-template-columns: max-content 1fr;
@@ -15,7 +15,7 @@
 
 /* TERM */
 
-.about-user__term {
+.term {
   padding: 0;
   margin: 0;
 
@@ -24,7 +24,7 @@
 
 /* DESCRIPTION */
 
-.about-user__description {
+.description {
   padding: 0;
   margin: 0;
 
@@ -33,13 +33,13 @@
 
 /* LINK */
 
-.about-user__link {
+.link {
   color: inherit;
 }
 
 /* LINK DISABLE */
 
-.about-user__link_disable {
+.link_disable {
   text-decoration: none;
 
   pointer-events: none;

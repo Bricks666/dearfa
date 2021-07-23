@@ -1,9 +1,10 @@
 import Post from "../Post/Post";
-import "./CreatedPosts.css";
+
+import CreatedPostsStyle from "./CreatedPosts.module.css";
 
 function CreatedPosts(props) {
   return (
-    <section className="created-posts">
+    <section className={CreatedPostsStyle.createdPosts}>
       <Post />
       <Post />
     </section>

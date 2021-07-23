@@ -8,14 +8,14 @@
 
   column-gap: 16px;
 
-  border: 1px solid silver;
+  border: 1px solid var(--grey-light);
 
   padding: 15px 20px;
 }
 
 /* AUTHOR */
 
-.post__author {
+.author {
   margin: 0;
   padding: 10px 0;
 
@@ -24,7 +24,7 @@
 
 /* PHOTO */
 
-.post__photo {
+.photo {
   order: -1;
 
   grid-row: span 2;
@@ -32,15 +32,17 @@
   width: 150px;
   height: 150px;
 
-  border: 1px dashed black;
+  border-radius: 50%;
 }
 
 /* CONTENT */
 
-.post__content {
+.content {
+  align-self: start;
+
   margin: 0;
   padding: 0 10px;
+
   font-size: 18px;
-  color: gray;
-  align-self: start;
+  color: var(--grey);
 }

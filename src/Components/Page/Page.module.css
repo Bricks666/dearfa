@@ -13,26 +13,26 @@
   margin: 0 5%;
 }
 
-/* PAGE HEADER */
+/* HEADER */
 
-.page__header {
+.header {
   grid-area: header;
 }
 
-/* PAGE NAV */
+/* NAV */
 
-.page__nav {
+.nav {
   grid-area: nav;
 }
 
-/* PAGE MAIN */
+/* MAIN */
 
-.page__main {
+.main {
   grid-area: main;
 }
 
-/* PAGE FOOTER */
+/* FOOTER */
 
-.page__footer {
+.footer {
   grid-area: footer;
 }

@@ -1,19 +1,19 @@
 import Picture from "../Picture/Picture";
 import Posts from "../Posts/Posts";
 import UserInfo from "../UserInfo/UserInfo";
-import "./Profile.css";
+import ProfileStyle from "./Profile.module.css";
 
 function Profile(props) {
   return (
-    <main className={props.className + " profile"}>
+    <main className={`${props.className} ${ProfileStyle.profile}`}>
       <Picture
-        className="profile__picture"
+        className={`${ProfileStyle.image} fake-photo`}
         oneXUrl=""
         twoXUrl=""
         alt="Ваш фон"
       />
-      <UserInfo className="profile__user-profile" />
-      <Posts className="profile__posts" />
+      <UserInfo className={ProfileStyle.userInfo} />
+      <Posts className={ProfileStyle.posts} />
     </main>
   );
 }

@@ -1,0 +1,43 @@
+/* DIALOG */
+
+.dialog {
+  display: grid;
+
+  column-gap: 10px;
+
+  grid-template-columns: min-content 1fr;
+
+  align-items: center;
+
+  width: 100%;
+
+  padding: 10px;
+
+  border: none;
+  border-radius: none;
+
+  background-color: var(--grey-lighter);
+}
+
+.dialog_current {
+  background-color: var(--grey-light);
+}
+
+/* FULL NAME */
+
+.fullName {
+  margin: 0;
+  padding: 5px 10px;
+
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* PHOTO */
+
+.photo {
+  order: -1;
+
+  width: 60px;
+  height: 60px;
+}
