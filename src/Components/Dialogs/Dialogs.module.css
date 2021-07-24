@@ -3,24 +3,19 @@
 .dialogs {
   display: grid;
 
-  grid-template-columns: minmax(min-content, 400px) 1fr;
+  grid-template-columns: min-content 1fr;
   grid-template-rows: min-content 1fr;
 
   row-gap: 5px;
   column-gap: 40px;
+
+  grid-auto-flow: column dense;
 }
 
 /* HEADING */
 
 .heading {
   grid-column: span 2;
-
-  margin: 0;
-  padding: 10px 15px;
-
-  font-size: 24px;
-  line-height: 150%;
-  text-transform: uppercase;
 }
 
 /* DIALOGS LIST */
@@ -30,6 +25,8 @@
 
   margin: 0;
   margin-left: 20px;
+
+  max-width: 400px;
 }
 
 .dialogsList::after {

@@ -1,0 +1,10 @@
+/* HEADER */
+
+.header {
+  max-width: max-content;
+
+  margin: 0;
+
+  font-size: 20px;
+  color: var(--black);
+}

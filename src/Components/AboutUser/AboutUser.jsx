@@ -2,7 +2,7 @@ import AboutUserStyle from "./AboutUser.module.css";
 
 function AboutUser(props) {
   return (
-    <dl className={`${props.className} ${AboutUserStyle.aboutUser}`}>
+    <dl className={`${props.className?? ""} ${AboutUserStyle.aboutUser}`}>
       <dt className={AboutUserStyle.term}>Дата рождения:</dt>
       <dd className={AboutUserStyle.description}>17.09.2004</dd>
       <dt className={AboutUserStyle.term}>Город:</dt>

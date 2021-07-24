@@ -1,15 +1,17 @@
 :root {
-  --white-lightest: rgb(255, 255, 255);
-  --white-lighter: rgb(230, 230, 230);
-  --white: rgb(245, 245, 245);
-  --grey-lighter: rgb(224, 224, 224);
-  --grey-light: rgb(192, 192, 192);
-  --grey: rgb(128, 128, 128);
-  --blue-light: rgb(88, 115, 235);
-  --blue: rgb(47, 81, 233);
-  --violet-lighter: rgb(243, 184, 243);
-  --violet: rgb(155, 15, 236);
-  --black: rgb(0, 0, 0);
+  --white-lightest: rgb(255 255 255);
+  --white-lighter: rgb(245 245 245);
+  --white: rgb(230 230 230);
+  --grey-lighter: rgb(224 224 224);
+  --grey-light: rgb(192 192 192);
+  --grey: rgb(128 128 128);
+  --blue-lightest: rgb(212 217 255);
+  --blue-lighter: rgb(145 151 191);
+  --blue-light: rgb(88 115 235);
+  --blue: rgb(47 81 233);
+  --violet-lighter: rgb(243 184 243);
+  --violet: rgb(155 15 236);
+  --black: rgb(0 0 0);
 }
 
 /* Класс временно заменяет отсутствующие фото нормально оформленным текстом */

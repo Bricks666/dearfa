@@ -1,19 +1,23 @@
 import DialogStyle from "./Dialog.module.css";
 
 import Picture from "../Picture/Picture";
+import SubsectionHeader from "../SubsectionHeader/SubsectionHeader";
 
 function Dialog(props) {
   return (
     <button
       className={`${DialogStyle.dialog} ${
-        props.isCurrent === "true" ? DialogStyle.dialog_current : ""
+        props.isCurrent? DialogStyle.dialog_current : ""
       }`}
     >
-      <h3 className={DialogStyle.fullName}>Василий Абрамов</h3>
+      <SubsectionHeader
+        className={`${DialogStyle.fullName}`}
+        content="Василий Абрамов"
+      />
       <Picture
         className={`${DialogStyle.photo} fake-photo`}
-        oneXUrl=""
-        twoXUrl=""
+        oneXSrc=""
+        twoXSrc=""
         alt="Аватарка собеседника"
       />
     </button>

@@ -4,29 +4,29 @@ function NavigationItem(props) {
   return (
     <li
       className={`${NavigationStyle.item} ${
-        props.isHidden === "true" ? NavigationStyle.item_hidden : ""
+        props.isHidden ? NavigationStyle.item_hidden : ""
       }`}
     >
       <a
         className={`${NavigationStyle.link} ${
-          props.isCurrentPage === "true" ? NavigationStyle.link_currentPage : ""
+          props.isCurrentPage ? NavigationStyle.link_currentPage : ""
         }`}
         href="#1"
       >
-        {props.linkText}
+        {props.linkText ?? ""}
       </a>
     </li>
   );
 }
 function Navigation(props) {
   return (
-    <nav className={`${props.className} ${NavigationStyle.navigation}`}>
+    <nav className={`${props.className ?? ""} ${NavigationStyle.navigation}`}>
       <ul className={NavigationStyle.list}>
-        <NavigationItem linkText="Профиль" isCurrentPage="true" />
+        <NavigationItem linkText="Профиль" isCurrentPage />
         <NavigationItem linkText="Сообщения" />
         <NavigationItem linkText="Новости" />
         <NavigationItem linkText="Музыка" />
-        <NavigationItem isHidden="true" />
+        <NavigationItem isHidden />
         <NavigationItem linkText="Настройки" />
       </ul>
     </nav>

@@ -1,0 +1,17 @@
+/* LAST COMMUNICATIONS */
+
+.lastCommunications {
+  display: grid;
+
+  grid-template-rows: max-content max-content;
+
+  row-gap: 20px;
+
+  max-height: max-content;
+}
+
+/* FRIENDS LIST */
+
+.friendsList {
+  grid-template-columns: repeat(3, 1fr);
+}

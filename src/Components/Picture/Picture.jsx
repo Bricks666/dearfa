@@ -1,18 +1,18 @@
 function Picture(props) {
   return (
-    <picture className={props.className}>
+    <picture className={props.className?? ""}>
       <source
-        srcSet={props.oneXUrl + ".avif 1x," + props.twoXUrl + ".avif 2x"}
+        srcSet={(props.oneXSrc??"") + ".avif 1x," + (props.twoXSrc??"") + ".avif 2x"}
         type="image/avif"
       ></source>
       <source
-        srcSet={props.oneXUrl + ".webp 1x," + props.twoXUrl + ".webp 2x"}
+        srcSet={(props.oneXSrc??"") + ".webp 1x," + (props.twoXSrc??"") + ".webp 2x"}
         type="image/webp"
       ></source>
       <img
-        src={props.oneXUrl + ".jpg 1x"}
-        srcSet={props.oneXUrl + ".jpg 2x,"}
-        alt={props.alt}
+        src={(props.oneXSrc ?? "") + ".jpg 1x"}
+        srcSet={(props.oneXSrc ?? "") + ".jpg 2x,"}
+        alt={props.alt ?? ""}
       />
     </picture>
   );

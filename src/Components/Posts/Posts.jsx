@@ -1,14 +1,21 @@
 import CreatedPosts from "../CreatedPosts/CreatedPosts";
-import MakePost from "../MakePost/MakePost";
-
+import MakeMessage from "../MakeMessage/MakeMessage";
+import SubsectionHeader from "../SubsectionHeader/SubsectionHeader";
 
 import PostsStyle from "./Posts.module.css";
 
 function Posts(props) {
   return (
-    <section className={`${props.className} ${PostsStyle.posts}`}>
-      <h4 className={PostsStyle.heading}>Мои посты</h4>
-      <MakePost  />
+    <section className={`${props.className ?? ""} ${PostsStyle.posts}`}>
+      <SubsectionHeader
+        className={`${PostsStyle.heading}`}
+        content="Мои посты"
+      />
+      <MakeMessage
+        className={PostsStyle.makeMessage}
+        placeholder="Чем вы хотите поделиться сегодня"
+        buttonMessage="Опубликовать"
+      />
       <CreatedPosts />
     </section>
   );

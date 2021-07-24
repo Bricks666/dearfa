@@ -1,0 +1,20 @@
+/* BUTTON */
+
+.button {
+  border-radius: 0;
+  border: none;
+
+  background-color: var(--blue-light);
+
+  color: var(--white-lighter);
+
+  filter: drop-shadow(1px 1px 1px var(--blue-lighter));
+
+  transition-property: background-color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.15s;
+}
+
+.button:hover {
+  background-color: var(--blue);
+}

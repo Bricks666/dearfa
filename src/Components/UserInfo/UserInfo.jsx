@@ -1,15 +1,19 @@
 import AboutUser from "../AboutUser/AboutUser";
 import Picture from "../Picture/Picture";
+import SubsectionHeader from "../SubsectionHeader/SubsectionHeader";
 import UserInfoStyle from "./UserInfo.module.css";
 
 function UserInfo(props) {
   return (
-    <div className={`${props.className} ${UserInfoStyle.userInfo}`}>
-      <h3 className={UserInfoStyle.fullName}>Цыганков Кирилл</h3>
+    <div className={`${props.className ?? ""} ${UserInfoStyle.userInfo}`}>
+      <SubsectionHeader
+        className={`${UserInfoStyle.fullName}`}
+        content="Цыганков Кирилл"
+      />
       <Picture
         className={`${UserInfoStyle.photo} fake-photo`}
-        oneXUrl=""
-        twoXUrl=""
+        oneXSrc=""
+        twoXSrc=""
         alt="Ваша аватарка"
       />
       <AboutUser className={UserInfoStyle.aboutUser} />

@@ -16,6 +16,8 @@
 /* TERM */
 
 .term {
+  max-width: max-content;
+
   padding: 0;
   margin: 0;
 
@@ -25,6 +27,8 @@
 /* DESCRIPTION */
 
 .description {
+  max-width: max-content;
+
   padding: 0;
   margin: 0;
 
@@ -34,6 +38,8 @@
 /* LINK */
 
 .link {
+  max-width: max-content;
+
   color: inherit;
 }
 

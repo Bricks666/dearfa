@@ -1,0 +1,12 @@
+/* HEADER */
+
+.header {
+  max-width: max-content;
+
+  margin: 0;
+  padding: 10px 15px;
+
+  font-size: 24px;
+  line-height: 150%;
+  text-transform: uppercase;
+}

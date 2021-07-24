@@ -3,30 +3,35 @@
 .dialog {
   display: grid;
 
-  column-gap: 10px;
+  column-gap: 15px;
 
   grid-template-columns: min-content 1fr;
 
   align-items: center;
 
-  width: 100%;
-
   padding: 10px;
 
   border: none;
-  border-radius: none;
+  border-radius: 0;
 
-  background-color: var(--grey-lighter);
+  background-color: var(--white-lighter);
+
+  filter: drop-shadow(1px 1px 1px var(--grey-lighter))
+    drop-shadow(-1px -1px 1px var(--grey-lighter));
+
+  cursor: pointer;
 }
 
 .dialog_current {
-  background-color: var(--grey-light);
+  background-color: var(--grey-lighter);
+
+  filter: drop-shadow(1px 1px 1px var(--grey-light))
+    drop-shadow(-1px -1px 1px var(--grey-light));
 }
 
 /* FULL NAME */
 
 .fullName {
-  margin: 0;
   padding: 5px 10px;
 
   font-size: 18px;
@@ -40,4 +45,6 @@
 
   width: 60px;
   height: 60px;
+
+  border-radius: 50%;
 }

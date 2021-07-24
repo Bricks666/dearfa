@@ -1,7 +1,7 @@
 /* PROFILE */
 
 .profile {
-  background-color: var(--white);
+  background-color: var(--white-lighter);
 
   display: grid;
   row-gap: 20px;
@@ -15,7 +15,7 @@
 
   background-color: var(--violet-lighter);
 
-  color: var(--white);
+  color: var(--white-lighter);
   font-size: 24px;
   font-weight: 700;
 }

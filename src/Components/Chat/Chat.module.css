@@ -1,0 +1,23 @@
+/* CHAT */
+
+.chat {
+  display: grid;
+
+  grid-template-rows: 1fr min-content;
+
+  max-height: 800px;
+}
+
+/* MESSAGE */
+
+.messages {
+  overflow: scroll;
+}
+
+/* MAKE MESSAGE */
+
+.makeMessage {
+  grid-template-columns: 1fr min-content;
+
+  height: min-content;
+}

@@ -1,0 +1,46 @@
+/* MAKE MESSAGE */
+
+.makeMessage {
+  display: grid;
+
+  row-gap: 10px;
+  column-gap: 5px;
+}
+
+/* NEW MESSAGE TEXT */
+
+.newMessageText {
+  resize: none;
+
+  margin: 0;
+  padding: 10px;
+
+  border: none;
+
+  background-color: var(--white-lighter);
+
+  font-size: 16px;
+  color: var(--grey);
+
+  filter: drop-shadow(1px 1px 1px var(--grey-light));
+}
+
+.newMessageText::placeholder {
+  font-size: 16px;
+  color: var(--grey);
+}
+
+.newMessageText:focus {
+  outline-color: var(--blue);
+  outline-width: 3px;
+}
+
+/* BUTTON */
+
+.button {
+  justify-self: end;
+  align-self: start;
+
+  width: 150px;
+  height: 50px;
+}
