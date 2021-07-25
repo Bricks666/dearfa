@@ -6,10 +6,9 @@ import UserInfoStyle from "./UserInfo.module.css";
 function UserInfo(props) {
   return (
     <div className={`${props.className ?? ""} ${UserInfoStyle.userInfo}`}>
-      <SubsectionHeader
-        className={`${UserInfoStyle.fullName}`}
-        content="Цыганков Кирилл"
-      />
+      <SubsectionHeader className={`${UserInfoStyle.fullName}`}>
+        Цыганков Кирилл
+      </SubsectionHeader>
       <Picture
         className={`${UserInfoStyle.photo} fake-photo`}
         oneXSrc=""

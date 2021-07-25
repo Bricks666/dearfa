@@ -3,50 +3,8 @@
 .aboutUser {
   display: grid;
 
-  grid-template-columns: max-content 1fr;
-
-  column-gap: 10px;
   row-gap: 10px;
 
   align-items: end;
-
   padding: 0;
-}
-
-/* TERM */
-
-.term {
-  max-width: max-content;
-
-  padding: 0;
-  margin: 0;
-
-  font-size: 18px;
-}
-
-/* DESCRIPTION */
-
-.description {
-  max-width: max-content;
-
-  padding: 0;
-  margin: 0;
-
-  font-size: 18px;
-}
-
-/* LINK */
-
-.link {
-  max-width: max-content;
-
-  color: inherit;
-}
-
-/* LINK DISABLE */
-
-.link_disable {
-  text-decoration: none;
-
-  pointer-events: none;
 }

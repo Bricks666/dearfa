@@ -7,7 +7,7 @@ function FriendsListItem(props) {
     <li className={`${FriendsListItemStyle.item} ${props.className}`}>
       <a className={``}>
         <h4 className={`${props.hiddenName ? "visibility-hidden" : ""}`}>
-          {props.fullName}
+          {props.children}
         </h4>
         <Picture
           className={`${FriendsListItemStyle.photo} fake-photo`}

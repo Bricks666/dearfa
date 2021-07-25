@@ -3,7 +3,7 @@
 .message {
   display: grid;
 
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: min-content 1fr;
   grid-template-rows: min-content 1fr;
 
   row-gap: 8px;
@@ -17,6 +17,8 @@
 /* HEADING */
 
 .author {
+  justify-self: center;
+
   max-width: max-content;
 
   margin: 0;
@@ -51,6 +53,8 @@
 
   width: max-content;
   max-width: 550px;
+
+  max-height: max-content;
 
   background-color: var(--white-lighter);
 

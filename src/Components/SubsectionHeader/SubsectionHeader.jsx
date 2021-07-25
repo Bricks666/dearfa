@@ -3,7 +3,7 @@ import SubsectionHeaderStyle from "./SubsectionHeader.module.css";
 function SubsectionHeader(props) {
   return (
     <h3 className={`${SubsectionHeaderStyle.header} ${props.className}`}>
-      {props.content}
+      {props.children}
     </h3>
   );
 }

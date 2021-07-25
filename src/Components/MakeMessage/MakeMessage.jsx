@@ -8,11 +8,9 @@ function MakeMessage(props) {
         className={MakeMessageStyle.newMessageText}
         placeholder={props.placeholder}
       ></textarea>
-      <Button
-        className={MakeMessageStyle.button}
-        type="submit"
-        buttonMessage={props.buttonMessage}
-      />
+      <Button className={MakeMessageStyle.button} type="submit">
+        {props.buttonMessage}
+      </Button>
     </form>
   );
 }

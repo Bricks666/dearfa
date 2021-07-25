@@ -22,30 +22,3 @@
   padding: 0;
   margin: 0;
 }
-
-/* NAVIGATION ITEM */
-
-.item {
-  list-style: none;
-  font-size: 20px;
-  line-height: 100%;
-}
-
-/* NAVIGATION ITEM HIDDEN */
-
-.item_hidden {
-  height: 2em;
-
-  visibility: hidden;
-}
-
-/* NAVIGATION LINK */
-
-.link {
-  color: var(--white-lighter);
-  text-decoration: none;
-}
-
-.link_currentPage {
-  text-decoration: underline;
-}

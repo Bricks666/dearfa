@@ -9,12 +9,9 @@
 
   align-items: center;
 
-  padding: 10px;
-
-  border: none;
-  border-radius: 0;
-
   background-color: var(--white-lighter);
+
+  list-style: none;
 
   filter: drop-shadow(1px 1px 1px var(--grey-lighter))
     drop-shadow(-1px -1px 1px var(--grey-lighter));
@@ -32,6 +29,8 @@
 /* FULL NAME */
 
 .fullName {
+  max-width: 100%;
+
   padding: 5px 10px;
 
   font-size: 18px;

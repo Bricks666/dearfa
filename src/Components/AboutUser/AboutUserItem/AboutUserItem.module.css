@@ -1,0 +1,49 @@
+/* INTERLAYER */
+
+.interlayer {
+  display: grid;
+
+  grid-template-columns: minmax(max-content, 200px) 1fr;
+
+  column-gap: 10px;
+
+  align-items: end;
+}
+
+/* TERM */
+
+.term {
+  max-width: max-content;
+
+  padding: 0;
+  margin: 0;
+
+  font-size: 18px;
+}
+
+/* DESCRIPTION */
+
+.description {
+  max-width: max-content;
+
+  padding: 0;
+  margin: 0;
+
+  font-size: 18px;
+}
+
+/* LINK */
+
+.link {
+  max-width: max-content;
+
+  color: inherit;
+}
+
+/* LINK DISABLE */
+
+.link_disable {
+  text-decoration: none;
+
+  pointer-events: none;
+}

@@ -13,9 +13,9 @@ function Page() {
       <h1 className="visibility-hidden">Dear.Fa</h1>
       <Header className={PageStyle.header} />
       <Navigation className={PageStyle.nav} />
-      {/* <Profile className={PageStyle.main} /> */}
+      <Profile className={PageStyle.main} />
       <FavoritFriends className={PageStyle.lastFriends} />
-      <Dialogs  className={PageStyle.main}/>
+      {/* <Dialogs  className={PageStyle.main}/> */}
     </div>
   );
 }

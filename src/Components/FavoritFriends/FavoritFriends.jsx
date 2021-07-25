@@ -8,10 +8,9 @@ function FavoritFriends(props) {
     <aside
       className={`${FavoritFriendsStyle.lastCommunications} ${props.className}`}
     >
-      <SubsectionHeader
-        className={FavoritFriendsStyle.friendsList}
-        content="Избранные друзья"
-      />
+      <SubsectionHeader className={FavoritFriendsStyle.friendsList}>
+        Избранные друзья
+      </SubsectionHeader>
       <FriendsList className={""} />
     </aside>
   );

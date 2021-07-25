@@ -7,7 +7,6 @@ function Chat(props) {
   return (
     <section className={`${props.className} ${ChatStyle.chat}`}>
       <Messages className={ChatStyle.messages} />
-
       <MakeMessage
         className={ChatStyle.makeMessage}
         placeholder="Ваше сообщение"

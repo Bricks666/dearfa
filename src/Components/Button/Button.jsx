@@ -6,7 +6,7 @@ function Button(props) {
       className={`${props.className} ${ButtonStyle.button}`}
       type={props.type}
     >
-      {props.buttonMessage}
+      {props.children}
     </button>
   );
 }
