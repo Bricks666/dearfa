@@ -1,3 +1,5 @@
+import React from "react";
+
 import SectionHeaderStyle from "./SectionHeader.module.css";
 
 function SectionHeader(props) {

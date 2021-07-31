@@ -1,3 +1,5 @@
+import React from "react";
+
 import SubsectionHeaderStyle from "./SubsectionHeader.module.css";
 
 function SubsectionHeader(props) {

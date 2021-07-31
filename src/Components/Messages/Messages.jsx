@@ -1,3 +1,4 @@
+import React from "react";
 import Message from "../Message/Message";
 
 import MessagesStyle from "./Messages.module.css";
@@ -6,7 +7,7 @@ import MessagesStyle from "./Messages.module.css";
 function Messages(props) {
   return (
     <ul className={`${props.className} ${MessagesStyle.messages}`}>
-      <Message author="Петр">
+      <Message author={props.who}>
         Мело, мело по всей земле<br></br>
         Во все пределы. <br></br>
         Свеча горела на столе, <br></br>
@@ -37,7 +38,7 @@ function Messages(props) {
       <Message author="Кирилл">
         Дааа, хороший стих, и Пастернак тоже хороший писатель был
       </Message>
-      <Message author="Петр">
+      <Message author={props.who}>
         Что мы будем теперь с этой информацией делать?
       </Message>
       <Message author="Кирилл">Не знаю?</Message>

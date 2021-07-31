@@ -1,3 +1,14 @@
+/* LINK */
+
+.link {
+  display: block;
+  min-width: max-content;
+
+  text-decoration: none;
+}
+
+.linkActive {
+}
 /* DIALOG */
 
 .dialog {
@@ -9,6 +20,8 @@
 
   align-items: center;
 
+  min-width: 100%;
+
   background-color: var(--white-lighter);
 
   list-style: none;
@@ -19,7 +32,7 @@
   cursor: pointer;
 }
 
-.dialog_current {
+.linkActive .dialog_current {
   background-color: var(--grey-lighter);
 
   filter: drop-shadow(1px 1px 1px var(--grey-light))

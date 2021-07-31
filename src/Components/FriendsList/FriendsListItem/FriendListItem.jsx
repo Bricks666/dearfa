@@ -1,4 +1,5 @@
-import Picture from "../Picture/Picture";
+import React from "react";
+import Picture from "../../Picture/Picture";
 
 import FriendsListItemStyle from "./FriendListItem.module.css";
 
@@ -11,6 +12,7 @@ function FriendsListItem(props) {
         </h4>
         <Picture
           className={`${FriendsListItemStyle.photo} fake-photo`}
+          oneXSrc="/Images/PhotoCap/PhotoCap"
           alt="Аватарка"
         />
       </a>

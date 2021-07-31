@@ -1,3 +1,4 @@
+import React from "react";
 import Picture from "../Picture/Picture";
 import Posts from "../Posts/Posts";
 import SectionHeader from "../SectionHeader/SectionHeader";
@@ -9,7 +10,11 @@ function Profile(props) {
   return (
     <main className={`${props.className ?? ""} ${ProfileStyle.profile}`}>
       <SectionHeader className="visibility-hidden">Профиль</SectionHeader>
-      <Picture className={`${ProfileStyle.image} fake-photo`} alt="Ваш фон" />
+      <Picture
+        className={`${ProfileStyle.image} fake-photo`}
+        oneXSrc="/Images/ProfileBackground/SunSet"
+        alt="Ваш фон"
+      />
       <UserInfo className={ProfileStyle.userInfo} />
       <Posts className={ProfileStyle.posts} />
     </main>

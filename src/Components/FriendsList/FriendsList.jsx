@@ -1,5 +1,5 @@
-import Picture from "../Picture/Picture";
-import FriendsListItem from "../FriendsListItem/FriendListItem";
+import React from "react";
+import FriendsListItem from "./FriendsListItem/FriendListItem";
 
 import FriendsListStyle from "./FriendsList.module.css";
 

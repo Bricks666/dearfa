@@ -1,3 +1,4 @@
+import React from "react";
 import CreatedPosts from "../CreatedPosts/CreatedPosts";
 import MakeMessage from "../MakeMessage/MakeMessage";
 import SubsectionHeader from "../SubsectionHeader/SubsectionHeader";

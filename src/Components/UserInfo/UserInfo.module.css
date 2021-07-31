@@ -11,6 +11,9 @@
 
 /* PHOTO */
 .photo {
+  width: 100%;
+  min-height: 100%;;
+  object-fit: cover;
   order: -1;
 
   grid-row: span 2;

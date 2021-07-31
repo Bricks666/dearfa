@@ -2,6 +2,7 @@
 
 .dialogsList {
   display: flex;
+
   flex-direction: column;
 
   row-gap: 5px;
@@ -14,6 +15,4 @@
 .dialog {
   padding: 10px;
   margin: 0;
-
-  width: max-content;
 }

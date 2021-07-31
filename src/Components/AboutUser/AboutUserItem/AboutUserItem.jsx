@@ -1,3 +1,5 @@
+import React from "react";
+
 import AboutUserItemStyle from "./AboutUserItem.module.css";
 
 function AboutUserItem(props) {

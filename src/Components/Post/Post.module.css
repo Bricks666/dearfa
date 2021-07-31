@@ -63,3 +63,13 @@
   font-size: 14px;
   color: var(--grey);
 }
+
+/* LIKE */
+
+.like {
+  grid-column: 2;
+
+  justify-self: end;
+
+
+}

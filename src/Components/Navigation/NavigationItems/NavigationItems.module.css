@@ -6,14 +6,6 @@
   line-height: 100%;
 }
 
-/* NAVIGATION ITEM HIDDEN */
-
-.item_hidden {
-  height: 2em;
-
-  visibility: hidden;
-}
-
 /* NAVIGATION LINK */
 
 .link {

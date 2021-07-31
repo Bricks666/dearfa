@@ -1,0 +1,42 @@
+/* ICON */
+
+.like {
+  position: relative;
+
+  display: inline-block;
+
+  padding-right: 2em;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
+.like::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+
+  display: inline-block;
+
+  width: 1.5em;
+  height: 1.5em;
+
+  font-size: inherit;
+  line-height: 1.5em;
+
+  background-image: url("like.svg");
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+}
+/* INPUT */
+
+.input {
+  display: block;
+}
+
+.input:checked ~ .like::after {
+  background-position: 0 -1.5em;
+}

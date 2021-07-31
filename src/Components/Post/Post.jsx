@@ -1,3 +1,5 @@
+import React from "react";
+import { Like } from "../Like/Like";
 import Picture from "../Picture/Picture";
 import ParseDate from "./ParseDate";
 
@@ -12,11 +14,12 @@ function Post(props) {
       </time>
       <Picture
         className={`${PostStyle.photo} fake-photo`}
-        oneXSrc=""
+        oneXSrc="/Images/PhotoCap/PhotoCap"
         twoXSrc=""
         alt="Аватарка автора"
       />
       <p className={PostStyle.content}>{props.children}</p>
+      <Like className={PostStyle.like} likeCount={props.likeCount} />
     </article>
   );
 }

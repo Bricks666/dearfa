@@ -1,3 +1,5 @@
+import React from "react";
+
 import LogoStyle from "./Logo.module.css";
 
 function Logo(props) {

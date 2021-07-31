@@ -43,8 +43,6 @@
 .content {
   position: relative;
 
-  z-index: 10;
-
   grid-row: 2 span;
 
   margin: 0;
@@ -54,7 +52,7 @@
   width: max-content;
   max-width: 550px;
 
-  max-height: max-content;
+  max-height: min-content;
 
   background-color: var(--white-lighter);
 
@@ -72,14 +70,16 @@
   top: 4px;
   left: -10px;
 
-  z-index: 0;
-
   width: 20px;
   height: 20px;
 
   /*   border: inherit; */
 
-  background-color: inherit;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--white-lighter) 51%,
+    transparent 51%
+  );
 
   transform: rotate(-45deg);
 }

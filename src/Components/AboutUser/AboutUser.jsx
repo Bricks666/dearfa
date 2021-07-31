@@ -1,3 +1,4 @@
+import React from "react";
 import AboutUserItem from "./AboutUserItem/AboutUserItem";
 
 import AboutUserStyle from "./AboutUser.module.css";

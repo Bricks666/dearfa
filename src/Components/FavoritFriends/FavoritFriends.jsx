@@ -1,3 +1,4 @@
+import React from "react";
 import FriendsList from "../FriendsList/FriendsList";
 import SubsectionHeader from "../SubsectionHeader/SubsectionHeader";
 
