@@ -6,7 +6,10 @@ import MessagesStyle from "./Messages.module.css";
 /* Стоит поменять название, например поставить текущий чат или текущий диалог */
 function Messages(props) {
   return (
-    <ul className={`${props.className} ${MessagesStyle.messages}`}>
+    <ul
+      className={`${props.className} ${MessagesStyle.messages}`}
+      aria-label={`чат с ${props.who}`}
+    >
       <Message author={props.who}>
         Мело, мело по всей земле<br></br>
         Во все пределы. <br></br>

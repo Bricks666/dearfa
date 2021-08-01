@@ -1,38 +1,31 @@
-/* LINK */
-
-.link {
-  display: block;
-  min-width: max-content;
-
-  text-decoration: none;
-}
-
-.linkActive {
-}
 /* DIALOG */
 
 .dialog {
-  display: grid;
+  list-style: none;
+}
 
-  column-gap: 15px;
+/* LINK */
+
+.link {
+  display: grid;
 
   grid-template-columns: min-content 1fr;
 
+  column-gap: 16px;
+
   align-items: center;
 
-  min-width: 100%;
+  padding: 10px;
+
+  text-decoration: none;
 
   background-color: var(--white-lighter);
 
-  list-style: none;
-
   filter: drop-shadow(1px 1px 1px var(--grey-lighter))
     drop-shadow(-1px -1px 1px var(--grey-lighter));
-
-  cursor: pointer;
 }
 
-.linkActive .dialog_current {
+.linkActive {
   background-color: var(--grey-lighter);
 
   filter: drop-shadow(1px 1px 1px var(--grey-light))
@@ -42,8 +35,6 @@
 /* FULL NAME */
 
 .fullName {
-  max-width: 100%;
-
   padding: 5px 10px;
 
   font-size: 18px;

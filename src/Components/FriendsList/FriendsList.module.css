@@ -3,11 +3,20 @@
 .list {
   display: grid;
 
+  padding: 0;
+}
+
+/* SMALL */
+
+.small {
   grid-template-columns: repeat(3, 1fr);
 
   row-gap: 10px;
   column-gap: 10px;
+}
 
-  margin: 0;
-  padding: 0;
+/* MEDIUM */
+
+.medium {
+  row-gap: 20px;
 }

@@ -7,12 +7,14 @@ import FavoritFriendsStyle from "./FavoritFriends.module.css";
 function FavoritFriends(props) {
   return (
     <aside
-      className={`${FavoritFriendsStyle.lastCommunications} ${props.className}`}
+      className={`${FavoritFriendsStyle.lastCommunications} ${
+        props.className ?? ""
+      }`}
     >
-      <SubsectionHeader className={FavoritFriendsStyle.friendsList}>
+      <SubsectionHeader className>
         Избранные друзья
       </SubsectionHeader>
-      <FriendsList className={""} />
+      <FriendsList className={FavoritFriendsStyle.friendsList} size="small" />
     </aside>
   );
 }

@@ -7,10 +7,68 @@
 /* Photo */
 
 .photo {
+  object-fit: cover;
+}
+
+/* NAME */
+
+.name {
+  margin: 0;
+}
+
+/* LINK */
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* SMALL */
+
+.small .name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+.small .aboutUser {
+  display: none;
+}
+
+.small .photo {
   width: 50px;
   height: 50px;
 
-  object-fit: cover;
-
   border-radius: 50%;
+}
+/* MEDIUM */
+
+.medium .link {
+  display: grid;
+
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr;
+
+  column-gap: 16px;
+  row-gap: 10px;
+}
+
+.medium .link .photo {
+  order: -1;
+
+  grid-row: span 2;
+
+  width: 120px;
+  height: 100%;
+  max-height: calc(120px / 9 * 12);
+}
+
+.medium .link .name {
+  align-self: end;
+
+  font-size: 22px;
+}
+
+.medium .link {
 }
