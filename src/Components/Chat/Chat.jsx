@@ -1,14 +1,15 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import MakeMessage from "../MakeMessage/MakeMessage";
-import Messages from "../Messages/Messages";
+import { MakeMessage } from "../MakeMessage/MakeMessage";
+import { Messages } from "../Messages/Messages";
+import { Link } from "react-router-dom";
 
 import ChatStyle from "./Chat.module.css";
 
 function Chat(props) {
   return (
     <section className={`${props.className} ${ChatStyle.chat}`}>
-      <Messages className={ChatStyle.messages} who={props.who} />
+      <Link className={ChatStyle.cross} to="/dialogs" />
+      <Messages className={ChatStyle.messages} name={props.name} />
 
       <MakeMessage
         className={ChatStyle.makeMessage}
@@ -19,4 +20,4 @@ function Chat(props) {
   );
 }
 
-export default Chat;
+export { Chat };

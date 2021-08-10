@@ -31,4 +31,4 @@ function Picture(props) {
   );
 }
 
-export default Picture;
+export { Picture };

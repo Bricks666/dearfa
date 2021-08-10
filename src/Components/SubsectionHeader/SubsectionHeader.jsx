@@ -10,4 +10,4 @@ function SubsectionHeader(props) {
   );
 }
 
-export default SubsectionHeader;
+export { SubsectionHeader };

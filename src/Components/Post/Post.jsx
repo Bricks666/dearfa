@@ -1,7 +1,7 @@
 import React from "react";
 import { Like } from "../Like/Like";
-import Picture from "../Picture/Picture";
-import ParseDate from "./ParseDate";
+import { Picture } from "../Picture/Picture";
+import { ParseDate } from "./ParseDate";
 
 import PostStyle from "./Post.module.css";
 
@@ -24,4 +24,4 @@ function Post(props) {
   );
 }
 
-export default Post;
+export { Post };

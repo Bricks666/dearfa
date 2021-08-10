@@ -1,11 +1,32 @@
 /* CHAT */
 
 .chat {
+  position: relative;
+
   display: grid;
 
   grid-template-rows: 1fr min-content;
 
   max-height: 800px;
+}
+
+/* CROSS */
+
+.cross {
+  position: absolute;
+
+  right: 1em;
+  top: 0.5em;
+
+  width: 20px;
+  height: 20px;
+
+  background-image: url("./cross.svg");
+}
+
+.cross:hover,
+.cross:active {
+  background-position: 0 20px;
 }
 
 /* MESSAGE */

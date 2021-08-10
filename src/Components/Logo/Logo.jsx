@@ -1,17 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import LogoStyle from "./Logo.module.css";
 
 function Logo(props) {
   return (
-    <a className={`${props.className ?? ""} ${LogoStyle.logo}`} href="./index">
+    <Link
+      className={`${props.className ?? ""} ${LogoStyle.logo}`}
+      to="/profile"
+    >
       <img
         className={LogoStyle.image ?? ""}
         src={props.src ?? ""}
         alt={props.alt ?? ""}
       />
-    </a>
+    </Link>
   );
 }
 
-export default Logo;
+export { Logo };

@@ -7,7 +7,9 @@
 
   row-gap: 20px;
 
-  max-height: max-content;
+  padding: 10px 5px;
+
+  border: 1px solid var(--grey-light);
 }
 
 /* FRIENDS LIST */

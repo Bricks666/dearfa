@@ -1,24 +1,30 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Header from "../Header/Header";
-import Navigation from "../Navigation/Navigation";
-import FavoritFriends from "../FavoritFriends/FavoritFriends";
-
-import PageStyle from "./Page.module.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Header } from "../Header/Header";
+import { Navigation } from "../Navigation/Navigation";
+import { FavoritFriends } from "../FavoritFriends/FavoritFriends";
 import { Main } from "../Main/Main";
 
+import PageStyle from "./Page.module.css";
+
 function Page(props) {
-  return (
-    <Router>
-      <div className={PageStyle.page} id="1">
-        <h1 className="visibility-hidden">Dear.Fa</h1>
-        <Header className={PageStyle.header} />
-        <Navigation className={PageStyle.nav} />
-        <Main className={PageStyle.main} />
-        <FavoritFriends className={PageStyle.lastFriends} />
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div className={PageStyle.page}>
+                <h1 className="visibility-hidden">Dear.Fa</h1>
+                <Header className={PageStyle.header} />
+                <Navigation className={PageStyle.nav} />
+                <Main className={PageStyle.main} />
+                <Switch>
+                    <Route path="/login"></Route>
+                    <Route path="/registration"></Route>
+                    <Route path="">
+                        <FavoritFriends className={PageStyle.lastFriends} />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
-export default Page;
+export { Page };

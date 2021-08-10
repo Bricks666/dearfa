@@ -1,6 +1,6 @@
-/* DIALOGS LIST */
+/* DIALOG LIST */
 
-.dialogsList {
+.dialogList {
   display: flex;
 
   flex-direction: column;

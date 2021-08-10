@@ -20,4 +20,4 @@ function ParseDate(date) {
   return `${hours}:${minutes} ${day}.${month}.${year}`;
 }
 
-export default ParseDate;
+export { ParseDate };

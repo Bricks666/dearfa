@@ -1,0 +1,43 @@
+/* MAIN */
+
+.main {
+    display: grid;
+
+    grid-template-rows: repeat(2, min-content);
+
+    justify-content: center;
+}
+
+/* FORM */
+
+.form {
+    display: grid;
+
+    grid-template-columns: max-content auto;
+
+    align-items: center;
+
+    row-gap: 10px;
+
+    max-width: min-content;
+}
+
+/* FIELD */
+
+.field {
+    grid-column: span 2;
+}
+
+/* CHECKBOX */
+
+.checkbox {
+    padding-left: 30px;
+
+    font-size: 12px;
+}
+
+/* BUTTON */
+
+.button {
+    justify-self: end;
+}

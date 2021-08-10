@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 
 import MakeMessageStyle from "./MakeMessage.module.css";
 
@@ -17,4 +17,4 @@ function MakeMessage(props) {
   );
 }
 
-export default MakeMessage;
+export { MakeMessage };

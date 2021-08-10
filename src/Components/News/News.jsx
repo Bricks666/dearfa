@@ -1,5 +1,5 @@
-import CreatedPosts from "../CreatedPosts/CreatedPosts";
-import SectionHeader from "../SectionHeader/SectionHeader";
+import { CreatedPosts } from "../CreatedPosts/CreatedPosts";
+import { SectionHeader } from "../SectionHeader/SectionHeader";
 
 export function News(props) {
   return (

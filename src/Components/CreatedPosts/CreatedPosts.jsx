@@ -1,5 +1,5 @@
 import React from "react";
-import Post from "../Post/Post";
+import { Post } from "../Post/Post";
 
 import CreatedPostsStyle from "./CreatedPosts.module.css";
 
@@ -32,4 +32,4 @@ function CreatedPosts(props) {
   );
 }
 
-export default CreatedPosts;
+export { CreatedPosts };

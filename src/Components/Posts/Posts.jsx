@@ -1,7 +1,7 @@
 import React from "react";
-import CreatedPosts from "../CreatedPosts/CreatedPosts";
-import MakeMessage from "../MakeMessage/MakeMessage";
-import SubsectionHeader from "../SubsectionHeader/SubsectionHeader";
+import { CreatedPosts } from "../CreatedPosts/CreatedPosts";
+import { MakeMessage } from "../MakeMessage/MakeMessage";
+import { SubsectionHeader } from "../SubsectionHeader/SubsectionHeader";
 
 import PostsStyle from "./Posts.module.css";
 
@@ -21,4 +21,4 @@ function Posts(props) {
   );
 }
 
-export default Posts;
+export { Posts };

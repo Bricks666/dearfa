@@ -1,38 +1,40 @@
 import React from "react";
 import { Switch, Route } from "react-router";
-import Chat from "../Chat/Chat";
-import DialogsList from "../DialogsList/DialogsList";
-import SectionHeader from "../SectionHeader/SectionHeader";
+import { Chat } from "../Chat/Chat";
+import { DialogList } from "../DialogList/DialogList";
+import { SectionHeader } from "../SectionHeader/SectionHeader";
 
 import DialogsStyle from "./Dialogs.module.css";
 
 function Dialogs(props) {
-  return (
-    <main className={`${props.className ?? ""} ${DialogsStyle.dialogs}`}>
-      <SectionHeader className={DialogsStyle.heading}>Диалоги</SectionHeader>
-      <DialogsList className={DialogsStyle.dialogsList} />
-      <Switch>
-        <Route path="/dialogs/1">
-          <Chat className who="sdsdsd"/>
-        </Route>
-        <Route path="/dialogs/2">
-          <Chat className who="asdsad"/>
-        </Route>
-        <Route path="/dialogs/3">
-          <Chat className who="ывыd"/>
-        </Route>
-        <Route path="/dialogs/4">
-          <Chat className who="asdsad"/>
-        </Route>
-        <Route path="/dialogs/5">
-          <Chat className who="ывsd"/>
-        </Route>
-        <Route path="/dialogs/6">
-          <Chat className who="ывsda"/>
-        </Route>
-      </Switch>
-    </main>
-  );
+    const users = [
+        { name: "Кирилл", id: 1 },
+        { name: "Антон", id: 2 },
+        { name: "ТанЦуЮщИй", id: 156 },
+        { name: "Кетчуп на столе", id: "ыва" },
+        { name: "ГРигорий", id: 1023548 },
+        { name: "Катя", id: 5 },
+    ];
+
+    function RenderChat(users) {
+        return users.map((user) => {
+            return (
+                <Route path={`/dialogs/${user.id}`}>
+                    <Chat name={user.name} />
+                </Route>
+            );
+        });
+    }
+
+    return (
+        <main className={`${props.className ?? ""} ${DialogsStyle.dialogs}`}>
+            <SectionHeader className={DialogsStyle.heading}>
+                Диалоги
+            </SectionHeader>
+            <DialogList className={DialogsStyle.dialogList} users={users} />
+            <Switch>{RenderChat(users)}</Switch>
+        </main>
+    );
 }
 
-export default Dialogs;
+export { Dialogs };

@@ -10,4 +10,4 @@ function SectionHeader(props) {
   );
 }
 
-export default SectionHeader;
+export { SectionHeader };

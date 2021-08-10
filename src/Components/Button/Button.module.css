@@ -1,20 +1,22 @@
 /* BUTTON */
 
 .button {
-  border-radius: 0;
-  border: none;
+    padding: 10px 20px;
 
-  background-color: var(--blue-light);
+    border-radius: 0;
+    border: none;
 
-  color: var(--white-lighter);
+    background-color: var(--blue-light);
 
-  filter: drop-shadow(1px 1px 1px var(--blue-lighter));
+    color: var(--white-lighter);
 
-  transition-property: background-color;
-  transition-timing-function: ease-in-out;
-  transition-duration: 0.15s;
+    filter: drop-shadow(1px 1px 1px var(--blue-lighter));
+
+    transition-property: background-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.15s;
 }
 
 .button:hover {
-  background-color: var(--blue);
+    background-color: var(--blue);
 }
