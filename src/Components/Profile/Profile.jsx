@@ -12,11 +12,15 @@ function Profile(props) {
             <SectionHeader className="visibility-hidden">Профиль</SectionHeader>
             <Picture
                 className={`${ProfileStyle.image} fake-photo`}
-                oneXSrc={props.data.backgroundPhoto.url}
-                alt={props.data.backgroundPhoto.alt}
+                oneXSrc={props.data.info.backgroundPhoto.url}
+                alt={props.data.info.backgroundPhoto.alt}
             />
-            <UserInfo className={ProfileStyle.userInfo} user={props.data} />
-            <Posts className={ProfileStyle.posts} />
+            <UserInfo
+                className={ProfileStyle.userInfo}
+                user={props.data.info}
+            />
+            {console.log(props.data.posts)}
+            <Posts className={ProfileStyle.posts} posts={props.data.posts} />
         </main>
     );
 }

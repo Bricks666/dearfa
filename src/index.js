@@ -55,6 +55,27 @@ data
         },
       },
     ],
+    posts: [
+      {
+        date: new Date(),
+        authorId: 1,
+        content:
+          "Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
+        like: {
+          count: 175,
+          isLiked: false,
+        },
+      },
+      {
+        date: new Date("2021-05-24T15:02:00"),
+        authorId: 2,
+        content: "Как ты думаешь, мы хотим спать?",
+        like: {
+          count: 15,
+          isLiked: true,
+        },
+      },
+    ],
   })
   .set(2, {
     info: {
@@ -102,6 +123,27 @@ data
         id: 1,
         getInfo() {
           return data.get(this.id).info;
+        },
+      },
+    ],
+    posts: [
+      {
+        date: new Date(),
+        authorId: 5,
+        content:
+          "Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
+        like: {
+          count: 175,
+          isLiked: false,
+        },
+      },
+      {
+        date: new Date("2021-03-20T15:02:00"),
+        authorId: 12,
+        content: "Как ты думаешь, мы хотим спать?",
+        like: {
+          count: 15,
+          isLiked: true,
         },
       },
     ],

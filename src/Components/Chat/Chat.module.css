@@ -1,44 +1,46 @@
 /* CHAT */
 
 .chat {
-  position: relative;
+    position: relative;
 
-  display: grid;
+    display: grid;
 
-  grid-template-rows: 1fr min-content;
+    grid-template-rows: 1fr min-content;
 
-  max-height: 800px;
+    max-height: 800px;
 }
 
 /* CROSS */
 
 .cross {
-  position: absolute;
+    position: absolute;
 
-  right: 1em;
-  top: 0.5em;
+    right: 1em;
+    top: 0.5em;
 
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 
-  background-image: url("./cross.svg");
+    background-image: url("./cross.svg");
+    background-repeat: no-repeat;
+    background-size: 20px auto;
 }
 
 .cross:hover,
 .cross:active {
-  background-position: 0 20px;
+    background-position: 0 -20px;
 }
 
 /* MESSAGE */
 
 .messages {
-  overflow: scroll;
+    overflow: scroll;
 }
 
 /* MAKE MESSAGE */
 
 .makeMessage {
-  grid-template-columns: 1fr min-content;
+    grid-template-columns: 1fr min-content;
 
-  height: min-content;
+    height: min-content;
 }

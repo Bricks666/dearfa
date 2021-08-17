@@ -6,19 +6,20 @@ import { SubsectionHeader } from "../SubsectionHeader/SubsectionHeader";
 import PostsStyle from "./Posts.module.css";
 
 function Posts(props) {
-  return (
-    <section className={`${props.className ?? ""} ${PostsStyle.posts}`}>
-      <SubsectionHeader className={`${PostsStyle.heading}`}>
-        Мои посты
-      </SubsectionHeader>
-      <MakeMessage
-        className={PostsStyle.makeMessage}
-        placeholder="Чем вы хотите поделиться сегодня"
-        buttonMessage="Опубликовать"
-      />
-      <CreatedPosts />
-    </section>
-  );
+    return (
+        <section className={`${props.className ?? ""} ${PostsStyle.posts}`}>
+            {console.log(props.posts)}
+            <SubsectionHeader className={`${PostsStyle.heading}`}>
+                Мои посты
+            </SubsectionHeader>
+            <MakeMessage
+                className={PostsStyle.makeMessage}
+                placeholder="Чем вы хотите поделиться сегодня"
+                buttonMessage="Опубликовать"
+            />
+            <CreatedPosts posts={props.posts} />
+        </section>
+    );
 }
 
 export { Posts };

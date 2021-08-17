@@ -7,12 +7,13 @@ import AboutUserStyle from "./AboutUser.module.css";
 */
 function AboutUser(props) {
     function RenderItem(aboutUser) {
-        return aboutUser.map((item) => {
+        return aboutUser.map((item, index) => {
             return (
                 <AboutUserItem
                     term={item.term}
                     description={item.description}
                     href={item.href}
+                    key={index}
                 />
             );
         });

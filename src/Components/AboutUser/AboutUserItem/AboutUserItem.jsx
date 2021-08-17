@@ -13,6 +13,7 @@ function AboutUserItem(props) {
                     }`}
                     href={props.href ?? ""}
                     target="_blank"
+                    rel="noreferrer"
                 >
                     {props.description}
                 </a>

@@ -8,35 +8,37 @@ import { Login } from "../Login/Login";
 import { Registration } from "../Registration/Registration";
 
 export function Main(props) {
-    const RenderProfile = (infos) => {
-        const arr = Array.from(infos, ([name, value]) => value);
-        console.log(arr);
+    const RenderProfile = (info) => {
+        const arr = Array.from(info, ([name, value]) => value);
         return arr.map((user) => {
-            console.log(user);
             return (
-                <Route path={`/profile/${user.info.id}`}>
-                    <Profile className={props.className} data={user.info} />
+                <Route path={`/profile/${user.info.id}`} key={user.info.id}>
+                    <Profile className={props.className} data={user} />
                 </Route>
             );
         });
     };
+
     return (
         <Switch>
             {RenderProfile(props.data)}
             <Route path="/dialogs">
                 <Dialogs
                     className={props.className}
-                    data={props.data.get(1).chats}
+                    chats={props.data.get(1).chats}
                 />
             </Route>
             <Route path="/friends">
                 <Friends
                     className={props.className}
-                    data={props.data.get(1).friends}
+                    friends={props.data.get(1).friends}
                 />
             </Route>
             <Route path="/news">
-                <News className={props.className} />
+                <News
+                    className={props.className}
+                    posts={props.data.get(1).posts}
+                />
             </Route>
             <Route path="/login">
                 <Login className={props.className} />

@@ -1,43 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   id="Capa_1"
-   enable-background="new 0 0 386.667 386.667"
-   height="40"
-   viewBox="0 0 15.10418 30.20836"
-   width="20"
-   version="1.1"
-   sodipodi:docname="cross.svg"
-   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs868" />
-  <sodipodi:namedview
-     id="namedview866"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     showgrid="false"
-     inkscape:zoom="8.7614949"
-     inkscape:cx="4.4512952"
-     inkscape:cy="1.0842898"
-     inkscape:window-width="1920"
-     inkscape:window-height="1012"
-     inkscape:window-x="0"
-     inkscape:window-y="42"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="Capa_1" />
-  <path
-     d="M 15.10418,1.779844 13.324336,0 7.5520706,5.7722266 1.779844,0 3e-7,1.779844 5.7722269,7.5520703 3e-7,13.324336 1.779844,15.10418 7.5520706,9.3319531 13.324297,15.10418 15.104141,13.324336 9.3319534,7.5520703 Z"
-     id="path863"
-     style="stroke-width:0.0390625;fill:#000000;fill-opacity:0.49954501" />
-  <path
-     d="M 15.10418,16.884024 13.324336,15.10418 7.55207,20.876407 1.779844,15.10418 0,16.884024 5.772227,22.65625 0,28.428516 1.779844,30.20836 7.55207,24.436133 13.324297,30.20836 15.104141,28.428516 9.331953,22.65625 Z"
-     id="path950"
-     style="stroke-width:0.0390625;fill:#5873eb;fill-opacity:1" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1 30.21">
+  <defs/>
+  <path fill-opacity=".5" d="M15.1 1.78L13.32 0 7.55 5.77 1.78 0 0 1.78l5.77 5.77L0 13.32l1.78 1.78 5.77-5.77 5.77 5.77 1.78-1.78-5.77-5.77z"/>
+  <path fill="#5873eb" d="M15.1 16.88l-1.78-1.78-5.77 5.78-5.77-5.78L0 16.88l5.77 5.78L0 28.43l1.78 1.78 5.77-5.77 5.77 5.77 1.78-1.78-5.77-5.77z"/>
 </svg>

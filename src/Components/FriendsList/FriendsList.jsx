@@ -11,6 +11,7 @@ function FriendsList(props) {
                     className={FriendsListStyle.item}
                     friend={friend.getInfo()}
                     size={size}
+                    key={friend.id}
                 />
             );
         });
