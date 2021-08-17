@@ -20,7 +20,7 @@ function Dialogs(props) {
         return users.map((user) => {
             return (
                 <Route path={`/dialogs/${user.id}`}>
-                    <Chat name={user.name} />
+                    <Chat data={user} />
                 </Route>
             );
         });
@@ -31,8 +31,8 @@ function Dialogs(props) {
             <SectionHeader className={DialogsStyle.heading}>
                 Диалоги
             </SectionHeader>
-            <DialogList className={DialogsStyle.dialogList} users={users} />
-            <Switch>{RenderChat(users)}</Switch>
+            <DialogList className={DialogsStyle.dialogList} data={props.data} />
+            <Switch>{RenderChat(props.data)}</Switch>
         </main>
     );
 }

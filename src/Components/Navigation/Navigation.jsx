@@ -9,7 +9,7 @@ function Navigation(props) {
             className={`${props.className ?? ""} ${NavigationStyle.navigation}`}
         >
             <ul className={NavigationStyle.list}>
-                <NavigationItem exact to="/profile">
+                <NavigationItem exact to="/profile/1">
                     Профиль
                 </NavigationItem>
                 <NavigationItem to="/dialogs">Сообщения</NavigationItem>

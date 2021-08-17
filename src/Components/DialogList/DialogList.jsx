@@ -9,7 +9,7 @@ function DialogList(props) {
             return (
                 <Dialog
                     className={DialogListStyle.dialog}
-                    name={user.name}
+                    name={user.id}
                     id={user.id}
                 />
             );
@@ -20,7 +20,7 @@ function DialogList(props) {
         <ul
             className={`${props.className ?? ""} ${DialogListStyle.dialogList}`}
         >
-            {RenderDialogsList(props.users)}
+            {RenderDialogsList(props.data)}
         </ul>
     );
 }

@@ -14,7 +14,7 @@ function Page(props) {
                 <h1 className="visibility-hidden">Dear.Fa</h1>
                 <Header className={PageStyle.header} />
                 <Navigation className={PageStyle.nav} />
-                <Main className={PageStyle.main} />
+                <Main className={PageStyle.main} data={props.data}/>
                 <Switch>
                     <Route path="/login"></Route>
                     <Route path="/registration"></Route>

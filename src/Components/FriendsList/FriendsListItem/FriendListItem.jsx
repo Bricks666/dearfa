@@ -13,31 +13,30 @@ function FriendsListItem(props) {
                 FriendsListItemStyle[props.size] ?? ""
             }`}
         >
-            {console.log(props.friendInfo)}
             <Link
-                to={`/profile/${props.friendInfo.id}`}
+                to={`/profile/${props.friend.id}`}
                 className={FriendsListItemStyle.link}
-                title={props.friendInfo.fullName}
+                title={props.friend.fullName}
             >
                 <h4 className={FriendsListItemStyle.name}>
-                    {props.friendInfo.fullName}
+                    {props.friend.fullName}
                 </h4>
             </Link>
 
             <Link
-                to={`/profile/${props.friendInfo.id}`}
+                to={`/profile/${props.friend.id}`}
                 className={`${FriendsListItemStyle.link} ${FriendsListItemStyle.link_photo}`}
             >
                 <Picture
                     className={`${FriendsListItemStyle.photo}`}
-                    oneXSrc={props.friendInfo.image.url}
-                    alt={`Аватарка ${props.friendInfo.fullName}`}
+                    oneXSrc={props.friend.avatar.url}
+                    alt={props.friend.avatar.alt}
                 />
             </Link>
 
             <AboutUser
                 className={FriendsListItemStyle.aboutUser}
-                aboutUser={props.friendInfo.about}
+                aboutUser={props.friend.about}
             />
         </li>
     );

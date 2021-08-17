@@ -14,9 +14,9 @@ function UserInfo(props) {
 
             <Picture
                 className={`${UserInfoStyle.photo} fake-photo`}
-                oneXSrc={props.user.image.url}
+                oneXSrc={props.user.avatar.url}
                 twoXSrc=""
-                alt="Ваша аватарка"
+                alt={props.user.avatar.alt}
             />
             <AboutUser
                 className={UserInfoStyle.aboutUser}

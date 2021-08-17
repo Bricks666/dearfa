@@ -58,7 +58,7 @@ export function Friends(props) {
             <FriendsList
                 className={FriendsStyle.list}
                 size="medium"
-                friendsInfo={friends}
+                friends={props.data}
             />
         </main>
     );

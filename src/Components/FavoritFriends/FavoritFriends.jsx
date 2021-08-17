@@ -6,8 +6,9 @@ import FavoritFriendsStyle from "./FavoritFriends.module.css";
 
 const friends = [
     {
+        id: 156,
         fullName: "Антонина",
-        image: {
+        avatar: {
             url: "/Images/ProfileBackground/SunSet",
         },
         about: [
@@ -18,10 +19,14 @@ const friends = [
                 href: "https://ru.wikipedia.com",
             },
         ],
+        getInfo() {
+            return this;
+        },
     },
     {
+        id: 156455,
         fullName: "Кеша",
-        image: {
+        avatar: {
             url: "/Images/ProfileBackground/SunSet",
         },
         about: [
@@ -32,11 +37,16 @@ const friends = [
                 href: "https://ru.wikipedia.com",
             },
         ],
+        getInfo() {
+            return this;
+        },
     },
     {
+        id: 5,
         fullName: "Максим",
-        image: {
+        avatar: {
             url: "/Images/ProfileBackground/SunSet",
+            alt: "asd",
         },
         about: [
             { term: "Дата рождения", description: "12.10.2000" },
@@ -46,6 +56,9 @@ const friends = [
                 href: "https://ru.wikipedia.com",
             },
         ],
+        getInfo() {
+            return this;
+        },
     },
 ];
 
@@ -60,7 +73,7 @@ function FavoritFriends(props) {
             <FriendsList
                 className={FavoritFriendsStyle.friendsList}
                 size="small"
-                friendsInfo={friends}
+                friends={friends}
             />
         </aside>
     );

@@ -4,12 +4,12 @@ import { FriendsListItem } from "./FriendsListItem/FriendListItem";
 import FriendsListStyle from "./FriendsList.module.css";
 
 function FriendsList(props) {
-    function RenderItem(friendsInfo, size) {
-        return friendsInfo.map((friendInfo) => {
+    function RenderItem(friends, size) {
+        return friends.map((friend) => {
             return (
                 <FriendsListItem
                     className={FriendsListStyle.item}
-                    friendInfo={friendInfo}
+                    friend={friend.getInfo()}
                     size={size}
                 />
             );
@@ -22,7 +22,7 @@ function FriendsList(props) {
                 FriendsListStyle[props.size] ?? ""
             } ${props.className ?? ""} `}
         >
-            {RenderItem(props.friendsInfo ?? [], props.size)}
+            {RenderItem(props.friends ?? [], props.size)}
         </ul>
     );
 }
