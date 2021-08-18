@@ -11,12 +11,10 @@
 
 /* PHOTO */
 .photo {
-    width: 150px;
     height: 170px;
-    object-fit: cover;
     order: -1;
 
-    grid-row: span 2;
+    grid-row: span 3;
 }
 
 /*  FULL NAME */

@@ -19,7 +19,6 @@ function Profile(props) {
                 className={ProfileStyle.userInfo}
                 user={props.data.info}
             />
-            {console.log(props.data.posts)}
             <Posts className={ProfileStyle.posts} posts={props.data.posts} />
         </main>
     );

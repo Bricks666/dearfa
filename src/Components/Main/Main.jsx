@@ -1,27 +1,16 @@
 import { Switch, Route } from "react-router";
-import { Profile } from "../Profile/Profile";
 import { Dialogs } from "../Dialogs/Dialogs";
 import { Friends } from "../Friends/Friends";
 import { News } from "../News/News";
 import { NotFound } from "../NotFound/NotFound";
 import { Login } from "../Login/Login";
 import { Registration } from "../Registration/Registration";
+import { RenderProfile } from "./RenderProfile";
 
 export function Main(props) {
-    const RenderProfile = (info) => {
-        const arr = Array.from(info, ([name, value]) => value);
-        return arr.map((user) => {
-            return (
-                <Route path={`/profile/${user.info.id}`} key={user.info.id}>
-                    <Profile className={props.className} data={user} />
-                </Route>
-            );
-        });
-    };
-
     return (
         <Switch>
-            {RenderProfile(props.data)}
+            {RenderProfile(props.data, props.className)}
             <Route path="/dialogs">
                 <Dialogs
                     className={props.className}

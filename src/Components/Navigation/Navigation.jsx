@@ -1,22 +1,41 @@
 import React from "react";
-import { NavigationItem } from "./NavigationItem/NavigationItem";
+import { RenderNavigation } from "./RenderNavigation";
 
 import NavigationStyle from "./Navigation.module.css";
 
 function Navigation(props) {
+    const navigationItems = [
+        {
+            path: "/profile/1",
+            content: "Профиль",
+        },
+        {
+            path: "/dialogs",
+            content: "Сообщения",
+        },
+        {
+            path: "/friends",
+            content: "Друзья",
+        },
+        {
+            path: "/news",
+            content: "Новости",
+        },
+        {
+            path: "/music",
+            content: "Музыка",
+        },
+        {
+            path: "/settings",
+            content: "Настройки",
+        },
+    ];
     return (
         <nav
             className={`${props.className ?? ""} ${NavigationStyle.navigation}`}
         >
             <ul className={NavigationStyle.list}>
-                <NavigationItem exact to="/profile/1">
-                    Профиль
-                </NavigationItem>
-                <NavigationItem to="/dialogs">Сообщения</NavigationItem>
-                <NavigationItem to="/friends">Друзья</NavigationItem>
-                <NavigationItem to="/news">Новости</NavigationItem>
-                <NavigationItem to="/musics">Музыка</NavigationItem>
-                <NavigationItem to="/settings">Настройки</NavigationItem>
+                {RenderNavigation(navigationItems)}
             </ul>
         </nav>
     );

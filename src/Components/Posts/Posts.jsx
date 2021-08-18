@@ -8,7 +8,6 @@ import PostsStyle from "./Posts.module.css";
 function Posts(props) {
     return (
         <section className={`${props.className ?? ""} ${PostsStyle.posts}`}>
-            {console.log(props.posts)}
             <SubsectionHeader className={`${PostsStyle.heading}`}>
                 Мои посты
             </SubsectionHeader>

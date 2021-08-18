@@ -1,29 +1,20 @@
 import React from "react";
-import { FriendsListItem } from "./FriendsListItem/FriendListItem";
+import { RenderFriends } from "./RenderFriends";
 
 import FriendsListStyle from "./FriendsList.module.css";
 
 function FriendsList(props) {
-    function RenderItem(friends, size) {
-        return friends.map((friend) => {
-            return (
-                <FriendsListItem
-                    className={FriendsListStyle.item}
-                    friend={friend.getInfo()}
-                    size={size}
-                    key={friend.id}
-                />
-            );
-        });
-    }
-
     return (
         <ul
             className={`${FriendsListStyle.list} ${
                 FriendsListStyle[props.size] ?? ""
             } ${props.className ?? ""} `}
         >
-            {RenderItem(props.friends ?? [], props.size)}
+            {RenderFriends(
+                props.friends ?? [],
+                props.size,
+                FriendsListStyle.friend
+            )}
         </ul>
     );
 }

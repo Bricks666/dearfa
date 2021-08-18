@@ -19,7 +19,7 @@ function Page(props) {
                     <Route path="/login"></Route>
                     <Route path="/registration"></Route>
                     <Route path="">
-                        <FavoritFriends className={PageStyle.lastFriends} />
+                        <FavoritFriends className={PageStyle.lastFriends} friends={props.data.get(1).friends}/>
                     </Route>
                 </Switch>
             </div>
