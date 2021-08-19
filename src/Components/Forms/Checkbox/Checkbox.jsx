@@ -8,7 +8,7 @@ export function Checkbox(props) {
                 type="checkbox"
                 id="checkbox"
             />
-            <label className={CheckboxStyle.label} for="checkbox">
+            <label className={CheckboxStyle.label} htmlFor="checkbox">
                 {props.children}
             </label>
         </div>

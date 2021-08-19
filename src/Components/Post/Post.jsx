@@ -8,18 +8,18 @@ import PostStyle from "./Post.module.css";
 function Post(props) {
     return (
         <article className={PostStyle.post}>
-            <h5 className={PostStyle.author}>{props.data.author.fullName}</h5>
-            <time className={PostStyle.dateTime} dateTime={props.data.date}>
-                {ParseDate(props.data.date)}
+            <h5 className={PostStyle.author}>{props.post.author.fullName}</h5>
+            <time className={PostStyle.dateTime} dateTime={props.post.date}>
+                {ParseDate(props.post.date)}
             </time>
             <Picture
                 className={`${PostStyle.photo} fake-photo`}
-                oneXSrc={props.data.author.avatar.url}
+                oneXSrc={props.post.author.avatar.url}
                 twoXSrc=""
-                alt={props.data.author.avatar.alt}
+                alt={props.post.author.avatar.alt}
             />
-            <p className={PostStyle.content}>{props.data.content}</p>
-            <Like className={PostStyle.like} status={props.data.like} />
+            <p className={PostStyle.content}>{props.post.content}</p>
+            <Like className={PostStyle.like} status={props.post.like} />
         </article>
     );
 }

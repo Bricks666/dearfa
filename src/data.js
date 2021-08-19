@@ -1,5 +1,5 @@
-const data = new Map();
-data
+const users = new Map();
+users
   .set(1, {
     info: {
       id: 1,
@@ -46,7 +46,7 @@ data
       {
         id: 2,
         getInfo() {
-          return data.get(this.id).info;
+          return data.users.get(this.id).info;
         },
       },
     ],
@@ -56,7 +56,7 @@ data
         date: new Date(),
         authorId: 1,
         get author() {
-          return data.get(this.authorId)?.info;
+          return data.users.get(this.authorId)?.info;
         },
         content:
           "Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
@@ -70,7 +70,7 @@ data
         date: new Date("2021-05-04T15:02:00"),
         authorId: 1,
         get author() {
-          return data.get(this.authorId)?.info;
+          return data.users.get(this.authorId)?.info;
         },
         content: "Магия ВК",
         like: {
@@ -83,7 +83,7 @@ data
         date: new Date("2021-03-20T15:02:00"),
         authorId: 1,
         get author() {
-          return data.get(this.authorId)?.info;
+          return data.users.get(this.authorId)?.info;
         },
         content: "Как ты думаешь, мы хотим спать?",
         like: {
@@ -138,7 +138,7 @@ data
       {
         id: 1,
         getInfo() {
-          return data.get(this.id).info;
+          return data.users.get(this.id).info;
         },
       },
     ],
@@ -148,7 +148,7 @@ data
         date: new Date(),
         authorId: 5,
         get author() {
-          return data.get(this.authorId)?.info;
+          return data.users.get(this.authorId)?.info;
         },
         content:
           "Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
@@ -233,4 +233,60 @@ data
     posts: [],
   });
 
+const data = {
+  users,
+  loginFields: [
+    { type: "text", content: "Логин", required: true, autoComplete: true },
+    { type: "password", content: "Пароль", required: true, autoComplete: true },
+  ],
+  registrationFields: [
+    { type: "text", content: "Имя", required: true, autoComplete: false },
+    { type: "text", content: "Фамилия", required: true, autoComplete: false },
+    {
+      type: "tel",
+      content: "Номер телефона",
+      required: false,
+      autoComplete: false,
+    },
+    { type: "email", content: "Email", required: true, autoComplete: false },
+    {
+      type: "password",
+      content: "Пароль",
+      required: true,
+      autoComplete: false,
+    },
+    {
+      type: "password",
+      content: "Повторите пароль",
+      required: true,
+      autoComplete: false,
+    },
+  ],
+  navigation: [
+    {
+      path: "/profile/1",
+      content: "Профиль",
+    },
+    {
+      path: "/dialogs",
+      content: "Сообщения",
+    },
+    {
+      path: "/friends",
+      content: "Друзья",
+    },
+    {
+      path: "/news",
+      content: "Новости",
+    },
+    {
+      path: "/music",
+      content: "Музыка",
+    },
+    {
+      path: "/settings",
+      content: "Настройки",
+    },
+  ],
+};
 export { data };

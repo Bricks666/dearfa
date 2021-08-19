@@ -8,6 +8,11 @@ export function Like(props) {
             <input
                 className={`${LikeStyle.input} visibility-hidden`}
                 type="checkbox"
+                defaultChecked={props.status.isLiked}
+                onClick={(evt) => {
+                    const element = evt.target;
+                    props.status.count += element.checked ? 1 : -1;
+                }}
             />
             <span className={LikeStyle.like}> {props.status.count}</span>
         </label>

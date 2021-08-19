@@ -5,7 +5,7 @@ export const RenderChat = (users) => {
   return users.map((user) => {
     return (
       <Route path={`/dialogs/${user.id}`}>
-        <Chat data={user} />
+        <Chat data={user} key={user.id} />
       </Route>
     );
   });

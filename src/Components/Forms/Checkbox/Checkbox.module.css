@@ -37,6 +37,7 @@
     background-image: url("./checkbox.svg");
     background-position: 0 1px;
     background-repeat: no-repeat;
+    background-size: 24px auto;
 }
 
 .input:checked ~ .label::before {

@@ -8,7 +8,7 @@ export function FormField(props) {
                 className={FormFieldStyle.field}
                 type={props.type}
                 required={props.required}
-                autoComplete={props.autoComplete}
+                autoComplete={props.autoComplete?.toString()}
             />
         </label>
     );

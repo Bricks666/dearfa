@@ -13,13 +13,18 @@ function Page(props) {
             <div className={PageStyle.page}>
                 <h1 className="visibility-hidden">Dear.Fa</h1>
                 <Header className={PageStyle.header} />
-                <Navigation className={PageStyle.nav} />
-                <Main className={PageStyle.main} data={props.data}/>
+                <Navigation
+                    className={PageStyle.nav}
+                    navigationItems={props.data.navigation}
+                />
+                <Main className={PageStyle.main} data={props.data} />
                 <Switch>
-                    <Route path="/login"></Route>
-                    <Route path="/registration"></Route>
+                    <Route path={["/login", "/registration"]}></Route>
                     <Route path="">
-                        <FavoritFriends className={PageStyle.lastFriends} friends={props.data.get(1).friends}/>
+                        <FavoritFriends
+                            className={PageStyle.lastFriends}
+                            friends={props.data.users.get(1).friends}
+                        />
                     </Route>
                 </Switch>
             </div>

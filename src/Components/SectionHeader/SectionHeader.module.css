@@ -1,19 +1,19 @@
 /* HEADER */
 
 .header {
-  --section-font-size: 24px;
+    --section-font-size: 24px;
 
-  max-width: max-content;
+    width: max-content;
 
-  margin: 0;
-  padding: 10px 15px;
+    margin: 0;
+    padding: 10px 15px;
 
-  font-size: var(--section-font-size);
-  line-height: 150%;
-  text-transform: uppercase;
+    font-size: var(--section-font-size);
+    line-height: 150%;
+    text-transform: uppercase;
 }
 
 .header::first-letter {
-  font-weight: 400;
-  font-size: calc(2 * var(--section-font-size));
+    font-weight: 400;
+    font-size: calc(2 * var(--section-font-size));
 }

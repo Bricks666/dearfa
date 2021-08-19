@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router";
+import { Switch } from "react-router";
 import { DialogList } from "../DialogList/DialogList";
 import { SectionHeader } from "../SectionHeader/SectionHeader";
 import { RenderChat } from "./RenderChat";

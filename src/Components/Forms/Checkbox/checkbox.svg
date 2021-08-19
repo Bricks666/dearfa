@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.35 40.48">
+  <defs/>
+  <g stroke-linecap="square">
+    <path fill="none" stroke="#5873eb" stroke-width=".49" d="M.78.24h4.8v4.8H.78z"/>
+    <path fill="#5873eb" stroke="#5873eb" stroke-width=".49" d="M.78 6.86h4.8v4.8H.78z"/>
+    <path fill="#fff" stroke="#fff" stroke-width=".22" d="M4.48 7.75l-1.52 2.64L1.9 8.57l-.5.29 1.13 1.95h.78l1.62-2.8z"/>
+    <g fill="none">
+      <path stroke="#730fec" stroke-width=".53" d="M.27 13.5h5.82v5.82H.27z"/>
+      <path stroke="#5873eb" stroke-width=".49" d="M.78 14h4.8v4.8H.78z"/>
+    </g>
+    <path fill="none" stroke="#646464" stroke-width=".49" d="M.78 28.82h4.8v4.8H.78z"/>
+    <path fill="#646464" stroke="#646464" stroke-width=".49" d="M.78 35.44h4.8v4.8H.78z"/>
+    <path fill="#e6e6e6" stroke="#e6e6e6" stroke-width=".22" d="M4.48 36.32l-1.52 2.64-1.05-1.81-.5.28 1.13 1.96h.78l1.62-2.8z"/>
+    <g>
+      <path fill="#5873eb" stroke="#5873eb" stroke-width=".49" d="M.78 21.68h4.8v4.8H.78z"/>
+      <path fill="#fff" stroke="#fff" stroke-width=".22" d="M4.48 22.57L2.96 25.2 1.9 23.4l-.5.28 1.13 1.96h.78l1.62-2.8z"/>
+      <path fill="none" stroke="#730fec" stroke-width=".53" d="M.27 21.17h5.82v5.82H.27z"/>
+    </g>
+  </g>
+</svg>

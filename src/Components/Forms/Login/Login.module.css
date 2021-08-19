@@ -8,6 +8,12 @@
     justify-content: center;
 }
 
+/* HEADER */
+
+.header {
+    transform: translateX(50%);
+}
+
 /* FORM */
 
 .form {
@@ -26,14 +32,6 @@
 
 .field {
     grid-column: span 2;
-}
-
-/* CHECKBOX */
-
-.checkbox {
-    padding-left: 30px;
-
-    font-size: 12px;
 }
 
 /* BUTTON */

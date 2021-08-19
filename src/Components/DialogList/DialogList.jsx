@@ -8,6 +8,7 @@ function DialogList(props) {
         <ul
             className={`${props.className ?? ""} ${DialogListStyle.dialogList}`}
         >
+            {console.log(props.match)}
             {RenderDialogsList(props.data, DialogListStyle.dialog)}
         </ul>
     );
