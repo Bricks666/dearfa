@@ -10,8 +10,8 @@ export function Like(props) {
                 type="checkbox"
                 defaultChecked={props.status.isLiked}
                 onClick={(evt) => {
-                    const element = evt.target;
-                    props.status.count += element.checked ? 1 : -1;
+                    const el = evt.target;
+                    console.log(props.status.count + (el.checked ? 1 : -1));
                 }}
             />
             <span className={LikeStyle.like}> {props.status.count}</span>

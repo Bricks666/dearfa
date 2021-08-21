@@ -11,11 +11,14 @@
 /* HEADING */
 
 .author {
+    display: block;
+
     margin: 0;
     margin-bottom: 2px;
 
     text-align: left;
     font-size: 14px;
+    font-weight: 700;
     color: var(--black);
 }
 

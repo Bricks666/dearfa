@@ -19,7 +19,7 @@ function Page(props) {
                 />
                 <Main className={PageStyle.main} data={props.data} />
                 <Switch>
-                    <Route path={["/login", "/registration"]}></Route>
+                    <Route path={["/login", "/registration"]} />
                     <Route path="">
                         <FavoritFriends
                             className={PageStyle.lastFriends}

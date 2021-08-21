@@ -17,7 +17,9 @@ function Message(props) {
                 alt={props.author.avatar.alt}
             />
             <p className={MessageStyle.content}>
-                <h5 className={MessageStyle.author}>{props.author.fullName}</h5>
+                <span className={MessageStyle.author}>
+                    {props.author.fullName}
+                </span>
                 {props.children}
             </p>
         </article>

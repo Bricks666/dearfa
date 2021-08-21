@@ -22,7 +22,6 @@ function FriendsListItem(props) {
                     {props.friend.fullName}
                 </h4>
             </Link>
-
             <Link
                 to={`/profile/${props.friend.id}`}
                 className={`${FriendsListItemStyle.link} ${FriendsListItemStyle.link_photo}`}
@@ -33,7 +32,6 @@ function FriendsListItem(props) {
                     alt={props.friend.avatar.alt}
                 />
             </Link>
-
             <AboutUser
                 className={FriendsListItemStyle.aboutUser}
                 aboutUser={props.friend.about}

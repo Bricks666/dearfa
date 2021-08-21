@@ -11,31 +11,31 @@ export function Main(props) {
     return (
         <Switch>
             {RenderProfile(props.data.users, props.className)}
-            <Route path="/dialogs">
+            <Route exact path="/dialogs">
                 <Dialogs
                     className={props.className}
                     chats={props.data.users.get(1).chats}
                 />
             </Route>
-            <Route path="/friends">
+            <Route exact path="/friends">
                 <Friends
                     className={props.className}
                     friends={props.data.users.get(1).friends}
                 />
             </Route>
-            <Route path="/news">
+            <Route exact path="/news">
                 <News
                     className={props.className}
                     posts={props.data.users.get(1).posts}
                 />
             </Route>
-            <Route path="/login">
+            <Route exact path="/login">
                 <Login
                     className={props.className}
                     fields={props.data.loginFields}
                 />
             </Route>
-            <Route path="/registration">
+            <Route exact path="/registration">
                 <Registration
                     className={props.className}
                     fields={props.data.registrationFields}
