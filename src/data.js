@@ -8,10 +8,6 @@ users
         url: "/Images/Ava/Cosmic-animals",
         alt: "Аватарка...",
       },
-      backgroundPhoto: {
-        url: "/Images/ProfileBackground/SunSet",
-        alt: "Ваш фон...",
-      },
       about: [
         { term: "Дата рождения", description: "17.09.2004" },
         {
@@ -27,19 +23,49 @@ users
         { term: "Сайт", description: "Пусто" },
       ],
     },
+    profile: {
+      backgroundPhoto: {
+        url: "/Images/ProfileBackground/SunSet",
+        alt: "Ваш фон...",
+      },
+    },
     chats: [
       {
         id: 2,
         messages: [
-          { id: 1, message: "sdfsdff" },
-          { id: 2, message: "Смотри что могу" },
           {
-            id: 2,
+            authorId: 1,
+            message: "sdfsdff",
+            get author() {
+              return data.users.get(this.authorId)?.info;
+            },
+          },
+          {
+            authorId: 2,
+            message: "Смотри что могу",
+            get author() {
+              return data.users.get(this.authorId)?.info;
+            },
+          },
+          {
+            authorId: 2,
             message:
               "Крокодилы танцуют на песке, будто ты попросил их там побыть",
+            get author() {
+              return data.users.get(this.authorId)?.info;
+            },
           },
-          { id: 1, message: "Я тоже так могу" },
+          {
+            authorId: 1,
+            message: "Я тоже так могу",
+            get author() {
+              return data.users.get(this.authorId)?.info;
+            },
+          },
         ],
+        get author() {
+          return data.users.get(this.id)?.info;
+        },
       },
     ],
     friends: [
@@ -101,10 +127,6 @@ users
         url: "/Images/Ava/Cosmic-animals",
         alt: "Аватарка...",
       },
-      backgroundPhoto: {
-        url: "/Images/ProfileBackground/SunSet",
-        alt: "Ваш фон...",
-      },
       about: [
         { term: "Дата рождения", description: "12.12.2000" },
         {
@@ -118,6 +140,12 @@ users
           href: "https://wikipedia.com",
         },
       ],
+    },
+    profile: {
+      backgroundPhoto: {
+        url: "/Images/ProfileBackground/SunSet",
+        alt: "Ваш фон...",
+      },
     },
     chats: [
       {
@@ -166,10 +194,6 @@ users
       avatar: {
         url: "/Images/ProfileBackground/SunSet",
       },
-      backgroundPhoto: {
-        url: "/Images/ProfileBackground/SunSet",
-        alt: "Ваш фон...",
-      },
       about: [
         { term: "Дата рождения", description: "12.10.2000" },
         {
@@ -178,6 +202,12 @@ users
           href: "https://ru.wikipedia.com",
         },
       ],
+    },
+    profile: {
+      backgroundPhoto: {
+        url: "/Images/ProfileBackground/SunSet",
+        alt: "Ваш фон...",
+      },
     },
     chats: [],
     friends: [],
@@ -190,10 +220,6 @@ users
       avatar: {
         url: "/Images/ProfileBackground/SunSet",
       },
-      backgroundPhoto: {
-        url: "/Images/ProfileBackground/SunSet",
-        alt: "Ваш фон...",
-      },
       about: [
         { term: "Дата рождения", description: "12.10.2000" },
         {
@@ -202,6 +228,12 @@ users
           href: "https://ru.wikipedia.com",
         },
       ],
+    },
+    profile: {
+      backgroundPhoto: {
+        url: "/Images/ProfileBackground/SunSet",
+        alt: "Ваш фон...",
+      },
     },
     chats: [],
     friends: [],
@@ -215,10 +247,6 @@ users
         url: "/Images/ProfileBackground/SunSet",
         alt: "asd",
       },
-      backgroundPhoto: {
-        url: "/Images/ProfileBackground/SunSet",
-        alt: "Ваш фон...",
-      },
       about: [
         { term: "Дата рождения", description: "12.10.2000" },
         {
@@ -227,6 +255,12 @@ users
           href: "https://ru.wikipedia.com",
         },
       ],
+    },
+    profile: {
+      backgroundPhoto: {
+        url: "/Images/ProfileBackground/SunSet",
+        alt: "Ваш фон...",
+      },
     },
     chats: [],
     friends: [],

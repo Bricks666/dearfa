@@ -14,7 +14,7 @@ function Dialogs(props) {
             </SectionHeader>
             <DialogList
                 className={DialogsStyle.dialogList}
-                data={props.chats}
+                dialogs={props.chats}
             />
             <Switch>{RenderChat(props.chats)}</Switch>
         </main>

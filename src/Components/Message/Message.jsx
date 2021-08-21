@@ -13,11 +13,11 @@ function Message(props) {
         <article className={`${props.className ?? ""} ${MessageStyle.message}`}>
             <Picture
                 className={`${MessageStyle.photo} fake-photo`}
-                oneXSrc="/Images/PhotoCap/PhotoCap"
-                alt={`Аватарка ${props.author}`}
+                oneXSrc={props.author.avatar.url}
+                alt={props.author.avatar.alt}
             />
             <p className={MessageStyle.content}>
-                <h5 className={MessageStyle.author}>{props.author}</h5>
+                <h5 className={MessageStyle.author}>{props.author.fullName}</h5>
                 {props.children}
             </p>
         </article>
