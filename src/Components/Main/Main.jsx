@@ -10,8 +10,12 @@ import { RenderProfile } from "./RenderProfile";
 export function Main(props) {
     return (
         <Switch>
-            {RenderProfile(props.data.users, props.className)}
-            <Route exact path="/dialogs">
+            <Route exact path="/profile/:id">
+                <Switch>
+                    {RenderProfile(props.data.users, props.className)}
+                </Switch>
+            </Route>
+            <Route path="/dialogs">
                 <Dialogs
                     className={props.className}
                     chats={props.data.users.get(1).chats}

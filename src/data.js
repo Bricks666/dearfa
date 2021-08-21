@@ -1,3 +1,23 @@
+function addPost(data) {
+  this.posts.push(createPost.bind(this)(data));
+}
+
+function createPost({ authorId, content }) {
+  return {
+    id: this.posts.length + 1,
+    date: new Date(),
+    authorId: authorId,
+    get author() {
+      return data.users.get(this.authorId)?.info;
+    },
+    content: content,
+    like: {
+      count: 0,
+      isLiked: false,
+    },
+  };
+}
+
 const users = new Map();
 users
   .set(1, {
@@ -105,7 +125,7 @@ users
         },
       },
       {
-        id: 4,
+        id: 3,
         date: new Date("2021-03-20T15:02:00"),
         authorId: 1,
         get author() {
@@ -266,6 +286,9 @@ users
     friends: [],
     posts: [],
   });
+for (let user of users.values()) {
+  user.addPost = addPost.bind(user);
+}
 
 const data = {
   users,

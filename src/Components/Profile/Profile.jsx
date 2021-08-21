@@ -7,6 +7,7 @@ import { UserInfo } from "../UserInfo/UserInfo";
 import ProfileStyle from "./Profile.module.css";
 
 function Profile(props) {
+    ;
     return (
         <main className={`${props.className ?? ""} ${ProfileStyle.profile}`}>
             <SectionHeader className="visibility-hidden">Профиль</SectionHeader>
@@ -19,7 +20,12 @@ function Profile(props) {
                 className={ProfileStyle.userInfo}
                 user={props.data.info}
             />
-            <Posts className={ProfileStyle.posts} posts={props.data.posts} />
+            <Posts
+                className={ProfileStyle.posts}
+                posts={props.data.posts}
+                addPost={props.data.addPost}
+                id={props.data.info.id}
+            />
         </main>
     );
 }

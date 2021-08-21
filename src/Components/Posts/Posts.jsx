@@ -6,6 +6,7 @@ import { SubsectionHeader } from "../SubsectionHeader/SubsectionHeader";
 import PostsStyle from "./Posts.module.css";
 
 function Posts(props) {
+    ;
     return (
         <section className={`${props.className ?? ""} ${PostsStyle.posts}`}>
             <SubsectionHeader className={`${PostsStyle.heading}`}>
@@ -15,6 +16,8 @@ function Posts(props) {
                 className={PostsStyle.makeMessage}
                 placeholder="Чем вы хотите поделиться сегодня"
                 buttonMessage="Опубликовать"
+                id={props.id}
+                callback={props.addPost}
             />
             <CreatedPosts posts={props.posts} />
         </section>
