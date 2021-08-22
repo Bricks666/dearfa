@@ -5,11 +5,8 @@ import LikeStyle from "./Like.module.css";
 export function Like(props) {
     const countRef = React.createRef();
 
-    const addLike = (evt) => {
-        const el = evt.target;
-        let count = Number(countRef.current.textContent);
-        count += (el.checked ? 1 : -1);
-        countRef.current.textContent = count;
+    const onClick = (evt) => {
+        props.toggleLike(evt.target.checked);
     };
 
     return (
@@ -18,11 +15,9 @@ export function Like(props) {
                 className={`${LikeStyle.input} visibility-hidden`}
                 type="checkbox"
                 defaultChecked={props.status.isLiked}
-                onClick={addLike}
+                onClick={onClick}
             />
-            <span className={LikeStyle.like} ref={countRef}>
-                {props.status.count}
-            </span>
+            <span className={LikeStyle.like}>{props.status.count}</span>
         </label>
     );
 }

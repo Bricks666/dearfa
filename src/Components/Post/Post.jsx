@@ -34,7 +34,13 @@ function Post(props) {
             </Link>
 
             <p className={PostStyle.content}>{props.post.content}</p>
-            <Like className={PostStyle.like} status={props.post.like} />
+            <Like
+                className={PostStyle.like}
+                status={props.post.like}
+                toggleLike={(isLiked) =>
+                    props.toggleLike(props.post.id, isLiked)
+                }
+            />
         </article>
     );
 }

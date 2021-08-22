@@ -19,6 +19,7 @@ export function Main(props) {
                 <Dialogs
                     className={props.className}
                     chats={props.data.users.get(1).chats}
+                    addMessage={props.data.users.get(1).addMessage}
                 />
             </Route>
             <Route exact path="/friends">
@@ -31,6 +32,7 @@ export function Main(props) {
                 <News
                     className={props.className}
                     posts={props.data.users.get(1).posts}
+                    toggleLike={props.data.users.get(1).toggleLike}
                 />
             </Route>
             <Route exact path="/login">

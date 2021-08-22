@@ -1,22 +1,6 @@
-function addPost(data) {
-  this.posts.push(createPost.bind(this)(data));
-}
-
-function createPost({ authorId, content }) {
-  return {
-    id: this.posts.length + 1,
-    date: new Date(),
-    authorId: authorId,
-    get author() {
-      return data.users.get(this.authorId)?.info;
-    },
-    content: content,
-    like: {
-      count: 0,
-      isLiked: false,
-    },
-  };
-}
+import { addMessage } from "./changeStatus/addMessage/addMessage";
+import { addPost } from "./changeStatus/addPost/addPost";
+import { toggleLike } from "./changeStatus/toggleLike/toggleLike";
 
 const users = new Map();
 users
@@ -54,6 +38,7 @@ users
         id: 2,
         messages: [
           {
+            id: 1,
             authorId: 1,
             message: "sdfsdff",
             get author() {
@@ -61,6 +46,7 @@ users
             },
           },
           {
+            id: 2,
             authorId: 2,
             message: "Смотри что могу",
             get author() {
@@ -68,6 +54,7 @@ users
             },
           },
           {
+            id: 3,
             authorId: 2,
             message:
               "Крокодилы танцуют на песке, будто ты попросил их там побыть",
@@ -76,6 +63,7 @@ users
             },
           },
           {
+            id: 4,
             authorId: 1,
             message: "Я тоже так могу",
             get author() {
@@ -288,6 +276,8 @@ users
   });
 for (let user of users.values()) {
   user.addPost = addPost.bind(user);
+  user.addMessage = addMessage.bind(user);
+  user.toggleLike = toggleLike.bind(user);
 }
 
 const data = {

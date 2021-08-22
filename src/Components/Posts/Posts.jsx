@@ -6,7 +6,6 @@ import { SubsectionHeader } from "../SubsectionHeader/SubsectionHeader";
 import PostsStyle from "./Posts.module.css";
 
 function Posts(props) {
-    ;
     return (
         <section className={`${props.className ?? ""} ${PostsStyle.posts}`}>
             <SubsectionHeader className={`${PostsStyle.heading}`}>
@@ -19,7 +18,7 @@ function Posts(props) {
                 id={props.id}
                 callback={props.addPost}
             />
-            <CreatedPosts posts={props.posts} />
+            <CreatedPosts posts={props.posts} toggleLike={props.toggleLike} />
         </section>
     );
 }

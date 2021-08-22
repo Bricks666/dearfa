@@ -5,7 +5,7 @@ export function News(props) {
     return (
         <main className={props.className}>
             <SectionHeader>Новости</SectionHeader>
-            <CreatedPosts posts={props.posts} />
+            <CreatedPosts posts={props.posts} toggleLike={props.toggleLike} />
         </main>
     );
 }

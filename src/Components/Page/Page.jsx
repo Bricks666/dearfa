@@ -17,7 +17,10 @@ function Page(props) {
                     className={PageStyle.nav}
                     navigationItems={props.data.navigation}
                 />
-                <Main className={PageStyle.main} data={props.data} />
+                <Main
+                    className={PageStyle.main}
+                    data={props.data}
+                />
                 <Switch>
                     <Route path={["/login", "/registration"]} />
                     <Route path="">
