@@ -24,6 +24,8 @@ function Profile(props) {
                 posts={props.data.posts}
                 addPost={props.data.addPost}
                 toggleLike={props.data.toggleLike}
+                enterWords={props.enterWords}
+                valueFields={props.valueFields}
                 id={props.data.info.id}
             />
         </main>

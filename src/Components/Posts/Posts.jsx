@@ -16,7 +16,10 @@ function Posts(props) {
                 placeholder="Чем вы хотите поделиться сегодня"
                 buttonMessage="Опубликовать"
                 id={props.id}
+                fieldName="Создание поста"
                 callback={props.addPost}
+                valueFields={props.valueFields}
+                enterWords={props.enterWords}
             />
             <CreatedPosts posts={props.posts} toggleLike={props.toggleLike} />
         </section>

@@ -11,7 +11,11 @@ export function Registration(props) {
                 Регистрация
             </SectionHeader>
             <form className={RegistrationStyle.form}>
-                {RenderFields(props.fields)}
+                {RenderFields(
+                    props.fields,
+                    props.enterWords,
+                    props.valueFields
+                )}
                 <Button className={RegistrationStyle.button} type="submit">
                     Зарегистрироваться
                 </Button>

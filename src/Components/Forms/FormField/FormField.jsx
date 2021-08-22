@@ -8,6 +8,8 @@ export function FormField(props) {
                 className={FormFieldStyle.field}
                 type={props.type}
                 required={props.required}
+                value={props.value ?? ""}
+                onChange={props.onChange}
                 autoComplete={props.autoComplete?.toString()}
             />
         </label>

@@ -10,7 +10,12 @@ export function Login(props) {
         <main className={`${props.className} ${LoginStyle.main}`}>
             <SectionHeader className={LoginStyle.header}>Вход</SectionHeader>
             <form className={LoginStyle.form}>
-                {RenderFields(props.fields, LoginStyle.field)}
+                {RenderFields(
+                    props.fields,
+                    props.enterWords,
+                    props.valueFields,
+                    LoginStyle.field
+                )}
                 <Checkbox> Запомнить меня</Checkbox>
                 <Button className={LoginStyle.button} type="submit">
                     Войти

@@ -17,7 +17,12 @@ function Dialogs(props) {
                 dialogs={props.chats}
             />
             <Switch>
-                {RenderChat(props.chats, props.addMessage)}
+                {RenderChat(
+                    props.chats,
+                    props.addMessage,
+                    props.valueFields,
+                    props.enterWords
+                )}
             </Switch>
         </main>
     );

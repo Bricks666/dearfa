@@ -1,3 +1,4 @@
 import { rerenderEntireTree } from "./rerenderEntireTree";
+import { data } from "./data";
 
-rerenderEntireTree();
+rerenderEntireTree(data);

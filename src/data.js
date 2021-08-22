@@ -1,5 +1,6 @@
 import { addMessage } from "./changeStatus/addMessage/addMessage";
 import { addPost } from "./changeStatus/addPost/addPost";
+import { enterWords } from "./changeStatus/enterWords/enterWords";
 import { toggleLike } from "./changeStatus/toggleLike/toggleLike";
 
 const users = new Map();
@@ -274,28 +275,48 @@ users
     friends: [],
     posts: [],
   });
-for (let user of users.values()) {
-  user.addPost = addPost.bind(user);
-  user.addMessage = addMessage.bind(user);
-  user.toggleLike = toggleLike.bind(user);
-}
 
 const data = {
   users,
   loginFields: [
-    { type: "text", content: "Логин", required: true, autoComplete: true },
-    { type: "password", content: "Пароль", required: true, autoComplete: true },
+    {
+      type: "text",
+      content: "Логин",
+      required: true,
+      autoComplete: true,
+    },
+    {
+      type: "password",
+      content: "Пароль",
+      required: true,
+      autoComplete: true,
+    },
   ],
   registrationFields: [
-    { type: "text", content: "Имя", required: true, autoComplete: false },
-    { type: "text", content: "Фамилия", required: true, autoComplete: false },
+    {
+      type: "text",
+      content: "Имя",
+      required: true,
+      autoComplete: false,
+    },
+    {
+      type: "text",
+      content: "Фамилия",
+      required: true,
+      autoComplete: false,
+    },
     {
       type: "tel",
       content: "Номер телефона",
       required: false,
       autoComplete: false,
     },
-    { type: "email", content: "Email", required: true, autoComplete: false },
+    {
+      type: "email",
+      content: "Email",
+      required: true,
+      autoComplete: false,
+    },
     {
       type: "password",
       content: "Пароль",
@@ -335,5 +356,14 @@ const data = {
       content: "Настройки",
     },
   ],
+  valueFields: new Map(),
 };
+
+for (let user of users.values()) {
+  user.addPost = addPost.bind(user, data);
+  user.addMessage = addMessage.bind(user, data);
+  user.toggleLike = toggleLike.bind(user, data);
+}
+data.enterWords = enterWords.bind(data, data);
+
 export { data };

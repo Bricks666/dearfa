@@ -10,7 +10,7 @@ function Messages(props) {
             className={`${props.className} ${MessagesStyle.messages}`}
             aria-label={`чат с ${props.messages.author.fullName}`}
         >
-            {RenderMessages(props.messages.messages)}
+            {RenderMessages(props.messages.messages, MessagesStyle.message)}
         </section>
     );
 }

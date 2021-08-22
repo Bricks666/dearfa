@@ -6,12 +6,22 @@ import MakeMessageStyle from "./MakeMessage.module.css";
 function MakeMessage(props) {
     const textareaRef = React.createRef();
 
-    const clickOnButton = (evt) => {
+    const publish = (evt) => {
         evt.preventDefault();
+
         const content = textareaRef.current.value;
-        textareaRef.current.value = "";
-        const authorId = props.id;
-        props.callback({ authorId, content });
+
+        if (content !== "") {
+            const authorId = props.id;
+
+            props.callback({ authorId, content }, props.fieldName);
+        }
+    };
+
+    const printWord = (evt) => {
+        evt.preventDefault();
+
+        props.enterWords(evt.target, props.fieldName);
     };
 
     return (
@@ -20,12 +30,14 @@ function MakeMessage(props) {
                 className={MakeMessageStyle.newMessageText}
                 ref={textareaRef}
                 placeholder={props.placeholder}
+                value={props.valueFields.get(props.fieldName)?.value ?? ""}
+                onChange={printWord}
                 name="content"
-            ></textarea>
+            />
             <Button
                 className={MakeMessageStyle.button}
                 type="submit"
-                onClick={clickOnButton}
+                onClick={publish}
             >
                 {props.buttonMessage}
             </Button>

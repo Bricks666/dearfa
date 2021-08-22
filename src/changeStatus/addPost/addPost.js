@@ -1,8 +1,12 @@
 import { rerenderEntireTree } from "../../rerenderEntireTree";
+import { clearField } from "../clearField/clearField";
 
-function addPost(data) {
-  this.posts.push(createPost.bind(this)(data));
-  rerenderEntireTree();
+function addPost(data, newPost, fieldName) {
+  this.posts.unshift(createPost.bind(this)(newPost));
+
+  clearField(data, fieldName);
+
+  rerenderEntireTree(data);
 }
 
 function createPost({ authorId, content }) {

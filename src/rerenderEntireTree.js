@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Page } from "./Components/Page/Page";
-import { data } from "./data";
 
 import "./index.css";
 
-export function rerenderEntireTree() {
+export function rerenderEntireTree(data) {
   return ReactDOM.render(
     <React.StrictMode>
       <Page data={data} />

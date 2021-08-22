@@ -1,9 +1,9 @@
 import { rerenderEntireTree } from "../../rerenderEntireTree";
 
-function toggleLike(postId, isLiked) {
+function toggleLike(data, postId, isLiked) {
   const currentPost = this.posts.filter(({ id }) => id === postId)[0];
   currentPost.like = createLike(isLiked, currentPost.like.count);
-  rerenderEntireTree();
+  rerenderEntireTree(data);
 }
 
 function createLike(isLiked, prevCount) {

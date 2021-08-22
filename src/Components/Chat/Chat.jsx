@@ -16,6 +16,9 @@ function Chat(props) {
                 placeholder="Ваше сообщение"
                 buttonMessage="Отправить"
                 callback={props.addMessage}
+                fieldsName="Ввод сообщения"
+                valueFields={props.valueFields}
+                enterWords={props.enterWords}
                 id={1}
             />
         </section>

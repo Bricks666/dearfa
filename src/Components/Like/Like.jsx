@@ -3,8 +3,6 @@ import React from "react";
 import LikeStyle from "./Like.module.css";
 
 export function Like(props) {
-    const countRef = React.createRef();
-
     const onClick = (evt) => {
         props.toggleLike(evt.target.checked);
     };
