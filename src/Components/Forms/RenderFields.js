@@ -5,7 +5,7 @@ export const RenderFields = (fields, enterWords, valueFields, className) => {
     const printWord = (evt) => {
       evt.preventDefault();
 
-      enterWords(evt.target, field.content);
+      enterWords(evt.target.value, field.content);
     };
     return (
       <FormField

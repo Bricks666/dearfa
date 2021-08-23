@@ -50,6 +50,8 @@
     line-height: 150%;
     font-size: 13px;
 
+    word-break: break-all;
+
     filter: drop-shadow(1px 1px 1px var(--grey-light));
 }
 

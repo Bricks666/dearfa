@@ -1,28 +1,29 @@
 import { rerenderEntireTree } from "../../rerenderEntireTree";
 import { clearField } from "../clearField/clearField";
 
-function addPost(data, newPost, fieldName) {
-  this.posts.unshift(createPost.bind(this)(newPost));
+function addPost(data, fieldName) {
+  const newPost = createPost.bind(this)(data.valueFields.get(fieldName));
+  this.posts.unshift(newPost);
 
-  clearField(data, fieldName);
+  clearField(data.valueFields, fieldName);
 
   rerenderEntireTree(data);
 }
 
-function createPost({ authorId, content }) {
+function createPost(content) {
   const currentThis = this;
   return {
-    id: this.posts.length + 1,
+    id: currentThis.posts.length + 1,
     date: new Date(),
-    authorId: authorId,
+    authorId: 1,
     get author() {
       return currentThis?.info;
     },
-    content: content,
     like: {
       count: 0,
       isLiked: false,
     },
+    content: content,
   };
 }
 

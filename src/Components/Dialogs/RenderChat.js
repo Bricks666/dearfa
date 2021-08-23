@@ -1,16 +1,16 @@
 import { Chat } from "../Chat/Chat";
 import { Route } from "react-router-dom";
 
-export const RenderChat = (users, addMessage, valueFields, enterWords) => {
-  return users.map((user) => {
+export const RenderChat = (chats, addMessage, valueFields, enterWords) => {
+  return chats.map((chat) => {
     return (
-      <Route path={`/dialogs/${user.id}`}>
+      <Route path={`/dialogs/${chat.id}`}>
         <Chat
-          data={user}
+          chat={chat}
           addMessage={addMessage}
           valueFields={valueFields}
           enterWords={enterWords}
-          key={user.id}
+          key={chat.id}
         />
       </Route>
     );

@@ -12,16 +12,14 @@ function MakeMessage(props) {
         const content = textareaRef.current.value;
 
         if (content !== "") {
-            const authorId = props.id;
-
-            props.callback({ authorId, content }, props.fieldName);
+            props.callback(props.fieldName);
         }
     };
 
     const printWord = (evt) => {
         evt.preventDefault();
 
-        props.enterWords(evt.target, props.fieldName);
+        props.enterWords(evt.target.value, props.fieldName);
     };
 
     return (
