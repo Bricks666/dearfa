@@ -8,7 +8,11 @@ function DialogList(props) {
         <ul
             className={`${props.className ?? ""} ${DialogListStyle.dialogList}`}
         >
-            {RenderDialogsList(props.dialogs, DialogListStyle.dialog)}
+            {RenderDialogsList(
+                props.dialogs,
+                props.getUserInfo,
+                DialogListStyle.dialog
+            )}
         </ul>
     );
 }

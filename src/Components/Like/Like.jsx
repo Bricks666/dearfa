@@ -12,8 +12,8 @@ export function Like(props) {
             <input
                 className={`${LikeStyle.input} visibility-hidden`}
                 type="checkbox"
-                defaultChecked={props.status.isLiked}
-                onClick={onClick}
+                checked={props.status.isLiked}
+                onChange={onClick}
             />
             <span className={LikeStyle.like}>{props.status.count}</span>
         </label>

@@ -8,9 +8,13 @@ function Messages(props) {
     return (
         <section
             className={`${props.className} ${MessagesStyle.messages}`}
-            aria-label={`чат с ${props.chat.author.fullName}`}
+            aria-label={`чат с ${props.getUserInfo(props.chat.id).fullName}`}
         >
-            {RenderMessages(props.chat.messages, MessagesStyle.message)}
+            {RenderMessages(
+                props.chat.messages,
+                props.getUserInfo,
+                MessagesStyle.message
+            )}
         </section>
     );
 }

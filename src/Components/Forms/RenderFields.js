@@ -1,6 +1,6 @@
 import { FormField } from "./FormField/FormField";
 
-export const RenderFields = (fields, enterWords, valueFields, className) => {
+export const RenderFields = (fields, enterWords, stateFields, className) => {
   return fields.map((field) => {
     const printWord = (evt) => {
       evt.preventDefault();
@@ -12,7 +12,7 @@ export const RenderFields = (fields, enterWords, valueFields, className) => {
         className={className}
         type={field.type}
         required={field.required}
-        value={valueFields.get(field.content)?.value}
+        value={stateFields.get(field.content)?.value}
         onChange={printWord}
         autoComplete={field.autoComplete}
       >

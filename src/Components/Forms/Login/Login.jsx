@@ -13,7 +13,7 @@ export function Login(props) {
                 {RenderFields(
                     props.fields,
                     props.enterWords,
-                    props.valueFields,
+                    props.stateFields,
                     LoginStyle.field
                 )}
                 <Checkbox> Запомнить меня</Checkbox>

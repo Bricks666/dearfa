@@ -1,7 +1,7 @@
 import { Post } from "../Post/Post";
 
-export const RenderPost = (posts, toggleLike) => {
+export const RenderPost = (posts,getUserInfo, toggleLike) => {
   return posts.map((post) => {
-    return <Post post={post} toggleLike={toggleLike} key={post.id} />;
+    return <Post post={post} getInfo={getUserInfo} toggleLike={toggleLike} key={post.id} />;
   });
 };

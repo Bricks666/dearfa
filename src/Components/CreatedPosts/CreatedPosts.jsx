@@ -6,7 +6,7 @@ import CreatedPostsStyle from "./CreatedPosts.module.css";
 function CreatedPosts(props) {
     return (
         <section className={CreatedPostsStyle.createdPosts}>
-            {RenderPost(props.posts, props.toggleLike)}
+            {RenderPost(props.posts, props.getUserInfo, props.toggleLike)}
         </section>
     );
 }

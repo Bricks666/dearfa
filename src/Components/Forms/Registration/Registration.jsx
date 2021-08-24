@@ -14,7 +14,7 @@ export function Registration(props) {
                 {RenderFields(
                     props.fields,
                     props.enterWords,
-                    props.valueFields
+                    props.stateFields
                 )}
                 <Button className={RegistrationStyle.button} type="submit">
                     Зарегистрироваться

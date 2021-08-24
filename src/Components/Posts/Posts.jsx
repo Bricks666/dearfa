@@ -15,13 +15,17 @@ function Posts(props) {
                 className={PostsStyle.makeMessage}
                 placeholder="Чем вы хотите поделиться сегодня"
                 buttonMessage="Опубликовать"
-                id={props.id}
                 fieldName="Создание поста"
+                id={props.id}
+                stateFields={props.stateFields}
                 callback={props.addPost}
-                valueFields={props.valueFields}
                 enterWords={props.enterWords}
             />
-            <CreatedPosts posts={props.posts} toggleLike={props.toggleLike} />
+            <CreatedPosts
+                posts={props.posts}
+                toggleLike={props.toggleLike}
+                getUserInfo={props.getUserInfo}
+            />
         </section>
     );
 }

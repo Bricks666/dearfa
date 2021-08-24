@@ -11,6 +11,7 @@ export function Friends(props) {
                 className={FriendsStyle.list}
                 size="medium"
                 friends={props.friends}
+                getUserInfo={props.getUserInfo}
             />
         </main>
     );

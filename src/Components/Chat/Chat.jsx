@@ -9,7 +9,11 @@ function Chat(props) {
     return (
         <section className={`${props.className} ${ChatStyle.chat}`}>
             <Link className={ChatStyle.cross} to="/dialogs" />
-            <Messages className={ChatStyle.messages} chat={props.chat} />
+            <Messages
+                className={ChatStyle.messages}
+                chat={props.chat}
+                getUserInfo={props.getUserInfo}
+            />
 
             <MakeMessage
                 className={ChatStyle.makeMessage}
@@ -17,9 +21,8 @@ function Chat(props) {
                 buttonMessage="Отправить"
                 callback={props.addMessage}
                 fieldsName="Ввод сообщения"
-                valueFields={props.valueFields}
+                stateFields={props.stateFields}
                 enterWords={props.enterWords}
-                authorId={1}
             />
         </section>
     );

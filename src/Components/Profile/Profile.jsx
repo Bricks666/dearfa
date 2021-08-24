@@ -12,21 +12,22 @@ function Profile(props) {
             <SectionHeader className="visibility-hidden">Профиль</SectionHeader>
             <Picture
                 className={`${ProfileStyle.image} fake-photo`}
-                oneXSrc={props.data.profile.backgroundPhoto.url}
-                alt={props.data.profile.backgroundPhoto.alt}
+                oneXSrc={props.user.profile.backgroundPhoto.url}
+                alt={props.user.profile.backgroundPhoto.alt}
             />
             <UserInfo
                 className={ProfileStyle.userInfo}
-                user={props.data.info}
+                user={props.user.info}
             />
             <Posts
                 className={ProfileStyle.posts}
-                posts={props.data.posts}
-                addPost={props.data.addPost}
-                toggleLike={props.data.toggleLike}
+                posts={props.posts}
+                stateFields={props.stateFields}
+                id={props.user.info.id}
+                addPost={props.addPost}
+                toggleLike={props.toggleLike}
                 enterWords={props.enterWords}
-                valueFields={props.valueFields}
-                id={props.data.info.id}
+                getUserInfo={props.getUserInfo}
             />
         </main>
     );

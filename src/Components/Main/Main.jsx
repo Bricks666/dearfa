@@ -11,44 +11,47 @@ export function Main(props) {
     return (
         <Switch>
             <Route exact path="/profile/:id">
-                <Switch>{RenderProfile(props.data, props.className)}</Switch>
+                <Switch>{RenderProfile(props.store, props.className)}</Switch>
             </Route>
             <Route path="/dialogs">
                 <Dialogs
                     className={props.className}
-                    chats={props.data.users.get(1).chats}
-                    addMessage={props.data.users.get(1).addMessage}
-                    valueFields={props.data.valueFields}
-                    enterWords={props.data.enterWords}
+                    chats={props.store.state.users[1].chats}
+                    stateFields={props.store.state.stateFields}
+                    addMessage={props.store.addMessage}
+                    enterWords={props.store.enterWords}
+                    getUserInfo={props.store.getUserInfo}
                 />
             </Route>
             <Route exact path="/friends">
                 <Friends
                     className={props.className}
-                    friends={props.data.users.get(1).friends}
+                    friends={props.store.state.users[1].friends}
+                    getUserInfo={props.store.getUserInfo}
                 />
             </Route>
             <Route exact path="/news">
                 <News
                     className={props.className}
-                    posts={props.data.users.get(1).posts}
-                    toggleLike={props.data.users.get(1).toggleLike}
+                    posts={props.store.state.posts}
+                    getUserInfo={props.store.getUserInfo}
+                    toggleLike={props.store.toggleLike}
                 />
             </Route>
             <Route exact path="/login">
                 <Login
                     className={props.className}
-                    fields={props.data.loginFields}
-                    valueFields={props.data.valueFields}
-                    enterWords={props.data.enterWords}
+                    fields={props.store.state.loginFields}
+                    stateFields={props.store.state.stateFields}
+                    enterWords={props.store.enterWords}
                 />
             </Route>
             <Route exact path="/registration">
                 <Registration
                     className={props.className}
-                    fields={props.data.registrationFields}
-                    valueFields={props.data.valueFields}
-                    enterWords={props.data.enterWords}
+                    fields={props.store.state.registrationFields}
+                    stateFields={props.store.state.stateFields}
+                    enterWords={props.store.enterWords}
                 />
             </Route>
             <Route>

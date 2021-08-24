@@ -1,9 +1,13 @@
 import { Dialog } from "./Dialog/Dialog";
 
-export const RenderDialogsList = (dialogs, className) => {
+export const RenderDialogsList = (dialogs, getInfo, className) => {
   return dialogs.map((dialog) => {
     return (
-      <Dialog className={className} author={dialog.author} key={dialog.id} />
+      <Dialog
+        className={className}
+        author={getInfo(dialog.id)}
+        key={dialog.id}
+      />
     );
   });
 };

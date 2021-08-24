@@ -7,29 +7,23 @@ import { ParseDate } from "./ParseDate";
 import PostStyle from "./Post.module.css";
 
 function Post(props) {
+    const id = props.post.authorId;
+    const authorInfo = props.getInfo(id);
     return (
         <article className={PostStyle.post}>
-            <Link
-                className={PostStyle.authorLink}
-                to={`/profile/${props.post.authorId}`}
-            >
-                <h5 className={PostStyle.author}>
-                    {props.post.author.fullName}
-                </h5>
+            <Link className={PostStyle.authorLink} to={`/profile/${id}`}>
+                <h5 className={PostStyle.author}>{authorInfo.fullName}</h5>
             </Link>
 
             <time className={PostStyle.dateTime} dateTime={props.post.date}>
                 {ParseDate(props.post.date)}
             </time>
-            <Link
-                className={PostStyle.photoLink}
-                to={`/profile/${props.post.authorId}`}
-            >
+            <Link className={PostStyle.photoLink} to={`/profile/${id}`}>
                 <Picture
                     className={`${PostStyle.photo} fake-photo`}
-                    oneXSrc={props.post.author.avatar.url}
+                    oneXSrc={authorInfo.avatar.url}
                     twoXSrc=""
-                    alt={props.post.author.avatar.alt}
+                    alt={authorInfo.avatar.alt}
                 />
             </Link>
 
