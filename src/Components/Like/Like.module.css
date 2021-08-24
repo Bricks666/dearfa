@@ -31,6 +31,10 @@
     background-size: 1.5em;
     background-repeat: no-repeat;
 }
+
+.input:focus-visible ~ .like {
+    outline: 2px solid var(--violet);
+}
 /* INPUT */
 
 .input {

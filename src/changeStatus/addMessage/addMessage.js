@@ -8,7 +8,11 @@ function addMessage(data, fieldName) {
     chat.messages = [];
   }
 
-  chat.messages.push(createMessage.bind(this)(data.valueFields.get(fieldName)));
+  const value = data.valueFields.get(fieldName).value;
+
+  const newMessage = createMessage.bind(this)(value);
+
+  chat.messages.push(newMessage);
 
   clearField(data.valueFields, fieldName);
 
@@ -17,12 +21,16 @@ function addMessage(data, fieldName) {
 
 function createMessage(content) {
   const currentThis = this;
+
   return {
     authorId: 1,
+
     id: currentThis.chats[0].messages.length + 1,
+
     get author() {
       return currentThis.info;
     },
+
     message: content,
   };
 }
