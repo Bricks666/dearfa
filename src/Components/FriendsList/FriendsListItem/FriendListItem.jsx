@@ -2,10 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Picture } from "../../Picture/Picture";
 import { AboutUser } from "../../AboutUser/AboutUser";
+import { Button } from "../../Button/Button";
+import { removeFriendActionCreator } from "../../../Redux/ActionCreators/removeFriend";
 
 import FriendsListItemStyle from "./FriendListItem.module.css";
 
 function FriendsListItem(props) {
+    const callback = () => {
+        const action = removeFriendActionCreator(props.friend.id);
+        return props.dispatch(action);
+    };
+
     return (
         <li
             className={`${FriendsListItemStyle.item}
@@ -36,6 +43,9 @@ function FriendsListItem(props) {
                 className={FriendsListItemStyle.aboutUser}
                 aboutUser={props.friend.about}
             />
+            <Button className={FriendsListItemStyle.follow} callback={callback}>
+                Удалить из друзей
+            </Button>
         </li>
     );
 }

@@ -24,7 +24,7 @@ export function Main(props) {
             <Route exact path="/friends">
                 <Friends
                     className={props.className}
-                    friends={props.store.getState().users[1].friends}
+                    friendsId={props.store.getState().users[1].friendsId}
                     dispatch={props.store.dispatch}
                 />
             </Route>
@@ -32,6 +32,7 @@ export function Main(props) {
                 <News
                     className={props.className}
                     posts={props.store.getState().posts}
+                    stateFields={props.store.getState().stateFields}
                     dispatch={props.store.dispatch}
                 />
             </Route>

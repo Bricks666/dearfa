@@ -11,7 +11,7 @@ function FriendsList(props) {
             } ${props.className ?? ""} `}
         >
             {RenderFriends(
-                props.friends ?? [],
+                props.friendsId,
                 props.size,
                 props.dispatch,
                 FriendsListStyle.friend

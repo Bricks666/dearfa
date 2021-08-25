@@ -61,11 +61,7 @@ const store = {
             ],
           },
         ],
-        friends: [
-          {
-            id: 2,
-          },
-        ],
+        friendsId: [2, 5, 156455, 156],
       },
       2: {
         info: {
@@ -110,11 +106,7 @@ const store = {
             ],
           },
         ],
-        friends: [
-          {
-            id: 1,
-          },
-        ],
+        friendsId: [1],
         posts: [
           {
             id: 154,
@@ -129,7 +121,7 @@ const store = {
           },
         ],
       },
-      3: {
+      156: {
         info: {
           id: 156,
           fullName: "Антонина",
@@ -152,10 +144,10 @@ const store = {
           },
         },
         chats: [],
-        friends: [],
+        friendsId: [],
         posts: [],
       },
-      4: {
+      156455: {
         info: {
           id: 156455,
           fullName: "Кеша",
@@ -178,7 +170,7 @@ const store = {
           },
         },
         chats: [],
-        friends: [],
+        friendsId: [],
         posts: [],
       },
       5: {
@@ -205,7 +197,7 @@ const store = {
           },
         },
         chats: [],
-        friends: [],
+        friendsId: [],
         posts: [],
       },
     },
@@ -304,7 +296,7 @@ const store = {
         content: "Сообщения",
       },
       {
-        path: "/friends",
+        path: "/friendsId",
         content: "Друзья",
       },
       {
@@ -379,6 +371,7 @@ const store = {
   },
 
   /* CREATE MESSAGE */
+
   _createMessage(content) {
     const currentThis = this;
 
@@ -407,7 +400,7 @@ const store = {
       currentPost.like.count
     );
 
-    this._rerender(this);
+    this._callSubscriber(this);
   },
 
   /* ENTER WORDS */
@@ -423,7 +416,7 @@ const store = {
 
     this.getState().stateFields.set(fieldName, state);
 
-    this._rerender(this);
+    this._callSubscriber(this);
   },
 
   /* ADD POST */
@@ -444,7 +437,7 @@ const store = {
 
     this._clearField(fieldName);
 
-    this._rerender(this);
+    this._callSubscriber(this);
   },
 
   /* ADD MESSAGE */
@@ -468,7 +461,17 @@ const store = {
 
     this._clearField(fieldName);
 
-    this._rerender(this);
+    this._callSubscriber(this);
+  },
+
+  /* REMOVE FRIEND */
+
+  _removeFriend(friendId) {
+    const user = this.getState().users[1];
+
+    user.friendsId = user.friendsId.filter((id) => id !== friendId);
+
+    this._callSubscriber(this);
   },
 
   /* PUBLIC METHODS */
@@ -482,7 +485,7 @@ const store = {
   /* SUBSCRIBE */
 
   subscribe(observer) {
-    this._rerender = observer;
+    this._callSubscriber = observer;
   },
 
   /* DISPATCH */
@@ -499,6 +502,8 @@ const store = {
         return this._getUserInfo(action.id);
       case CONSTS.TOGGLE_LIKE:
         return this._toggleLike(action.postId);
+      case CONSTS.REMOVE_FRIEND:
+        return this._removeFriend(action.friendId);
       default:
         return () => {
           throw new Error(`Передан неизвестный тип события: ${action.type}`);

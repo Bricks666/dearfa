@@ -10,7 +10,7 @@ export function Friends(props) {
             <FriendsList
                 className={FriendsStyle.list}
                 size="medium"
-                friends={props.friends}
+                friendsId={props.friendsId}
                 dispatch={props.dispatch}
             />
         </main>

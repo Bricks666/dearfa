@@ -12,6 +12,8 @@
 .newMessageText {
     resize: none;
 
+    grid-row: span 2;
+
     min-height: 70px;
     height: min-content;
 
@@ -33,9 +35,15 @@
     color: var(--grey);
 }
 
-.newMessageText:focus {
+.newMessageText:focus-visible {
     outline-color: var(--blue);
     outline-width: 3px;
+}
+
+/* FILE UPLOAD */
+
+.upload {
+    order: 2;
 }
 
 /* BUTTON */

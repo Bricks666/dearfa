@@ -23,7 +23,9 @@ function Page(props) {
                     <Route path="">
                         <FavoritFriends
                             className={PageStyle.lastFriends}
-                            friends={props.store.getState().users[1].friends}
+                            friendsId={
+                                props.store.getState().users[1].friendsId
+                            }
                             dispatch={props.store.dispatch}
                         />
                     </Route>

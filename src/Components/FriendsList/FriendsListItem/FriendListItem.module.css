@@ -43,12 +43,15 @@
     border-radius: 50%;
 }
 
+.item.small .follow {
+    display: none;
+}
 /* MEDIUM */
 
 .item.medium {
     display: grid;
 
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: min-content 1fr auto;
 
     column-gap: 16px;
     row-gap: 10px;
@@ -67,4 +70,13 @@
 
 .item.medium .name {
     font-size: 22px;
+}
+
+.item.medium .aboutUser {
+    grid-column: 2;
+}
+
+.item.medium .follow {
+    grid-row: 3;
+    grid-column: 3;
 }
