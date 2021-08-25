@@ -1,11 +1,15 @@
 import { FormField } from "./FormField/FormField";
 
-export const RenderFields = (fields, enterWords, stateFields, className) => {
+export const RenderFields = (fields, stateFields, dispatch, className) => {
   return fields.map((field) => {
     const printWord = (evt) => {
       evt.preventDefault();
 
-      enterWords(evt.target.value, field.content);
+      dispatch({
+        type: "PRINT-WORD",
+        value: evt.target.value,
+        fieldName: field.content,
+      });
     };
     return (
       <FormField

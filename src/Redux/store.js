@@ -321,38 +321,15 @@ const store = {
     stateFields: new Map(),
   },
 
-  /* GET STATE */
-  get state() {
-    return this._state;
-  },
-
-  /* GET USER INFO */
-  getUserInfo(id) {
-    return this.state.users[id]?.info;
-  },
+  /* PROTECTED METHODS */
 
   /* GET STATE FIELD */
+
   _getStateField(fieldName) {
-    return this.state.stateFields.get(fieldName);
+    return this.getState().stateFields.get(fieldName);
   },
 
-  /* SUBSCRIBE */
-
-  subscribe(observer) {
-    this._rerender = observer;
-  },
-
-  /* LIKE */
-  toggleLike(postId) {
-    const currentPost = this.state.posts.find((el) => el.id === postId);
-
-    currentPost.like = this._createLike(
-      !currentPost.like.isLiked,
-      currentPost.like.count
-    );
-
-    this._rerender(this);
-  },
+  /* CREATE LIKE OBJECT */
 
   _createLike(isLiked, prevCount) {
     return {
@@ -361,59 +338,24 @@ const store = {
     };
   },
 
-  /* ENTER WORDS */
-  enterWords(value, fieldName) {
-    const state = Object.assign({}, this._getField(fieldName));
-
-    if (state.value === "" && value === " ") {
-      return;
-    }
-
-    state.value = value;
-
-    this.state.stateFields.set(fieldName, state);
-
-    this._rerender(this);
-  },
+  /* GET FIELD STATE */
 
   _getField(fieldName) {
     if (this._getStateField(fieldName) === undefined) {
-      this.state.stateFields.set(fieldName, { value: "" });
+      this.getState().stateFields.set(fieldName, { value: "" });
     }
 
     return this._getStateField(fieldName);
   },
 
-  /* ADD POST */
-  addPost(fieldName) {
-    const value = Object.assign(
-      {},
-      store.state.stateFields.get(fieldName)
-    ).value;
-
-    if (value === "" || value === undefined) {
-      return;
-    }
-
-    const newPost = this._createPost(value);
-
-    this.state.posts.unshift(newPost);
-
-    this._clearField(fieldName);
-
-    this._rerender(store);
-  },
+  /* CREATE POST */
 
   _createPost(content) {
     const currentThis = this;
     return {
-      id: currentThis.state.posts.length + 1,
+      id: currentThis.getState().posts.length + 1,
       date: new Date(),
       authorId: 1,
-
-      get author() {
-        return currentThis.state.users[this.authorId]?.info;
-      },
 
       like: {
         count: 0,
@@ -425,23 +367,94 @@ const store = {
   },
 
   /* CLEAR FIELD */
+
   _clearField(fieldName) {
     const state = Object.assign({}, this._getStateField(fieldName));
 
     state.value = "";
 
-    this.state.stateFields.set(fieldName, state);
+    this.getState().stateFields.set(fieldName, state);
+  },
+
+  /* CREATE MESSAGE */
+  _createMessage(content) {
+    const currentThis = this;
+
+    return {
+      authorId: 1,
+
+      id: currentThis.getState().users[1].chats[0].messages.length + 1,
+
+      message: content,
+    };
+  },
+
+  /* GET USER INFO */
+
+  _getUserInfo(id) {
+    return this.getState().users[id]?.info;
+  },
+
+  /* TOGGLE LIKE */
+
+  _toggleLike(postId) {
+    const currentPost = this.getState().posts.find((el) => el.id === postId);
+
+    currentPost.like = this._createLike(
+      !currentPost.like.isLiked,
+      currentPost.like.count
+    );
+
+    this._rerender(this);
+  },
+
+  /* ENTER WORDS */
+
+  _enterWords(value, fieldName) {
+    const state = Object.assign({}, this._getField(fieldName));
+
+    if (state.value === "" && value === " ") {
+      return;
+    }
+
+    state.value = value;
+
+    this.getState().stateFields.set(fieldName, state);
+
+    this._rerender(this);
+  },
+
+  /* ADD POST */
+
+  _addPost(fieldName) {
+    const value = Object.assign(
+      {},
+      this.getState().stateFields.get(fieldName)
+    ).value;
+
+    if (value === "" || value === undefined) {
+      return;
+    }
+
+    const newPost = this._createPost(value);
+
+    this.getState().posts.unshift(newPost);
+
+    this._clearField(fieldName);
+
+    this._rerender(this);
   },
 
   /* ADD MESSAGE */
-  addMessage(fieldName) {
+
+  _addMessage(fieldName) {
     const value = this._getStateField(fieldName).value;
 
     if (value === "" || value === undefined) {
       return;
     }
 
-    const chat = this.state.users[1].chats[0];
+    const chat = this.getState().users[1].chats[0];
 
     if (chat.messages === undefined) {
       chat.messages = [];
@@ -453,30 +466,45 @@ const store = {
 
     this._clearField(fieldName);
 
-    this._rerender(store);
+    this._rerender(this);
   },
 
-  _createMessage(content) {
-    const currentThis = this;
+  /* PUBLIC METHODS */
 
-    return {
-      authorId: 1,
+  /* GET STATE */
 
-      id: currentThis.state.users[1].chats[0].messages.length + 1,
+  getState() {
+    return this._state;
+  },
 
-      get author() {
-        return currentThis.state.users[1].info;
-      },
+  /* SUBSCRIBE */
 
-      message: content,
-    };
+  subscribe(observer) {
+    this._rerender = observer;
+  },
+
+  /* DISPATCH */
+  /* Action - объект, который обязательно содержит поле type */
+  dispatch(action) {
+    switch (action.type) {
+      case "PRINT-WORD":
+        return this._enterWords(action.value, action.fieldName);
+      case "ADD-POST":
+        return this._addPost(action.fieldName);
+      case "ADD-MESSAGE":
+        return this._addMessage(action.fieldName);
+      case "GET-USER-INFO":
+        return this._getUserInfo(action.id);
+      case "TOGGLE-LIKE":
+        return this._toggleLike(action.postId);
+      default:
+        return () => {
+          throw new Error(`Передан неизвестный тип события: ${action.type}`);
+        };
+    }
   },
 };
 
-for (let [key, value] of Object.entries(store)) {
-  if (Object.getPrototypeOf(value) === Function.prototype) {
-    store[key] = store[key].bind(store);
-  }
-}
+store.dispatch = store.dispatch.bind(store);
 
 export { store };

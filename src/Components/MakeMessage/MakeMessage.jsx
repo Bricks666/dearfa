@@ -7,13 +7,22 @@ function MakeMessage(props) {
     const publish = (evt) => {
         evt.preventDefault();
 
-        props.callback(props.fieldName);
+        const action = {
+            type: props.dispatchType,
+            fieldName: props.fieldName,
+        };
+        props.dispatch(action);
     };
 
     const printWord = (evt) => {
         evt.preventDefault();
 
-        props.enterWords(evt.target.value, props.fieldName);
+        const action = {
+            type: "PRINT-WORD",
+            value: evt.target.value,
+            fieldName: props.fieldName,
+        };
+        props.dispatch(action);
     };
 
     return (

@@ -1,9 +1,12 @@
 import { Message } from "../Message/Message";
 
-export const RenderMessages = (messages, getInfo, className) => {
+export const RenderMessages = (messages, dispatch, className) => {
   return messages.map((message) => {
     return (
-      <Message className={className} author={getInfo(message.authorId)}>
+      <Message
+        className={className}
+        author={dispatch({ type: "GET-USER-INFO", id: message.authorId })}
+      >
         {message.message}
       </Message>
     );

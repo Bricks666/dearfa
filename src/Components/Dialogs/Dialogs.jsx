@@ -15,16 +15,10 @@ function Dialogs(props) {
             <DialogList
                 className={DialogsStyle.dialogList}
                 dialogs={props.chats}
-                getUserInfo={props.getUserInfo}
+                dispatch={props.dispatch}
             />
             <Switch>
-                {RenderChat(
-                    props.chats,
-                    props.addMessage,
-                    props.stateFields,
-                    props.enterWords,
-                    props.getUserInfo
-                )}
+                {RenderChat(props.chats, props.stateFields, props.dispatch)}
             </Switch>
         </main>
     );

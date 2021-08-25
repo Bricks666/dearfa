@@ -3,8 +3,8 @@ import React from "react";
 import LikeStyle from "./Like.module.css";
 
 export function Like(props) {
-    const onClick = (evt) => {
-        props.toggleLike(evt.target.checked);
+    const onChange = () => {
+        props.toggleLike();
     };
 
     return (
@@ -13,7 +13,7 @@ export function Like(props) {
                 className={`${LikeStyle.input} visibility-hidden`}
                 type="checkbox"
                 checked={props.status.isLiked}
-                onChange={onClick}
+                onChange={onChange}
             />
             <span className={LikeStyle.like}>{props.status.count}</span>
         </label>

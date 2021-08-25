@@ -18,13 +18,12 @@ function Posts(props) {
                 fieldName="Создание поста"
                 id={props.id}
                 stateFields={props.stateFields}
-                callback={props.addPost}
-                enterWords={props.enterWords}
+                dispatch={props.dispatch}
+                dispatchType="ADD-POST"
             />
             <CreatedPosts
                 posts={props.posts}
-                toggleLike={props.toggleLike}
-                getUserInfo={props.getUserInfo}
+                dispatch={props.dispatch}
             />
         </section>
     );

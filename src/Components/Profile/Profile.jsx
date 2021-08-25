@@ -24,10 +24,7 @@ function Profile(props) {
                 posts={props.posts}
                 stateFields={props.stateFields}
                 id={props.user.info.id}
-                addPost={props.addPost}
-                toggleLike={props.toggleLike}
-                enterWords={props.enterWords}
-                getUserInfo={props.getUserInfo}
+                dispatch={props.dispatch}
             />
         </main>
     );

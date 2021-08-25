@@ -16,42 +16,39 @@ export function Main(props) {
             <Route path="/dialogs">
                 <Dialogs
                     className={props.className}
-                    chats={props.store.state.users[1].chats}
-                    stateFields={props.store.state.stateFields}
-                    addMessage={props.store.addMessage}
-                    enterWords={props.store.enterWords}
-                    getUserInfo={props.store.getUserInfo}
+                    chats={props.store.getState().users[1].chats}
+                    stateFields={props.store.getState().stateFields}
+                    dispatch={props.store.dispatch}
                 />
             </Route>
             <Route exact path="/friends">
                 <Friends
                     className={props.className}
-                    friends={props.store.state.users[1].friends}
-                    getUserInfo={props.store.getUserInfo}
+                    friends={props.store.getState().users[1].friends}
+                    dispatch={props.store.dispatch}
                 />
             </Route>
             <Route exact path="/news">
                 <News
                     className={props.className}
-                    posts={props.store.state.posts}
-                    getUserInfo={props.store.getUserInfo}
-                    toggleLike={props.store.toggleLike}
+                    posts={props.store.getState().posts}
+                    dispatch={props.store.dispatch}
                 />
             </Route>
             <Route exact path="/login">
                 <Login
                     className={props.className}
-                    fields={props.store.state.loginFields}
-                    stateFields={props.store.state.stateFields}
-                    enterWords={props.store.enterWords}
+                    fields={props.store.getState().loginFields}
+                    stateFields={props.store.getState().stateFields}
+                    dispatch={props.store.dispatch}
                 />
             </Route>
             <Route exact path="/registration">
                 <Registration
                     className={props.className}
-                    fields={props.store.state.registrationFields}
-                    stateFields={props.store.state.stateFields}
-                    enterWords={props.store.enterWords}
+                    fields={props.store.getState().registrationFields}
+                    stateFields={props.store.getState().stateFields}
+                    dispatch={props.store.dispatch}
                 />
             </Route>
             <Route>

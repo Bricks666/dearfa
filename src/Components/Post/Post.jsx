@@ -8,7 +8,10 @@ import PostStyle from "./Post.module.css";
 
 function Post(props) {
     const id = props.post.authorId;
-    const authorInfo = props.getInfo(id);
+    const action = { type: "GET-USER-INFO", id };
+
+    const authorInfo = props.dispatch(action);
+
     return (
         <article className={PostStyle.post}>
             <Link className={PostStyle.authorLink} to={`/profile/${id}`}>
@@ -31,8 +34,11 @@ function Post(props) {
             <Like
                 className={PostStyle.like}
                 status={props.post.like}
-                toggleLike={(isLiked) =>
-                    props.toggleLike(props.post.id, isLiked)
+                toggleLike={() =>
+                    props.dispatch({
+                        type: "TOGGLE-LIKE",
+                        postId: props.post.id,
+                    })
                 }
             />
         </article>

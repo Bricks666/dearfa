@@ -12,17 +12,17 @@ function Chat(props) {
             <Messages
                 className={ChatStyle.messages}
                 chat={props.chat}
-                getUserInfo={props.getUserInfo}
+                dispatch={props.dispatch}
             />
 
             <MakeMessage
                 className={ChatStyle.makeMessage}
                 placeholder="Ваше сообщение"
                 buttonMessage="Отправить"
-                callback={props.addMessage}
                 fieldsName="Ввод сообщения"
                 stateFields={props.stateFields}
-                enterWords={props.enterWords}
+                dispatch={props.dispatch}
+                dispatchType="ADD-MESSAGE"
             />
         </section>
     );

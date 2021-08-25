@@ -13,7 +13,7 @@ function FriendsList(props) {
             {RenderFriends(
                 props.friends ?? [],
                 props.size,
-                props.getUserInfo,
+                props.dispatch,
                 FriendsListStyle.friend
             )}
         </ul>

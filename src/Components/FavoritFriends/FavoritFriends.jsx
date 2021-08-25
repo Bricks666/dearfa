@@ -16,7 +16,7 @@ function FavoritFriends(props) {
                 className={FavoritFriendsStyle.friendsList}
                 size="small"
                 friends={props.friends}
-                getUserInfo={props.getUserInfo}
+                dispatch={props.dispatch}
             />
         </aside>
     );

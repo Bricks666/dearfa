@@ -12,8 +12,8 @@ export function Login(props) {
             <form className={LoginStyle.form}>
                 {RenderFields(
                     props.fields,
-                    props.enterWords,
                     props.stateFields,
+                    props.dispatch,
                     LoginStyle.field
                 )}
                 <Checkbox> Запомнить меня</Checkbox>

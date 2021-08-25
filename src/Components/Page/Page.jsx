@@ -15,19 +15,16 @@ function Page(props) {
                 <Header className={PageStyle.header} />
                 <Navigation
                     className={PageStyle.nav}
-                    navigationItems={props.store.state.navigation}
+                    navigationItems={props.store.getState().navigation}
                 />
-                <Main
-                    className={PageStyle.main}
-                    store={props.store}
-                />
+                <Main className={PageStyle.main} store={props.store} />
                 <Switch>
                     <Route path={["/login", "/registration"]} />
                     <Route path="">
                         <FavoritFriends
                             className={PageStyle.lastFriends}
-                            friends={props.store.state.users[1].friends}
-                            getUserInfo={props.store.getUserInfo}
+                            friends={props.store.getState().users[1].friends}
+                            dispatch={props.store.dispatch}
                         />
                     </Route>
                 </Switch>
