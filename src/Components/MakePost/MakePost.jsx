@@ -1,15 +1,15 @@
 import React from "react";
 import { Button } from "../Button/Button";
-import { addMessageActionCreator } from "../../Redux/ActionCreators/addMessage";
+import { addPostActionCreator } from "../../Redux/ActionCreators/addPost";
 import { printWordActionCreator } from "../../Redux/ActionCreators/printWord";
 
-import MakeMessageStyle from "./MakeMessage.module.css";
+import MakePostStyle from "./MakePost.module.css";
 
-function MakeMessage(props) {
-    const addMessage = (evt) => {
+function MakePost(props) {
+    const addPost = (evt) => {
         evt.preventDefault();
 
-        const action = addMessageActionCreator(props.fieldName);
+        const action = addPostActionCreator(props.fieldName);
         props.dispatch(action);
     };
 
@@ -24,18 +24,18 @@ function MakeMessage(props) {
     };
 
     return (
-        <form className={`${props.className} ${MakeMessageStyle.makeMessage}`}>
+        <form className={`${props.className} ${MakePostStyle.makeMessage}`}>
             <textarea
-                className={MakeMessageStyle.newMessageText}
+                className={MakePostStyle.newMessageText}
                 placeholder={props.placeholder}
                 value={props.stateFields.get(props.fieldName)?.value ?? ""}
                 onChange={printWord}
                 name="content"
             />
             <Button
-                className={MakeMessageStyle.button}
+                className={MakePostStyle.button}
                 type="submit"
-                onClick={addMessage}
+                onClick={addPost}
             >
                 {props.buttonMessage}
             </Button>
@@ -43,4 +43,4 @@ function MakeMessage(props) {
     );
 }
 
-export { MakeMessage };
+export { MakePost };

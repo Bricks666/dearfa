@@ -34,12 +34,8 @@ function Post(props) {
             <Like
                 className={PostStyle.like}
                 status={props.post.like}
-                toggleLike={() =>
-                    props.dispatch({
-                        type: "TOGGLE-LIKE",
-                        postId: props.post.id,
-                    })
-                }
+                postId={props.post.id}
+                dispatch={props.dispatch}
             />
         </article>
     );

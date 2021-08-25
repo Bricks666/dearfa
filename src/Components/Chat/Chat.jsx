@@ -22,7 +22,6 @@ function Chat(props) {
                 fieldsName="Ввод сообщения"
                 stateFields={props.stateFields}
                 dispatch={props.dispatch}
-                dispatchType="ADD-MESSAGE"
             />
         </section>
     );

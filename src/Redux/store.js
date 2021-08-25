@@ -1,3 +1,5 @@
+import * as CONSTS from "./Constants";
+
 const store = {
   /* STATE */
   _state: {
@@ -487,15 +489,15 @@ const store = {
   /* Action - объект, который обязательно содержит поле type */
   dispatch(action) {
     switch (action.type) {
-      case "PRINT-WORD":
+      case CONSTS.PRINT_WORD:
         return this._enterWords(action.value, action.fieldName);
-      case "ADD-POST":
+      case CONSTS.ADD_POST:
         return this._addPost(action.fieldName);
-      case "ADD-MESSAGE":
+      case CONSTS.ADD_MESSAGE:
         return this._addMessage(action.fieldName);
-      case "GET-USER-INFO":
+      case CONSTS.GET_USER_INFO:
         return this._getUserInfo(action.id);
-      case "TOGGLE-LIKE":
+      case CONSTS.TOGGLE_LIKE:
         return this._toggleLike(action.postId);
       default:
         return () => {
