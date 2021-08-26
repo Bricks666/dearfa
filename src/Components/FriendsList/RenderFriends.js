@@ -8,7 +8,6 @@ export const RenderFriends = (friends, size, dispatch, className) => {
         friend={dispatch({ type: "GET-USER-INFO", id: friendId })}
         dispatch={dispatch}
         size={size}
-        key={friendId}
       />
     );
   });

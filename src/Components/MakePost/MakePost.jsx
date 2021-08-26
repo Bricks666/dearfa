@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../Button/Button";
 import { addPostActionCreator } from "../../Redux/ActionCreators/addPost";
-import { printWordActionCreator } from "../../Redux/ActionCreators/printWord";
+import { inputPostActionCreator } from "../../Redux/ActionCreators/inputPostActionCreator";
 
 import MakePostStyle from "./MakePost.module.css";
 
@@ -9,28 +9,24 @@ function MakePost(props) {
     const addPost = (evt) => {
         evt.preventDefault();
 
-        const action = addPostActionCreator(props.fieldName);
+        const action = addPostActionCreator();
         props.dispatch(action);
     };
 
     const printWord = (evt) => {
         evt.preventDefault();
 
-        const action = printWordActionCreator(
-            evt.target.value,
-            props.fieldName
-        );
+        const action = inputPostActionCreator(evt.target.value);
         props.dispatch(action);
     };
 
     return (
-        <form className={`${props.className} ${MakePostStyle.makeMessage}`}>
+        <form className={`${props.className} ${MakePostStyle.form}`}>
             <textarea
-                className={MakePostStyle.newMessageText}
+                className={MakePostStyle.textarea}
                 placeholder={props.placeholder}
-                value={props.stateFields.get(props.fieldName)?.value ?? ""}
+                value={props.content?.text ?? ""}
                 onChange={printWord}
-                name="content"
             />
             <Button
                 className={MakePostStyle.button}

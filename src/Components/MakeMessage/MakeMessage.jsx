@@ -1,26 +1,24 @@
 import React from "react";
 import { Button } from "../Button/Button";
 import { addMessageActionCreator } from "../../Redux/ActionCreators/addMessage";
-import { printWordActionCreator } from "../../Redux/ActionCreators/printWord";
 import { FileUpload } from "../FileUpload/FileUpload";
 
 import MakeMessageStyle from "./MakeMessage.module.css";
+import { inputMessageActionCreator } from "../../Redux/ActionCreators/inputMessageActionCreator";
 
 function MakeMessage(props) {
     const addMessage = (evt) => {
         evt.preventDefault();
 
-        const action = addMessageActionCreator(props.fieldName);
+        const action = addMessageActionCreator();
         props.dispatch(action);
     };
 
     const printWord = (evt) => {
         evt.preventDefault();
 
-        const action = printWordActionCreator(
-            evt.target.value,
-            props.fieldName
-        );
+        const action = inputMessageActionCreator(evt.target.value);
+
         props.dispatch(action);
     };
 
@@ -32,7 +30,7 @@ function MakeMessage(props) {
             <textarea
                 className={MakeMessageStyle.newMessageText}
                 placeholder={props.placeholder}
-                value={props.stateFields.get(props.fieldName)?.value ?? ""}
+                value={props.content?.text ?? ""}
                 onChange={printWord}
                 name="content"
             ></textarea>

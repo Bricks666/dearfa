@@ -15,12 +15,11 @@ function Posts(props) {
                 className={PostsStyle.makeMessage}
                 placeholder="Чем вы хотите поделиться сегодня"
                 buttonMessage="Опубликовать"
-                fieldName="Создание поста"
+                content={props.posts.newPostContent}
                 id={props.id}
-                stateFields={props.stateFields}
                 dispatch={props.dispatch}
             />
-            <CreatedPosts posts={props.posts} dispatch={props.dispatch} />
+            <CreatedPosts posts={props.posts.list} dispatch={props.dispatch} />
         </section>
     );
 }

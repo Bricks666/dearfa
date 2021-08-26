@@ -21,7 +21,6 @@ function UserInfo(props) {
             <AboutUser
                 className={UserInfoStyle.aboutUser}
                 aboutUser={props.user.about}
-                key={props.user.id}
             />
         </div>
     );

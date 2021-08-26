@@ -10,7 +10,6 @@ export const RenderProfile = (state, dispatch, className) => {
           className={className}
           user={user}
           posts={state.posts}
-          stateFields={state.stateFields}
           dispatch={dispatch}
         />
       </Route>

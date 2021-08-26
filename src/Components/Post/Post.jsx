@@ -30,7 +30,7 @@ function Post(props) {
                 />
             </Link>
 
-            <p className={PostStyle.content}>{props.post.content}</p>
+            <p className={PostStyle.content}>{props.post.content.text}</p>
             <Like
                 className={PostStyle.like}
                 status={props.post.like}

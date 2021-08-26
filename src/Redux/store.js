@@ -1,4 +1,10 @@
 import * as CONSTS from "./Constants";
+import { inputMessageReducer } from "./Reducers/inputMessageReducer";
+import { inputPostReducer } from "./Reducers/inputPostReducer";
+import { likeReducer } from "./Reducers/likeReducer";
+import { messageReducer } from "./Reducers/messageReducer";
+import { postReducer } from "./Reducers/postReducer";
+import { removeFriendReducer } from "./Reducers/removeFriendReducer";
 
 const store = {
   /* STATE */
@@ -40,23 +46,24 @@ const store = {
               {
                 id: 1,
                 authorId: 1,
-                message: "sdfsdff",
+                content: { text: "sdfsdff" },
               },
               {
                 id: 2,
                 authorId: 2,
-                message: "Смотри что могу",
+                content: { text: "Смотри что могу" },
               },
               {
                 id: 3,
                 authorId: 2,
-                message:
-                  "Крокодилы танцуют на песке, будто ты попросил их там побыть",
+                content: {
+                  text: "Крокодилы танцуют на песке, будто ты попросил их там побыть",
+                },
               },
               {
                 id: 4,
                 authorId: 1,
-                message: "Я тоже так могу",
+                content: { text: "Я тоже так могу" },
               },
             ],
           },
@@ -95,14 +102,15 @@ const store = {
           {
             id: 1,
             messages: [
-              { id: 1, message: "sdfsdff" },
-              { id: 2, message: "Смотри что могу" },
+              { id: 1, content: { text: "sdfsdff" } },
+              { id: 2, content: { text: "Смотри что могу" } },
               {
                 id: 2,
-                message:
-                  "Крокодилы танцуют на песке, будто ты попросил их там побыть",
+                content: {
+                  text: "Крокодилы танцуют на песке, будто ты попросил их там побыть",
+                },
               },
-              { id: 1, message: "Я тоже так могу" },
+              { id: 1, content: { text: "Я тоже так могу" } },
             ],
           },
         ],
@@ -201,39 +209,42 @@ const store = {
         posts: [],
       },
     },
-    posts: [
-      {
-        id: 1,
-        date: new Date(),
-        authorId: 1,
-        content:
-          "Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
-        like: {
-          count: 175,
-          isLiked: false,
+    posts: {
+      list: [
+        {
+          id: 1,
+          date: new Date(),
+          authorId: 1,
+          content: {
+            text: "Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
+          },
+          like: {
+            count: 175,
+            isLiked: false,
+          },
         },
-      },
-      {
-        id: 2,
-        date: new Date("2021-05-04T15:02:00"),
-        authorId: 1,
-        content: "Магия ВК",
-        like: {
-          count: 37,
-          isLiked: true,
+        {
+          id: 2,
+          date: new Date("2021-05-04T15:02:00"),
+          authorId: 1,
+          content: { text: "Магия ВК" },
+          like: {
+            count: 37,
+            isLiked: true,
+          },
         },
-      },
-      {
-        id: 3,
-        date: new Date("2021-03-20T15:02:00"),
-        authorId: 1,
-        content: "Как ты думаешь, мы хотим спать?",
-        like: {
-          count: 15,
-          isLiked: true,
+        {
+          id: 3,
+          date: new Date("2021-03-20T15:02:00"),
+          authorId: 1,
+          content: { text: "Как ты думаешь, мы хотим спать?" },
+          like: {
+            count: 15,
+            isLiked: true,
+          },
         },
-      },
-    ],
+      ],
+    },
     loginFields: [
       {
         type: "text",
@@ -323,15 +334,6 @@ const store = {
     return this.getState().stateFields.get(fieldName);
   },
 
-  /* CREATE LIKE OBJECT */
-
-  _createLike(isLiked, prevCount) {
-    return {
-      isLiked,
-      count: prevCount + (isLiked ? 1 : -1),
-    };
-  },
-
   /* GET FIELD STATE */
 
   _getField(fieldName) {
@@ -340,24 +342,6 @@ const store = {
     }
 
     return this._getStateField(fieldName);
-  },
-
-  /* CREATE POST */
-
-  _createPost(content) {
-    const currentThis = this;
-    return {
-      id: currentThis.getState().posts.length + 1,
-      date: new Date(),
-      authorId: 1,
-
-      like: {
-        count: 0,
-        isLiked: false,
-      },
-
-      content: content,
-    };
   },
 
   /* CLEAR FIELD */
@@ -370,20 +354,6 @@ const store = {
     this.getState().stateFields.set(fieldName, state);
   },
 
-  /* CREATE MESSAGE */
-
-  _createMessage(content) {
-    const currentThis = this;
-
-    return {
-      authorId: 1,
-
-      id: currentThis.getState().users[1].chats[0].messages.length + 1,
-
-      message: content,
-    };
-  },
-
   /* GET USER INFO */
 
   _getUserInfo(id) {
@@ -392,16 +362,7 @@ const store = {
 
   /* TOGGLE LIKE */
 
-  _toggleLike(postId) {
-    const currentPost = this.getState().posts.find((el) => el.id === postId);
-
-    currentPost.like = this._createLike(
-      !currentPost.like.isLiked,
-      currentPost.like.count
-    );
-
-    this._callSubscriber(this);
-  },
+  _toggleLike(postId) {},
 
   /* ENTER WORDS */
 
@@ -415,61 +376,6 @@ const store = {
     state.value = value;
 
     this.getState().stateFields.set(fieldName, state);
-
-    this._callSubscriber(this);
-  },
-
-  /* ADD POST */
-
-  _addPost(fieldName) {
-    const value = Object.assign(
-      {},
-      this.getState().stateFields.get(fieldName)
-    ).value;
-
-    if (value === "" || value === undefined) {
-      return;
-    }
-
-    const newPost = this._createPost(value);
-
-    this.getState().posts.unshift(newPost);
-
-    this._clearField(fieldName);
-
-    this._callSubscriber(this);
-  },
-
-  /* ADD MESSAGE */
-
-  _addMessage(fieldName) {
-    const value = this._getStateField(fieldName).value;
-
-    if (value === "" || value === undefined) {
-      return;
-    }
-
-    const chat = this.getState().users[1].chats[0];
-
-    if (chat.messages === undefined) {
-      chat.messages = [];
-    }
-
-    const newMessage = this._createMessage(value);
-
-    chat.messages.push(newMessage);
-
-    this._clearField(fieldName);
-
-    this._callSubscriber(this);
-  },
-
-  /* REMOVE FRIEND */
-
-  _removeFriend(friendId) {
-    const user = this.getState().users[1];
-
-    user.friendsId = user.friendsId.filter((id) => id !== friendId);
 
     this._callSubscriber(this);
   },
@@ -491,24 +397,35 @@ const store = {
   /* DISPATCH */
   /* Action - объект, который обязательно содержит поле type */
   dispatch(action) {
+    this._state.users[1].chats = messageReducer(
+      this.getState().users[1].chats,
+      action
+    );
+
+    this._state.users[1].chats = inputMessageReducer(
+      this.getState().users[1].chats,
+      action
+    );
+
+    this._state.posts = likeReducer(this.getState().posts, action);
+
+    this._state.posts = postReducer(this.getState().posts, action);
+
+    this._state.posts = inputPostReducer(this.getState().posts, action);
+
+    this._state.users[1].friendsId = removeFriendReducer(
+      this.getState().users[1].friendsId,
+      action
+    );
+
     switch (action.type) {
       case CONSTS.PRINT_WORD:
         return this._enterWords(action.value, action.fieldName);
-      case CONSTS.ADD_POST:
-        return this._addPost(action.fieldName);
-      case CONSTS.ADD_MESSAGE:
-        return this._addMessage(action.fieldName);
       case CONSTS.GET_USER_INFO:
         return this._getUserInfo(action.id);
-      case CONSTS.TOGGLE_LIKE:
-        return this._toggleLike(action.postId);
-      case CONSTS.REMOVE_FRIEND:
-        return this._removeFriend(action.friendId);
-      default:
-        return () => {
-          throw new Error(`Передан неизвестный тип события: ${action.type}`);
-        };
     }
+
+    this._callSubscriber(this);
   },
 };
 

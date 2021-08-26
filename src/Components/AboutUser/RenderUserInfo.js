@@ -7,7 +7,6 @@ export const RenderUserInfo = (aboutUser) => {
         term={item.term}
         description={item.description}
         href={item.href}
-        key={index}
       />
     );
   });

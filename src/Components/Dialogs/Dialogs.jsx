@@ -17,9 +17,7 @@ function Dialogs(props) {
                 dialogs={props.chats}
                 dispatch={props.dispatch}
             />
-            <Switch>
-                {RenderChat(props.chats, props.stateFields, props.dispatch)}
-            </Switch>
+            <Switch>{RenderChat(props.chats, props.dispatch)}</Switch>
         </main>
     );
 }

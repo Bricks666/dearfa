@@ -6,7 +6,6 @@ export const RenderDialogsList = (dialogs, dispatch, className) => {
       <Dialog
         className={className}
         author={dispatch({ type: "GET-USER-INFO", id: dialog.id })}
-        key={dialog.id}
       />
     );
   });

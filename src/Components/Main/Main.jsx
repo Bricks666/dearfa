@@ -23,7 +23,6 @@ export function Main(props) {
                 <Dialogs
                     className={props.className}
                     chats={props.state.users[1].chats}
-                    stateFields={props.state.stateFields}
                     dispatch={props.dispatch}
                 />
             </Route>

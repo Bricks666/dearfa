@@ -22,7 +22,6 @@ function Profile(props) {
             <Posts
                 className={ProfileStyle.posts}
                 posts={props.posts}
-                stateFields={props.stateFields}
                 id={props.user.info.id}
                 dispatch={props.dispatch}
             />

@@ -7,7 +7,7 @@ export const RenderMessages = (messages, dispatch, className) => {
         className={className}
         author={dispatch({ type: "GET-USER-INFO", id: message.authorId })}
       >
-        {message.message}
+        {message.content.text}
       </Message>
     );
   });

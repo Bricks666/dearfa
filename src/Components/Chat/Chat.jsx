@@ -19,8 +19,7 @@ function Chat(props) {
                 className={ChatStyle.makeMessage}
                 placeholder="Ваше сообщение"
                 buttonMessage="Отправить"
-                fieldsName="Ввод сообщения"
-                stateFields={props.stateFields}
+                content={props.chat.newMessageContent}
                 dispatch={props.dispatch}
             />
         </section>

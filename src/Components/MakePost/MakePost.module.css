@@ -1,6 +1,6 @@
 /* MAKE MESSAGE */
 
-.makeMessage {
+.form {
     display: grid;
 
     row-gap: 10px;
@@ -9,7 +9,7 @@
 
 /* NEW MESSAGE TEXT */
 
-.newMessageText {
+.textarea {
     resize: none;
 
     min-height: 70px;
@@ -28,12 +28,12 @@
     filter: drop-shadow(1px 1px 1px var(--grey-light));
 }
 
-.newMessageText::placeholder {
+.textarea::placeholder {
     font-size: 16px;
     color: var(--grey);
 }
 
-.newMessageText:focus {
+.textarea:focus {
     outline-color: var(--blue);
     outline-width: 3px;
 }

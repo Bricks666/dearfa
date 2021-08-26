@@ -9,12 +9,11 @@ export function News(props) {
             <MakePost
                 placeholder="Чем вы хотите поделиться сегодня"
                 buttonMessage="Опубликовать"
-                fieldName="Создание поста"
                 id={props.id}
-                stateFields={props.stateFields}
+                content={props.posts.newPostContent}
                 dispatch={props.dispatch}
             />
-            <CreatedPosts posts={props.posts} dispatch={props.dispatch} />
+            <CreatedPosts posts={props.posts.list} dispatch={props.dispatch} />
         </main>
     );
 }
