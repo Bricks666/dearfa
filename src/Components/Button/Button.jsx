@@ -3,10 +3,10 @@ import React from "react";
 import ButtonStyle from "./Button.module.css";
 
 function Button(props) {
-    let onClick = () => {};
-    if (props.callback !== undefined) {
-        onClick = () => {
-            props.callback();
+    let onClick = (evt) => {};
+    if (props.onClick !== undefined) {
+        onClick = (evt) => {
+            props.onClick(evt);
         };
     }
     return (

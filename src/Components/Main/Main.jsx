@@ -11,45 +11,51 @@ export function Main(props) {
     return (
         <Switch>
             <Route exact path="/profile/:id">
-                <Switch>{RenderProfile(props.store, props.className)}</Switch>
+                <Switch>
+                    {RenderProfile(
+                        props.state,
+                        props.dispatch,
+                        props.className
+                    )}
+                </Switch>
             </Route>
             <Route path="/dialogs">
                 <Dialogs
                     className={props.className}
-                    chats={props.store.getState().users[1].chats}
-                    stateFields={props.store.getState().stateFields}
-                    dispatch={props.store.dispatch}
+                    chats={props.state.users[1].chats}
+                    stateFields={props.state.stateFields}
+                    dispatch={props.dispatch}
                 />
             </Route>
             <Route exact path="/friends">
                 <Friends
                     className={props.className}
-                    friendsId={props.store.getState().users[1].friendsId}
-                    dispatch={props.store.dispatch}
+                    friendsId={props.state.users[1].friendsId}
+                    dispatch={props.dispatch}
                 />
             </Route>
             <Route exact path="/news">
                 <News
                     className={props.className}
-                    posts={props.store.getState().posts}
-                    stateFields={props.store.getState().stateFields}
-                    dispatch={props.store.dispatch}
+                    posts={props.state.posts}
+                    stateFields={props.state.stateFields}
+                    dispatch={props.dispatch}
                 />
             </Route>
             <Route exact path="/login">
                 <Login
                     className={props.className}
-                    fields={props.store.getState().loginFields}
-                    stateFields={props.store.getState().stateFields}
-                    dispatch={props.store.dispatch}
+                    fields={props.state.loginFields}
+                    stateFields={props.state.stateFields}
+                    dispatch={props.dispatch}
                 />
             </Route>
             <Route exact path="/registration">
                 <Registration
                     className={props.className}
-                    fields={props.store.getState().registrationFields}
-                    stateFields={props.store.getState().stateFields}
-                    dispatch={props.store.dispatch}
+                    fields={props.state.registrationFields}
+                    stateFields={props.state.stateFields}
+                    dispatch={props.dispatch}
                 />
             </Route>
             <Route>

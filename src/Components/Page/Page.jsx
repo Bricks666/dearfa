@@ -15,18 +15,20 @@ function Page(props) {
                 <Header className={PageStyle.header} />
                 <Navigation
                     className={PageStyle.nav}
-                    navigationItems={props.store.getState().navigation}
+                    navigationItems={props.state.navigation}
                 />
-                <Main className={PageStyle.main} store={props.store} />
+                <Main
+                    className={PageStyle.main}
+                    state={props.state}
+                    dispatch={props.dispatch}
+                />
                 <Switch>
                     <Route path={["/login", "/registration"]} />
                     <Route path="">
                         <FavoritFriends
                             className={PageStyle.lastFriends}
-                            friendsId={
-                                props.store.getState().users[1].friendsId
-                            }
-                            dispatch={props.store.dispatch}
+                            friendsId={props.state.users[1].friendsId}
+                            dispatch={props.dispatch}
                         />
                     </Route>
                 </Switch>

@@ -296,7 +296,7 @@ const store = {
         content: "Сообщения",
       },
       {
-        path: "/friendsId",
+        path: "/friends",
         content: "Друзья",
       },
       {

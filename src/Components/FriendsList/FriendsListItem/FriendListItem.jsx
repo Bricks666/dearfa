@@ -8,7 +8,7 @@ import { removeFriendActionCreator } from "../../../Redux/ActionCreators/removeF
 import FriendsListItemStyle from "./FriendListItem.module.css";
 
 function FriendsListItem(props) {
-    const callback = () => {
+    const onClick = () => {
         const action = removeFriendActionCreator(props.friend.id);
         return props.dispatch(action);
     };
@@ -43,7 +43,7 @@ function FriendsListItem(props) {
                 className={FriendsListItemStyle.aboutUser}
                 aboutUser={props.friend.about}
             />
-            <Button className={FriendsListItemStyle.follow} callback={callback}>
+            <Button className={FriendsListItemStyle.follow} onClick={onClick}>
                 Удалить из друзей
             </Button>
         </li>

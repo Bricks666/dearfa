@@ -8,7 +8,7 @@ import "./index.css";
 function rerenderEntireTree(store) {
   return ReactDOM.render(
     <React.StrictMode>
-      <Page store={store} />
+      <Page state={store.getState()} dispatch={store.dispatch} />
     </React.StrictMode>,
     document.getElementById("root")
   );
