@@ -1,6 +1,8 @@
-import * as CONSTS from "./Constants";
+import { GET_USER_INFO } from "./Constants";
+import { inputLoginReducer } from "./Reducers/inputLoginReducer";
 import { inputMessageReducer } from "./Reducers/inputMessageReducer";
 import { inputPostReducer } from "./Reducers/inputPostReducer";
+import { inputRegReducer } from "./Reducers/inputRegReducer";
 import { likeReducer } from "./Reducers/likeReducer";
 import { messageReducer } from "./Reducers/messageReducer";
 import { postReducer } from "./Reducers/postReducer";
@@ -249,50 +251,72 @@ const store = {
       {
         type: "text",
         content: "Логин",
+        value: "",
         required: true,
         autoComplete: true,
       },
       {
         type: "password",
         content: "Пароль",
+        value: "",
         required: true,
         autoComplete: true,
+      },
+      {
+        type: "checkbox",
+        content: "Запомнить меня",
+        value: false,
+        required: false,
+        autoComplete: false,
+      },
+      {
+        type: "button",
+        content: "Войти",
+        value: "",
+        required: false,
+        autoComplete: false,
       },
     ],
     registrationFields: [
       {
         type: "text",
         content: "Имя",
+        value: "",
         required: true,
         autoComplete: false,
       },
       {
         type: "text",
         content: "Фамилия",
+        value: "",
         required: true,
         autoComplete: false,
       },
       {
         type: "tel",
         content: "Номер телефона",
+        value: "",
         required: false,
         autoComplete: false,
       },
       {
         type: "email",
         content: "Email",
+        value: "",
         required: true,
         autoComplete: false,
       },
       {
         type: "password",
         content: "Пароль",
+        value: "",
         required: true,
         autoComplete: false,
       },
       {
         type: "password",
         content: "Повторите пароль",
+        value: "",
         required: true,
         autoComplete: false,
       },
@@ -360,10 +384,6 @@ const store = {
     return this.getState().users[id]?.info;
   },
 
-  /* TOGGLE LIKE */
-
-  _toggleLike(postId) {},
-
   /* ENTER WORDS */
 
   _enterWords(value, fieldName) {
@@ -397,33 +417,36 @@ const store = {
   /* DISPATCH */
   /* Action - объект, который обязательно содержит поле type */
   dispatch(action) {
+    if (action.type === GET_USER_INFO) {
+      return this._getUserInfo(action.id);
+    }
+
     this._state.users[1].chats = messageReducer(
       this.getState().users[1].chats,
       action
     );
+    this._state.posts = postReducer(this.getState().posts, action);
+
+    this._state.posts = likeReducer(this.getState().posts, action);
 
     this._state.users[1].chats = inputMessageReducer(
       this.getState().users[1].chats,
       action
     );
-
-    this._state.posts = likeReducer(this.getState().posts, action);
-
-    this._state.posts = postReducer(this.getState().posts, action);
-
     this._state.posts = inputPostReducer(this.getState().posts, action);
+    this._state.loginFields = inputLoginReducer(
+      this.getState().loginFields,
+      action
+    );
+    this._state.registrationFields = inputRegReducer(
+      this.getState().registrationFields,
+      action
+    );
 
     this._state.users[1].friendsId = removeFriendReducer(
       this.getState().users[1].friendsId,
       action
     );
-
-    switch (action.type) {
-      case CONSTS.PRINT_WORD:
-        return this._enterWords(action.value, action.fieldName);
-      case CONSTS.GET_USER_INFO:
-        return this._getUserInfo(action.id);
-    }
 
     this._callSubscriber(this);
   },

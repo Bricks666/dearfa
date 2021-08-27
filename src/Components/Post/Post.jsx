@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { userInfoActionCreator } from "../../Redux/ActionCreators/userInfoActionCreator";
 import { Like } from "../Like/Like";
 import { Picture } from "../Picture/Picture";
 import { ParseDate } from "./ParseDate";
@@ -8,7 +9,7 @@ import PostStyle from "./Post.module.css";
 
 function Post(props) {
     const id = props.post.authorId;
-    const action = { type: "GET-USER-INFO", id };
+    const action = userInfoActionCreator(id);
 
     const authorInfo = props.dispatch(action);
 

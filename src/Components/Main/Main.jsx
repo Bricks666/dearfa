@@ -53,7 +53,6 @@ export function Main(props) {
                 <Registration
                     className={props.className}
                     fields={props.state.registrationFields}
-                    stateFields={props.state.stateFields}
                     dispatch={props.dispatch}
                 />
             </Route>

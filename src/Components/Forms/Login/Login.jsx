@@ -1,6 +1,5 @@
+import { inputLoginActionCreator } from "../../../Redux/ActionCreators/inputLoginActionCreator";
 import { SectionHeader } from "../../SectionHeader/SectionHeader";
-import { Button } from "../../Button/Button";
-import { Checkbox } from "../Checkbox/Checkbox";
 import { RenderFields } from "../RenderFields";
 
 import LoginStyle from "./Login.module.css";
@@ -12,14 +11,10 @@ export function Login(props) {
             <form className={LoginStyle.form}>
                 {RenderFields(
                     props.fields,
-                    props.stateFields,
                     props.dispatch,
+                    inputLoginActionCreator,
                     LoginStyle.field
                 )}
-                <Checkbox> Запомнить меня</Checkbox>
-                <Button className={LoginStyle.button} type="submit">
-                    Войти
-                </Button>
             </form>
         </main>
     );
