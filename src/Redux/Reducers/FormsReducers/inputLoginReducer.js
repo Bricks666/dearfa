@@ -1,7 +1,7 @@
-import { INPUT_REG } from "../Constants";
+import { INPUT_LOGIN } from "../../Constants";
 
-export const inputRegReducer = (state, action) => {
-  if (action.type === INPUT_REG) {
+export const inputLoginReducer = (state, action) => {
+  if (action.type === INPUT_LOGIN) {
     const newState = Object.assign([], state);
 
     const targetField = newState.find((el) => el.content === action.name);

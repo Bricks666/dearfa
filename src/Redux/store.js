@@ -1,11 +1,11 @@
 import { inputLoginReducer } from "./Reducers/inputLoginReducer";
 import { inputMessageReducer } from "./Reducers/inputMessageReducer";
 import { inputPostReducer } from "./Reducers/inputPostReducer";
-import { inputRegReducer } from "./Reducers/inputRegReducer";
+import { inputRegReducer } from "./Reducers/FormsReducers/inputRegReducer";
 import { likeReducer } from "./Reducers/likeReducer";
-import { messageReducer } from "./Reducers/messageReducer";
-import { postReducer } from "./Reducers/postReducer";
-import { removeFriendReducer } from "./Reducers/removeFriendReducer";
+import { messageReducer } from "./Reducers/messageReducers/messageReducer";
+import { postReducer } from "./Reducers/postsReducers/postReducer";
+import { removeFriendReducer } from "./Reducers/FriendReducers/removeFriendReducer";
 
 const store = {
   /* STATE */
@@ -261,12 +261,12 @@ const store = {
   /* Action - объект, который обязательно содержит поле type */
   dispatch(action) {
     this._state.chats = messageReducer(this.getState().chats, action);
-    this._state.posts = postReducer(this.getState().posts, action);
-
-    this._state.posts = likeReducer(this.getState().posts, action);
-
     this._state.chats = inputMessageReducer(this.getState().chats, action);
+
+    this._state.posts = postReducer(this.getState().posts, action);
+    this._state.posts = likeReducer(this.getState().posts, action);
     this._state.posts = inputPostReducer(this.getState().posts, action);
+
     this._state.loginFields = inputLoginReducer(
       this.getState().loginFields,
       action

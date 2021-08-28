@@ -1,4 +1,4 @@
-import { REMOVE_FRIEND } from "../Constants";
+import { REMOVE_FRIEND } from "../../Constants";
 
 export const removeFriendReducer = (state, action) => {
   if (action.type === REMOVE_FRIEND) {

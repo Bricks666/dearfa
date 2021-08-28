@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Page } from "./Components/Page/Page";
-import { store } from "./Redux/store";
+/* import { store } from "./Redux/store"; */
+import { store } from "./Redux/reduxStore";
 
 import "./index.css";
 
-function rerenderEntireTree(store) {
+function rerenderEntireTree() {
+  debugger;
   return ReactDOM.render(
     <React.StrictMode>
       <Page state={store.getState()} dispatch={store.dispatch} />
@@ -15,4 +17,4 @@ function rerenderEntireTree(store) {
 }
 store.subscribe(rerenderEntireTree);
 
-rerenderEntireTree(store);
+rerenderEntireTree();

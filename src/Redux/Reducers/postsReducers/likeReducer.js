@@ -1,4 +1,4 @@
-import { TOGGLE_LIKE } from "../Constants";
+import { TOGGLE_LIKE } from "../../Constants";
 
 /* CREATE LIKE OBJECT */
 
