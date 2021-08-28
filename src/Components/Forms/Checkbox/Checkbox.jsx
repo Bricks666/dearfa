@@ -8,8 +8,8 @@ export function Checkbox(props) {
         console.log(evt.target.checked, Date.now());
 
         const action = inputLoginActionCreator(
-            evt.target.checked,
-            props.children
+            props.children,
+            evt.target.checked
         );
 
         return props.dispatch(action);

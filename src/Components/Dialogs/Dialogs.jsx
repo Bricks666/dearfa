@@ -15,7 +15,6 @@ function Dialogs(props) {
             <DialogList
                 className={DialogsStyle.dialogList}
                 dialogs={props.chats}
-                dispatch={props.dispatch}
             />
             <Switch>{RenderChat(props.chats, props.dispatch)}</Switch>
         </main>

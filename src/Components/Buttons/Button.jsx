@@ -11,7 +11,7 @@ function Button(props) {
     }
     return (
         <button
-            className={`${ButtonStyle.button} ${props.className ?? ""}`}
+            className={` ${props.className ?? ""} ${ButtonStyle.button}`}
             type={props.type}
             onClick={onClick}
         >

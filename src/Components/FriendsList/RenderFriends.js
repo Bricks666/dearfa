@@ -1,13 +1,13 @@
 import { FriendsListItem } from "./FriendsListItem/FriendListItem";
 
 export const RenderFriends = (friends, size, dispatch, className) => {
-  return friends.map((friendId) => {
+  return friends.map((friend) => {
     return (
       <FriendsListItem
         className={className}
-        friend={dispatch({ type: "GET-USER-INFO", id: friendId })}
-        dispatch={dispatch}
+        friend={friend.info}
         size={size}
+        dispatch={dispatch}
       />
     );
   });

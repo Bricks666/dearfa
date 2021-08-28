@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Button/Button";
+import { Button } from "../Buttons/Button";
 import { addMessageActionCreator } from "../../Redux/ActionCreators/addMessage";
 import { FileUpload } from "../FileUpload/FileUpload";
 

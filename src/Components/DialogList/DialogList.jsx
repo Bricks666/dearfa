@@ -10,7 +10,6 @@ function DialogList(props) {
         >
             {RenderDialogsList(
                 props.dialogs,
-                props.dispatch,
                 DialogListStyle.dialog
             )}
         </ul>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Button/Button";
+import { Button } from "../Buttons/Button";
 import { addPostActionCreator } from "../../Redux/ActionCreators/addPost";
 import { inputPostActionCreator } from "../../Redux/ActionCreators/inputPostActionCreator";
 

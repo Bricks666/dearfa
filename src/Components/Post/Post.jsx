@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { userInfoActionCreator } from "../../Redux/ActionCreators/userInfoActionCreator";
 import { Like } from "../Like/Like";
 import { Picture } from "../Picture/Picture";
 import { ParseDate } from "./ParseDate";
@@ -8,26 +7,21 @@ import { ParseDate } from "./ParseDate";
 import PostStyle from "./Post.module.css";
 
 function Post(props) {
-    const id = props.post.authorId;
-    const action = userInfoActionCreator(id);
-
-    const authorInfo = props.dispatch(action);
-
     return (
         <article className={PostStyle.post}>
-            <Link className={PostStyle.authorLink} to={`/profile/${id}`}>
-                <h5 className={PostStyle.author}>{authorInfo.fullName}</h5>
+            <Link className={PostStyle.authorLink} to={`/profile`}>
+                <h5 className={PostStyle.author}>{"Цыганков Кирилл"}</h5>
             </Link>
 
             <time className={PostStyle.dateTime} dateTime={props.post.date}>
                 {ParseDate(props.post.date)}
             </time>
-            <Link className={PostStyle.photoLink} to={`/profile/${id}`}>
+            <Link className={PostStyle.photoLink} to={`/profile`}>
                 <Picture
                     className={`${PostStyle.photo} fake-photo`}
-                    oneXSrc={authorInfo.avatar.url}
+                    oneXSrc={""}
                     twoXSrc=""
-                    alt={authorInfo.avatar.alt}
+                    alt={""}
                 />
             </Link>
 

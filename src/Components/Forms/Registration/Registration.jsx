@@ -1,5 +1,4 @@
 import { SectionHeader } from "../../SectionHeader/SectionHeader";
-import { Button } from "../../Button/Button";
 import { RenderFields } from "../RenderFields";
 
 import RegistrationStyle from "./Registration.module.css";
@@ -17,9 +16,6 @@ export function Registration(props) {
                     props.dispatch,
                     inputRegActionCreator
                 )}
-                <Button className={RegistrationStyle.button} type="submit">
-                    Зарегистрироваться
-                </Button>
             </form>
         </main>
     );

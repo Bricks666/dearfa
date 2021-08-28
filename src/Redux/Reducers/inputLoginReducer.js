@@ -1,6 +1,7 @@
 import { INPUT_LOGIN } from "../Constants";
 
 export const inputLoginReducer = (state, action) => {
+
   if (action.type === INPUT_LOGIN) {
     const newState = Object.assign([], state);
 

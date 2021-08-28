@@ -5,31 +5,30 @@ import { News } from "../News/News";
 import { NotFound } from "../NotFound/NotFound";
 import { Login } from "../Forms/Login/Login";
 import { Registration } from "../Forms/Registration/Registration";
-import { RenderProfile } from "./RenderProfile";
+import { Profile } from "../Profile/Profile";
 
 export function Main(props) {
     return (
         <Switch>
-            <Route exact path="/profile/:id">
-                <Switch>
-                    {RenderProfile(
-                        props.state,
-                        props.dispatch,
-                        props.className
-                    )}
-                </Switch>
+            <Route exact path="/profile/1">
+                <Profile
+                    user={props.state.user}
+                    posts={props.state.posts}
+                    dispatch={props.dispatch}
+                    className={props.className}
+                />
             </Route>
             <Route path="/dialogs">
                 <Dialogs
                     className={props.className}
-                    chats={props.state.users[1].chats}
+                    chats={props.state.chats}
                     dispatch={props.dispatch}
                 />
             </Route>
             <Route exact path="/friends">
                 <Friends
                     className={props.className}
-                    friendsId={props.state.users[1].friendsId}
+                    friends={props.state.friends}
                     dispatch={props.dispatch}
                 />
             </Route>
@@ -37,7 +36,6 @@ export function Main(props) {
                 <News
                     className={props.className}
                     posts={props.state.posts}
-                    stateFields={props.state.stateFields}
                     dispatch={props.dispatch}
                 />
             </Route>
@@ -45,7 +43,6 @@ export function Main(props) {
                 <Login
                     className={props.className}
                     fields={props.state.loginFields}
-                    stateFields={props.state.stateFields}
                     dispatch={props.dispatch}
                 />
             </Route>

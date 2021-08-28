@@ -5,8 +5,8 @@ import { SubsectionHeader } from "../SubsectionHeader/SubsectionHeader";
 import FavoritFriendsStyle from "./FavoritFriends.module.css";
 
 function FavoritFriends(props) {
-    const friendsId = props.friendsId.slice(0, 6);
-    if (friendsId.length !== 0) {
+    const friends = props.friends.slice(0, 6);
+    if (friends.length !== 0) {
         return (
             <aside
                 className={`${FavoritFriendsStyle.lastCommunications} ${
@@ -17,7 +17,7 @@ function FavoritFriends(props) {
                 <FriendsList
                     className={FavoritFriendsStyle.friendsList}
                     size="small"
-                    friendsId={friendsId}
+                    friends={friends}
                     dispatch={props.dispatch}
                 />
             </aside>

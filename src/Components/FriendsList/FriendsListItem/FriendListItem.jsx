@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Picture } from "../../Picture/Picture";
 import { AboutUser } from "../../AboutUser/AboutUser";
-import { Button } from "../../Button/Button";
+import { Button } from "../../Buttons/Button";
 import { removeFriendActionCreator } from "../../../Redux/ActionCreators/removeFriend";
 
 import FriendsListItemStyle from "./FriendListItem.module.css";
 
 function FriendsListItem(props) {
+
     const onClick = () => {
         const action = removeFriendActionCreator(props.friend.id);
         return props.dispatch(action);

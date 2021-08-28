@@ -1,4 +1,3 @@
-import { GET_USER_INFO } from "./Constants";
 import { inputLoginReducer } from "./Reducers/inputLoginReducer";
 import { inputMessageReducer } from "./Reducers/inputMessageReducer";
 import { inputPostReducer } from "./Reducers/inputPostReducer";
@@ -11,129 +10,70 @@ import { removeFriendReducer } from "./Reducers/removeFriendReducer";
 const store = {
   /* STATE */
   _state: {
-    users: {
-      1: {
-        info: {
-          id: 1,
-          fullName: "Кирилл Цыганков",
-          avatar: {
-            url: "/Images/Ava/Cosmic-animals",
-            alt: "Аватарка...",
-          },
-          about: [
-            { term: "Дата рождения", description: "17.09.2004" },
-            {
-              term: "Город",
-              description: "Калуга",
-              href: "https://ru.wikipedia.org/wiki/Калуга",
-            },
-            {
-              term: "Учебное заведение",
-              description: "Калужский техникум электронных приборов",
-              href: "https://ktep40.ru",
-            },
-            { term: "Сайт", description: "Пусто" },
-          ],
+    user: {
+      info: {
+        id: 1,
+        fullName: "Кирилл Цыганков",
+        avatar: {
+          url: "/Images/Ava/Cosmic-animals",
+          alt: "Аватарка...",
         },
-        profile: {
-          backgroundPhoto: {
-            url: "/Images/ProfileBackground/SunSet",
-            alt: "Ваш фон...",
-          },
-        },
-        chats: [
+        about: [
+          { term: "Дата рождения", description: "17.09.2004" },
           {
-            id: 2,
-            messages: [
-              {
-                id: 1,
-                authorId: 1,
-                content: { text: "sdfsdff" },
-              },
-              {
-                id: 2,
-                authorId: 2,
-                content: { text: "Смотри что могу" },
-              },
-              {
-                id: 3,
-                authorId: 2,
-                content: {
-                  text: "Крокодилы танцуют на песке, будто ты попросил их там побыть",
-                },
-              },
-              {
-                id: 4,
-                authorId: 1,
-                content: { text: "Я тоже так могу" },
-              },
-            ],
+            term: "Город",
+            description: "Калуга",
+            href: "https://ru.wikipedia.org/wiki/Калуга",
           },
+          {
+            term: "Учебное заведение",
+            description: "Калужский техникум электронных приборов",
+            href: "https://ktep40.ru",
+          },
+          { term: "Сайт", description: "Пусто" },
         ],
-        friendsId: [2, 5, 156455, 156],
       },
-      2: {
-        info: {
-          id: 2,
-          fullName: "Фридрих Фон Ниц",
-          avatar: {
-            url: "/Images/Ava/Cosmic-animals",
-            alt: "Аватарка...",
-          },
-          about: [
-            { term: "Дата рождения", description: "12.12.2000" },
-            {
-              term: "Город",
-              description: "Калуга",
-              href: "https://ru.wikipedia.org/wiki/Калуга",
-            },
-            {
-              term: "Сайт",
-              description: "Wikipedia",
-              href: "https://wikipedia.com",
-            },
-          ],
+
+      profile: {
+        backgroundPhoto: {
+          url: "/Images/ProfileBackground/SunSet",
+          alt: "Ваш фон...",
         },
-        profile: {
-          backgroundPhoto: {
-            url: "/Images/ProfileBackground/SunSet",
-            alt: "Ваш фон...",
-          },
-        },
-        chats: [
+      },
+    },
+    chats: [
+      {
+        id: 2,
+        messages: [
           {
             id: 1,
-            messages: [
-              { id: 1, content: { text: "sdfsdff" } },
-              { id: 2, content: { text: "Смотри что могу" } },
-              {
-                id: 2,
-                content: {
-                  text: "Крокодилы танцуют на песке, будто ты попросил их там побыть",
-                },
-              },
-              { id: 1, content: { text: "Я тоже так могу" } },
-            ],
-          },
-        ],
-        friendsId: [1],
-        posts: [
-          {
-            id: 154,
-            date: new Date(),
             authorId: 1,
-            content:
-              "Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
-            like: {
-              count: 175,
-              isLiked: false,
+            content: { text: "sdfsdff" },
+          },
+          {
+            id: 2,
+            authorId: 2,
+            content: { text: "Смотри что могу" },
+          },
+          {
+            id: 3,
+            authorId: 2,
+            content: {
+              text: "Крокодилы танцуют на песке, будто ты попросил их там побыть",
             },
+          },
+          {
+            id: 4,
+            authorId: 1,
+            content: { text: "Я тоже так могу" },
           },
         ],
       },
-      156: {
+    ],
+    friends: [
+      {
         info: {
-          id: 156,
+          id: 2,
           fullName: "Антонина",
           avatar: {
             url: "/Images/ProfileBackground/SunSet",
@@ -154,63 +94,10 @@ const store = {
           },
         },
         chats: [],
-        friendsId: [],
+        friends: [],
         posts: [],
       },
-      156455: {
-        info: {
-          id: 156455,
-          fullName: "Кеша",
-          avatar: {
-            url: "/Images/ProfileBackground/SunSet",
-          },
-          about: [
-            { term: "Дата рождения", description: "12.10.2000" },
-            {
-              term: "Сайт",
-              description: "Wikipedia",
-              href: "https://ru.wikipedia.com",
-            },
-          ],
-        },
-        profile: {
-          backgroundPhoto: {
-            url: "/Images/ProfileBackground/SunSet",
-            alt: "Ваш фон...",
-          },
-        },
-        chats: [],
-        friendsId: [],
-        posts: [],
-      },
-      5: {
-        info: {
-          id: 5,
-          fullName: "Максим",
-          avatar: {
-            url: "/Images/ProfileBackground/SunSet",
-            alt: "asd",
-          },
-          about: [
-            { term: "Дата рождения", description: "12.10.2000" },
-            {
-              term: "Сайт",
-              description: "Wikipedia",
-              href: "https://ru.wikipedia.com",
-            },
-          ],
-        },
-        profile: {
-          backgroundPhoto: {
-            url: "/Images/ProfileBackground/SunSet",
-            alt: "Ваш фон...",
-          },
-        },
-        chats: [],
-        friendsId: [],
-        posts: [],
-      },
-    },
+    ],
     posts: {
       list: [
         {
@@ -320,6 +207,13 @@ const store = {
         required: true,
         autoComplete: false,
       },
+      {
+        type: "button",
+        content: "Зарегистрироваться",
+        value: "",
+        required: false,
+        autoComplete: false,
+      },
     ],
     navigation: [
       {
@@ -347,57 +241,6 @@ const store = {
         content: "Настройки",
       },
     ],
-    stateFields: new Map(),
-  },
-
-  /* PROTECTED METHODS */
-
-  /* GET STATE FIELD */
-
-  _getStateField(fieldName) {
-    return this.getState().stateFields.get(fieldName);
-  },
-
-  /* GET FIELD STATE */
-
-  _getField(fieldName) {
-    if (this._getStateField(fieldName) === undefined) {
-      this.getState().stateFields.set(fieldName, { value: "" });
-    }
-
-    return this._getStateField(fieldName);
-  },
-
-  /* CLEAR FIELD */
-
-  _clearField(fieldName) {
-    const state = Object.assign({}, this._getStateField(fieldName));
-
-    state.value = "";
-
-    this.getState().stateFields.set(fieldName, state);
-  },
-
-  /* GET USER INFO */
-
-  _getUserInfo(id) {
-    return this.getState().users[id]?.info;
-  },
-
-  /* ENTER WORDS */
-
-  _enterWords(value, fieldName) {
-    const state = Object.assign({}, this._getField(fieldName));
-
-    if (state.value === "" && value === " ") {
-      return;
-    }
-
-    state.value = value;
-
-    this.getState().stateFields.set(fieldName, state);
-
-    this._callSubscriber(this);
   },
 
   /* PUBLIC METHODS */
@@ -417,22 +260,12 @@ const store = {
   /* DISPATCH */
   /* Action - объект, который обязательно содержит поле type */
   dispatch(action) {
-    if (action.type === GET_USER_INFO) {
-      return this._getUserInfo(action.id);
-    }
-
-    this._state.users[1].chats = messageReducer(
-      this.getState().users[1].chats,
-      action
-    );
+    this._state.chats = messageReducer(this.getState().chats, action);
     this._state.posts = postReducer(this.getState().posts, action);
 
     this._state.posts = likeReducer(this.getState().posts, action);
 
-    this._state.users[1].chats = inputMessageReducer(
-      this.getState().users[1].chats,
-      action
-    );
+    this._state.chats = inputMessageReducer(this.getState().chats, action);
     this._state.posts = inputPostReducer(this.getState().posts, action);
     this._state.loginFields = inputLoginReducer(
       this.getState().loginFields,
@@ -443,10 +276,7 @@ const store = {
       action
     );
 
-    this._state.users[1].friendsId = removeFriendReducer(
-      this.getState().users[1].friendsId,
-      action
-    );
+    this._state.friends = removeFriendReducer(this.getState().friends, action);
 
     this._callSubscriber(this);
   },

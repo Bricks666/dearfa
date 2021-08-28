@@ -9,19 +9,19 @@ function Dialog(props) {
     return (
         <li className={`${props.className} ${DialogStyle.dialog}`}>
             <NavLink
-                to={`/dialogs/${props.author.id}`}
+                to={`/dialogs/2`}
                 className={DialogStyle.link}
                 activeClassName={DialogStyle.linkActive}
-                aria-label={`чат с ${props.author.fullName}`}
+                aria-label={`чат с кем-то`}
             >
                 <SubsectionHeader className={`${DialogStyle.fullName}`}>
-                    {props.author.fullName}
+                    Кто то
                 </SubsectionHeader>
                 <Picture
                     className={`${DialogStyle.photo} fake-photo`}
-                    oneXSrc={props.author.avatar.url}
+                    oneXSrc={""}
                     twoXSrc=""
-                    alt={props.author.avatar.alt}
+                    alt={""}
                 />
             </NavLink>
         </li>
