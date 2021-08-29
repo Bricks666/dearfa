@@ -7,7 +7,6 @@ import { store } from "./Redux/reduxStore";
 import "./index.css";
 
 function rerenderEntireTree() {
-  debugger;
   return ReactDOM.render(
     <React.StrictMode>
       <Page state={store.getState()} dispatch={store.dispatch} />
