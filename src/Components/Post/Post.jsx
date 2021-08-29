@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Like } from "../Like/Like";
+import { LikeContainer } from "../Like/LikeContainer";
 import { Picture } from "../Picture/Picture";
 import { ParseDate } from "./ParseDate";
 
@@ -26,7 +26,7 @@ function Post(props) {
             </Link>
 
             <p className={PostStyle.content}>{props.post.content.text}</p>
-            <Like
+            <LikeContainer
                 className={PostStyle.like}
                 status={props.post.like}
                 postId={props.post.id}

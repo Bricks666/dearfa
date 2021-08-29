@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Page } from "./Components/Page/Page";
-/* import { store } from "./Redux/store"; */
 import { store } from "./Redux/reduxStore";
 
 import "./index.css";

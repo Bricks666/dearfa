@@ -1,9 +1,9 @@
 import React from "react";
-import { MakeMessage } from "../MakeMessage/MakeMessage";
 import { Messages } from "../Messages/Messages";
 import { Link } from "react-router-dom";
 
 import ChatStyle from "./Chat.module.css";
+import { MakeMessageContainer } from "../MakeMessage/MakeMessageContainer";
 
 function Chat(props) {
     return (
@@ -15,7 +15,7 @@ function Chat(props) {
                 dispatch={props.dispatch}
             />
 
-            <MakeMessage
+            <MakeMessageContainer
                 className={ChatStyle.makeMessage}
                 placeholder="Ваше сообщение"
                 buttonMessage="Отправить"

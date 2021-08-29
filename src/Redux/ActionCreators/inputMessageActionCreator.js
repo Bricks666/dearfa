@@ -1,8 +1,8 @@
 import { INPUT_MESSAGE } from "../Constants";
 
-export const inputMessageActionCreator = (value) => {
+export const inputMessageActionCreator = (text) => {
   return {
     type: INPUT_MESSAGE,
-    text: value,
+    text,
   };
 };

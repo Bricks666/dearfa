@@ -1,18 +1,10 @@
-import { inputLoginActionCreator } from "../../../Redux/ActionCreators/inputLoginActionCreator";
 import CheckboxStyle from "./Checkbox.module.css";
 
 export function Checkbox(props) {
-    const onChange = (evt) => {
+    const toggle = (evt) => {
         evt.preventDefault();
 
-        console.log(evt.target.checked, Date.now());
-
-        const action = inputLoginActionCreator(
-            props.children,
-            evt.target.checked
-        );
-
-        return props.dispatch(action);
+        props.onChange(evt.target.checked);
     };
 
     return (
@@ -22,9 +14,8 @@ export function Checkbox(props) {
                 type="checkbox"
                 id="checkbox"
                 checked={props.value}
-                onChange={onChange}
+                onChange={toggle}
             />
-            {console.log("render checkbox", Date.now())}
             <label className={CheckboxStyle.label} htmlFor="checkbox">
                 {props.children}
             </label>

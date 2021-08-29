@@ -1,12 +1,10 @@
 import React from "react";
-import { toggleLikeActionCreator } from "../../Redux/ActionCreators/toggleLike";
 
 import LikeStyle from "./Like.module.css";
 
 export function Like(props) {
     const onChange = () => {
-        const action = toggleLikeActionCreator(props.postId);
-        props.dispatch(action);
+        props.toggle();
     };
 
     return (

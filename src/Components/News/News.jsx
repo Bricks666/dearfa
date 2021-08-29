@@ -1,12 +1,12 @@
 import { CreatedPosts } from "../CreatedPosts/CreatedPosts";
 import { SectionHeader } from "../SectionHeader/SectionHeader";
-import { MakePost } from "../MakePost/MakePost";
+import { MakePostContainer } from "../MakePost/MakePostContainer";
 
 export function News(props) {
     return (
         <main className={props.className}>
             <SectionHeader>Новости</SectionHeader>
-            <MakePost
+            <MakePostContainer
                 placeholder="Чем вы хотите поделиться сегодня"
                 buttonMessage="Опубликовать"
                 id={props.id}

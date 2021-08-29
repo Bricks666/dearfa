@@ -3,15 +3,12 @@ import { Link } from "react-router-dom";
 import { Picture } from "../../Picture/Picture";
 import { AboutUser } from "../../AboutUser/AboutUser";
 import { Button } from "../../Buttons/Button";
-import { removeFriendActionCreator } from "../../../Redux/ActionCreators/removeFriend";
 
 import FriendsListItemStyle from "./FriendListItem.module.css";
 
 function FriendsListItem(props) {
-
-    const onClick = () => {
-        const action = removeFriendActionCreator(props.friend.id);
-        return props.dispatch(action);
+    const removeFriend = () => {
+        props.removeFriend(props.friend.id);
     };
 
     return (
@@ -44,7 +41,10 @@ function FriendsListItem(props) {
                 className={FriendsListItemStyle.aboutUser}
                 aboutUser={props.friend.about}
             />
-            <Button className={FriendsListItemStyle.follow} onClick={onClick}>
+            <Button
+                className={FriendsListItemStyle.follow}
+                onClick={removeFriend}
+            >
                 Удалить из друзей
             </Button>
         </li>

@@ -1,25 +1,20 @@
 import React from "react";
 import { Button } from "../Buttons/Button";
-import { addMessageActionCreator } from "../../Redux/ActionCreators/addMessage";
 import { FileUpload } from "../FileUpload/FileUpload";
 
 import MakeMessageStyle from "./MakeMessage.module.css";
-import { inputMessageActionCreator } from "../../Redux/ActionCreators/inputMessageActionCreator";
 
 function MakeMessage(props) {
     const addMessage = (evt) => {
         evt.preventDefault();
 
-        const action = addMessageActionCreator();
-        props.dispatch(action);
+        props.addMessage();
     };
 
-    const printWord = (evt) => {
+    const inputMessage = (evt) => {
         evt.preventDefault();
 
-        const action = inputMessageActionCreator(evt.target.value);
-
-        props.dispatch(action);
+        props.inputMessage(evt.target.value);
     };
 
     return (
@@ -29,9 +24,9 @@ function MakeMessage(props) {
         >
             <textarea
                 className={MakeMessageStyle.newMessageText}
-                placeholder={props.placeholder}
+                placeholder={props.placeholder ?? ""}
                 value={props.content?.text ?? ""}
-                onChange={printWord}
+                onChange={inputMessage}
                 name="content"
             ></textarea>
             {/* Сделать рабочую загрузку каких-либо файлов на сервер */}

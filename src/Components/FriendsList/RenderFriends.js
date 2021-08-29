@@ -1,9 +1,9 @@
-import { FriendsListItem } from "./FriendsListItem/FriendListItem";
+import { FriendListItemContainer } from "./FriendsListItem/FriendListItemContainer";
 
 export const RenderFriends = (friends, size, dispatch, className) => {
   return friends.map((friend) => {
     return (
-      <FriendsListItem
+      <FriendListItemContainer
         className={className}
         friend={friend.info}
         size={size}
