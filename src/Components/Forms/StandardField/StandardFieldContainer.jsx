@@ -1,17 +1,21 @@
 import { StandardField } from "./StandardFields";
+import { inputFormActionCreator } from "../../../Redux/ActionCreators/inputFormActionCreator";
+import { connect } from "react-redux";
 
-export const StandardFieldContainer = (props) => {
-    const onChange = (text) => {
-        const action = props.actionCreator(props.fieldInfo.content, text);
-
-        props.dispatch(action);
-    };
-
-    return (
-        <StandardField
-            className={props.className}
-            fieldInfo={props.fieldInfo}
-            inputField={onChange}
-        />
-    );
+const mapStateToProps = (state) => {
+  return {};
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    inputField(type, name, text) {
+      debugger;
+      dispatch(inputFormActionCreator(type, name, text));
+    },
+  };
+};
+
+export const StandardFieldContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StandardField);

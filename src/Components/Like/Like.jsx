@@ -3,19 +3,19 @@ import React from "react";
 import LikeStyle from "./Like.module.css";
 
 export function Like(props) {
-    const onChange = () => {
-        props.toggle();
-    };
+  const onChange = () => {
+    props.toggle(props.postId);
+  };
 
-    return (
-        <label className={`${props.className ?? ""} ${LikeStyle.label}`}>
-            <input
-                className={`${LikeStyle.input} visibility-hidden`}
-                type="checkbox"
-                checked={props.status.isLiked}
-                onChange={onChange}
-            />
-            <span className={LikeStyle.like}>{props.status.count}</span>
-        </label>
-    );
+  return (
+    <label className={`${props.className ?? ""} ${LikeStyle.label}`}>
+      <input
+        className={`${LikeStyle.input} visibility-hidden`}
+        type="checkbox"
+        checked={props.status.isLiked}
+        onChange={onChange}
+      />
+      <span className={LikeStyle.like}>{props.status.count}</span>
+    </label>
+  );
 }

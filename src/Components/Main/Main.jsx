@@ -8,54 +8,32 @@ import { Registration } from "../Forms/Registration/Registration";
 import { Profile } from "../Profile/Profile";
 
 export function Main(props) {
-    return (
-        <Switch>
-            <Route exact path="/profile/1">
-                <Profile
-                    user={props.state.user}
-                    posts={props.state.posts}
-                    dispatch={props.dispatch}
-                    className={props.className}
-                />
-            </Route>
-            <Route path="/dialogs">
-                <Dialogs
-                    className={props.className}
-                    chats={props.state.chats}
-                    dispatch={props.dispatch}
-                />
-            </Route>
-            <Route exact path="/friends">
-                <Friends
-                    className={props.className}
-                    friends={props.state.friends}
-                    dispatch={props.dispatch}
-                />
-            </Route>
-            <Route exact path="/news">
-                <News
-                    className={props.className}
-                    posts={props.state.posts}
-                    dispatch={props.dispatch}
-                />
-            </Route>
-            <Route exact path="/login">
-                <Login
-                    className={props.className}
-                    fields={props.state.loginFields}
-                    dispatch={props.dispatch}
-                />
-            </Route>
-            <Route exact path="/registration">
-                <Registration
-                    className={props.className}
-                    fields={props.state.registrationFields}
-                    dispatch={props.dispatch}
-                />
-            </Route>
-            <Route>
-                <NotFound className={props.className} />
-            </Route>
-        </Switch>
-    );
+  return (
+    <Switch>
+      <Route exact path="/profile/1">
+        <Profile className={props.className} user={props.state.user} />
+      </Route>
+      <Route path="/dialogs">
+        <Dialogs className={props.className} chats={props.state.chats} />
+      </Route>
+      <Route exact path="/friends">
+        <Friends className={props.className} friends={props.state.friends} />
+      </Route>
+      <Route exact path="/news">
+        <News className={props.className} posts={props.state.posts} />
+      </Route>
+      <Route exact path="/login">
+        <Login className={props.className} fields={props.state.loginFields} />
+      </Route>
+      <Route exact path="/registration">
+        <Registration
+          className={props.className}
+          fields={props.state.registrationFields}
+        />
+      </Route>
+      <Route>
+        <NotFound className={props.className} />
+      </Route>
+    </Switch>
+  );
 }

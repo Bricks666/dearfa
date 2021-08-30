@@ -6,7 +6,7 @@ export const inputRegReducer = (state, action) => {
 
     const targetField = newState.find((el) => el.content === action.name);
 
-    targetField.value = action.value;
+    targetField.value = action.text;
 
     return newState;
   }

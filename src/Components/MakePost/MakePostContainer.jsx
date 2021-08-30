@@ -1,28 +1,26 @@
+import { connect } from "react-redux";
 import { addPostActionCreator } from "../../Redux/ActionCreators/addPost";
 import { inputPostActionCreator } from "../../Redux/ActionCreators/inputPostActionCreator";
 import { MakePost } from "./MakePost";
 
-export const MakePostContainer = (props) => {
-    const addPost = () => {
-        const action = addPostActionCreator();
-
-        props.dispatch(action);
-    };
-
-    const inputPost = (text) => {
-        const action = inputPostActionCreator(text);
-
-        props.dispatch(action);
-    };
-
-    return (
-        <MakePost
-            className={props.className}
-            placeholder={props.placeholder}
-            buttonMessage={props.buttonMessage}
-            content={props.content}
-            addPost={addPost}
-            inputPost={inputPost}
-        />
-    );
+const mapStateToProps = (state) => {
+  return {
+    content: state.posts.newPostContent,
+  };
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addPost() {
+      dispatch(addPostActionCreator());
+    },
+    inputPost(text) {
+      dispatch(inputPostActionCreator(text));
+    },
+  };
+};
+
+export const MakePostContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MakePost);

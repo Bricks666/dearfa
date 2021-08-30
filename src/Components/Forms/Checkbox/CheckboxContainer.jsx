@@ -1,20 +1,21 @@
-import { inputLoginActionCreator } from "../../../Redux/ActionCreators/inputLoginActionCreator";
+import { connect } from "react-redux";
+import {inputFormActionCreator} from '../../../Redux/ActionCreators/inputFormActionCreator'
+import {INPUT_LOGIN} from '../../../Redux/Constants'
 import { Checkbox } from "./Checkbox";
 
-export const CheckboxContainer = (props) => {
-    const toggleLike = (isChecked) => {
-        const action = inputLoginActionCreator(props.children, isChecked);
-
-        props.dispatch(action);
-    };
-
-    return (
-        <Checkbox
-            className={props.className}
-            value={props.value}
-            onChange={toggleLike}
-        >
-            {props.children}
-        </Checkbox>
-    );
+const mapStateToProps = (state) => {
+  return {};
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onChange(name, isChecked) {
+      dispatch(inputFormActionCreator(INPUT_LOGIN, name, isChecked));
+    },
+  };
+};
+
+export const CheckboxContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Checkbox);
