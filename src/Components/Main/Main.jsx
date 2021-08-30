@@ -3,8 +3,8 @@ import { Dialogs } from "../Dialogs/Dialogs";
 import { Friends } from "../Friends/Friends";
 import { News } from "../News/News";
 import { NotFound } from "../NotFound/NotFound";
-import { Login } from "../Forms/Login/Login";
-import { Registration } from "../Forms/Registration/Registration";
+import { Login } from "../Login/Login";
+import { Registration } from "../Registration/Registration";
 import { Profile } from "../Profile/Profile";
 
 export function Main(props) {

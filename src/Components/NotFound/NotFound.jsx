@@ -1,4 +1,4 @@
-import { SectionHeader } from "../SectionHeader/SectionHeader";
+import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
 
 import NotFoundStyle from "./NotFound.module.css";
 

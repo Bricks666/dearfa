@@ -1,8 +1,8 @@
 import React from "react";
-import { Picture } from "../Picture/Picture";
-import { Posts } from "../Posts/Posts";
-import { SectionHeader } from "../SectionHeader/SectionHeader";
-import { UserInfo } from "../UserInfo/UserInfo";
+import { Picture } from "../Shared/Picture/Picture";
+import { Posts } from "./Posts/Posts";
+import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
+import { UserInfo } from "./UserInfo/UserInfo";
 
 import ProfileStyle from "./Profile.module.css";
 

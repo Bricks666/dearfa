@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Page } from "./Components/Page/Page";
+import { App } from "./App/App";
 import { store } from "./Redux/store";
 
 import "./index.css";
@@ -10,7 +10,7 @@ function rerenderEntireTree() {
   return ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>
-        <Page state={store.getState()} dispatch={store.dispatch} />
+        <App state={store.getState()} dispatch={store.dispatch} />
       </Provider>
     </React.StrictMode>,
     document.getElementById("root")

@@ -1,5 +1,5 @@
-import { FriendsList } from "../FriendsList/FriendsList";
-import { SectionHeader } from "../SectionHeader/SectionHeader";
+import { FriendsList } from "../Shared/FriendsList/FriendsList";
+import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
 
 import FriendsStyle from "./Friends.module.css";
 

@@ -1,8 +1,9 @@
-import { CreatedPosts } from "../CreatedPosts/CreatedPosts";
-import { SectionHeader } from "../SectionHeader/SectionHeader";
-import { MakePostContainer } from "../MakePost/MakePostContainer";
+import { CreatedPostsList } from "../Shared/CreatedPostsList/CreatedPostsList";
+import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
+import { MakePostContainer } from "../Shared/MakePost/MakePostContainer";
 
 export function News(props) {
+  /* Сделать Дизайн по-лучше */
   return (
     <main className={props.className}>
       <SectionHeader>Новости</SectionHeader>
@@ -10,7 +11,7 @@ export function News(props) {
         placeholder="Чем вы хотите поделиться сегодня"
         buttonMessage="Опубликовать"
       />
-      <CreatedPosts posts={props.posts.list} />
+      <CreatedPostsList posts={props.posts.list} />
     </main>
   );
 }
