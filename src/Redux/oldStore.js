@@ -7,9 +7,7 @@ import { messageReducer } from "./Reducers/messageReducers/messageReducer";
 import { postReducer } from "./Reducers/postsReducers/postReducer";
 import { removeFriendReducer } from "./Reducers/FriendReducers/removeFriendReducer";
 
-const store = {
-  /* STATE */
-  _state: {
+const initialState =  {
     user: {
       info: {
         id: 1,

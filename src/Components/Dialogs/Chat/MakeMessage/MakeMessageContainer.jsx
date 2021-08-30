@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { addMessageActionCreator } from "../../../../Redux/ActionCreators/addMessage";
 import { inputMessageActionCreator } from "../../../../Redux/ActionCreators/inputMessage";
-import { MakeMessage } from "./MakeMessage";
+import { Make } from "../../../Shared/Make/Make";
 
 const mapStateToProps = (state) => {
   return {
@@ -11,10 +11,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addMessage() {
+    add() {
       dispatch(addMessageActionCreator());
     },
-    inputMessage(text) {
+    input(text) {
       dispatch(inputMessageActionCreator(text));
     },
   };
@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch) => {
 export const MakeMessageContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MakeMessage);
+)(Make);

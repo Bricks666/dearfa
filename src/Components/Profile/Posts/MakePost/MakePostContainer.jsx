@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import { addPostActionCreator } from "../../../Redux/ActionCreators/addPost";
-import { inputPostActionCreator } from "../../../Redux/ActionCreators/inputPost";
-import { MakePost } from "./MakePost";
+import { addPostActionCreator } from "../../../../Redux/ActionCreators/addPost";
+import { inputPostActionCreator } from "../../../../Redux/ActionCreators/inputPost";
+import { Make } from "../../../Shared/Make/Make";
 
 const mapStateToProps = (state) => {
   return {
@@ -11,10 +11,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addPost() {
+    add() {
       dispatch(addPostActionCreator());
     },
-    inputPost(text) {
+    input(text) {
       dispatch(inputPostActionCreator(text));
     },
   };
@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch) => {
 export const MakePostContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MakePost);
+)(Make);

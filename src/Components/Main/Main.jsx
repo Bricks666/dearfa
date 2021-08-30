@@ -11,7 +11,7 @@ export function Main(props) {
   return (
     <Switch>
       <Route exact path="/profile/1">
-        <Profile className={props.className} user={props.state.user} />
+        <Profile className={props.className} profile={props.state.profile} />
       </Route>
       <Route path="/dialogs">
         <Dialogs className={props.className} chats={props.state.chats} />

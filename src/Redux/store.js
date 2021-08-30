@@ -5,10 +5,13 @@ import { loginReducers } from "./Reducers/loginReducers";
 import { registrationReducers } from "./Reducers/registrationReducer";
 import { friendsReducers } from "./Reducers/friendsReducers";
 import { profileReducers } from "./Reducers/profileReducers";
+import { userReducers } from "./Reducers/userReducers";
 import { navigationReducers } from "./Reducers/navigationReducers";
+import { initialState } from "./initialState";
 
 const reducers = combineReducers({
-  user: profileReducers,
+  user: userReducers,
+  profile: profileReducers,
   chats: chatsReducers,
   posts: postsReducers,
   friends: friendsReducers,
@@ -17,6 +20,6 @@ const reducers = combineReducers({
   navigation: navigationReducers,
 });
 
-const store = createStore(reducers);
+const store = createStore(reducers, initialState);
 
 export { store };
