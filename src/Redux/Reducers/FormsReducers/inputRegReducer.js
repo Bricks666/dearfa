@@ -1,8 +1,9 @@
-import { INPUT_REG } from "../../Constants";
+import { INPUT_REG } from "../../Constants"; import { deepCopy } from "../../deepCopy";
+
 
 export const inputRegReducer = (state, action) => {
   if (action.type === INPUT_REG) {
-    const newState = Object.assign([], state);
+    const newState = deepCopy(state);
 
     const targetField = newState.find((el) => el.content === action.name);
 

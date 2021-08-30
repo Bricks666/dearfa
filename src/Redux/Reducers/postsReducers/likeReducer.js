@@ -1,5 +1,7 @@
 import { TOGGLE_LIKE } from "../../Constants";
 
+import { deepCopy } from "../../deepCopy";
+
 /* CREATE LIKE OBJECT */
 
 function createLike(isLiked, prevCount) {
@@ -11,7 +13,7 @@ function createLike(isLiked, prevCount) {
 
 export const likeReducer = (state, action) => {
   if (action.type === TOGGLE_LIKE) {
-    const newState = Object.assign({}, state);
+    const newState = deepCopy(state);
 
     const targetPost = newState.list.find((post) => post.id === action.postId);
 

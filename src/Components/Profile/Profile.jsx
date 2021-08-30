@@ -2,7 +2,7 @@ import React from "react";
 import { Picture } from "../Shared/Picture/Picture";
 import { Posts } from "./Posts/Posts";
 import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
-import { UserInfoContainer } from "./UserInfo/UserInfoContainer";
+import { UserInfo } from "./UserInfo/UserInfo";
 
 import ProfileStyle from "./Profile.module.css";
 
@@ -15,7 +15,7 @@ function Profile(props) {
         oneXSrc={props.profile.backgroundPhoto.url}
         alt={props.profile.backgroundPhoto.alt}
       />
-      <UserInfoContainer className={ProfileStyle.userInfo} />
+      <UserInfo className={ProfileStyle.userInfo} user={props.user} />
       <Posts className={ProfileStyle.posts} />
     </main>
   );

@@ -1,4 +1,5 @@
-import { ADD_POST } from "../../Constants";
+import { ADD_POST } from "../../Constants"; import { deepCopy } from "../../deepCopy";
+
 
 function createPost(id, content) {
   return {
@@ -17,7 +18,7 @@ function createPost(id, content) {
 
 export const postReducer = (state, action) => {
   if (action.type === ADD_POST) {
-    const newState = Object.assign({}, state);
+    const newState = deepCopy(state);
     const content = newState.newPostContent;
 
     if (content === undefined || content.text === undefined) {

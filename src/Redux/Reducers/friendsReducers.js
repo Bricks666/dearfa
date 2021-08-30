@@ -30,7 +30,7 @@ const initialState = [
 ];
 
 export const friendsReducers = (state = initialState, action) => {
-  state = removeFriendReducer(state, action);
+  state = state.constructor(...removeFriendReducer(state, action));
 
   return state;
 };
