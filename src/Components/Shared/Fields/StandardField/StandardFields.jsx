@@ -4,19 +4,19 @@ export const StandardField = (props) => {
   const onChange = (evt) => {
     evt.preventDefault();
 
-    props.inputField(props.type, props.fieldInfo.id, evt.target.value);
+    props.inputField(props.type, props.field.id, evt.target.value);
   };
 
   return (
     <label className={`${props.className ?? ""} ${StandardFieldStyle.label}`}>
-      {props.fieldInfo.content}
+      {props.field.content}
       <input
         className={StandardFieldStyle.field}
-        type={props.fieldInfo.type}
-        required={props.fieldInfo.required}
-        value={props.fieldInfo.value ?? ""}
+        type={props.field.type}
+        required={props.field.required}
+        value={props.field.value ?? ""}
         onChange={onChange}
-        autoComplete={props.fieldInfo.autoComplete.toString()}
+        autoComplete={props.field.autoComplete.toString()}
       />
     </label>
   );

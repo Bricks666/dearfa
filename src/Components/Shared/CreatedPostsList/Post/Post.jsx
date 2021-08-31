@@ -1,30 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { LikeContainer } from "./LikeContainer/LikeContainer";
-import { Picture } from "../../Picture/Picture";
-import { ParseDate } from "./ParseDate";
+import { Date } from "../../UserCardParts/Date/Date";
+import { Photo } from "../../UserCardParts/Photo/Photo";
+import { FullName } from "../../UserCardParts/FullName/FullName";
 
 import PostStyle from "./Post.module.css";
 
 function Post(props) {
   return (
     <article className={PostStyle.post}>
-      <Link className={PostStyle.authorLink} to={`/profile`}>
-        <h5 className={PostStyle.author}>{"Цыганков Кирилл"}</h5>
-      </Link>
-
-      <time className={PostStyle.dateTime} dateTime={props.post.date}>
-        {ParseDate(props.post.date)}
-      </time>
-      <Link className={PostStyle.photoLink} to={`/profile`}>
-        <Picture
-          className={`${PostStyle.photo} fake-photo`}
-          oneXSrc={""}
-          twoXSrc=""
-          alt={""}
-        />
-      </Link>
-
+      <FullName
+        className={PostStyle.author}
+        id={1}
+        fullName={"Кирилл Цыганков"}
+      />
+      <Date className={PostStyle.dateTime} date={props.post.date} />
+      <Photo
+        className={PostStyle.photo}
+        image={{ url: "", alt: "" }}
+        id={1}
+        fullName={"Кирилл Цыганков"}
+      />
       <p className={PostStyle.content}>{props.post.content.text}</p>
       <LikeContainer
         className={PostStyle.like}

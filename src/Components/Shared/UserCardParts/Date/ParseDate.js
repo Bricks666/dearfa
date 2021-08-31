@@ -1,4 +1,4 @@
-function ParseDate(date) {
+function parseDate(date) {
   const temp = new Date(date);
 
   function convertingDate(date) {
@@ -15,4 +15,4 @@ function ParseDate(date) {
   return `${hours}:${minutes} ${day}.${month}.${year}`;
 }
 
-export { ParseDate };
+export { parseDate };

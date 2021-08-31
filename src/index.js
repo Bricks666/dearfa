@@ -7,15 +7,11 @@ import { store } from "./Redux/store";
 
 import "./index.css";
 
-function rerenderEntireTree() {
-  return ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App state={store.getState()} dispatch={store.dispatch} />
-      </Provider>
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
-}
-
-rerenderEntireTree();
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App state={store.getState()} dispatch={store.dispatch} />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);

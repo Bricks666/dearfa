@@ -7,13 +7,12 @@ import { inputPostActionCreator } from "./ActionCreators/inputPost";
 import { toggleLikeActionCreator } from "./ActionCreators/toggleLike";
 
 import { inputFormActionCreator } from "./ActionCreators/inputForm";
-import { INPUT_LOGIN } from "./Constants";
 
 import { removeFriendActionCreator } from "./ActionCreators/removeFriend";
 
 export const mapDispatchToProps = (componentName) => {
   switch (componentName) {
-    case "MakeMessage":
+    case "MakeMessage": {
       return (dispatch) => {
         return {
           add() {
@@ -24,7 +23,8 @@ export const mapDispatchToProps = (componentName) => {
           },
         };
       };
-    case "MakePost":
+    }
+    case "MakePost": {
       return (dispatch) => {
         return {
           add() {
@@ -35,7 +35,8 @@ export const mapDispatchToProps = (componentName) => {
           },
         };
       };
-    case "Like":
+    }
+    case "Like": {
       return (dispatch) => {
         return {
           toggle(id) {
@@ -43,15 +44,9 @@ export const mapDispatchToProps = (componentName) => {
           },
         };
       };
+    }
     case "Checkbox":
-      return (dispatch) => {
-        return {
-          onChange(id, isChecked) {
-            dispatch(inputFormActionCreator(INPUT_LOGIN, id, isChecked));
-          },
-        };
-      };
-    case "StandardField":
+    case "StandardField": {
       return (dispatch) => {
         return {
           inputField(type, id, text) {
@@ -59,7 +54,8 @@ export const mapDispatchToProps = (componentName) => {
           },
         };
       };
-    case "FriendsListItem":
+    }
+    case "FriendsListItem": {
       return (dispatch) => {
         return {
           removeFriend(id) {
@@ -67,9 +63,11 @@ export const mapDispatchToProps = (componentName) => {
           },
         };
       };
-    default:
+    }
+    default: {
       return (dispatch) => {
         return {};
       };
+    }
   }
 };

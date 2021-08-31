@@ -1,0 +1,17 @@
+/* LINK */
+
+.link {
+  display: block;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Photo */
+
+.photo {
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+}

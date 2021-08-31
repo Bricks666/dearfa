@@ -1,0 +1,30 @@
+/* ITEM */
+
+.item {
+  display: grid;
+
+  grid-template-columns: min-content 1fr auto;
+
+  column-gap: 16px;
+  row-gap: 10px;
+
+  list-style: none;
+}
+
+.photo {
+  order: -1;
+
+  grid-row: span 3;
+
+  width: 120px;
+  height: 170px;
+}
+
+.aboutUser {
+  grid-column: 2;
+}
+
+.unfollow {
+  grid-row: 3;
+  grid-column: 3;
+}

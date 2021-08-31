@@ -4,7 +4,7 @@ export function Checkbox(props) {
   const toggle = (evt) => {
     evt.preventDefault();
 
-    props.onChange(props.id, evt.target.checked);
+    props.onChange(props.field.type, props.field.id, evt.target.checked);
   };
 
   return (
@@ -13,11 +13,11 @@ export function Checkbox(props) {
         className={CheckboxStyle.input}
         type="checkbox"
         id="checkbox"
-        checked={props.value}
+        checked={props.field.value}
         onChange={toggle}
       />
       <label className={CheckboxStyle.label} htmlFor="checkbox">
-        {props.children}
+        {props.field.content}
       </label>
     </div>
   );

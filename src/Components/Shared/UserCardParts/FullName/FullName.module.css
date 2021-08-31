@@ -1,0 +1,12 @@
+/* LINK */
+
+.link {
+  font-size: 22px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* NAME */
+.name {
+  margin: 0;
+}

@@ -1,8 +1,8 @@
 import React from "react";
-import { FriendsList } from "../Shared/FriendsList/FriendsList";
 import { SubsectionHeader } from "../Shared/SubsectionHeader/SubsectionHeader";
 
 import FavoritFriendsStyle from "./FavoritFriends.module.css";
+import { FavoritFriendsList } from "./FavoritFriendsList/FavoritFriendsList";
 
 function FavoritFriends(props) {
   const friends = props.friends.slice(0, 6);
@@ -14,11 +14,7 @@ function FavoritFriends(props) {
         }`}
       >
         <SubsectionHeader className>Избранные друзья</SubsectionHeader>
-        <FriendsList
-          className={FavoritFriendsStyle.friendsList}
-          size="small"
-          friends={friends}
-        />
+        <FavoritFriendsList friends={props.friends} />
       </aside>
     );
   }

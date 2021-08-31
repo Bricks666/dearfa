@@ -1,3 +1,4 @@
+/*
 import { inputLoginReducer } from "./Reducers/inputLoginReducer";
 import { inputMessageReducer } from "./Reducers/inputMessageReducer";
 import { inputPostReducer } from "./Reducers/inputPostReducer";
@@ -46,7 +47,7 @@ const initialState =  {
           {
             id: 1,
             authorId: 1,
-            content: { text: "sdfsdff" },
+            content: { text: "Неплохо получается" },
           },
           {
             id: 2,
@@ -241,22 +242,22 @@ const initialState =  {
     ],
   },
 
-  /* PUBLIC METHODS */
+  // PUBLIC METHODS
 
-  /* GET STATE */
+  // GET STATE
 
   getState() {
     return this._state;
   },
 
-  /* SUBSCRIBE */
+  // SUBSCRIBE
 
   subscribe(observer) {
     this._callSubscriber = observer;
   },
 
-  /* DISPATCH */
-  /* Action - объект, который обязательно содержит поле type */
+  // DISPATCH
+  // Action - объект, который обязательно содержит поле type
   dispatch(action) {
     this._state.chats = messageReducer(this.getState().chats, action);
     this._state.chats = inputMessageReducer(this.getState().chats, action);
@@ -282,4 +283,4 @@ const initialState =  {
 
 store.dispatch = store.dispatch.bind(store);
 
-export { store };
+export { store }; */

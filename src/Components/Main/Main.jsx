@@ -24,7 +24,7 @@ export function Main(props) {
         <Friends className={props.className} />
       </Route>
       <Route exact path="/news">
-        <News className={props.className} posts={props.state.posts} />
+        <News className={props.className} />
       </Route>
       <Route exact path="/login">
         <LoginContainer className={props.className} />

@@ -1,9 +1,9 @@
 import React from "react";
-import { AboutUser } from "../../Shared/AboutUser/AboutUser";
-import { Picture } from "../../Shared/Picture/Picture";
+import { AboutUser } from "../../Shared/UserCardParts/AboutUser/AboutUser";
 import { SubsectionHeader } from "../../Shared/SubsectionHeader/SubsectionHeader";
 
 import UserInfoStyle from "./UserInfo.module.css";
+import { Photo } from "../../Shared/UserCardParts/Photo/Photo";
 
 function UserInfo(props) {
   return (
@@ -11,12 +11,11 @@ function UserInfo(props) {
       <SubsectionHeader className={`${UserInfoStyle.fullName}`}>
         {props.user.fullName}
       </SubsectionHeader>
-
-      <Picture
-        className={`${UserInfoStyle.photo} fake-photo`}
-        oneXSrc={props.user.avatar.url}
-        twoXSrc=""
-        alt={props.user.avatar.alt}
+      <Photo
+        className={UserInfoStyle.photo}
+        image={props.user.avatar}
+        id={props.user.id}
+        fullName={props.user.fullName}
       />
       <AboutUser
         className={UserInfoStyle.aboutUser}
