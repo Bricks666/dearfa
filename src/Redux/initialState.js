@@ -7,18 +7,20 @@ export const initialState = {
       alt: "Аватарка...",
     },
     about: [
-      { term: "Дата рождения", description: "17.09.2004" },
+      { term: "Дата рождения", description: "17.09.2004", id: 1 },
       {
         term: "Город",
         description: "Калуга",
         href: "https://ru.wikipedia.org/wiki/Калуга",
+        id: 2,
       },
       {
         term: "Учебное заведение",
         description: "Калужский техникум электронных приборов",
         href: "https://ktep40.ru",
+        id: 3,
       },
-      { term: "Сайт", description: "Пусто" },
+      { term: "Сайт", description: "Пусто", id: 4 },
     ],
   },
   profile: {
@@ -65,11 +67,12 @@ export const initialState = {
           url: "/Images/ProfileBackground/SunSet",
         },
         about: [
-          { term: "Дата рождения", description: "12.10.2000" },
+          { term: "Дата рождения", description: "12.10.2000", id: 1 },
           {
             term: "Сайт",
             description: "Wikipedia",
             href: "https://ru.wikipedia.com",
+            id: 2,
           },
         ],
       },
@@ -127,6 +130,7 @@ export const initialState = {
       value: "",
       required: true,
       autoComplete: true,
+      id: 1,
     },
     {
       type: "password",
@@ -134,6 +138,7 @@ export const initialState = {
       value: "",
       required: true,
       autoComplete: true,
+      id: 2,
     },
     {
       type: "checkbox",
@@ -141,6 +146,7 @@ export const initialState = {
       value: false,
       required: false,
       autoComplete: false,
+      id: 3,
     },
     {
       type: "button",
@@ -148,6 +154,7 @@ export const initialState = {
       value: "",
       required: false,
       autoComplete: false,
+      id: 4,
     },
   ],
   registrationFields: [
@@ -157,6 +164,7 @@ export const initialState = {
       value: "",
       required: true,
       autoComplete: false,
+      id: 1,
     },
     {
       type: "text",
@@ -164,6 +172,7 @@ export const initialState = {
       value: "",
       required: true,
       autoComplete: false,
+      id: 2,
     },
     {
       type: "tel",
@@ -171,6 +180,7 @@ export const initialState = {
       value: "",
       required: false,
       autoComplete: false,
+      id: 3,
     },
     {
       type: "email",
@@ -178,6 +188,7 @@ export const initialState = {
       value: "",
       required: true,
       autoComplete: false,
+      id: 4,
     },
     {
       type: "password",
@@ -185,6 +196,7 @@ export const initialState = {
       value: "",
       required: true,
       autoComplete: false,
+      id: 5,
     },
     {
       type: "password",
@@ -192,6 +204,7 @@ export const initialState = {
       value: "",
       required: true,
       autoComplete: false,
+      id: 6,
     },
     {
       type: "button",
@@ -199,32 +212,39 @@ export const initialState = {
       value: "",
       required: false,
       autoComplete: false,
+      id: 7,
     },
   ],
   navigation: [
     {
       path: "/profile/1",
       content: "Профиль",
+      id: 1,
     },
     {
       path: "/dialogs",
       content: "Сообщения",
+      id: 2,
     },
     {
       path: "/friends",
       content: "Друзья",
+      id: 3,
     },
     {
       path: "/news",
       content: "Новости",
+      id: 4,
     },
     {
       path: "/music",
       content: "Музыка",
+      id: 5,
     },
     {
       path: "/settings",
       content: "Настройки",
+      id: 6,
     },
   ],
 };

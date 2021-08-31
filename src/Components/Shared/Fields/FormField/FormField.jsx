@@ -8,7 +8,10 @@ export function FormField(props) {
   switch (props.fieldInfo.type) {
     case "checkbox":
       field = (
-        <CheckboxContainer value={props.fieldInfo.value}>
+        <CheckboxContainer
+          value={props.fieldInfo.value}
+          id={props.fieldInfo.id}
+        >
           {props.fieldInfo.content}
         </CheckboxContainer>
       );

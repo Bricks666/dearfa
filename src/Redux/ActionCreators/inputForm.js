@@ -1,8 +1,7 @@
-export const inputFormActionCreator = (type, name, text) => {
-
+export const inputFormActionCreator = (type, id, text) => {
   return {
     type,
-    name,
+    id,
     text,
   };
 };

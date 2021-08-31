@@ -4,7 +4,7 @@ export const StandardField = (props) => {
   const onChange = (evt) => {
     evt.preventDefault();
 
-    props.inputField(props.type, props.fieldInfo.content, evt.target.value);
+    props.inputField(props.type, props.fieldInfo.id, evt.target.value);
   };
 
   return (

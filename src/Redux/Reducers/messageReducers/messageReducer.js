@@ -1,4 +1,4 @@
-import { ADD_MESSAGE } from "../../Constants"; import { deepCopy } from "../../deepCopy";
+import { ADD_MESSAGE } from "../../Constants";
 
 
 const createMessage = (id, content) => {
@@ -11,20 +11,21 @@ const createMessage = (id, content) => {
 
 export const messageReducer = (state, action) => {
   if (action.type === ADD_MESSAGE) {
-    const newState = deepCopy(state);
-    const value = newState[0].newMessageContent;
+    debugger;
+    const newState = [...state];
 
-    if (newState[0].messages === undefined) {
-      newState[0].messages = [];
-    }
+    const value = { ...newState[0].newMessageContent };
 
     const newMessage = createMessage(newState[0].messages.length + 1, value);
 
-    newState[0].messages.push(newMessage);
-
-    newState[0].newMessageContent = {};
+    newState[0] = {
+      ...state[0],
+      messages: [...state[0].messages, newMessage],
+      newMessageContent: {},
+    };
 
     return newState;
   }
+
   return state;
 };

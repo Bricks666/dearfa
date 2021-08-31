@@ -7,6 +7,7 @@ export const RenderFriends = (friends, size, className) => {
         className={className}
         friend={friend.info}
         size={size}
+        key={friend.info.id}
       />
     );
   });

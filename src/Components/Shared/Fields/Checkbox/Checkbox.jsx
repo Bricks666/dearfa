@@ -4,9 +4,7 @@ export function Checkbox(props) {
   const toggle = (evt) => {
     evt.preventDefault();
 
-
-
-    props.onChange(props.children, evt.target.checked);
+    props.onChange(props.id, evt.target.checked);
   };
 
   return (

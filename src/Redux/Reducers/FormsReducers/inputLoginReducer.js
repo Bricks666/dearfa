@@ -1,13 +1,16 @@
 import { INPUT_LOGIN } from "../../Constants";
-import { deepCopy } from "../../deepCopy";
+
 
 export const inputLoginReducer = (state, action) => {
   if (action.type === INPUT_LOGIN) {
-    const newState = deepCopy(state);
+    debugger;
+    const newState = state.map((el) => {
+      if (el.id === action.id) {
+        return { ...el, value: action.text };
+      }
 
-    const targetField = newState.find((el) => el.content === action.name);
-
-    targetField.value = action.text;
+      return el;
+    });
 
     return newState;
   }

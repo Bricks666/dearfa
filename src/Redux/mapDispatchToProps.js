@@ -46,16 +46,16 @@ export const mapDispatchToProps = (componentName) => {
     case "Checkbox":
       return (dispatch) => {
         return {
-          onChange(name, isChecked) {
-            dispatch(inputFormActionCreator(INPUT_LOGIN, name, isChecked));
+          onChange(id, isChecked) {
+            dispatch(inputFormActionCreator(INPUT_LOGIN, id, isChecked));
           },
         };
       };
     case "StandardField":
       return (dispatch) => {
         return {
-          inputField(type, name, text) {
-            dispatch(inputFormActionCreator(type, name, text));
+          inputField(type, id, text) {
+            dispatch(inputFormActionCreator(type, id, text));
           },
         };
       };

@@ -4,8 +4,8 @@ import { Route } from "react-router-dom";
 export const RenderChat = (chats) => {
   return chats.map((chat) => {
     return (
-      <Route path={`/dialogs/${chat.id}`}>
-        <Chat chat={chat} key={chat.id} />
+      <Route path={`/dialogs/${chat.id}`} key={chat.id}>
+        <Chat chat={chat} />
       </Route>
     );
   });
