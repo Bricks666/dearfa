@@ -17,6 +17,4 @@ function rerenderEntireTree() {
   );
 }
 
-store.subscribe(rerenderEntireTree);
-
 rerenderEntireTree();

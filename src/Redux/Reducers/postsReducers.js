@@ -40,8 +40,8 @@ const initialState = {
 };
 
 export const postsReducers = (state = initialState, action) => {
-  state = state.constructor(...likeReducer(state, action));
-  state = state.constructor(...postReducer(state, action));
-  state = state.constructor(...inputPostReducer(state, action));
+  state = likeReducer(state, action);
+  state = postReducer(state, action);
+  state = inputPostReducer(state, action);
   return state;
 };

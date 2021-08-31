@@ -3,9 +3,9 @@ import { Dialogs } from "../Dialogs/Dialogs";
 import { Friends } from "../Friends/Friends";
 import { News } from "../News/News";
 import { NotFound } from "../NotFound/NotFound";
-import { Login } from "../Login/Login";
-import { Registration } from "../Registration/Registration";
 import { Profile } from "../Profile/Profile";
+import { RegistrationContainer } from "../Registration/RegistrationContainer";
+import { LoginContainer } from "../Login/LoginContainer";
 
 export function Main(props) {
   return (
@@ -21,19 +21,16 @@ export function Main(props) {
         <Dialogs className={props.className} chats={props.state.chats} />
       </Route>
       <Route exact path="/friends">
-        <Friends className={props.className} friends={props.state.friends} />
+        <Friends className={props.className} />
       </Route>
       <Route exact path="/news">
         <News className={props.className} posts={props.state.posts} />
       </Route>
       <Route exact path="/login">
-        <Login className={props.className} fields={props.state.loginFields} />
+        <LoginContainer className={props.className} />
       </Route>
       <Route exact path="/registration">
-        <Registration
-          className={props.className}
-          fields={props.state.registrationFields}
-        />
+        <RegistrationContainer className={props.className} />
       </Route>
       <Route>
         <NotFound className={props.className} />

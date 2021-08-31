@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LikeContainer } from "./Like/LikeContainer";
+import { LikeContainer } from "./LikeContainer/LikeContainer";
 import { Picture } from "../../Picture/Picture";
 import { ParseDate } from "./ParseDate";
 

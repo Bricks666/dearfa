@@ -1,21 +1,10 @@
 import { connect } from "react-redux";
-import { inputFormActionCreator } from "../../../../Redux/ActionCreators/inputForm";
-import { INPUT_LOGIN } from "../../../../Redux/Constants";
 import { Checkbox } from "./Checkbox";
 
-const mapStateToProps = (state) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onChange(name, isChecked) {
-      dispatch(inputFormActionCreator(INPUT_LOGIN, name, isChecked));
-    },
-  };
-};
+import { mapDispatchToProps } from "../../../../Redux/mapDispatchToProps";
+import { mapStateToProps } from "../../../../Redux/mapStateToProps";
 
 export const CheckboxContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps("Checkbox"),
+  mapDispatchToProps("Checkbox")
 )(Checkbox);

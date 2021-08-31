@@ -1,21 +1,9 @@
 import { StandardField } from "./StandardFields";
-import { inputFormActionCreator } from "../../../../Redux/ActionCreators/inputForm";
 import { connect } from "react-redux";
-
-const mapStateToProps = (state) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    inputField(type, name, text) {
-      debugger;
-      dispatch(inputFormActionCreator(type, name, text));
-    },
-  };
-};
+import { mapDispatchToProps } from "../../../../Redux/mapDispatchToProps";
+import { mapStateToProps } from "../../../../Redux/mapStateToProps";
 
 export const StandardFieldContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps("StandardField"),
+  mapDispatchToProps("StandardField")
 )(StandardField);

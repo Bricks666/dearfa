@@ -22,4 +22,6 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, initialState);
 
+window.store = store;
+
 export { store };

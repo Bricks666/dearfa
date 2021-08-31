@@ -1,5 +1,5 @@
 import React from "react";
-import { Messages } from "./Messages/Messages";
+import { MessagesContainer } from "./Messages/MessagesContainer";
 import { MakeMessageContainer } from "./MakeMessage/MakeMessageContainer";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ function Chat(props) {
   return (
     <section className={`${props.className} ${ChatStyle.chat}`}>
       <Link className={ChatStyle.cross} to="/dialogs" />
-      <Messages className={ChatStyle.messages} chat={props.chat} />
+      <MessagesContainer className={ChatStyle.messages} />
 
       <MakeMessageContainer
         className={ChatStyle.makeMessage}

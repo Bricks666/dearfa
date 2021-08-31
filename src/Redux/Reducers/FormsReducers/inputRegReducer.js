@@ -1,5 +1,5 @@
-import { INPUT_REG } from "../../Constants"; import { deepCopy } from "../../deepCopy";
-
+import { INPUT_REG } from "../../Constants";
+import { deepCopy } from "../../deepCopy";
 
 export const inputRegReducer = (state, action) => {
   if (action.type === INPUT_REG) {

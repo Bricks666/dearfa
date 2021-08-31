@@ -1,4 +1,4 @@
-import { CreatedPostsList } from "../Shared/CreatedPostsList/CreatedPostsList";
+import { CreatedPostsListContainer } from "../Shared/CreatedPostsListContainer/CreatedPostsListContainer";
 import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
 
 export function News(props) {
@@ -6,7 +6,7 @@ export function News(props) {
   return (
     <main className={props.className}>
       <SectionHeader>Новости</SectionHeader>
-      <CreatedPostsList posts={props.posts.list} />
+      <CreatedPostsListContainer />
     </main>
   );
 }
