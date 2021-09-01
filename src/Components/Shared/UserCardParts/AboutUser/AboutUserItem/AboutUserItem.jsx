@@ -4,7 +4,7 @@ import AboutUserItemStyle from "./AboutUserItem.module.css";
 
 function AboutUserItem(props) {
   return (
-    <div className={AboutUserItemStyle.interlayer}>
+    <>
       <dt className={AboutUserItemStyle.term}>{props.info.term}:</dt>
       <dd className={AboutUserItemStyle.description}>
         <a
@@ -18,7 +18,7 @@ function AboutUserItem(props) {
           {props.info.description}
         </a>
       </dd>
-    </div>
+    </>
   );
 }
 

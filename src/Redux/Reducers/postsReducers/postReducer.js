@@ -18,7 +18,7 @@ function createPost(id, content) {
 
 export const postReducer = (state, action) => {
   if (action.type === ADD_POST) {
-    debugger;
+
     const content = state.newPostContent;
 
     if (content === undefined || content.text === undefined) {

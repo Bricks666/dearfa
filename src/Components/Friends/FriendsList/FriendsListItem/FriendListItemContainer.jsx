@@ -1,4 +1,4 @@
-import { FriendsListItem } from "./FriendListItem";
+import { FriendsListItem } from "./FriendsListItem";
 import { connect } from "react-redux";
 
 import { mapDispatchToProps } from "../../../../Redux/mapDispatchToProps";

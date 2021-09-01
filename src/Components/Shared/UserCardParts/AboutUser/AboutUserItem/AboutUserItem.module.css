@@ -1,19 +1,7 @@
-/* INTERLAYER */
-
-.interlayer {
-  display: grid;
-
-  grid-template-columns: minmax(max-content, 200px) 1fr;
-
-  column-gap: 10px;
-
-  align-items: end;
-}
-
 /* TERM */
 
 .term {
-  max-width: max-content;
+  width: max-content;
 
   padding: 0;
   margin: 0;
@@ -24,7 +12,7 @@
 /* DESCRIPTION */
 
 .description {
-  max-width: max-content;
+  width: max-content;
 
   padding: 0;
   margin: 0;
@@ -35,7 +23,7 @@
 /* LINK */
 
 .link {
-  max-width: max-content;
+  width: max-content;
 
   color: inherit;
 }

@@ -8,7 +8,7 @@ import { toggleLikeActionCreator } from "./ActionCreators/toggleLike";
 
 import { inputFormActionCreator } from "./ActionCreators/inputForm";
 
-import { removeFriendActionCreator } from "./ActionCreators/removeFriend";
+import { unfollowUserActionCreator } from "./ActionCreators/unfollowUser";
 
 export const mapDispatchToProps = (componentName) => {
   switch (componentName) {
@@ -58,8 +58,8 @@ export const mapDispatchToProps = (componentName) => {
     case "FriendsListItem": {
       return (dispatch) => {
         return {
-          removeFriend(id) {
-            dispatch(removeFriendActionCreator(id));
+          unfollowUser(id) {
+            dispatch(unfollowUserActionCreator(id));
           },
         };
       };

@@ -3,8 +3,14 @@
 .aboutUser {
   display: grid;
 
+  grid-template-columns: minmax(max-content, 200px) 1fr;
+
+  column-gap: 10px;
   row-gap: 10px;
 
   align-items: end;
+
+  width: max-content;
+
   padding: 0;
 }

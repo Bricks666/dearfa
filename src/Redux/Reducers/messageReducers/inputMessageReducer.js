@@ -3,7 +3,7 @@ import { INPUT_MESSAGE } from "../../Constants";
 
 export const inputMessageReducer = (state, action) => {
   if (action.type === INPUT_MESSAGE) {
-    debugger;
+
     const newState = [...state];
     newState[0] = {
       ...state[0],

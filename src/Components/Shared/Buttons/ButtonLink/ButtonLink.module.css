@@ -1,6 +1,8 @@
-/* BUTTON */
+/* LINK */
 
-.button {
+.link {
+  display: inline-block;
+
   padding: 10px 20px;
 
   border-radius: 0;
@@ -8,8 +10,10 @@
 
   background-color: var(--blue-light);
 
+  font-size: 11px;
   color: var(--white-lighter);
-  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
 
   filter: drop-shadow(1px 1px 1px var(--blue-lighter));
 
@@ -18,6 +22,6 @@
   transition-duration: 0.15s;
 }
 
-.button:hover {
+.link:hover {
   background-color: var(--blue);
 }

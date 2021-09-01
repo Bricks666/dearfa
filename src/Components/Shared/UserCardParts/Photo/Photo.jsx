@@ -4,6 +4,7 @@ import { Picture } from "../../Picture/Picture";
 import PhotoStyle from "./Photo.module.css";
 
 export const Photo = (props) => {
+
   return (
     <Link
       className={`${PhotoStyle.link} ${props.className ?? ""}`}

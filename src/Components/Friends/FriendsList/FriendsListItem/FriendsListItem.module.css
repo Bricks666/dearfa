@@ -1,0 +1,34 @@
+/* ITEM */
+
+.itemWrapper {
+  display: grid;
+
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: auto max-content max-content;
+
+  row-gap: 10px;
+
+  list-style: none;
+}
+
+/* ITEM */
+
+.item {
+  grid-column: 1;
+
+  grid-row: 1 / -1;
+}
+
+/* LINK */
+
+.link {
+  grid-column: 2;
+  grid-row: -3;
+}
+
+/* BUTTON */
+
+.button {
+  grid-column: 2;
+  grid-row: -2;
+}

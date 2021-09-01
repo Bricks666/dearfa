@@ -1,6 +1,8 @@
 /* LINK */
 
 .link {
+  width: max-content;
+
   font-size: 22px;
   text-decoration: none;
   color: inherit;

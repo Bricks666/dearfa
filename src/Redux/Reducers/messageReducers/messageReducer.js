@@ -11,7 +11,7 @@ const createMessage = (id, content) => {
 
 export const messageReducer = (state, action) => {
   if (action.type === ADD_MESSAGE) {
-    debugger;
+
     const newState = [...state];
 
     const value = { ...newState[0].newMessageContent };

@@ -1,6 +1,6 @@
 import { FriendListItemContainer } from "./FriendsListItem/FriendListItemContainer";
 
-export const RenderFriends = (friends, className) => {
+export const renderFriendsList = (friends, className) => {
   return friends.map((friend) => {
     return (
       <FriendListItemContainer

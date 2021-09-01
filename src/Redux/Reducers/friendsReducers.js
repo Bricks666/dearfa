@@ -1,4 +1,4 @@
-import { removeFriendReducer } from "./FriendReducers/removeFriendReducer";
+import { unfollowUserReducer } from "./FriendReducers/unfollowUserReducer";
 
 const initialState = [
   {
@@ -30,7 +30,7 @@ const initialState = [
 ];
 
 export const friendsReducers = (state = initialState, action) => {
-  state = removeFriendReducer(state, action);
+  state = unfollowUserReducer(state, action);
 
   return state;
 };

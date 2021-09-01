@@ -6,6 +6,7 @@ import { NotFound } from "../NotFound/NotFound";
 import { Profile } from "../Profile/Profile";
 import { RegistrationContainer } from "../Registration/RegistrationContainer";
 import { LoginContainer } from "../Login/LoginContainer";
+import { Users } from "../Users/Users";
 
 export function Main(props) {
   return (
@@ -31,6 +32,9 @@ export function Main(props) {
       </Route>
       <Route exact path="/registration">
         <RegistrationContainer className={props.className} />
+      </Route>
+      <Route path="/users">
+        <Users className={props.className} users={props.state.friends} />
       </Route>
       <Route>
         <NotFound className={props.className} />

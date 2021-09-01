@@ -3,7 +3,9 @@
 .list {
   display: grid;
 
-  row-gap: 20px;
+  row-gap: 10px;
 
+  margin: 0;
+  margin-left: 20px;
   padding: 0;
 }

@@ -13,7 +13,7 @@ function createLike(isLiked, prevCount) {
 
 export const likeReducer = (state, action) => {
   if (action.type === TOGGLE_LIKE) {
-    debugger;
+
     const newState = {
       ...state,
       list: [...state.list].map((post) => {
