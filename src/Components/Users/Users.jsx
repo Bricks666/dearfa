@@ -1,11 +1,14 @@
 import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
-import { UsersList } from "./UsersList/UsersList";
+import { UsersLIstContainer } from "./UsersListContainer/UsersListContainer";
+import { UsersListItemContainer } from "./UsersListItemContainer/UsersListItemContainer";
 
 export const Users = (props) => {
   return (
     <main className={props.className}>
       <SectionHeader>Все пользователи</SectionHeader>
-      <UsersList users={props.users} />
+      <UsersLIstContainer
+        render={(props) => <UsersListItemContainer {...props} />}
+      />
     </main>
   );
 };

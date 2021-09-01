@@ -36,7 +36,7 @@ export const initialState = {
         {
           id: 1,
           authorId: 1,
-          content: { text: "sdfsdff" },
+          content: { text: "Привет" },
         },
         {
           id: 2,
@@ -58,8 +58,9 @@ export const initialState = {
       ],
     },
   ],
-  friends: [
+  users: [
     {
+      isFriend: false,
       info: {
         id: 2,
         fullName: "Антонина",
@@ -87,6 +88,7 @@ export const initialState = {
       posts: [],
     },
     {
+      isFriend: true,
       info: {
         id: 3,
         fullName: "Антонина",
@@ -114,6 +116,7 @@ export const initialState = {
       posts: [],
     },
     {
+      isFriend: false,
       info: {
         id: 4,
         fullName: "Антонина",
@@ -141,6 +144,7 @@ export const initialState = {
       posts: [],
     },
     {
+      isFriend: true,
       info: {
         id: 5,
         fullName: "Антонина",
@@ -168,6 +172,7 @@ export const initialState = {
       posts: [],
     },
   ],
+
   posts: {
     list: [
       {

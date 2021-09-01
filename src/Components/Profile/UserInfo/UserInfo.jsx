@@ -17,10 +17,7 @@ function UserInfo(props) {
         id={props.user.id}
         fullName={props.user.fullName}
       />
-      <AboutUser
-        className={UserInfoStyle.aboutUser}
-        aboutUser={props.user.about}
-      />
+      <AboutUser className={UserInfoStyle.aboutUser} about={props.user.about} />
     </div>
   );
 }

@@ -6,7 +6,9 @@ export const RenderFields = (fields, actionType, className) => {
   return fields.map((field) => {
     switch (field.type) {
       case "checkbox": {
-        return <CheckboxContainer field={field} key={field.id} />;
+        return (
+          <CheckboxContainer field={field} type={actionType} key={field.id} />
+        );
       }
       case "button": {
         return <Button key={field.id}>{field.content}</Button>;

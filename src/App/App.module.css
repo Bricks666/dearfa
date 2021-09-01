@@ -32,12 +32,15 @@
 
 .main {
   grid-area: main;
+
+  padding-bottom: 50px;
 }
 
 /* LAST FRIENDS */
 
 .lastFriends {
   grid-area: friends;
+
   max-height: max-content;
 }
 

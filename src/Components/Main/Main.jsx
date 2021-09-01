@@ -34,7 +34,7 @@ export function Main(props) {
         <RegistrationContainer className={props.className} />
       </Route>
       <Route path="/users">
-        <Users className={props.className} users={props.state.friends} />
+        <Users className={props.className} />
       </Route>
       <Route>
         <NotFound className={props.className} />

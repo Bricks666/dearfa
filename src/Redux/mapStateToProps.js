@@ -28,11 +28,24 @@ export const mapStateToProps = (componentName) => {
         };
       };
     }
-    case "FavoritFriends":
+    case "FavoritFriends": {
+      return (state) => {
+        return {
+          users: state.users.filter((user) => user.isFriend).slice(0, 6),
+        };
+      };
+    }
     case "FriendsList": {
       return (state) => {
         return {
-          friends: state.friends,
+          users: state.users.filter((user) => user.isFriend),
+        };
+      };
+    }
+    case "FriendsListItem": {
+      return () => {
+        return {
+          isFriend: true,
         };
       };
     }
@@ -47,6 +60,20 @@ export const mapStateToProps = (componentName) => {
       return (state) => {
         return {
           fields: state.loginFields,
+        };
+      };
+    }
+    case "UsersList": {
+      return (state) => {
+        return {
+          users: state.users,
+        };
+      };
+    }
+    case "UsersListItem": {
+      return (state, ownProps) => {
+        return {
+          isFriend: ownProps.user.isFriend,
         };
       };
     }

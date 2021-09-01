@@ -1,20 +1,24 @@
 import React from "react";
 import { SubsectionHeader } from "../Shared/SubsectionHeader/SubsectionHeader";
+import { UsersList } from "../Shared/UsersList/UsersList";
+import { FavoritFriendsListItem } from "./FavoritFriendsListItem/FavoritFriendsListItem";
 
 import FavoritFriendsStyle from "./FavoritFriends.module.css";
-import { FavoritFriendsList } from "./FavoritFriendsList/FavoritFriendsList";
 
 function FavoritFriends(props) {
-  const friends = props.friends.slice(0, 6);
-  if (friends.length !== 0) {
+  if (props.users.length !== 0) {
     return (
       <aside
         className={`${FavoritFriendsStyle.lastCommunications} ${
           props.className ?? ""
         }`}
       >
-        <SubsectionHeader className>Избранные друзья</SubsectionHeader>
-        <FavoritFriendsList friends={props.friends} />
+        <SubsectionHeader>Избранные друзья</SubsectionHeader>
+        <UsersList
+          className={FavoritFriendsStyle.list}
+          users={props.users}
+          render={(props) => <FavoritFriendsListItem {...props} />}
+        />
       </aside>
     );
   }

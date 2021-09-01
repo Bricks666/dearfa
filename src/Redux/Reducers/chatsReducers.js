@@ -1,5 +1,5 @@
-import { inputMessageReducer } from "./messageReducers/inputMessageReducer";
-import { messageReducer } from "./messageReducers/messageReducer";
+import { inputMessageReducer } from "./MessageReducers/inputMessageReducer";
+import { messageReducer } from "./MessageReducers/messageReducer";
 
 const initialState = [
   {
@@ -8,7 +8,7 @@ const initialState = [
       {
         id: 1,
         authorId: 1,
-        content: { text: "sdfsdff" },
+        content: { text: "Привет" },
       },
       {
         id: 2,

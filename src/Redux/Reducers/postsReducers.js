@@ -1,6 +1,6 @@
-import { likeReducer } from "./postsReducers/likeReducer";
-import { postReducer } from "./postsReducers/postReducer";
-import { inputPostReducer } from "./postsReducers/inputPostReducer";
+import { likeReducer } from "./PostsReducers/likeReducer";
+import { postReducer } from "./PostsReducers/postReducer";
+import { inputPostReducer } from "./PostsReducers/inputPostReducer";
 
 const initialState = {
   list: [

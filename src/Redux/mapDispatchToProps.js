@@ -9,6 +9,7 @@ import { toggleLikeActionCreator } from "./ActionCreators/toggleLike";
 import { inputFormActionCreator } from "./ActionCreators/inputForm";
 
 import { unfollowUserActionCreator } from "./ActionCreators/unfollowUser";
+import { followUserActionCreator } from "./ActionCreators/followUser";
 
 export const mapDispatchToProps = (componentName) => {
   switch (componentName) {
@@ -60,6 +61,18 @@ export const mapDispatchToProps = (componentName) => {
         return {
           unfollowUser(id) {
             dispatch(unfollowUserActionCreator(id));
+          },
+        };
+      };
+    }
+    case "UsersListItem": {
+      return (dispatch) => {
+        return {
+          unfollowUser(id) {
+            dispatch(unfollowUserActionCreator(id));
+          },
+          followUser(id) {
+            dispatch(followUserActionCreator(id));
           },
         };
       };
