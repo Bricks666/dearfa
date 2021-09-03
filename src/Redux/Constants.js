@@ -3,6 +3,7 @@ export const TOGGLE_LIKE = "TOGGLE-LIKE";
 export const ADD_MESSAGE = "ADD-MESSAGE";
 export const ADD_POST = "ADD-POST";
 
+export const SET_USERS = "SET_USERS";
 export const UNFOLLOW_USER = "UNFOLLOW_USER";
 export const FOLLOW_USER = "FOLLOW USER";
 

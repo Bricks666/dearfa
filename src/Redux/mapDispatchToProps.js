@@ -11,6 +11,8 @@ import { inputFormActionCreator } from "./ActionCreators/inputForm";
 import { unfollowUserActionCreator } from "./ActionCreators/unfollowUser";
 import { followUserActionCreator } from "./ActionCreators/followUser";
 
+import { setUsersActionCreator } from "./ActionCreators/setUsers";
+
 export const mapDispatchToProps = (componentName) => {
   switch (componentName) {
     case "MakeMessage": {
@@ -73,6 +75,15 @@ export const mapDispatchToProps = (componentName) => {
           },
           followUser(id) {
             dispatch(followUserActionCreator(id));
+          },
+        };
+      };
+    }
+    case "MoreUsers": {
+      return (dispatch) => {
+        return {
+          onClick(users) {
+            dispatch(setUsersActionCreator(users));
           },
         };
       };

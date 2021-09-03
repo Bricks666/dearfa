@@ -1,6 +1,5 @@
-import { INPUT_LOGIN } from "../../Redux/Constants";
 import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
-import { RenderFields } from "../Shared/Fields/RenderFields";
+import { renderLoginFields } from "./RenderLoginFields";
 
 import LoginStyle from "./Login.module.css";
 
@@ -9,7 +8,10 @@ export function Login(props) {
     <main className={`${props.className} ${LoginStyle.main}`}>
       <SectionHeader className={LoginStyle.header}>Вход</SectionHeader>
       <form className={LoginStyle.form}>
-        {RenderFields(props.fields, INPUT_LOGIN, LoginStyle.field)}
+        {renderLoginFields(props.fields, {
+          standard: LoginStyle.field,
+          button: LoginStyle.button,
+        })}
       </form>
     </main>
   );

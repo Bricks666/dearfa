@@ -70,10 +70,12 @@ export const mapStateToProps = (componentName) => {
         };
       };
     }
-    case "UsersListItem": {
+    case "Dialog": {
       return (state, ownProps) => {
         return {
-          isFriend: ownProps.user.isFriend,
+          companion:
+            state.users.find((user) => user.info.id === ownProps.id)?.info ??
+            state.user.info,
         };
       };
     }

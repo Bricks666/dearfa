@@ -8,7 +8,7 @@ import UsersListItemStyle from "./UsersListItem.module.css";
 
 export const UsersListItem = (props) => {
   const onClick = () => {
-    return props[props.isFriend ? "unfollowUser" : "followUser"](
+    return props[props.user.isFriend ? "unfollowUser" : "followUser"](
       props.user.info.id
     );
   };
@@ -36,7 +36,7 @@ export const UsersListItem = (props) => {
         Написать
       </ButtonLink>
       <Button className={UsersListItemStyle.button} onClick={onClick}>
-        {props.isFriend ? "Удалить из друзей" : "Добавить в друзья"}
+        {props.user.isFriend ? "Удалить из друзей" : "Добавить в друзья"}
       </Button>
     </li>
   );

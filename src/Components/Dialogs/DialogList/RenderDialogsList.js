@@ -1,7 +1,9 @@
-import { Dialog } from "./Dialog/Dialog";
+import { DialogContainer } from "./Dialog/DialogContainer";
 
-export const RenderDialogsList = (dialogs, className) => {
+export const renderDialogsList = (dialogs, className) => {
   return dialogs.map((dialog) => {
-    return <Dialog className={className} dialog={dialog} key={dialog.id} />;
+    return (
+      <DialogContainer className={className} id={dialog.id} key={dialog.id} />
+    );
   });
 };

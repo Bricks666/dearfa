@@ -1,0 +1,22 @@
+/* USERS */
+
+.users {
+  display: grid;
+}
+
+/* LIST */
+
+.list {
+}
+
+/* BUTTON */
+
+.button {
+  justify-self: center;
+
+  width: 200px;
+
+  font-size: 24px;
+
+  margin-top: 50px;
+}

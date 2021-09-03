@@ -1,6 +1,5 @@
 import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
-import { RenderFields } from "../Shared/Fields/RenderFields";
-import { INPUT_REG } from "../../Redux/Constants";
+import { renderRegFields } from "./RenderRegFields";
 
 import RegistrationStyle from "./Registration.module.css";
 
@@ -11,7 +10,7 @@ export function Registration(props) {
         Регистрация
       </SectionHeader>
       <form className={RegistrationStyle.form}>
-        {RenderFields(props.fields, INPUT_REG)}
+        {renderRegFields(props.fields, { button: RegistrationStyle.button })}
       </form>
     </main>
   );

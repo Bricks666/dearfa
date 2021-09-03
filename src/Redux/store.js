@@ -7,14 +7,14 @@ import { profileReducers } from "./Reducers/profileReducers";
 import { userReducers } from "./Reducers/userReducers";
 import { navigationReducers } from "./Reducers/navigationReducers";
 import { initialState } from "./initialState";
-import { usersReducers } from "./Reducers/usersReducers";
+import { usersListReducers } from "./Reducers/usersListReducers";
 
 const reducers = combineReducers({
   user: userReducers,
   profile: profileReducers,
   chats: chatsReducers,
   posts: postsReducers,
-  users: usersReducers,
+  users: usersListReducers,
   loginFields: loginReducers,
   registrationFields: registrationReducers,
   navigation: navigationReducers,

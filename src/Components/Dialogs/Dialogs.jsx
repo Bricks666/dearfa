@@ -10,7 +10,7 @@ function Dialogs(props) {
   return (
     <main className={`${props.className ?? ""} ${DialogsStyle.dialogs}`}>
       <SectionHeader className={DialogsStyle.heading}>Диалоги</SectionHeader>
-      <DialogList className={DialogsStyle.dialogList} chats={props.chats} />
+      <DialogList className={DialogsStyle.dialogList} dialogs={props.chats} />
       <Switch>{RenderChat(props.chats)}</Switch>
     </main>
   );

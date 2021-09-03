@@ -1,4 +1,5 @@
 import { followUserReducer } from "./UsersReducers/followUserReducer";
+import { setUsersReducer } from "./UsersReducers/setUsers";
 import { unfollowUserReducer } from "./UsersReducers/unfollowUserReducer";
 
 const initialState = [
@@ -112,9 +113,10 @@ const initialState = [
   },
 ];
 
-export const usersReducers = (state = initialState, action) => {
+export const usersListReducers = (state = initialState, action) => {
   state = followUserReducer(state, action);
   state = unfollowUserReducer(state, action);
+  state = setUsersReducer(state, action);
 
   return state;
 };
