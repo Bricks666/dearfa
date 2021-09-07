@@ -31,21 +31,14 @@ export const mapStateToProps = (componentName) => {
     case "FavoritFriends": {
       return (state) => {
         return {
-          users: state.users.filter((user) => user.isFriend).slice(0, 6),
+          users: state.users.filter((user) => user.followed).slice(0, 6),
         };
       };
     }
     case "FriendsList": {
       return (state) => {
         return {
-          users: state.users.filter((user) => user.isFriend),
-        };
-      };
-    }
-    case "FriendsListItem": {
-      return () => {
-        return {
-          isFriend: true,
+          users: state.users.filter((user) => user.followed),
         };
       };
     }
@@ -74,8 +67,7 @@ export const mapStateToProps = (componentName) => {
       return (state, ownProps) => {
         return {
           companion:
-            state.users.find((user) => user.info.id === ownProps.id)?.info ??
-            state.user.info,
+            state.users.find((user) => user.id === ownProps.id) ?? state.user,
         };
       };
     }

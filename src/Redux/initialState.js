@@ -1,27 +1,12 @@
 export const initialState = {
   user: {
     id: 1,
-    fullName: "Кирилл Цыганков",
-    avatar: {
-      url: "/Images/Ava/Cosmic-animals",
+    name: "Кирилл Цыганков",
+    photos: {
+      large: "/Images/Ava/Cosmic-animals",
       alt: "Аватарка...",
     },
-    about: [
-      { term: "Дата рождения", description: "17.09.2004", id: 1 },
-      {
-        term: "Город",
-        description: "Калуга",
-        href: "https://ru.wikipedia.org/wiki/Калуга",
-        id: 2,
-      },
-      {
-        term: "Учебное заведение",
-        description: "Калужский техникум электронных приборов",
-        href: "https://ktep40.ru",
-        id: 3,
-      },
-      { term: "Сайт", description: "Пусто", id: 4 },
-    ],
+    followed: false,
   },
   profile: {
     backgroundPhoto: {
@@ -58,120 +43,7 @@ export const initialState = {
       ],
     },
   ],
-  users: [
-    {
-      isFriend: false,
-      info: {
-        id: 2,
-        fullName: "Антонина",
-        avatar: {
-          url: "/Images/ProfileBackground/SunSet",
-        },
-        about: [
-          { term: "Дата рождения", description: "12.10.2000", id: 1 },
-          {
-            term: "Сайт",
-            description: "Wikipedia",
-            href: "https://ru.wikipedia.com",
-            id: 2,
-          },
-        ],
-      },
-      profile: {
-        backgroundPhoto: {
-          url: "/Images/ProfileBackground/SunSet",
-          alt: "Ваш фон...",
-        },
-      },
-      chats: [],
-      friends: [],
-      posts: [],
-    },
-    {
-      isFriend: true,
-      info: {
-        id: 3,
-        fullName: "Антонина",
-        avatar: {
-          url: "/Images/ProfileBackground/SunSet",
-        },
-        about: [
-          { term: "Дата рождения", description: "12.10.2000", id: 1 },
-          {
-            term: "Сайт",
-            description: "Wikipedia",
-            href: "https://ru.wikipedia.com",
-            id: 2,
-          },
-        ],
-      },
-      profile: {
-        backgroundPhoto: {
-          url: "/Images/ProfileBackground/SunSet",
-          alt: "Ваш фон...",
-        },
-      },
-      chats: [],
-      friends: [],
-      posts: [],
-    },
-    {
-      isFriend: false,
-      info: {
-        id: 4,
-        fullName: "Антонина",
-        avatar: {
-          url: "/Images/ProfileBackground/SunSet",
-        },
-        about: [
-          { term: "Дата рождения", description: "12.10.2000", id: 1 },
-          {
-            term: "Сайт",
-            description: "Wikipedia",
-            href: "https://ru.wikipedia.com",
-            id: 2,
-          },
-        ],
-      },
-      profile: {
-        backgroundPhoto: {
-          url: "/Images/ProfileBackground/SunSet",
-          alt: "Ваш фон...",
-        },
-      },
-      chats: [],
-      friends: [],
-      posts: [],
-    },
-    {
-      isFriend: true,
-      info: {
-        id: 5,
-        fullName: "Антонина",
-        avatar: {
-          url: "/Images/ProfileBackground/SunSet",
-        },
-        about: [
-          { term: "Дата рождения", description: "12.10.2000", id: 1 },
-          {
-            term: "Сайт",
-            description: "Wikipedia",
-            href: "https://ru.wikipedia.com",
-            id: 2,
-          },
-        ],
-      },
-      profile: {
-        backgroundPhoto: {
-          url: "/Images/ProfileBackground/SunSet",
-          alt: "Ваш фон...",
-        },
-      },
-      chats: [],
-      friends: [],
-      posts: [],
-    },
-  ],
+  users: [],
 
   posts: {
     list: [

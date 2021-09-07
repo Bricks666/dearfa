@@ -6,7 +6,7 @@ export const renderUsersList = (render, users, ...className) => {
       className: className?.reduce((totalClassName, className) => {
         return `${totalClassName} ${className}`;
       }, ""),
-      key: user.info.id,
+      key: user.id,
       user: user,
     });
   });

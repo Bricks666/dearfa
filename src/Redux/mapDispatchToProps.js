@@ -58,6 +58,15 @@ export const mapDispatchToProps = (componentName) => {
         };
       };
     }
+    case "FriendsList": {
+      return (dispatch) => {
+        return {
+          setUsers(users) {
+            dispatch(setUsersActionCreator(users));
+          },
+        };
+      };
+    }
     case "FriendsListItem": {
       return (dispatch) => {
         return {
@@ -83,6 +92,15 @@ export const mapDispatchToProps = (componentName) => {
       return (dispatch) => {
         return {
           onClick(users) {
+            dispatch(setUsersActionCreator(users));
+          },
+        };
+      };
+    }
+    case "UsersList": {
+      return (dispatch) => {
+        return {
+          setUsers(users) {
             dispatch(setUsersActionCreator(users));
           },
         };

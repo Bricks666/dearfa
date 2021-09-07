@@ -9,13 +9,13 @@ function UserInfo(props) {
   return (
     <div className={`${props.className ?? ""} ${UserInfoStyle.userInfo}`}>
       <SubsectionHeader className={`${UserInfoStyle.fullName}`}>
-        {props.user.fullName}
+        {props.user.name}
       </SubsectionHeader>
       <Photo
         className={UserInfoStyle.photo}
-        image={props.user.avatar}
+        image={props.user.photos}
         id={props.user.id}
-        fullName={props.user.fullName}
+        fullName={props.user.name}
       />
       <AboutUser className={UserInfoStyle.aboutUser} about={props.user.about} />
     </div>

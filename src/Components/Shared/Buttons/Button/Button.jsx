@@ -7,7 +7,7 @@ function Button(props) {
 
   if (props.onClick !== undefined) {
     onClick = (evt) => {
-      props.onClick(props.data ?? evt);
+      props.onClick(evt);
     };
   }
 

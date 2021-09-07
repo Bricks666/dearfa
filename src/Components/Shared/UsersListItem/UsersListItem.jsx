@@ -8,8 +8,8 @@ import UsersListItemStyle from "./UsersListItem.module.css";
 
 export const UsersListItem = (props) => {
   const onClick = () => {
-    return props[props.user.isFriend ? "unfollowUser" : "followUser"](
-      props.user.info.id
+    return props[props.user.followed ? "unfollowUser" : "followUser"](
+      props.user.id
     );
   };
 
@@ -17,26 +17,26 @@ export const UsersListItem = (props) => {
     <li
       className={`${UsersListItemStyle.itemWrapper} ${props.className ?? ""}`}
     >
-      <FullName id={props.user.info.id} fullName={props.user.info.fullName} />
+      <FullName id={props.user.id} fullName={props.user.name} />
       <Photo
         className={UsersListItemStyle.photo}
-        id={props.user.info.id}
-        fullName={props.user.info.fullName}
-        image={props.user.info.avatar}
+        id={props.user.id}
+        fullName={props.user.name}
+        image={props.user.photos}
       />
 
       <AboutUser
         className={UsersListItemStyle.aboutUser}
-        about={props.user.info.about}
+        about={props.user.about}
       />
       <ButtonLink
         className={UsersListItemStyle.link}
-        to={`/dialogs/${props.user.info.id}`}
+        to={`/dialogs/${props.user.id}`}
       >
         Написать
       </ButtonLink>
       <Button className={UsersListItemStyle.button} onClick={onClick}>
-        {props.user.isFriend ? "Удалить из друзей" : "Добавить в друзья"}
+        {props.user.followed ? "Удалить из друзей" : "Добавить в друзья"}
       </Button>
     </li>
   );

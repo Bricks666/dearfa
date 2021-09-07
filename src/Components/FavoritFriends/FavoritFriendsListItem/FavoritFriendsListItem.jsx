@@ -7,9 +7,9 @@ export const FavoritFriendsListItem = (props) => {
     <li className={props.className}>
       <Photo
         className={FavoritFriendsListItemStyle.photo}
-        image={props.user.info.avatar}
-        id={props.user.info.id}
-        fullName={props.user.info.fullName}
+        image={props.user.photos}
+        id={props.user.id}
+        fullName={props.user.name}
       />
     </li>
   );

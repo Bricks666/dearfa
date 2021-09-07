@@ -12,8 +12,8 @@ function Profile(props) {
       <SectionHeader className="visibility-hidden">Профиль</SectionHeader>
       <Picture
         className={`${ProfileStyle.image} fake-photo`}
-        oneXSrc={props.profile.backgroundPhoto.url}
-        alt={props.profile.backgroundPhoto.alt}
+        oneXSrc={props.user.background ?? "/Images/ProfileBackground/SunSet"}
+        alt={""}
       />
       <UserInfo className={ProfileStyle.userInfo} user={props.user} />
       <Posts className={ProfileStyle.posts} />
