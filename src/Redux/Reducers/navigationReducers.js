@@ -1,30 +1,5 @@
-const initialState = [
-  {
-    path: "/profile/1",
-    content: "Профиль",
-  },
-  {
-    path: "/dialogs",
-    content: "Сообщения",
-  },
-  {
-    path: "/friends",
-    content: "Друзья",
-  },
-  {
-    path: "/news",
-    content: "Новости",
-  },
-  {
-    path: "/music",
-    content: "Музыка",
-  },
-  {
-    path: "/settings",
-    content: "Настройки",
-  },
-];
+import { initialState } from "../initialState";
 
-export const navigationReducers = (state = initialState, action) => {
+export const navigationReducers = (state = initialState.navigation, action) => {
   return state;
 };

@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import { Messages } from "./Messages";
-
-import { mapDispatchToProps } from "../../../../Redux/mapDispatchToProps";
-import { mapStateToProps } from "../../../../Redux/mapStateToProps";
+import { MESSAGES } from "../../../../Redux/ToProps/componentsConstants";
+import { mapDispatchToProps } from "../../../../Redux/ToProps/mapDispatchToProps";
+import { mapStateToProps } from "../../../../Redux/ToProps/mapStateToProps";
 
 export const MessagesContainer = connect(
-  mapStateToProps("Messages"),
-  mapDispatchToProps("Messages")
+  mapStateToProps(MESSAGES),
+  mapDispatchToProps(MESSAGES)
 )(Messages);

@@ -1,4 +1,4 @@
-import { INPUT_POST } from "../Constants";
+import { INPUT_POST } from "./Constants";
 
 export const inputPostActionCreator = (value) => {
   return {

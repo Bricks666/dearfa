@@ -1,10 +1,5 @@
-const initialState = {
-  backgroundPhoto: {
-    url: "/Images/ProfileBackground/SunSet",
-    alt: "Ваш фон...",
-  },
-};
+import { initialState } from "../initialState";
 
-export const profileReducers = (state = initialState, action) => {
+export const profileReducers = (state = initialState.profile, action) => {
   return state;
 };

@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import { UsersList } from "../../Shared/UsersList/UsersList";
-
-import { mapDispatchToProps } from "../../../Redux/mapDispatchToProps";
-import { mapStateToProps } from "../../../Redux/mapStateToProps";
+import { USERS_LIST } from "../../../Redux/ToProps/componentsConstants";
+import { mapDispatchToProps } from "../../../Redux/ToProps/mapDispatchToProps";
+import { mapStateToProps } from "../../../Redux/ToProps/mapStateToProps";
+import { UsersListClass } from "../UsersListClass/UsersListClass";
 
 export const UsersListContainer = connect(
-  mapStateToProps("UsersList"),
-  mapDispatchToProps("UsersList")
-)(UsersList);
+  mapStateToProps(USERS_LIST),
+  mapDispatchToProps(USERS_LIST)
+)(UsersListClass);

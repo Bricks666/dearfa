@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import { Header } from "../Components/Header/Header";
 import { Navigation } from "../Components/Navigation/Navigation";
 import { Main } from "../Components/Main/Main";
@@ -17,6 +22,7 @@ function App(props) {
           className={AppStyle.nav}
           navigationItems={props.state.navigation}
         />
+        <Redirect exact from="/" to="/profile" />
         <Main
           className={AppStyle.main}
           state={props.state}

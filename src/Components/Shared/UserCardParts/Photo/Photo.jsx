@@ -4,7 +4,6 @@ import { Picture } from "../../Picture/Picture";
 import PhotoStyle from "./Photo.module.css";
 
 export const Photo = (props) => {
-  console.log(props);
   return (
     <Link
       className={`${PhotoStyle.link} ${props.className ?? ""}`}
@@ -14,7 +13,9 @@ export const Photo = (props) => {
       <Picture
         className={`fake-photo ${PhotoStyle.photo}`}
         oneXSrc={
-          props.image.large ?? props.image.small ?? "/Images/ProfileBackground/SunSet"
+          props.image.large ??
+          props.image.small ??
+          "/Images/ProfileBackground/SunSet"
         }
         alt={props.fullName}
       />

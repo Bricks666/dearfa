@@ -2,6 +2,8 @@
 
 .users {
   display: grid;
+
+  row-gap: 50px;
 }
 
 /* LIST */
@@ -15,8 +17,7 @@
   justify-self: center;
 
   width: 200px;
+  height: min-content;
 
   font-size: 24px;
-
-  margin-top: 50px;
 }

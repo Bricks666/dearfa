@@ -1,4 +1,4 @@
-import { INPUT_LOGIN } from "../../Constants";
+import { INPUT_LOGIN } from "../../Actions/Constants";
 
 
 export const inputLoginReducer = (state, action) => {

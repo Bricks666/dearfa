@@ -43,7 +43,14 @@ export const initialState = {
       ],
     },
   ],
-  users: [],
+  users: {
+    list: [],
+    totalUsers: 0,
+    pageCount: 0,
+    currentPage: 1,
+    usersCount: 10,
+    isLoading: false,
+  },
 
   posts: {
     list: [
@@ -175,7 +182,7 @@ export const initialState = {
   ],
   navigation: [
     {
-      path: "/profile/1",
+      path: "/profile",
       content: "Профиль",
       id: 1,
     },

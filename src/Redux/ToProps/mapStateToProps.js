@@ -1,73 +1,100 @@
+import {
+  LOGIN,
+  CREATED_POSTS,
+  MAKE_POST,
+  MAKE_MESSAGE,
+  FAVORITE_FRIENDS,
+  FRIENDS_LIST,
+  PAGES_LIST,
+  DIALOG,
+  USERS_LIST,
+  MESSAGES,
+  REGISTRATION,
+} from "./componentsConstants";
+
 export const mapStateToProps = (componentName) => {
   switch (componentName) {
-    case "CreatedPostsList": {
+    case CREATED_POSTS: {
       return (state) => {
         return {
           posts: state.posts.list,
         };
       };
     }
-    case "MakePost": {
+    case MAKE_POST: {
       return (state) => {
         return {
           content: state.posts.newPostContent,
         };
       };
     }
-    case "MakeMessage": {
+    case MAKE_MESSAGE: {
       return (state) => {
         return {
           content: state.chats[0].newMessageContent,
         };
       };
     }
-    case "Messages": {
+    case MESSAGES: {
       return (state) => {
         return {
           messages: state.chats[0].messages,
         };
       };
     }
-    case "FavoritFriends": {
+    case FAVORITE_FRIENDS: {
       return (state) => {
         return {
-          users: state.users.filter((user) => user.followed).slice(0, 6),
+          users: state.users.list.filter((user) => user.followed).slice(0, 6),
         };
       };
     }
-    case "FriendsList": {
+    case FRIENDS_LIST: {
       return (state) => {
         return {
-          users: state.users.filter((user) => user.followed),
+          users: state.users.list.filter((user) => user.followed),
         };
       };
     }
-    case "Registration": {
+    case REGISTRATION: {
       return (state) => {
         return {
           fields: state.registrationFields,
         };
       };
     }
-    case "Login": {
+    case LOGIN: {
       return (state) => {
         return {
           fields: state.loginFields,
         };
       };
     }
-    case "UsersList": {
+    case PAGES_LIST: {
       return (state) => {
         return {
-          users: state.users,
+          pageCount: state.users.pageCount,
+          currentPage: state.users.currentPage,
+          usersCount: state.users.usersCount,
         };
       };
     }
-    case "Dialog": {
+    case USERS_LIST: {
+      return (state) => {
+        return {
+          users: state.users.list,
+          currentPage: state.users.currentPage,
+          usersCount: state.users.usersCount,
+          isLoading: state.users.isLoading,
+        };
+      };
+    }
+    case DIALOG: {
       return (state, ownProps) => {
         return {
           companion:
-            state.users.find((user) => user.id === ownProps.id) ?? state.user,
+            state.users.list.find((user) => user.id === ownProps.id) ??
+            state.user,
         };
       };
     }

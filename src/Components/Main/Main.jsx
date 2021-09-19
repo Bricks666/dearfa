@@ -11,7 +11,7 @@ import { Users } from "../Users/Users";
 export function Main(props) {
   return (
     <Switch>
-      <Route exact path="/profile/1">
+      <Route exact path="/profile">
         <Profile
           className={props.className}
           profile={props.state.profile}

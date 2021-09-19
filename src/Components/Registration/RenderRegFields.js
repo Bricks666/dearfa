@@ -1,4 +1,4 @@
-import { INPUT_REG } from "../../Redux/Constants";
+import { INPUT_REG } from "../../Redux/Actions/Constants";
 import { renderField } from "../Shared/Fields/RenderField";
 
 export const renderRegFields = (fields, classNames) => {

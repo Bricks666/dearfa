@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import { Checkbox } from "./Checkbox";
-
-import { mapDispatchToProps } from "../../../../Redux/mapDispatchToProps";
-import { mapStateToProps } from "../../../../Redux/mapStateToProps";
+import { CHECKBOX } from "../../../../Redux/ToProps/componentsConstants";
+import { mapDispatchToProps } from "../../../../Redux/ToProps/mapDispatchToProps";
+import { mapStateToProps } from "../../../../Redux/ToProps/mapStateToProps";
 
 export const CheckboxContainer = connect(
-  mapStateToProps("Checkbox"),
-  mapDispatchToProps("Checkbox")
+  mapStateToProps(CHECKBOX),
+  mapDispatchToProps(CHECKBOX)
 )(Checkbox);

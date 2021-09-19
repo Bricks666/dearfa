@@ -1,4 +1,4 @@
-import { PRINT_WORD } from "../../Constants";
+import { PRINT_WORD } from "../../Actions/Constants";
 
 
 export const printWordActionCreator = (value, fieldName) => {

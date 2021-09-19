@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import { mapDispatchToProps } from "../../../../Redux/mapDispatchToProps";
-import { mapStateToProps } from "../../../../Redux/mapStateToProps";
-
+import { mapDispatchToProps } from "../../../../Redux/ToProps/mapDispatchToProps";
+import { mapStateToProps } from "../../../../Redux/ToProps/mapStateToProps";
+import { MAKE_POST } from "../../../../Redux/ToProps/componentsConstants";
 import { Make } from "../../../Shared/Make/Make";
 
 export const MakePostContainer = connect(
-  mapStateToProps("MakePost"),
-  mapDispatchToProps("MakePost")
+  mapStateToProps(MAKE_POST),
+  mapDispatchToProps(MAKE_POST)
 )(Make);

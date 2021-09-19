@@ -6,7 +6,6 @@ import { Picture } from "../../../Shared/Picture/Picture";
 import DialogStyle from "./Dialog.module.css";
 
 function Dialog(props) {
-  console.log(props);
   return (
     <li className={`${props.className} ${DialogStyle.dialog}`}>
       <NavLink

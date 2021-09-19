@@ -1,4 +1,4 @@
-import { INPUT_LOGIN } from "../../Redux/Constants";
+import { INPUT_LOGIN } from "../../Redux/Actions/Constants";
 import { renderField } from "../Shared/Fields/RenderField";
 
 export const renderLoginFields = (fields, classNames) => {

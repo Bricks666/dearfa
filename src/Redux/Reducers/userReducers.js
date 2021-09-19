@@ -1,13 +1,5 @@
-const initialState = {
-  id: 1,
-  name: "Кирилл Цыганков",
-  photos: {
-    large: "/Images/Ava/Cosmic-animals",
-    alt: "Аватарка...",
-  },
-  followed: false,
-};
+import { initialState } from "../initialState";
 
-export const userReducers = (state = initialState, action) => {
+export const userReducers = (state = initialState.user, action) => {
   return state;
 };

@@ -1,4 +1,4 @@
-import { INPUT_REG } from "../../Constants";
+import { INPUT_REG } from "../../Actions/Constants";
 
 
 export const inputRegReducer = (state, action) => {

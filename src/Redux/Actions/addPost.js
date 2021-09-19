@@ -1,4 +1,4 @@
-import { ADD_POST } from "../Constants";
+import { ADD_POST } from "./Constants";
 
 export const addPostActionCreator = () => {
   return {

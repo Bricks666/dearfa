@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import { Make } from "../../../Shared/Make/Make";
-
-import { mapDispatchToProps } from "../../../../Redux/mapDispatchToProps";
-import { mapStateToProps } from "../../../../Redux/mapStateToProps";
+import { MAKE_MESSAGE } from "../../../../Redux/ToProps/componentsConstants";
+import { mapDispatchToProps } from "../../../../Redux/ToProps/mapDispatchToProps";
+import { mapStateToProps } from "../../../../Redux/ToProps/mapStateToProps";
 
 export const MakeMessageContainer = connect(
-  mapStateToProps("MakeMessage"),
-  mapDispatchToProps("MakeMessage")
+  mapStateToProps(MAKE_MESSAGE),
+  mapDispatchToProps(MAKE_MESSAGE)
 )(Make);

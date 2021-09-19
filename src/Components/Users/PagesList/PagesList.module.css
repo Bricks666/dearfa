@@ -1,0 +1,34 @@
+/* PAGES LIST */
+.pagesList {
+  display: flex;
+
+  column-gap: 10px;
+
+  list-style: none;
+}
+
+/* PAGE NUMBER */
+
+.pageNumber {
+  padding: 10px 20px;
+
+  font-size: 14px;
+
+  border: 2px solid var(--blue);
+
+  cursor: pointer;
+}
+
+.pageNumber:hover {
+  background-color: var(--blue);
+
+  color: #fff;
+}
+
+/* SELECTED */
+.selected {
+  background-color: var(--blue);
+
+  font-weight: 700;
+  color: #fff;
+}
