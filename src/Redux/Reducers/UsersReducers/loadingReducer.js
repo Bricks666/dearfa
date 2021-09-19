@@ -1,11 +1,11 @@
-import { START_LOADING, STOP_LOADING } from "../../Actions/Constants";
+import { START_LOADING_USERS, STOP_LOADING_USERS } from "../../Actions/Constants";
 
 export const loadingReducer = (state, action) => {
   switch (action.type) {
-    case START_LOADING: {
+    case START_LOADING_USERS: {
       return { ...state, isLoading: true };
     }
-    case STOP_LOADING: {
+    case STOP_LOADING_USERS: {
       return { ...state, isLoading: false };
     }
     default: {

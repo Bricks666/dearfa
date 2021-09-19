@@ -1,23 +1,28 @@
 import React from "react";
-import { AboutUser } from "../../Shared/UserCardParts/AboutUser/AboutUser";
+import { Contacts } from "../../Shared/UserCardParts/Contacts/Contacts";
 import { SubsectionHeader } from "../../Shared/SubsectionHeader/SubsectionHeader";
 
 import UserInfoStyle from "./UserInfo.module.css";
 import { Photo } from "../../Shared/UserCardParts/Photo/Photo";
+import { Status } from "../../Shared/UserCardParts/Status/Status";
 
 function UserInfo(props) {
   return (
     <div className={`${props.className ?? ""} ${UserInfoStyle.userInfo}`}>
       <SubsectionHeader className={`${UserInfoStyle.fullName}`}>
-        {props.user.name}
+        {props.user.fullName}
       </SubsectionHeader>
+      <Status status={props.user.aboutMe} />
       <Photo
         className={UserInfoStyle.photo}
         image={props.user.photos}
-        id={props.user.id}
-        fullName={props.user.name}
+        id={props.user.userId}
+        fullName={props.user.fullName}
       />
-      <AboutUser className={UserInfoStyle.aboutUser} about={props.user.about} />
+      <Contacts
+        className={UserInfoStyle.aboutUser}
+        contacts={props.user.contacts}
+      />
     </div>
   );
 }

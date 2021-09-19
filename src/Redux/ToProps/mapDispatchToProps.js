@@ -9,7 +9,12 @@ import {
   USERS_LIST,
   USERS_LIST_ITEM,
   MAKE_POST,
+  PROFILE,
 } from "./componentsConstants";
+
+import { setUserInfo } from "../Actions/Profile/setUserInfo";
+import { startLoadingProfile } from "../Actions/Profile/startLoadingProfile";
+import { stopLoadingProfile } from "../Actions/Profile/stopLoadingProfile";
 
 import { addMessageActionCreator } from "../Actions/addMessage";
 import { inputMessageActionCreator } from "../Actions/inputMessage";
@@ -27,11 +32,18 @@ import { followUserActionCreator } from "../Actions/Users/followUser";
 import { nextPage } from "../Actions/Users/nextPage";
 import { addUsers } from "../Actions/Users/addUsers";
 
-import { startLoading } from "../Actions/startLoading";
-import { stopLoading } from "../Actions/stopLoading";
+import { startLoadingUsers } from "../Actions/startLoadingUsers";
+import { stopLoadingUsers } from "../Actions/stopLoadingUsers";
 
 export const mapDispatchToProps = (componentName) => {
   switch (componentName) {
+    case PROFILE: {
+      return {
+        setUser: setUserInfo,
+        startLoadingProfile,
+        stopLoadingProfile,
+      };
+    }
     case MAKE_MESSAGE: {
       return {
         add: addMessageActionCreator,
@@ -68,15 +80,15 @@ export const mapDispatchToProps = (componentName) => {
     case PAGES_LIST: {
       return {
         nextPage,
-        startLoading,
-        stopLoading,
+        startLoadingUsers,
+        stopLoadingUsers,
       };
     }
     case USERS_LIST: {
       return {
         addUsers,
-        startLoading,
-        stopLoading,
+        startLoadingUsers,
+        stopLoadingUsers,
       };
     }
     case USERS_LIST_ITEM: {

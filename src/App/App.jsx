@@ -22,7 +22,7 @@ function App(props) {
           className={AppStyle.nav}
           navigationItems={props.state.navigation}
         />
-        <Redirect exact from="/" to="/profile" />
+        <Redirect exact from="/" to="/profile/2" />
         <Main
           className={AppStyle.main}
           state={props.state}

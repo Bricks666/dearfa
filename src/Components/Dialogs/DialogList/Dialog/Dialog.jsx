@@ -12,16 +12,16 @@ function Dialog(props) {
         to={`/dialogs/${props.id}`}
         className={DialogStyle.link}
         activeClassName={DialogStyle.linkActive}
-        aria-label={`чат с ${props.companion.name}`}
+        aria-label={`чат с ${props.companion.fullName}`}
       >
         <SubsectionHeader className={`${DialogStyle.fullName}`}>
-          {props.companion.name}
+          {props.companion.fullName}
         </SubsectionHeader>
         <Picture
           className={`${DialogStyle.photo} fake-photo`}
           oneXSrc={props.companion.photos.large}
           twoXSrc=""
-          alt={props.companion.name}
+          alt={props.companion.fullName}
         />
       </NavLink>
     </li>

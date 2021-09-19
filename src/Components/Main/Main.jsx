@@ -3,7 +3,7 @@ import { Dialogs } from "../Dialogs/Dialogs";
 import { Friends } from "../Friends/Friends";
 import { News } from "../News/News";
 import { NotFound } from "../NotFound/NotFound";
-import { Profile } from "../Profile/Profile";
+import { ProfileContainer } from "../Profile/ProfileContainer";
 import { RegistrationContainer } from "../Registration/RegistrationContainer";
 import { LoginContainer } from "../Login/LoginContainer";
 import { Users } from "../Users/Users";
@@ -11,12 +11,8 @@ import { Users } from "../Users/Users";
 export function Main(props) {
   return (
     <Switch>
-      <Route exact path="/profile">
-        <Profile
-          className={props.className}
-          profile={props.state.profile}
-          user={props.state.user}
-        />
+      <Route exact path="/profile/:id">
+        <ProfileContainer className={props.className} />
       </Route>
       <Route path="/dialogs">
         <Dialogs className={props.className} chats={props.state.chats} />

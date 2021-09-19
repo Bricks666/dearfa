@@ -1,8 +1,9 @@
 import { Button } from "../Buttons/Button/Button";
 import { ButtonLink } from "../Buttons/ButtonLink/ButtonLink";
-import { AboutUser } from "../UserCardParts/AboutUser/AboutUser";
+import { Contacts } from "../UserCardParts/Contacts/Contacts";
 import { FullName } from "../UserCardParts/FullName/FullName";
 import { Photo } from "../UserCardParts/Photo/Photo";
+import { Status } from "../UserCardParts/Status/Status";
 
 import UsersListItemStyle from "./UsersListItem.module.css";
 
@@ -18,6 +19,7 @@ export const UsersListItem = (props) => {
       className={`${UsersListItemStyle.itemWrapper} ${props.className ?? ""}`}
     >
       <FullName id={props.user.id} fullName={props.user.name} />
+      <Status status={props.user.aboutMe} />
       <Photo
         className={UsersListItemStyle.photo}
         id={props.user.id}
@@ -25,9 +27,9 @@ export const UsersListItem = (props) => {
         image={props.user.photos}
       />
 
-      <AboutUser
+      <Contacts
         className={UsersListItemStyle.aboutUser}
-        about={props.user.about}
+        contacts={props.user.contacts}
       />
       <ButtonLink
         className={UsersListItemStyle.link}

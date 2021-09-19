@@ -1,18 +1,14 @@
 export const initialState = {
   user: {
-    id: 1,
-    name: "Кирилл Цыганков",
+    userId: 0,
+    fullName: "",
     photos: {
       large: "/Images/Ava/Cosmic-animals",
       alt: "Аватарка...",
     },
+    contacts: {},
     followed: false,
-  },
-  profile: {
-    backgroundPhoto: {
-      url: "/Images/ProfileBackground/SunSet",
-      alt: "Ваш фон...",
-    },
+    isLoading: false,
   },
   chats: [
     {
@@ -182,8 +178,9 @@ export const initialState = {
   ],
   navigation: [
     {
-      path: "/profile",
+      path: "/profile/2",
       content: "Профиль",
+      exact: true,
       id: 1,
     },
     {

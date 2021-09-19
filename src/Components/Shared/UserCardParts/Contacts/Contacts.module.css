@@ -13,4 +13,16 @@
   width: max-content;
 
   padding: 0;
+  padding-left: 15px;
+}
+
+/* HEADER */
+
+.header {
+  grid-column: 1/-1;
+
+  margin-left: -15px;
+
+  font-size: 16px;
+  font-weight: 500;
 }

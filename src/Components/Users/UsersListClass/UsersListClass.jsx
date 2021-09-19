@@ -5,22 +5,26 @@ import { UsersList } from "../../Shared/UsersList/UsersList";
 
 export class UsersListClass extends Component {
   async componentDidMount() {
-    this.props.startLoading();
+    this.props.startLoadingUsers();
     const response = await axios.get(
       `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersCount}&page=${this.props.currentPage}`
     );
 
     this.props.addUsers(response.data);
-    this.props.stopLoading();
+    this.props.stopLoadingUsers();
   }
 
   /* Может стоит сделать компоненту полностью классовой */
   render() {
-    return addLoading(UsersList)({
-      className: this.props.className,
-      render: this.props.render,
-      users: this.props.users,
-      isLoading: this.props.isLoading,
-    });
+    const WithLoading = addLoading(UsersList);
+
+    return (
+      <WithLoading
+        className={this.props.className}
+        render={this.props.render}
+        users={this.props.users}
+        isLoading={this.props.isLoading}
+      />
+    );
   }
 }

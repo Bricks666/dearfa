@@ -10,10 +10,19 @@ import {
   USERS_LIST,
   MESSAGES,
   REGISTRATION,
+  PROFILE,
 } from "./componentsConstants";
 
 export const mapStateToProps = (componentName) => {
   switch (componentName) {
+    case PROFILE: {
+      return (state) => {
+        return {
+          user: state.user,
+          isLoading: state.user.isLoading,
+        };
+      };
+    }
     case CREATED_POSTS: {
       return (state) => {
         return {

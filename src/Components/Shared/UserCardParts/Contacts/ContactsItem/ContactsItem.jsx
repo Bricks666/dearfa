@@ -1,0 +1,27 @@
+import React from "react";
+
+import ContactsStyle from "./ContactsItem.module.css";
+
+function ContactsItem(props) {
+
+  if (Boolean(props.description) === false) {
+    return null;
+  }
+
+  return (
+    <>
+      <dt className={ContactsStyle.term}>{props.term}:</dt>
+      <dd className={ContactsStyle.description}>
+        <a
+          className={ContactsStyle.link}
+          href={`https://${props.description}`}
+          target="_blank"
+        >
+          {props.description}
+        </a>
+      </dd>
+    </>
+  );
+}
+
+export { ContactsItem };
