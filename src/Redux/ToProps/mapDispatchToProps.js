@@ -10,7 +10,16 @@ import {
   USERS_LIST_ITEM,
   MAKE_POST,
   PROFILE,
+  HEADER,
+  ME,
 } from "./componentsConstants";
+
+import { setAuth } from "../Actions/Auth/setAuth";
+import { startLoadingAuth } from "../Actions/Auth/startLoadingAuth";
+import { stopLoadingAuth } from "../Actions/Auth/stopLoadingAuth";
+import { setMe } from "../Actions/Me/setMe";
+import { startLoadingMe } from "../Actions/Me/startLoadingMe";
+import { stopLoadingMe } from "../Actions/Me/stopLoadingMe";
 
 import { setUserInfo } from "../Actions/Profile/setUserInfo";
 import { startLoadingProfile } from "../Actions/Profile/startLoadingProfile";
@@ -32,11 +41,25 @@ import { followUserActionCreator } from "../Actions/Users/followUser";
 import { nextPage } from "../Actions/Users/nextPage";
 import { addUsers } from "../Actions/Users/addUsers";
 
-import { startLoadingUsers } from "../Actions/startLoadingUsers";
-import { stopLoadingUsers } from "../Actions/stopLoadingUsers";
+import { startLoadingUsers } from "../Actions/Users/startLoadingUsers";
+import { stopLoadingUsers } from "../Actions/Users/stopLoadingUsers";
 
 export const mapDispatchToProps = (componentName) => {
   switch (componentName) {
+    case HEADER: {
+      return {
+        auth: setAuth,
+        startLoadingAuth,
+        stopLoadingAuth,
+      };
+    }
+    case ME: {
+      return {
+        setMe,
+        startLoadingMe,
+        stopLoadingMe,
+      };
+    }
     case PROFILE: {
       return {
         setUser: setUserInfo,
@@ -74,7 +97,7 @@ export const mapDispatchToProps = (componentName) => {
     }
     case FRIENDS_LIST_ITEM: {
       return {
-        unfollowUser: unfollowUserActionCreator,
+        unfollow: unfollowUserActionCreator,
       };
     }
     case PAGES_LIST: {
@@ -93,8 +116,8 @@ export const mapDispatchToProps = (componentName) => {
     }
     case USERS_LIST_ITEM: {
       return {
-        unfollowUser: unfollowUserActionCreator,
-        followUser: followUserActionCreator,
+        unfollow: unfollowUserActionCreator,
+        follow: followUserActionCreator,
       };
     }
     default: {

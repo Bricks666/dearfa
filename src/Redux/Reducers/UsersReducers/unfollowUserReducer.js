@@ -5,7 +5,7 @@ export const unfollowUserReducer = (state, action) => {
     const newState = {
       ...state,
       list: state.list.map((friend) => {
-        if (friend.id === action.userId) {
+        if (friend.id === action.id) {
           return { ...friend, followed: false };
         }
 

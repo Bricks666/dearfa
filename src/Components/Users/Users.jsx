@@ -14,8 +14,13 @@ export const Users = (props) => {
       <UsersListContainer
         className={UsersStyle.list}
         render={(props) => <UsersListItemContainer {...props} />}
+        currentPage={props.currentPage}
+        usersCount={props.usersCount}
       />
-      <PagesListContainer />
+      <PagesListContainer
+        currentPage={props.currentPage}
+        usersCount={props.usersCount}
+      />
     </main>
   );
 };

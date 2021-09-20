@@ -19,7 +19,9 @@ function Dialog(props) {
         </SubsectionHeader>
         <Picture
           className={`${DialogStyle.photo} fake-photo`}
-          oneXSrc={props.companion.photos.large}
+          oneXSrc={
+            props.companion.photos.large ?? "Images/ProfileBackground/SunSet"
+          }
           twoXSrc=""
           alt={props.companion.fullName}
         />

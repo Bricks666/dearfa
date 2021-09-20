@@ -16,6 +16,10 @@
   max-width: 1580px;
 }
 
+.notLoginPage {
+  grid-template-areas: "header header" "main main" "main main" "main main";
+}
+
 /* HEADER */
 
 .header {

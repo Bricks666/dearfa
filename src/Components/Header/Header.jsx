@@ -8,15 +8,21 @@ function Header(props) {
   return (
     <header className={`${props.className ?? ""} ${HeaderStyle.header}`}>
       <Logo className={HeaderStyle.logo} src="/Images/logo.svg" alt="Logo" />
-      <div className={HeaderStyle.authorization}>
-        <Link className={HeaderStyle.link} to="/login">
-          Войти
+      {props.isLogin ? (
+        <Link className={HeaderStyle.link} to="/profile">
+          {props.login}
         </Link>
-        /
-        <Link className={HeaderStyle.link} to="/registration">
-          Зарегистрироваться
-        </Link>
-      </div>
+      ) : (
+        <div className={HeaderStyle.authorization}>
+          <Link className={HeaderStyle.link} to="/login">
+            Войти
+          </Link>
+          /
+          <Link className={HeaderStyle.link} to="/registration">
+            Зарегистрироваться
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

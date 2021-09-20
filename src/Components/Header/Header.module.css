@@ -23,7 +23,6 @@
 
 .authorization {
   font-size: 14px;
-  color: var(--white-lighter);
 }
 
 /* LINK */
@@ -31,7 +30,7 @@
 .link {
   line-height: 1em;
   text-decoration: none;
-  color: inherit;
+  color: var(--white-lighter);
 }
 
 .link:hover {

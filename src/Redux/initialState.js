@@ -1,5 +1,5 @@
 export const initialState = {
-  user: {
+  profile: {
     userId: 0,
     fullName: "",
     photos: {
@@ -10,6 +10,20 @@ export const initialState = {
     followed: false,
     isLoading: false,
   },
+  auth: {
+    userId: null,
+    fullName: null,
+    photos: {
+      large: "/Images/Ava/Cosmic-animals",
+      alt: "Аватарка...",
+    },
+    contacts: {},
+    followed: false,
+    isLoading: false,
+    isLoaded: false,
+    isLogin: false,
+  },
+  /* Решить то, как грамотно отображать свою и чужие страницы */
   chats: [
     {
       id: 2,
@@ -178,7 +192,7 @@ export const initialState = {
   ],
   navigation: [
     {
-      path: "/profile/2",
+      path: "/profile",
       content: "Профиль",
       exact: true,
       id: 1,
@@ -206,6 +220,7 @@ export const initialState = {
     {
       path: "/users",
       content: "Пользователи",
+      exact: true,
       id: 6,
     },
     {

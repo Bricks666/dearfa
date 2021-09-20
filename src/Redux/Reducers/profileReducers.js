@@ -5,7 +5,7 @@ import {
 } from "../Actions/Constants";
 import { initialState } from "../initialState";
 
-export const userReducers = (state = initialState.user, action) => {
+export const profileReducers = (state = initialState.profile, action) => {
   switch (action.type) {
     case SET_USER_INFO: {
       return { ...state, ...action.info };

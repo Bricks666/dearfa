@@ -1,8 +1,14 @@
+export const APP = "APP CONTAINER";
 export const LOGIN = "LOGIN CONTAINER";
+export const HEADER = "HEADER CONTAINER";
+export const ME = "ME CONTAINER";
+export const MAIN = "MAIN CONTAINER";
+export const NAVIGATION = "NAVIGATION";
 export const LIKE = "LIKE CONTAINER";
 export const DIALOG = "DIALOG CONTAINER";
 export const FRIENDS_LIST = "FRIENDS LIST CONTAINER";
 export const MAKE_MESSAGE = "MAKE MESSAGE CONTAINER";
+export const USERS = "USERS CONTAINER"
 export const PAGES_LIST = "PAGES LIST CONTAINER";
 export const USERS_LIST = "USERS LIST CONTAINER";
 export const CHECKBOX = "CHECKBOX CONTAINER";

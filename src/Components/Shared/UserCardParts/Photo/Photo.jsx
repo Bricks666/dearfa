@@ -7,7 +7,7 @@ export const Photo = (props) => {
   return (
     <Link
       className={`${PhotoStyle.link} ${props.className ?? ""}`}
-      to={`/profile/${props.id}`}
+      to={`/users/${props.id}`}
       title={props.fullName}
     >
       <Picture

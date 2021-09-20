@@ -7,12 +7,16 @@ export class ProfileClass extends Component {
   async componentDidMount() {
     this.props.startLoadingProfile();
 
+    const id = this.props.match.params.id;
+
     const response = await axios.get(
-      `https://social-network.samuraijs.com/api/1.0/profile/${this.props.match.params.id}`
+      `https://social-network.samuraijs.com/api/1.0/profile/${id}`
     );
 
-    await this.props.setUser(response.data);
-    this.props.stopLoadingProfile();
+    if (id === this.props.match.params.id) {
+      this.props.setUser(response.data);
+      this.props.stopLoadingProfile();
+    }
   }
 
   render() {

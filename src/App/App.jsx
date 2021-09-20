@@ -5,9 +5,9 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import { Header } from "../Components/Header/Header";
-import { Navigation } from "../Components/Navigation/Navigation";
-import { Main } from "../Components/Main/Main";
+import { HeaderContainer } from "../Components/Header/HeaderContainer";
+import { NavigationContainer } from "../Components/Navigation/NavigationContainer";
+import { MainWithLoading } from "../Components/Main/MainWithLoading";
 import { FavoritFriendsContainer } from "../Components/FavoritFriends/FavoritFriendsContainer";
 
 import AppStyle from "./App.module.css";
@@ -15,25 +15,27 @@ import AppStyle from "./App.module.css";
 function App(props) {
   return (
     <Router>
-      <div className={AppStyle.page}>
+      <div
+        className={`${AppStyle.page} ${
+          props.isLogin ? "" : AppStyle.notLoginPage
+        }`}
+      >
         <h1 className="visibility-hidden">Dear.Fa</h1>
-        <Header className={AppStyle.header} />
-        <Navigation
-          className={AppStyle.nav}
-          navigationItems={props.state.navigation}
-        />
-        <Redirect exact from="/" to="/profile/2" />
-        <Main
-          className={AppStyle.main}
-          state={props.state}
-          dispatch={props.dispatch}
-        />
+        <HeaderContainer className={AppStyle.header} />
+        {props.isLogin === false ? (
+          <Redirect to="/login" />
+        ) : (
+          <Redirect exact from="/" to="/profile" />
+        )}
+
         <Switch>
           <Route path={["/login", "/registration"]} />
           <Route path="">
+            <NavigationContainer className={AppStyle.nav} />
             <FavoritFriendsContainer className={AppStyle.lastFriends} />
           </Route>
         </Switch>
+        <MainWithLoading className={AppStyle.main} state={props.state} />
       </div>
     </Router>
   );

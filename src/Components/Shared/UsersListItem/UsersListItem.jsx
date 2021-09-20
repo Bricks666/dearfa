@@ -8,12 +8,6 @@ import { Status } from "../UserCardParts/Status/Status";
 import UsersListItemStyle from "./UsersListItem.module.css";
 
 export const UsersListItem = (props) => {
-  const onClick = () => {
-    return props[props.user.followed ? "unfollowUser" : "followUser"](
-      props.user.id
-    );
-  };
-
   return (
     <li
       className={`${UsersListItemStyle.itemWrapper} ${props.className ?? ""}`}
@@ -37,7 +31,7 @@ export const UsersListItem = (props) => {
       >
         Написать
       </ButtonLink>
-      <Button className={UsersListItemStyle.button} onClick={onClick}>
+      <Button className={UsersListItemStyle.button} onClick={props.onClick}>
         {props.user.followed ? "Удалить из друзей" : "Добавить в друзья"}
       </Button>
     </li>

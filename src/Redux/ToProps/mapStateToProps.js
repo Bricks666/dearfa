@@ -11,15 +11,59 @@ import {
   MESSAGES,
   REGISTRATION,
   PROFILE,
+  NAVIGATION,
+  HEADER,
+  APP,
+  MAIN,
+  ME,
+  USERS,
 } from "./componentsConstants";
 
 export const mapStateToProps = (componentName) => {
   switch (componentName) {
+    case APP: {
+      return (state) => {
+        return {
+          isLogin: state.auth.isLogin,
+        };
+      };
+    }
+    case HEADER: {
+      return (state) => {
+        return {
+          isLogin: state.auth.isLogin,
+          login: state.auth.fullName,
+        };
+      };
+    }
+    case ME: {
+      return (state) => {
+        return {
+          me: state.auth,
+          isLoading: state.auth.isLoading,
+          id: state.auth.userId,
+        };
+      };
+    }
+    case MAIN: {
+      return (state) => {
+        return {
+          isLoading: state.auth.isLoading,
+        };
+      };
+    }
     case PROFILE: {
       return (state) => {
         return {
-          user: state.user,
-          isLoading: state.user.isLoading,
+          user: state.profile,
+          isLoading: state.profile.isLoading,
+        };
+      };
+    }
+    case NAVIGATION: {
+      return (state) => {
+        return {
+          navigationItems: state.navigation,
         };
       };
     }
@@ -79,12 +123,18 @@ export const mapStateToProps = (componentName) => {
         };
       };
     }
+    case USERS: {
+      return (state) => {
+        return {
+          currentPage: state.users.currentPage,
+          usersCount: state.users.usersCount,
+        };
+      };
+    }
     case PAGES_LIST: {
       return (state) => {
         return {
           pageCount: state.users.pageCount,
-          currentPage: state.users.currentPage,
-          usersCount: state.users.usersCount,
         };
       };
     }
@@ -92,8 +142,6 @@ export const mapStateToProps = (componentName) => {
       return (state) => {
         return {
           users: state.users.list,
-          currentPage: state.users.currentPage,
-          usersCount: state.users.usersCount,
           isLoading: state.users.isLoading,
         };
       };
@@ -101,9 +149,7 @@ export const mapStateToProps = (componentName) => {
     case DIALOG: {
       return (state, ownProps) => {
         return {
-          companion:
-            state.users.list.find((user) => user.id === ownProps.id) ??
-            state.user,
+          companion: state.auth,
         };
       };
     }

@@ -3,13 +3,15 @@ import { chatsReducers } from "./Reducers/chatsReducers";
 import { postsReducers } from "./Reducers/postsReducers";
 import { loginReducers } from "./Reducers/loginReducers";
 import { registrationReducers } from "./Reducers/registrationReducer";
-import { userReducers } from "./Reducers/userReducers";
+import { profileReducers } from "./Reducers/profileReducers";
 import { navigationReducers } from "./Reducers/navigationReducers";
 import { initialState } from "./initialState";
 import { usersListReducers } from "./Reducers/usersListReducers";
+import { authReducers } from "./Reducers/authReducers";
 
 const reducers = combineReducers({
-  user: userReducers,
+  profile: profileReducers,
+  auth: authReducers,
   chats: chatsReducers,
   posts: postsReducers,
   users: usersListReducers,

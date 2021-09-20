@@ -5,7 +5,7 @@ export const followUserReducer = (state, action) => {
     const newState = {
       ...state,
       list: state.list.map((user) => {
-        if (user.id === action.userId) {
+        if (user.id === action.id) {
           return { ...user, followed: true };
         }
 

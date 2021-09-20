@@ -1,4 +1,4 @@
-import { STOP_LOADING_USERS } from "./Constants";
+import { STOP_LOADING_USERS } from "../Constants";
 
 export const stopLoadingUsers = () => {
   return {

@@ -6,13 +6,14 @@ import { NotFound } from "../NotFound/NotFound";
 import { ProfileContainer } from "../Profile/ProfileContainer";
 import { RegistrationContainer } from "../Registration/RegistrationContainer";
 import { LoginContainer } from "../Login/LoginContainer";
-import { Users } from "../Users/Users";
+import { MeContainer } from "../Profile/Me";
+import { UsersContainer } from "../Users/UsersContainer";
 
 export function Main(props) {
   return (
     <Switch>
-      <Route exact path="/profile/:id">
-        <ProfileContainer className={props.className} />
+      <Route exact path="/profile">
+        <MeContainer className={props.className} />
       </Route>
       <Route path="/dialogs">
         <Dialogs className={props.className} chats={props.state.chats} />
@@ -29,8 +30,11 @@ export function Main(props) {
       <Route exact path="/registration">
         <RegistrationContainer className={props.className} />
       </Route>
-      <Route path="/users">
-        <Users className={props.className} />
+      <Route exact path="/users">
+        <UsersContainer className={props.className} />
+      </Route>
+      <Route exact path="/users/:id">
+        <ProfileContainer className={props.className} />
       </Route>
       <Route>
         <NotFound className={props.className} />
