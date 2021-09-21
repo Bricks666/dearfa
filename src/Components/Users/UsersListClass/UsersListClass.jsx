@@ -1,7 +1,7 @@
-import axios from "axios";
 import { Component } from "react";
 import { addLoading } from "../../Shared/AddLoading/AddLoading";
 import { UsersList } from "../../Shared/UsersList/UsersList";
+import { getUsers } from "../../../DAL/api";
 
 export class UsersListClass extends Component {
   async componentDidMount() {
@@ -10,15 +10,10 @@ export class UsersListClass extends Component {
     }
 
     this.props.startLoadingUsers();
-    debugger;
-    const response = await axios.get(
-      `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersCount}&page=${this.props.currentPage}`,
-      {
-        withCredentials: true,
-      }
-    );
 
-    this.props.addUsers(response.data);
+    const users = await getUsers(this.props.usersCount, this.props.currentPage);
+
+    this.props.addUsers(users);
 
     this.props.stopLoadingUsers();
   }

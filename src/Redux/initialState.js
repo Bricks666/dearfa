@@ -23,7 +23,6 @@ export const initialState = {
     isLoaded: false,
     isLogin: false,
   },
-  /* Решить то, как грамотно отображать свою и чужие страницы */
   chats: [
     {
       id: 2,
@@ -61,7 +60,14 @@ export const initialState = {
     usersCount: 10,
     isLoading: false,
   },
-
+  friends: {
+    list: [],
+    totalFriends: 0,
+    pageCount: 0,
+    currentPage: 1,
+    friendsCount: 10,
+    isLoading: false,
+  },
   posts: {
     list: [
       {

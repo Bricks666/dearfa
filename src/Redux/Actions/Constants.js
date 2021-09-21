@@ -14,10 +14,15 @@ export const TOGGLE_LIKE = "TOGGLE-LIKE";
 export const ADD_MESSAGE = "ADD-MESSAGE";
 export const ADD_POST = "ADD-POST";
 
+export const SET_FRIENDS = "SET FRIENDS";
+export const NEXT_FRIENDS_PAGE = "NEXT FRIENDS PAGE";
+export const START_LOADING_FRIENDS = "START LOADING FRIENDS";
+export const STOP_LOADING_FRIENDS = "STOP LOADING FRIENDS";
+
 export const UNFOLLOW_USER = "UNFOLLOW_USER";
 export const FOLLOW_USER = "FOLLOW USER";
 export const ADD_USERS = "ADD NEW USERS";
-export const NEXT_PAGE = "NEXT PAGE";
+export const NEXT_USERS_PAGE = "NEXT USERS PAGE";
 
 export const INPUT_REG = "INPUT_REGISTRATION_FIELD";
 export const INPUT_POST = "INPUT_POST";

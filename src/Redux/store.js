@@ -8,12 +8,14 @@ import { navigationReducers } from "./Reducers/navigationReducers";
 import { initialState } from "./initialState";
 import { usersListReducers } from "./Reducers/usersListReducers";
 import { authReducers } from "./Reducers/authReducers";
+import { friendsReducer } from "./Reducers/friendsReducer";
 
 const reducers = combineReducers({
   profile: profileReducers,
   auth: authReducers,
   chats: chatsReducers,
   posts: postsReducers,
+  friends: friendsReducer,
   users: usersListReducers,
   loginFields: loginReducers,
   registrationFields: registrationReducers,

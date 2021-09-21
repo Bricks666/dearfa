@@ -17,6 +17,7 @@ import {
   MAIN,
   ME,
   USERS,
+  FRIENDS,
 } from "./componentsConstants";
 
 export const mapStateToProps = (componentName) => {
@@ -95,17 +96,26 @@ export const mapStateToProps = (componentName) => {
         };
       };
     }
-    case FAVORITE_FRIENDS: {
+    case FRIENDS: {
       return (state) => {
         return {
-          users: state.users.list.filter((user) => user.followed).slice(0, 6),
+          currentPage: state.friends.currentPage,
+          friendsCount: state.friends.friendsCount,
+        };
+      };
+    }
+    case FAVORITE_FRIENDS: {
+      return (state) => {
+
+        return {
+          friends: state.friends.list.slice(0, 6),
         };
       };
     }
     case FRIENDS_LIST: {
       return (state) => {
         return {
-          users: state.users.list.filter((user) => user.followed),
+          friends: state.friends.list,
         };
       };
     }
@@ -147,7 +157,7 @@ export const mapStateToProps = (componentName) => {
       };
     }
     case DIALOG: {
-      return (state, ownProps) => {
+      return (state) => {
         return {
           companion: state.auth,
         };

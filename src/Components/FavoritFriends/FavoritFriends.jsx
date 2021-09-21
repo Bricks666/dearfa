@@ -6,7 +6,7 @@ import { FavoritFriendsListItem } from "./FavoritFriendsListItem/FavoritFriendsL
 import FavoritFriendsStyle from "./FavoritFriends.module.css";
 
 function FavoritFriends(props) {
-  if (props.users.length !== 0) {
+  if (props.friends.length !== 0) {
     return (
       <aside
         className={`${FavoritFriendsStyle.lastCommunications} ${
@@ -16,7 +16,7 @@ function FavoritFriends(props) {
         <SubsectionHeader>Избранные друзья</SubsectionHeader>
         <UsersList
           className={FavoritFriendsStyle.list}
-          users={props.users}
+          users={props.friends}
           render={(props) => <FavoritFriendsListItem {...props} />}
         />
       </aside>

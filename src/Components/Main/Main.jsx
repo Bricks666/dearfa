@@ -1,6 +1,5 @@
 import { Switch, Route } from "react-router";
 import { Dialogs } from "../Dialogs/Dialogs";
-import { Friends } from "../Friends/Friends";
 import { News } from "../News/News";
 import { NotFound } from "../NotFound/NotFound";
 import { ProfileContainer } from "../Profile/ProfileContainer";
@@ -8,6 +7,7 @@ import { RegistrationContainer } from "../Registration/RegistrationContainer";
 import { LoginContainer } from "../Login/LoginContainer";
 import { MeContainer } from "../Profile/Me";
 import { UsersContainer } from "../Users/UsersContainer";
+import { FriendsContainer } from "../Friends/FriendsContainer";
 
 export function Main(props) {
   return (
@@ -19,7 +19,7 @@ export function Main(props) {
         <Dialogs className={props.className} chats={props.state.chats} />
       </Route>
       <Route exact path="/friends">
-        <Friends className={props.className} />
+        <FriendsContainer className={props.className} />
       </Route>
       <Route exact path="/news">
         <News className={props.className} />

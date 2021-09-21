@@ -10,6 +10,8 @@ export function Friends(props) {
       <SectionHeader>Друзья</SectionHeader>
       <FriendsListContainer
         className={FriendsStyle.list}
+        currentPage={props.currentPage}
+        friendsCount={props.friendsCount}
         render={(props) => <FriendListItemContainer {...props} />}
       />
     </main>

@@ -20,6 +20,7 @@ import { stopLoadingAuth } from "../Actions/Auth/stopLoadingAuth";
 import { setMe } from "../Actions/Me/setMe";
 import { startLoadingMe } from "../Actions/Me/startLoadingMe";
 import { stopLoadingMe } from "../Actions/Me/stopLoadingMe";
+import { setFriends } from "../Actions/Friends/setFriends";
 
 import { setUserInfo } from "../Actions/Profile/setUserInfo";
 import { startLoadingProfile } from "../Actions/Profile/startLoadingProfile";
@@ -38,7 +39,7 @@ import { inputFormActionCreator } from "../Actions/inputForm";
 import { unfollowUserActionCreator } from "../Actions/Users/unfollowUser";
 import { followUserActionCreator } from "../Actions/Users/followUser";
 
-import { nextPage } from "../Actions/Users/nextPage";
+import { nextUsersPage } from "../Actions/Users/nextUsersPage";
 import { addUsers } from "../Actions/Users/addUsers";
 
 import { startLoadingUsers } from "../Actions/Users/startLoadingUsers";
@@ -92,7 +93,7 @@ export const mapDispatchToProps = (componentName) => {
     }
     case FRIENDS_LIST: {
       return {
-        addUsers,
+        setFriends,
       };
     }
     case FRIENDS_LIST_ITEM: {
@@ -102,7 +103,7 @@ export const mapDispatchToProps = (componentName) => {
     }
     case PAGES_LIST: {
       return {
-        nextPage,
+        nextPage: nextUsersPage,
         startLoadingUsers,
         stopLoadingUsers,
       };

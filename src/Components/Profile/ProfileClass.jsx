@@ -1,7 +1,7 @@
-import axios from "axios";
 import { Component } from "react";
 import { Profile } from "./Profile";
 import { addLoading } from "../Shared/AddLoading/AddLoading";
+import { getProfile } from "../../DAL/api";
 
 export class ProfileClass extends Component {
   async componentDidMount() {
@@ -9,12 +9,10 @@ export class ProfileClass extends Component {
 
     const id = this.props.match.params.id;
 
-    const response = await axios.get(
-      `https://social-network.samuraijs.com/api/1.0/profile/${id}`
-    );
+    const user = await getProfile(id);
 
     if (id === this.props.match.params.id) {
-      this.props.setUser(response.data);
+      this.props.setUser(user);
       this.props.stopLoadingProfile();
     }
   }

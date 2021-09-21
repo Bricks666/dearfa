@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Component } from "react";
 import { connect } from "react-redux";
 import { ME } from "../../Redux/ToProps/componentsConstants";
@@ -6,6 +5,7 @@ import { mapDispatchToProps } from "../../Redux/ToProps/mapDispatchToProps";
 import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
 import { Profile } from "./Profile";
 import { addLoading } from "../Shared/AddLoading/AddLoading";
+import { getProfile } from "../../DAL/api";
 
 class Me extends Component {
   async componentDidMount() {
@@ -15,11 +15,9 @@ class Me extends Component {
     if (this.props.me.isLoaded === false) {
       this.props.startLoadingMe();
 
-      const user = await axios.get(
-        `https://social-network.samuraijs.com/api/1.0/profile/${this.props.id}`
-      );
+      const user = await getProfile(this.props.id);
 
-      this.props.setMe(user.data);
+      this.props.setMe(user);
 
       this.props.stopLoadingMe();
     }

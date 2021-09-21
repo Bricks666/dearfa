@@ -1,20 +1,15 @@
-import axios from "axios";
 import { Component } from "react";
 import { Header } from "./Header";
+import { getAuth } from "../../DAL/api";
 
 export class HeaderClass extends Component {
   async componentDidMount() {
     this.props.startLoadingAuth();
 
-    const response = await axios.get(
-      "https://social-network.samuraijs.com/api/1.0/auth/me",
-      {
-        withCredentials: true,
-      }
-    );
+    const response = await getAuth();
 
-    if (response.data.resultCode === 0) {
-      this.props.auth(response.data.data);
+    if (response.resultCode === 0) {
+      this.props.auth(response.data);
     }
 
     this.props.stopLoadingAuth();

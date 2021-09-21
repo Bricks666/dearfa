@@ -1,18 +1,13 @@
-import axios from "axios";
 import { Component } from "react";
+import { getUsers } from "../../../DAL/api";
 import { PagesList } from "./PagesList";
 
 export class PagesListClass extends Component {
   async nextPage(page) {
     this.props.startLoadingUsers();
-    const response = await axios.get(
-      `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersCount}&page=${page}`,
-      {
-        withCredentials: true,
-      }
-    );
+    const users = await getUsers(this.props.usersCount, page);
 
-    this.props.nextPage(response.data.items, page);
+    this.props.nextPage(users.items, page);
     this.props.stopLoadingUsers();
   }
 
