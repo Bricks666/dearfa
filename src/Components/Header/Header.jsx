@@ -5,9 +5,15 @@ import { Link } from "react-router-dom";
 import HeaderStyle from "./Header.module.css";
 
 function Header(props) {
+  console.log(props);
   return (
     <header className={`${props.className ?? ""} ${HeaderStyle.header}`}>
-      <Logo className={HeaderStyle.logo} src="/Images/logo.svg" alt="Logo" />
+      <Logo
+        className={HeaderStyle.logo}
+        src="/Images/logo.svg"
+        alt="Logo"
+        isLogin={props.isLogin}
+      />
       {props.isLogin ? (
         <Link className={HeaderStyle.link} to="/profile">
           {props.login}

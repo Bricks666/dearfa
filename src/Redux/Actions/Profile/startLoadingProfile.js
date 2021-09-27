@@ -1,4 +1,4 @@
-import { START_LOADING_PROFILE } from "../Constants";
+import { START_LOADING_PROFILE } from "../../ActionsConstants";
 
 export const startLoadingProfile = () => {
   return {

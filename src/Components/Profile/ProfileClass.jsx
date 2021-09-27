@@ -13,7 +13,7 @@ export class ProfileClass extends Component {
 
     if (id === this.props.match.params.id) {
       this.props.setUser(user);
-      this.props.stopLoadingProfile();
+      this.props.endLoadingProfile();
     }
   }
 

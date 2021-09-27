@@ -4,9 +4,11 @@ import { getFriends } from "../../../DAL/api";
 
 export class FriendsListClass extends Component {
   async componentDidMount() {
-    if (this.props.friends.length !== 0) {
+
+    if (this.props.isLoaded) {
       return;
     }
+    this.props.startLoadingFriends();
 
     const data = await getFriends(
       this.props.friendsCount,
@@ -14,6 +16,7 @@ export class FriendsListClass extends Component {
     );
 
     this.props.setFriends(data);
+    this.props.endLoadingFriends();
   }
 
   render() {

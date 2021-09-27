@@ -7,7 +7,7 @@ function Logo(props) {
   return (
     <Link
       className={`${props.className ?? ""} ${LogoStyle.logo}`}
-      to="/profile"
+      to={props.isLogin ? "/profile" : "/login"}
     >
       <img
         className={LogoStyle.image ?? ""}

@@ -1,4 +1,4 @@
-import { ADD_POST } from "../../Actions/Constants";
+import { ADD_POST } from "../../ActionsConstants";
 
 function createPost(id, content) {
   return {

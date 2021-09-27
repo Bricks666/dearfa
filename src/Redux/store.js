@@ -6,9 +6,10 @@ import { registrationReducers } from "./Reducers/registrationReducer";
 import { profileReducers } from "./Reducers/profileReducers";
 import { navigationReducers } from "./Reducers/navigationReducers";
 import { initialState } from "./initialState";
-import { usersListReducers } from "./Reducers/usersListReducers";
 import { authReducers } from "./Reducers/authReducers";
 import { friendsReducer } from "./Reducers/friendsReducer";
+import { favoriteFriends } from "./Reducers/favoriteFriends";
+import { usersReducers } from "./Reducers/usersReducers";
 
 const reducers = combineReducers({
   profile: profileReducers,
@@ -16,13 +17,18 @@ const reducers = combineReducers({
   chats: chatsReducers,
   posts: postsReducers,
   friends: friendsReducer,
-  users: usersListReducers,
-  loginFields: loginReducers,
-  registrationFields: registrationReducers,
+  users: usersReducers,
+  login: loginReducers,
+  registration: registrationReducers,
   navigation: navigationReducers,
+  favoriteFriends: favoriteFriends,
 });
 
-const store = createStore(reducers, initialState);
+const store = createStore(
+  reducers,
+  initialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 window.store = store;
 

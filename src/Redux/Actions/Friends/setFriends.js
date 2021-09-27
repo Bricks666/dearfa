@@ -1,4 +1,4 @@
-import { SET_FRIENDS } from "../Constants";
+import { SET_FRIENDS } from "../../ActionsConstants";
 
 export const setFriends = (data) => {
   return {

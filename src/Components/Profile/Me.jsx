@@ -19,7 +19,7 @@ class Me extends Component {
 
       this.props.setMe(user);
 
-      this.props.stopLoadingMe();
+      this.props.endLoadingMe();
     }
   }
   render() {

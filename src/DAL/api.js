@@ -60,3 +60,11 @@ export const getFriends = async (friendsCount, currentPage) => {
     )
   ).data;
 };
+
+export const getFavoriteFriends = async () => {
+  return (
+    await instance.get("users?count=6&page=1&friend=true", {
+      withCredentials: true,
+    })
+  ).data;
+};

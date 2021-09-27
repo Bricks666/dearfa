@@ -1,4 +1,4 @@
-import { FOLLOW_USER } from "../Constants";
+import { FOLLOW_USER } from "../../ActionsConstants";
 
 export const followUserActionCreator = (user) => {
   return {

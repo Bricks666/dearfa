@@ -1,4 +1,4 @@
-import { START_LOADING_ME } from "../Constants";
+import { START_LOADING_ME } from "../../ActionsConstants";
 
 export const startLoadingMe = () => {
   return {

@@ -1,4 +1,4 @@
-import { INPUT_POST } from "../../Actions/Constants";
+import { INPUT_POST } from "../../ActionsConstants";
 
 export const inputPostReducer = (state, action) => {
   if (action.type === INPUT_POST) {

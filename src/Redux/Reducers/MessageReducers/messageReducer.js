@@ -1,4 +1,4 @@
-import { ADD_MESSAGE } from "../../Actions/Constants";
+import { ADD_MESSAGE } from "../../ActionsConstants";
 
 const createMessage = (id, content) => {
   return {

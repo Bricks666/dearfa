@@ -4,12 +4,16 @@ import { unfollow } from "../../../../DAL/api";
 
 export class FriendsListItemClass extends Component {
   async unfollow() {
+    const userId = this.props.user.id;
+    this.props.startFollowing(userId);
 
-    const data = await unfollow(this.props.user.id);
+    const data = await unfollow(userId);
 
     if (data.resultCode === 0) {
-      this.props.unfollow(this.props.user.id);
+      this.props.unfollow(userId);
     }
+
+    this.props.endFollowing(userId);
   }
 
   render() {
@@ -18,6 +22,7 @@ export class FriendsListItemClass extends Component {
         className={this.props.className}
         onClick={this.unfollow.bind(this)}
         user={this.props.user}
+        isDisabled={this.props.user.isFollowing}
       />
     );
   }

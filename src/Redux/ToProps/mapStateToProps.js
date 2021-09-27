@@ -5,11 +5,11 @@ import {
   MAKE_MESSAGE,
   FAVORITE_FRIENDS,
   FRIENDS_LIST,
-  PAGES_LIST,
+  USERS_PAGES_LIST,
   DIALOG,
   USERS_LIST,
   MESSAGES,
-  REGISTRATION,
+  REG,
   PROFILE,
   NAVIGATION,
   HEADER,
@@ -18,6 +18,14 @@ import {
   ME,
   USERS,
   FRIENDS,
+  FRIENDS_LIST_ITEM,
+  LOGIN_EMAIL,
+  LOGIN_PASSWORD,
+  LOGIN_CHECKBOX,
+  REG_EMAIL,
+  REG_FULLNAME,
+  REG_PASSWORD,
+  REG_PASSWORD_AGAIN,
 } from "./componentsConstants";
 
 export const mapStateToProps = (componentName) => {
@@ -106,9 +114,10 @@ export const mapStateToProps = (componentName) => {
     }
     case FAVORITE_FRIENDS: {
       return (state) => {
-
         return {
-          friends: state.friends.list.slice(0, 6),
+          friends: state.favoriteFriends.list,
+          isLoading: state.favoriteFriends.isLoading,
+          isLoaded: state.favoriteFriends.isLoaded,
         };
       };
     }
@@ -116,10 +125,17 @@ export const mapStateToProps = (componentName) => {
       return (state) => {
         return {
           friends: state.friends.list,
+          isLoading: state.friends.isLoading,
+          isLoaded: state.friends.isLoaded,
         };
       };
     }
-    case REGISTRATION: {
+    case FRIENDS_LIST_ITEM: {
+      return (state) => {
+        return { isDisabled: state.friends.isFollowing };
+      };
+    }
+    case REG: {
       return (state) => {
         return {
           fields: state.registrationFields,
@@ -129,7 +145,72 @@ export const mapStateToProps = (componentName) => {
     case LOGIN: {
       return (state) => {
         return {
-          fields: state.loginFields,
+          isDisabled: state.login.isDisabled,
+        };
+      };
+    }
+    case REG_EMAIL: {
+      return (state) => {
+        return {
+          value: state.registration.email,
+          required: true,
+          autocomplete: false,
+          type: "email",
+        };
+      };
+    }
+    case REG_FULLNAME: {
+      return (state) => {
+        return {
+          value: state.registration.fullName,
+          required: true,
+          autocomplete: false,
+        };
+      };
+    }
+    case REG_PASSWORD: {
+      return (state) => {
+        return {
+          value: state.registration.password,
+          required: true,
+          autocomplete: false,
+          type: "password",
+        };
+      };
+    }
+    case REG_PASSWORD_AGAIN: {
+      return (state) => {
+        return {
+          value: state.registration.passwordAgain,
+          required: true,
+          autocomplete: false,
+          type: "password",
+        };
+      };
+    }
+    case LOGIN_EMAIL: {
+      return (state) => {
+        return {
+          value: state.login.email,
+          required: true,
+          autocomplete: true,
+        };
+      };
+    }
+    case LOGIN_PASSWORD: {
+      return (state) => {
+        return {
+          value: state.login.password,
+          required: true,
+          type: "password",
+          autocomplete: true,
+        };
+      };
+    }
+    case LOGIN_CHECKBOX: {
+      return (state) => {
+        return {
+          checked: state.login.isRemember,
         };
       };
     }
@@ -141,7 +222,7 @@ export const mapStateToProps = (componentName) => {
         };
       };
     }
-    case PAGES_LIST: {
+    case USERS_PAGES_LIST: {
       return (state) => {
         return {
           pageCount: state.users.pageCount,

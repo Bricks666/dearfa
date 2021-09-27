@@ -1,4 +1,4 @@
-import { NEXT_FRIENDS_PAGE } from "../Constants";
+import { NEXT_FRIENDS_PAGE } from "../../ActionConstants";
 
 export const nextFriendsPage = (friends, page) => {
   return {

@@ -5,19 +5,28 @@ import { unfollow } from "../../../DAL/api";
 
 export class UsersListItemClass extends Component {
   async follow() {
-    const data = await follow(this.props.user.id);
 
+    const userId = this.props.user.id;
+    this.props.startFollowing(userId);
+    const data = await follow(userId);
+    console.log(data);
     if (data.resultCode === 0) {
       this.props.follow(this.props.user);
     }
+
+    this.props.endFollowing(userId);
   }
 
   async unfollow() {
-    const data = await unfollow(this.props.user.id);
+    const userId = this.props.user.id;
+    this.props.startFollowing(userId);
+    const data = await unfollow(userId);
 
     if (data.resultCode === 0) {
-      this.props.unfollow(this.props.user.id);
+      this.props.unfollow(userId);
     }
+
+    this.props.endFollowing(userId);
   }
 
   render() {
@@ -30,6 +39,7 @@ export class UsersListItemClass extends Component {
             ? this.unfollow.bind(this)
             : this.follow.bind(this)
         }
+        isDisabled={this.props.user.isFollowing}
       />
     );
   }

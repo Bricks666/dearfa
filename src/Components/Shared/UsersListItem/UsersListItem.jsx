@@ -31,7 +31,11 @@ export const UsersListItem = (props) => {
       >
         Написать
       </ButtonLink>
-      <Button className={UsersListItemStyle.button} onClick={props.onClick}>
+      <Button
+        className={UsersListItemStyle.button}
+        onClick={props.onClick}
+        disabled={props.isDisabled}
+      >
         {props.user.followed ? "Удалить из друзей" : "Добавить в друзья"}
       </Button>
     </li>

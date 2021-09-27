@@ -1,4 +1,4 @@
-import { NEXT_USERS_PAGE } from "../Constants";
+import { NEXT_USERS_PAGE } from "../../ActionsConstants";
 
 export const nextUsersPage = (users, page) => {
   return {

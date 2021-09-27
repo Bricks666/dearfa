@@ -1,4 +1,4 @@
-import { SET_ME } from "../Constants";
+import { SET_ME } from "../../ActionsConstants";
 
 export const setMe = (me) => {
   return {

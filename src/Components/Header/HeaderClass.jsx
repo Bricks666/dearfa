@@ -12,7 +12,7 @@ export class HeaderClass extends Component {
       this.props.auth(response.data);
     }
 
-    this.props.stopLoadingAuth();
+    this.props.endLoadingAuth();
   }
 
   render() {

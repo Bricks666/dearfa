@@ -1,8 +1,8 @@
 import {
   SET_USER_INFO,
   START_LOADING_PROFILE,
-  STOP_LOADING_PROFILE,
-} from "../Actions/Constants";
+  END_LOADING_PROFILE,
+} from "../ActionsConstants";
 import { initialState } from "../initialState";
 
 export const profileReducers = (state = initialState.profile, action) => {
@@ -16,7 +16,7 @@ export const profileReducers = (state = initialState.profile, action) => {
         isLoading: true,
       };
     }
-    case STOP_LOADING_PROFILE: {
+    case END_LOADING_PROFILE: {
       return {
         ...state,
         isLoading: false,

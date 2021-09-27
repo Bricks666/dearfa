@@ -8,7 +8,7 @@ export class PagesListClass extends Component {
     const users = await getUsers(this.props.usersCount, page);
 
     this.props.nextPage(users.items, page);
-    this.props.stopLoadingUsers();
+    this.props.endLoadingUsers();
   }
 
   render() {

@@ -15,10 +15,9 @@ export class UsersListClass extends Component {
 
     this.props.addUsers(users);
 
-    this.props.stopLoadingUsers();
+    this.props.endLoadingUsers();
   }
 
-  /* Может стоит сделать компоненту полностью классовой */
   render() {
     const WithLoading = addLoading(UsersList);
 

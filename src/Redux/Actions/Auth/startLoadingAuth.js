@@ -1,4 +1,4 @@
-import { START_LOADING_AUTH } from "../Constants";
+import { START_LOADING_AUTH } from "../../ActionsConstants";
 
 export const startLoadingAuth = () => {
   return {

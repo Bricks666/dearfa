@@ -1,4 +1,4 @@
-import { TOGGLE_LIKE } from "../../Actions/Constants";
+import { TOGGLE_LIKE } from "../../ActionsConstants";
 
 
 

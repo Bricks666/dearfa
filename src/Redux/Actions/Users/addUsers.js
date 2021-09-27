@@ -1,4 +1,4 @@
-import { ADD_USERS } from "../Constants";
+import { ADD_USERS } from "../../ActionsConstants";
 
 export const addUsers = (data) => {
   return {

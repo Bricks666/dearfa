@@ -1,4 +1,4 @@
-import { START_LOADING_USERS } from "../Constants";
+import { START_LOADING_USERS } from "../../ActionsConstants";
 
 export const startLoadingUsers = () => {
   return {

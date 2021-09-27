@@ -1,4 +1,4 @@
-import { INPUT_MESSAGE } from "../../Actions/Constants";
+import { INPUT_MESSAGE } from "../../ActionsConstants";
 
 export const inputMessageReducer = (state, action) => {
   if (action.type === INPUT_MESSAGE) {

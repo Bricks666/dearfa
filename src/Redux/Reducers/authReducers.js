@@ -1,11 +1,11 @@
 import {
   AUTH,
   START_LOADING_AUTH,
-  STOP_LOADING_AUTH,
+  END_LOADING_AUTH,
   SET_ME,
   START_LOADING_ME,
-  STOP_LOADING_ME,
-} from "../Actions/Constants";
+  END_LOADING_ME,
+} from "../ActionsConstants";
 import { initialState } from "../initialState";
 
 export const authReducers = (state = initialState.auth, action) => {
@@ -23,7 +23,7 @@ export const authReducers = (state = initialState.auth, action) => {
         isLoading: true,
       };
     }
-    case STOP_LOADING_AUTH: {
+    case END_LOADING_AUTH: {
       return {
         ...state,
         isLoading: false,
@@ -42,7 +42,7 @@ export const authReducers = (state = initialState.auth, action) => {
         isLoading: true,
       };
     }
-    case STOP_LOADING_ME: {
+    case END_LOADING_ME: {
       return {
         ...state,
         isLoading: false,

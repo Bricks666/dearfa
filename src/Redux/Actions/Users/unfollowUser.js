@@ -1,4 +1,4 @@
-import { UNFOLLOW_USER } from "../Constants";
+import { UNFOLLOW_USER } from "../../ActionsConstants";
 
 export const unfollowUserActionCreator = (id) => {
   return {

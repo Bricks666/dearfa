@@ -1,4 +1,4 @@
-import { SET_USER_INFO } from "../Constants";
+import { SET_USER_INFO } from "../../ActionsConstants";
 
 export const setUserInfo = (info) => {
   return {

@@ -1,4 +1,4 @@
-import { AUTH } from "../Constants";
+import { AUTH } from "../../ActionsConstants";
 
 export const setAuth = (data) => {
   return {
