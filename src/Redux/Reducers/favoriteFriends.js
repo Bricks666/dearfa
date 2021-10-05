@@ -1,8 +1,6 @@
 import {
   FOLLOW_USER,
   SET_FAVORITE_FRIENDS,
-  START_LOADING_FAVORITE_FRIENDS,
-  END_LOADING_FAVORITE_FRIENDS,
   UNFOLLOW_USER,
 } from "../ActionsConstants";
 import { initialState } from "../initialState";
@@ -20,12 +18,6 @@ export const favoriteFriends = (
         isLoaded: true,
       };
     }
-    case START_LOADING_FAVORITE_FRIENDS: {
-      return {
-        ...state,
-        isLoading: true,
-      };
-    }
     case UNFOLLOW_USER: {
       return {
         ...state,
@@ -41,12 +33,6 @@ export const favoriteFriends = (
             friendsCount: ++state.friendsCount,
           }
         : state;
-    }
-    case END_LOADING_FAVORITE_FRIENDS: {
-      return {
-        ...state,
-        isLoading: false,
-      };
     }
     default: {
       return state;

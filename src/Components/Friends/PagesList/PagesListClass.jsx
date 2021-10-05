@@ -5,10 +5,9 @@ export class PagesListClass extends Component {
   render() {
     return (
       <PagesList
-        className={this.props.className}
         currentPage={this.props.currentPage}
         pageCount={this.props.pageCount}
-        nextPage={this.props.nextPage.bind(this.props, this.props.usersCount)}
+        nextPage={this.props.nextPage.bind(this.props, this.props.friendsCount)}
       />
     );
   }

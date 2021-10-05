@@ -4,7 +4,10 @@ export const renderPagesList = (currentPage, pageCount, style, nextPage) => {
 
   for (
     let i = start > 0 ? start : 1;
-    i <= (start > 0 ? Math.min(currentPage + 5, pageCount) : 10);
+    i <=
+    (start > 0
+      ? Math.min(currentPage + 5, pageCount)
+      : Math.min(10, pageCount));
     i++
   ) {
     pages.push(

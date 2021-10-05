@@ -1,22 +1,13 @@
 import { Component } from "react";
 import { UsersList } from "../../Shared/UsersList/UsersList";
-import { getFriends } from "../../../DAL/api";
 
 export class FriendsListClass extends Component {
-  async componentDidMount() {
-
-    if (this.props.isLoaded) {
-      return;
-    }
-    this.props.startLoadingFriends();
-
-    const data = await getFriends(
+  componentDidMount() {
+    this.props.loadFriends(
       this.props.friendsCount,
-      this.props.currentPage
+      this.props.currentPage,
+      this.props.isLoaded
     );
-
-    this.props.setFriends(data);
-    this.props.endLoadingFriends();
   }
 
   render() {

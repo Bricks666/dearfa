@@ -8,12 +8,16 @@ import { Status } from "../UserCardParts/Status/Status";
 import UsersListItemStyle from "./UsersListItem.module.css";
 
 export const UsersListItem = (props) => {
+  console.log(props.isDisabled);
   return (
     <li
       className={`${UsersListItemStyle.itemWrapper} ${props.className ?? ""}`}
     >
       <FullName id={props.user.id} fullName={props.user.name} />
-      <Status status={props.user.aboutMe} />
+      <Status
+        className={UsersListItemStyle.status}
+        status={props.user.aboutMe}
+      />
       <Photo
         className={UsersListItemStyle.photo}
         id={props.user.id}
@@ -22,7 +26,7 @@ export const UsersListItem = (props) => {
       />
 
       <Contacts
-        className={UsersListItemStyle.aboutUser}
+        className={UsersListItemStyle.contacts}
         contacts={props.user.contacts}
       />
       <ButtonLink

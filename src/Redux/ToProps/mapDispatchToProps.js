@@ -20,14 +20,8 @@ import {
   REG_PASSWORD_AGAIN,
   REG_FULLNAME,
   REG_BUTTON,
+  FRIENDS_PAGES_LIST,
 } from "./componentsConstants";
-
-import { setAuth } from "../Actions/Auth/setAuth";
-import { startLoadingAuth } from "../Actions/Auth/startLoadingAuth";
-import { endLoadingAuth } from "../Actions/Auth/endLoadingAuth";
-import { setMe } from "../Actions/Me/setMe";
-import { startLoadingMe } from "../Actions/Me/startLoadingMe";
-import { endLoadingMe } from "../Actions/Me/endLoadingMe";
 
 import { loginEmailInput } from "../Actions/Login/loginEmailInput";
 import { loginPasswordInput } from "../Actions/Login/loginPasswordInput";
@@ -38,11 +32,7 @@ import { regPasswordInput } from "../Actions/Registration/regPasswordInput";
 import { regPasswordAgainInput } from "../Actions/Registration/regPasswordAgainInput";
 import { regFullNameInput } from "../Actions/Registration/regFullNameInput";
 
-import { setFriends } from "../Actions/Friends/setFriends";
-
-import { setUserInfo } from "../Actions/Profile/setUserInfo";
-import { startLoadingProfile } from "../Actions/Profile/startLoadingProfile";
-import { endLoadingProfile } from "../Actions/Profile/endLoadingProfile";
+import { loadFriendsThunk } from "../Thunks/loadFriendsThunk";
 
 import { addMessageActionCreator } from "../Actions/Dialogs/addMessage";
 import { inputMessageActionCreator } from "../Actions/Dialogs/inputMessage";
@@ -52,39 +42,36 @@ import { inputPostActionCreator } from "../Actions/Posts/inputPost";
 
 import { toggleLikeActionCreator } from "../Actions/Posts/toggleLike";
 
-import { unfollowUserActionCreator } from "../Actions/Users/unfollowUser";
-import { followUserActionCreator } from "../Actions/Users/followUser";
+import { nextUsersPageThunk } from "../Thunks/nextUsersPageThunk";
 
-import { nextUsersPage } from "../Actions/Users/nextUsersPage";
-import { addUsers } from "../Actions/Users/addUsers";
-
-import { startLoadingUsers } from "../Actions/Users/startLoadingUsers";
-import { endLoadingUsers } from "../Actions/Users/endLoadingUsers";
-
-import { startLoadingFriends } from "../Actions/Friends/startLoadingFrineds";
-import { endLoadingFriends } from "../Actions/Friends/endLoadingFriends";
-import { setFavoriteFriends } from "../Actions/FavoriteFriends/setFavoriteFriends";
-import { endLoadingFavoriteFriends } from "../Actions/FavoriteFriends/endLoadingFavoriteFriends";
-import { startLoadingFavoriteFriends } from "../Actions/FavoriteFriends/startLoadingFavoriteFriends";
-import { endFollowingFriends } from "../Actions/Friends/endFollowingFollowing";
-import { startFollowingFriends } from "../Actions/Friends/startFollowingFriends";
-import { endFollowingUser } from "../Actions/Users/endFollowingUser";
-import { startFollowingUser } from "../Actions/Users/startFollowingUser";
+import { followUserThunk } from "../Thunks/followUserThunk";
+import { unfollowUserThunk } from "../Thunks/unfollowUserThunk";
+import { authThunk } from "../Thunks/authThunk";
+import { loadFavoriteFriendsThunk } from "../Thunks/loadFavoriteFriendsThunk";
+import { unfollowFriendThunk } from "../Thunks/unfollowFriendThunk";
+import { nextFriendsPageThunk } from "../Thunks/nextFriendsPageThunk";
+import { loadUserThunk } from "../Thunks/loadUserThunk";
+import { setUsersThunk } from "../Thunks/loadUsersThunk";
+import { setMeThunk } from "../Thunks/setMeThunk";
 
 export const mapDispatchToProps = (componentName) => {
   switch (componentName) {
     case HEADER: {
-      return {
-        auth: setAuth,
-        startLoadingAuth,
-        endLoadingAuth,
+      return (dispatch) => {
+        return {
+          auth() {
+            dispatch(authThunk());
+          },
+        };
       };
     }
     case ME: {
-      return {
-        setMe,
-        startLoadingMe,
-        endLoadingMe,
+      return (dispatch) => {
+        return {
+          loadMe(id) {
+            dispatch(setMeThunk(id));
+          },
+        };
       };
     }
     case LOGIN_BUTTON: {
@@ -167,10 +154,12 @@ export const mapDispatchToProps = (componentName) => {
       };
     }
     case PROFILE: {
-      return {
-        setUser: setUserInfo,
-        startLoadingProfile,
-        endLoadingProfile,
+      return (dispatch) => {
+        return {
+          loadProfile(id) {
+            dispatch(loadUserThunk(id));
+          },
+        };
       };
     }
     case MAKE_MESSAGE: {
@@ -191,46 +180,69 @@ export const mapDispatchToProps = (componentName) => {
       };
     }
     case FAVORITE_FRIENDS: {
-      return {
-        startLoadingFavoriteFriends: startLoadingFavoriteFriends,
-        endLoadingFavoriteFriends: endLoadingFavoriteFriends,
-        setFavoriteFriends: setFavoriteFriends,
+      return (dispatch) => {
+        return {
+          loadFavoriteFriends(isLoaded) {
+            dispatch(loadFavoriteFriendsThunk(isLoaded));
+          },
+        };
       };
     }
     case FRIENDS_LIST: {
-      return {
-        startLoadingFriends: startLoadingFriends,
-        endLoadingFriends: endLoadingFriends,
-        setFriends: setFriends,
+      return (dispatch) => {
+        return {
+          loadFriends(friendsCount, currentPage, isLoaded) {
+            dispatch(loadFriendsThunk(friendsCount, currentPage, isLoaded));
+          },
+        };
       };
     }
     case FRIENDS_LIST_ITEM: {
-      return {
-        startFollowing: startFollowingFriends,
-        endFollowing: endFollowingFriends,
-        unfollow: unfollowUserActionCreator,
+      return (dispatch) => {
+        return {
+          unfollow(userId) {
+            dispatch(unfollowFriendThunk(userId));
+          },
+        };
+      };
+    }
+    case FRIENDS_PAGES_LIST: {
+      return (dispatch) => {
+        return {
+          nextPage(friendsCount, page) {
+            dispatch(nextFriendsPageThunk(friendsCount, page));
+          },
+        };
       };
     }
     case USERS_PAGES_LIST: {
-      return {
-        nextPage: nextUsersPage,
-        startLoadingUsers,
-        endLoadingUsers,
+      return (dispatch) => {
+        return {
+          nextPage(usersCount, page) {
+            dispatch(nextUsersPageThunk(usersCount, page));
+          },
+        };
       };
     }
     case USERS_LIST: {
-      return {
-        addUsers,
-        startLoadingUsers,
-        endLoadingUsers,
+      return (dispatch) => {
+        return {
+          loadUsers(usersCount, page) {
+            dispatch(setUsersThunk(usersCount, page));
+          },
+        };
       };
     }
     case USERS_LIST_ITEM: {
-      return {
-        unfollow: unfollowUserActionCreator,
-        follow: followUserActionCreator,
-        endFollowing: endFollowingUser,
-        startFollowing: startFollowingUser,
+      return (dispatch) => {
+        return {
+          unfollow(userId) {
+            dispatch(unfollowUserThunk(userId));
+          },
+          follow(user) {
+            dispatch(followUserThunk(user));
+          },
+        };
       };
     }
     default: {

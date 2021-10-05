@@ -1,6 +1,6 @@
 /* ABOUT LIST */
 
-.aboutUser {
+.contacts {
   display: grid;
 
   grid-template-columns: minmax(max-content, 200px) 1fr;

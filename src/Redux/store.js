@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore, compose } from "redux";
+import thunk from "redux-thunk";
 import { chatsReducers } from "./Reducers/chatsReducers";
 import { postsReducers } from "./Reducers/postsReducers";
 import { loginReducers } from "./Reducers/loginReducers";
@@ -10,6 +11,8 @@ import { authReducers } from "./Reducers/authReducers";
 import { friendsReducer } from "./Reducers/friendsReducer";
 import { favoriteFriends } from "./Reducers/favoriteFriends";
 import { usersReducers } from "./Reducers/usersReducers";
+import { loadings } from "./Reducers/loadings";
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducers = combineReducers({
   profile: profileReducers,
@@ -22,12 +25,13 @@ const reducers = combineReducers({
   registration: registrationReducers,
   navigation: navigationReducers,
   favoriteFriends: favoriteFriends,
+  loadings: loadings,
 });
 
 const store = createStore(
   reducers,
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancers(applyMiddleware(thunk))
 );
 
 window.store = store;

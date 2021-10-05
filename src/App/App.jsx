@@ -12,7 +12,7 @@ import { FavoritFriendsContainer } from "../Components/FavoritFriends/FavoritFri
 
 import AppStyle from "./App.module.css";
 
-function App(props) {
+const App = (props) => {
   return (
     <Router>
       <div
@@ -39,6 +39,6 @@ function App(props) {
       </div>
     </Router>
   );
-}
+};
 
 export { App };

@@ -6,8 +6,6 @@ import { PagesListContainer } from "./PagesList/PagesListContainer";
 import UsersStyle from "./Users.module.css";
 
 export const Users = (props) => {
-  /* Нужно будет вынести в отдельную компоненту */
-
   return (
     <main className={`${props.className ?? ""} ${UsersStyle.users}`}>
       <SectionHeader>Все пользователи</SectionHeader>

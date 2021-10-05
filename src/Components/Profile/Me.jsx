@@ -5,22 +5,13 @@ import { mapDispatchToProps } from "../../Redux/ToProps/mapDispatchToProps";
 import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
 import { Profile } from "./Profile";
 import { addLoading } from "../Shared/AddLoading/AddLoading";
-import { getProfile } from "../../DAL/api";
 
 class Me extends Component {
   async componentDidMount() {
-    if (this.props.id === null) {
+    if (this.props.isLoaded) {
       return;
     }
-    if (this.props.me.isLoaded === false) {
-      this.props.startLoadingMe();
-
-      const user = await getProfile(this.props.id);
-
-      this.props.setMe(user);
-
-      this.props.endLoadingMe();
-    }
+    this.props.loadMe(this.props.id);
   }
   render() {
     return <Profile className={this.props.className} user={this.props.me} />;

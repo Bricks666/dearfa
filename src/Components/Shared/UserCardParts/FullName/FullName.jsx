@@ -6,7 +6,7 @@ export const FullName = (props) => {
   return (
     <Link
       className={`${FullNameStyle.link} ${props.className ?? ""}`}
-      to={`/users/${props.id}`}
+      to={`/profile/${props.id}`}
     >
       <h4 className={FullNameStyle.name}>{props.fullName}</h4>
     </Link>

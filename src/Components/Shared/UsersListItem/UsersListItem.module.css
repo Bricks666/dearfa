@@ -12,11 +12,10 @@
   list-style: none;
 }
 
-/* ITEM */
+/* STATUS */
 
-.item {
-  grid-column: 1;
-  grid-row: 1 / -1;
+.status {
+  grid-column: 2;
 }
 
 /* PHOTO */
@@ -24,7 +23,7 @@
 .photo {
   order: -1;
 
-  grid-row: span 3;
+  grid-row: 1/-1;
 
   width: 120px;
   height: 170px;
@@ -32,8 +31,7 @@
 
 /* ABOUT USER */
 
-.aboutUser {
-  grid-row: 2;
+.contacts {
   grid-column: 2;
 }
 
@@ -41,7 +39,7 @@
 
 .link {
   grid-column: -1;
-  grid-row: -3;
+  grid-row: -1;
 }
 
 /* BUTTON */

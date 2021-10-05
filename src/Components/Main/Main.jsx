@@ -33,7 +33,7 @@ export function Main(props) {
       <Route exact path="/users">
         <UsersContainer className={props.className} />
       </Route>
-      <Route exact path="/users/:id">
+      <Route exact path="/profile/:id">
         <ProfileContainer className={props.className} />
       </Route>
       <Route>

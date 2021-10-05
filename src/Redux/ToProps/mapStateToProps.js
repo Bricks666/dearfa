@@ -26,6 +26,8 @@ import {
   REG_FULLNAME,
   REG_PASSWORD,
   REG_PASSWORD_AGAIN,
+  FRIENDS_PAGES_LIST,
+  USERS_LIST_ITEM,
 } from "./componentsConstants";
 
 export const mapStateToProps = (componentName) => {
@@ -50,6 +52,7 @@ export const mapStateToProps = (componentName) => {
         return {
           me: state.auth,
           isLoading: state.auth.isLoading,
+          isLoaded: state.loadings.loadingAuth,
           id: state.auth.userId,
         };
       };
@@ -57,7 +60,7 @@ export const mapStateToProps = (componentName) => {
     case MAIN: {
       return (state) => {
         return {
-          isLoading: state.auth.isLoading,
+          isLoading: state.loadings.loadingAuth,
         };
       };
     }
@@ -65,7 +68,7 @@ export const mapStateToProps = (componentName) => {
       return (state) => {
         return {
           user: state.profile,
-          isLoading: state.profile.isLoading,
+          isLoading: state.loadings.loadingProfile,
         };
       };
     }
@@ -116,7 +119,7 @@ export const mapStateToProps = (componentName) => {
       return (state) => {
         return {
           friends: state.favoriteFriends.list,
-          isLoading: state.favoriteFriends.isLoading,
+          isLoading: state.loadings.loadingFavoriteFriends,
           isLoaded: state.favoriteFriends.isLoaded,
         };
       };
@@ -125,14 +128,24 @@ export const mapStateToProps = (componentName) => {
       return (state) => {
         return {
           friends: state.friends.list,
-          isLoading: state.friends.isLoading,
+          isLoading: state.loadings.loadingFriends,
           isLoaded: state.friends.isLoaded,
         };
       };
     }
     case FRIENDS_LIST_ITEM: {
+      return (state, ownProps) => {
+
+        return {
+          isFollowing: state.loadings.following.includes(ownProps.user.id),
+        };
+      };
+    }
+    case FRIENDS_PAGES_LIST: {
       return (state) => {
-        return { isDisabled: state.friends.isFollowing };
+        return {
+          pageCount: state.friends.pageCount,
+        };
       };
     }
     case REG: {
@@ -233,7 +246,15 @@ export const mapStateToProps = (componentName) => {
       return (state) => {
         return {
           users: state.users.list,
-          isLoading: state.users.isLoading,
+          isLoading: state.loadings.loadingUsers,
+        };
+      };
+    }
+    case USERS_LIST_ITEM: {
+      return (state, ownProps) => {
+
+        return {
+          isFollowing: state.loadings.following.includes(ownProps.user.id),
         };
       };
     }

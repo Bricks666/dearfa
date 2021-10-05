@@ -9,7 +9,7 @@ function Contacts(props) {
     return null;
   }
   return (
-    <dl className={`${props.className ?? ""} ${ContactsStyle.aboutUser}`}>
+    <dl className={`${props.className ?? ""} ${ContactsStyle.contacts}`}>
       <span className={ContactsStyle.header}>Контакты:</span>
       {contacts}
     </dl>

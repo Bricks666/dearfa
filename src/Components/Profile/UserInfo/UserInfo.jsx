@@ -20,7 +20,7 @@ function UserInfo(props) {
         fullName={props.user.fullName}
       />
       <Contacts
-        className={UserInfoStyle.aboutUser}
+        className={UserInfoStyle.contacts}
         contacts={props.user.contacts}
       />
     </div>

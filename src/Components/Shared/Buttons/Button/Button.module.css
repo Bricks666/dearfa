@@ -2,6 +2,7 @@
 
 .button {
   width: 150px;
+  height: min-content;
 
   padding: 10px 20px;
 

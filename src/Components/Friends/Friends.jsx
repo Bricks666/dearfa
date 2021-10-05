@@ -1,8 +1,9 @@
 import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
 import { FriendsListContainer } from "./FriendsListContainer/FriendsListContainer";
+import { PageListConnect } from "./PagesList/PageListConnect";
+import { FriendListItemContainer } from "./FriendsListContainer/FriendsListItemContainer/FriendsListItemContainer";
 
 import FriendsStyle from "./Friends.module.css";
-import { FriendListItemContainer } from "./FriendsListContainer/FriendsListItemContainer/FriendsListItemContainer";
 
 export function Friends(props) {
   return (
@@ -13,6 +14,10 @@ export function Friends(props) {
         currentPage={props.currentPage}
         friendsCount={props.friendsCount}
         render={(props) => <FriendListItemContainer {...props} />}
+      />
+      <PageListConnect
+        friendsCount={props.friendsCount}
+        currentPage={props.currentPage}
       />
     </main>
   );

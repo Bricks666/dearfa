@@ -1,18 +1,10 @@
 import { Component } from "react";
-import { getFavoriteFriends } from "../../DAL/api";
 import { FavoritFriends } from "./FavoritFriends";
 
 export class FavoriteFriendsClass extends Component {
-  async componentDidMount() {
-    if (this.props.isLoaded === false) {
-      this.props.startLoadingFavoriteFriends();
+  componentDidMount() {
 
-      const friends = await getFavoriteFriends();
-
-      this.props.setFavoriteFriends(friends);
-
-      this.props.endLoadingFavoriteFriends();
-    }
+    this.props.loadFavoriteFriends(this.props.isLoaded);
   }
 
   render() {

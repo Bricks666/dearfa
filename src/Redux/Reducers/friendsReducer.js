@@ -21,18 +21,6 @@ export const friendsReducer = (state = initialState.friends, action) => {
         isLoaded: true,
       };
     }
-    case START_LOADING_FRIENDS: {
-      return {
-        ...state,
-        isLoading: true,
-      };
-    }
-    case END_LOADING_FRIENDS: {
-      return {
-        ...state,
-        isLoading: false,
-      };
-    }
     case NEXT_FRIENDS_PAGE: {
       return {
         ...state,
@@ -46,6 +34,7 @@ export const friendsReducer = (state = initialState.friends, action) => {
             ...state,
             list: [...state.list, { ...action.user, followed: true }],
             totalCount: ++state.totalCount,
+            pageCount: Math.ceil(state.totalCount / state.friendsCount),
           }
         : state;
     }
@@ -54,38 +43,10 @@ export const friendsReducer = (state = initialState.friends, action) => {
         ? {
             ...state,
             list: state.list.filter((friend) => friend.id !== action.id),
+            totalCount: --state.totalCount,
+            pageCount: Math.ceil(state.totalCount / state.friendsCount),
           }
         : state;
-    }
-    case START_FOLLOWING_FRIENDS: {
-      return {
-        ...state,
-        list: state.list.map((friend) => {
-          if (friend.id === action.friendId) {
-            return {
-              ...friend,
-              isFollowing: true,
-            };
-          }
-
-          return friend;
-        }),
-      };
-    }
-    case END_FOLLOWING_FRIENDS: {
-      return {
-        ...state,
-        list: state.list.map((friend) => {
-          if (friend.id === action.friendId) {
-            return {
-              ...friend,
-              isFollowing: false,
-            };
-          }
-
-          return friend;
-        }),
-      };
     }
     default:
       return state;

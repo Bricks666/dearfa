@@ -8,7 +8,7 @@ export const initialState = {
     },
     contacts: {},
     followed: false,
-    isLoading: false,
+    isLoaded: false,
   },
   auth: {
     userId: null,
@@ -18,10 +18,8 @@ export const initialState = {
       alt: "Аватарка...",
     },
     contacts: {},
-    followed: false,
-    isLoading: false,
-    isLoaded: false,
     isLogin: false,
+    isLoaded: false,
   },
   chats: [
     {
@@ -58,23 +56,19 @@ export const initialState = {
     pageCount: 0,
     currentPage: 1,
     usersCount: 10,
-    isLoading: false,
-    isFollowing: false,
+    isLoaded: false,
   },
   friends: {
     list: [],
     pageCount: 0,
     currentPage: 1,
     friendsCount: 10,
-    isLoading: false,
     isLoaded: false,
-    isFollowing: false,
   },
   favoriteFriends: {
     list: [],
-    isLoading: false,
-    isLoaded: false,
     friendsCount: 0,
+    isLoaded: false,
   },
   posts: {
     list: [
@@ -164,4 +158,13 @@ export const initialState = {
       id: 7,
     },
   ],
+  loadings: {
+    loadingAuth: false,
+    loadingMe: false,
+    loadingProfile: false,
+    loadingUsers: false,
+    loadingFriends: false,
+    loadingFavoriteFriends: false,
+    following: [],
+  },
 };
