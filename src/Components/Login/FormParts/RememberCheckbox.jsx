@@ -5,6 +5,6 @@ import { Checkbox } from "../../Shared/Checkbox/Checkbox";
 import { LOGIN_CHECKBOX } from "../../../Redux/ToProps/componentsConstants";
 
 export const RememberCheckbox = connect(
-  mapStateToProps(LOGIN_CHECKBOX),
-  mapDispatchToProps(LOGIN_CHECKBOX)
+	mapStateToProps(LOGIN_CHECKBOX),
+	mapDispatchToProps(LOGIN_CHECKBOX)
 )(Checkbox);

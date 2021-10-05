@@ -6,6 +6,6 @@ import { FavoriteFriendsClass } from "./FavoriteFriendsClass";
 import { addLoading } from "../Shared/AddLoading/AddLoading";
 
 export const FavoritFriendsContainer = connect(
-  mapStateToProps(FAVORITE_FRIENDS),
-  mapDispatchToProps(FAVORITE_FRIENDS)
+	mapStateToProps(FAVORITE_FRIENDS),
+	mapDispatchToProps(FAVORITE_FRIENDS)
 )(addLoading(FavoriteFriendsClass));

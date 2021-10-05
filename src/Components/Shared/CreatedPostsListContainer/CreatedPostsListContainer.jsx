@@ -5,6 +5,6 @@ import { mapStateToProps } from "../../../Redux/ToProps/mapStateToProps";
 import { mapDispatchToProps } from "../../../Redux/ToProps/mapDispatchToProps";
 
 export const CreatedPostsListContainer = connect(
-  mapStateToProps(CREATED_POSTS),
-  mapDispatchToProps(CREATED_POSTS)
+	mapStateToProps(CREATED_POSTS),
+	mapDispatchToProps(CREATED_POSTS)
 )(CreatedPostsList);

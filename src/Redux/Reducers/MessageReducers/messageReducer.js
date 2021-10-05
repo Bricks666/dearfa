@@ -1,33 +1,33 @@
 import { ADD_MESSAGE } from "../../ActionsConstants";
 
 const createMessage = (id, content) => {
-  return {
-    authorId: 1,
-    content,
-    id,
-  };
+	return {
+		authorId: 1,
+		content,
+		id,
+	};
 };
 
 export const messageReducer = (state, action) => {
-  if (action.type === ADD_MESSAGE) {
-    const newState = [...state];
+	if (action.type === ADD_MESSAGE) {
+		const newState = [...state];
 
-    const value = { ...newState[0].newMessageContent };
+		const value = { ...newState[0].newMessageContent };
 
-    if (Boolean(value) === false || Boolean(value.text) === false) {
-      return state;
-    }
+		if (Boolean(value) === false || Boolean(value.text) === false) {
+			return state;
+		}
 
-    const newMessage = createMessage(newState[0].messages.length + 1, value);
+		const newMessage = createMessage(newState[0].messages.length + 1, value);
 
-    newState[0] = {
-      ...state[0],
-      messages: [...state[0].messages, newMessage],
-      newMessageContent: null,
-    };
+		newState[0] = {
+			...state[0],
+			messages: [...state[0].messages, newMessage],
+			newMessageContent: null,
+		};
 
-    return newState;
-  }
+		return newState;
+	}
 
-  return state;
+	return state;
 };

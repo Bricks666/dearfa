@@ -6,6 +6,6 @@ import { HeaderClass } from "./HeaderClass";
 import { addLoading } from "../Shared/AddLoading/AddLoading";
 
 export const HeaderContainer = connect(
-  mapStateToProps(HEADER),
-  mapDispatchToProps(HEADER)
+	mapStateToProps(HEADER),
+	mapDispatchToProps(HEADER)
 )(addLoading(HeaderClass));

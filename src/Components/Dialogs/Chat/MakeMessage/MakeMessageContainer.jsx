@@ -5,6 +5,6 @@ import { mapDispatchToProps } from "../../../../Redux/ToProps/mapDispatchToProps
 import { mapStateToProps } from "../../../../Redux/ToProps/mapStateToProps";
 
 export const MakeMessageContainer = connect(
-  mapStateToProps(MAKE_MESSAGE),
-  mapDispatchToProps(MAKE_MESSAGE)
+	mapStateToProps(MAKE_MESSAGE),
+	mapDispatchToProps(MAKE_MESSAGE)
 )(Make);

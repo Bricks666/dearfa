@@ -5,6 +5,6 @@ import { mapDispatchToProps } from "../../../../../Redux/ToProps/mapDispatchToPr
 import { mapStateToProps } from "../../../../../Redux/ToProps/mapStateToProps";
 
 export const LikeContainer = connect(
-  mapStateToProps(LIKE),
-  mapDispatchToProps(LIKE)
+	mapStateToProps(LIKE),
+	mapDispatchToProps(LIKE)
 )(Like);

@@ -6,6 +6,6 @@ import { FriendsListClass } from "./FriendsListClass";
 import { addLoading } from "../../Shared/AddLoading/AddLoading";
 
 export const FriendsListContainer = connect(
-  mapStateToProps(FRIENDS_LIST),
-  mapDispatchToProps(FRIENDS_LIST)
+	mapStateToProps(FRIENDS_LIST),
+	mapDispatchToProps(FRIENDS_LIST)
 )(addLoading(FriendsListClass));

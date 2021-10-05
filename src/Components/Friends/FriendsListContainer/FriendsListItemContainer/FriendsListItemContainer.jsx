@@ -5,6 +5,6 @@ import { mapStateToProps } from "../../../../Redux/ToProps/mapStateToProps";
 import { FriendsListItemClass } from "./FriendsListItemClass";
 
 export const FriendListItemContainer = connect(
-  mapStateToProps(FRIENDS_LIST_ITEM),
-  mapDispatchToProps(FRIENDS_LIST_ITEM)
+	mapStateToProps(FRIENDS_LIST_ITEM),
+	mapDispatchToProps(FRIENDS_LIST_ITEM)
 )(FriendsListItemClass);

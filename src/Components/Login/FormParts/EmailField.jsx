@@ -5,6 +5,6 @@ import { mapStateToProps } from "../../../Redux/ToProps/mapStateToProps";
 import { Field } from "../../Shared/Field/Field";
 
 export const EmailField = connect(
-  mapStateToProps(LOGIN_EMAIL),
-  mapDispatchToProps(LOGIN_EMAIL)
+	mapStateToProps(LOGIN_EMAIL),
+	mapDispatchToProps(LOGIN_EMAIL)
 )(Field);

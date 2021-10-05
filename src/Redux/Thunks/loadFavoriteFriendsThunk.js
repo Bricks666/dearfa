@@ -4,18 +4,17 @@ import { setFavoriteFriends } from "../Actions/FavoriteFriends/setFavoriteFriend
 import { startLoadingFavoriteFriends } from "../Actions/Loadings/startLoadingFavoriteFriends";
 
 export const loadFavoriteFriendsThunk = (isLoaded) => {
-  return async (dispatch) => {
+	return async (dispatch) => {
+		if (isLoaded) {
+			return;
+		}
 
-    if (isLoaded) {
-      return;
-    }
+		dispatch(startLoadingFavoriteFriends());
 
-    dispatch(startLoadingFavoriteFriends());
+		const favoriteFriends = await getFavoriteFriends();
 
-    const favoriteFriends = await getFavoriteFriends();
+		dispatch(setFavoriteFriends(favoriteFriends));
 
-    dispatch(setFavoriteFriends(favoriteFriends));
-
-    dispatch(endLoadingFavoriteFriends());
-  };
+		dispatch(endLoadingFavoriteFriends());
+	};
 };

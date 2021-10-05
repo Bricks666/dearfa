@@ -9,19 +9,19 @@ import MessageStyle from "./Message.module.css";
 */
 
 function Message(props) {
-  return (
-    <article className={`${props.className ?? ""} ${MessageStyle.message}`}>
-      <Picture
-        className={`${MessageStyle.photo} fake-photo`}
-        oneXSrc={""}
-        alt={""}
-      />
-      <p className={MessageStyle.content}>
-        <span className={MessageStyle.author}>Кто-то</span>
-        {props.children}
-      </p>
-    </article>
-  );
+	return (
+		<article className={`${props.className ?? ""} ${MessageStyle.message}`}>
+			<Picture
+				className={`${MessageStyle.photo} fake-photo`}
+				oneXSrc={""}
+				alt={""}
+			/>
+			<p className={MessageStyle.content}>
+				<span className={MessageStyle.author}>Кто-то</span>
+				{props.children}
+			</p>
+		</article>
+	);
 }
 
 export { Message };

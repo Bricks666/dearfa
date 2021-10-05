@@ -4,5 +4,5 @@ import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
 import { Navigation } from "./Navigation";
 
 export const NavigationContainer = connect(mapStateToProps(NAVIGATION))(
-  Navigation
+	Navigation
 );

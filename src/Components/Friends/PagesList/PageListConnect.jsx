@@ -5,6 +5,6 @@ import { mapStateToProps } from "../../../Redux/ToProps/mapStateToProps";
 import { PagesListClass } from "./PagesListClass";
 
 export const PageListConnect = connect(
-  mapStateToProps(FRIENDS_PAGES_LIST),
-  mapDispatchToProps(FRIENDS_PAGES_LIST)
+	mapStateToProps(FRIENDS_PAGES_LIST),
+	mapDispatchToProps(FRIENDS_PAGES_LIST)
 )(PagesListClass);

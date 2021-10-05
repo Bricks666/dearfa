@@ -5,6 +5,6 @@ import { mapStateToProps } from "../../../Redux/ToProps/mapStateToProps";
 import { Button } from "../../Shared/Buttons/Button/Button";
 
 export const RegistrationButton = connect(
-  mapStateToProps(REG_BUTTON),
-  mapDispatchToProps(REG_BUTTON)
+	mapStateToProps(REG_BUTTON),
+	mapDispatchToProps(REG_BUTTON)
 )(Button);

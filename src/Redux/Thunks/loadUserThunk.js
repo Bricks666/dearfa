@@ -4,22 +4,22 @@ import { setUserInfo } from "../Actions/Profile/setUserInfo";
 import { startLoadingProfile } from "../Actions/Loadings/startLoadingProfile";
 
 const sleep = (ms) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+	return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
 export const loadUserThunk = (id) => {
-  return async (dispatch) => {
-    try {
-      dispatch(startLoadingProfile());
+	return async (dispatch) => {
+		try {
+			dispatch(startLoadingProfile());
 
-      const user = await getProfile(id);
-      dispatch(setUserInfo(user));
+			const user = await getProfile(id);
+			dispatch(setUserInfo(user));
 
-      await sleep(500);
+			await sleep(500);
 
-      dispatch(endLoadingProfile());
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+			dispatch(endLoadingProfile());
+		} catch (e) {
+			console.log(e.message);
+		}
+	};
 };

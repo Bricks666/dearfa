@@ -6,20 +6,20 @@ import { FavoritFriendsListItem } from "./FavoritFriendsListItem/FavoritFriendsL
 import FavoritFriendsStyle from "./FavoritFriends.module.css";
 
 const FavoritFriends = (props) => {
-  return (
-    <aside
-      className={`${FavoritFriendsStyle.lastCommunications} ${
-        props.className ?? ""
-      }`}
-    >
-      <SubsectionHeader>Избранные друзья</SubsectionHeader>
-      <UsersList
-        className={FavoritFriendsStyle.list}
-        users={props.friends}
-        render={(props) => <FavoritFriendsListItem {...props} />}
-      />
-    </aside>
-  );
+	return (
+		<aside
+			className={`${FavoritFriendsStyle.lastCommunications} ${
+				props.className ?? ""
+			}`}
+		>
+			<SubsectionHeader>Избранные друзья</SubsectionHeader>
+			<UsersList
+				className={FavoritFriendsStyle.list}
+				users={props.friends}
+				render={(props) => <FavoritFriendsListItem {...props} />}
+			/>
+		</aside>
+	);
 };
 
 export { FavoritFriends };

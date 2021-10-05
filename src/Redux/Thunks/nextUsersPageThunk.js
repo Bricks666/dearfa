@@ -4,18 +4,17 @@ import { nextUsersPage } from "../Actions/Users/nextUsersPage";
 import { getUsers } from "../../DAL/api";
 
 export const nextUsersPageThunk = (usersCount, page) => {
-  return async (dispatch) => {
-    try {
+	return async (dispatch) => {
+		try {
+			dispatch(startLoadingUsers());
 
-      dispatch(startLoadingUsers());
+			const users = await getUsers(usersCount, page);
 
-      const users = await getUsers(usersCount, page);
+			dispatch(nextUsersPage(users.items, page));
 
-      dispatch(nextUsersPage(users.items, page));
-
-      dispatch(endLoadingUsers());
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+			dispatch(endLoadingUsers());
+		} catch (e) {
+			console.log(e.message);
+		}
+	};
 };

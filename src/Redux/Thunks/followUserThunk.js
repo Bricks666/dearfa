@@ -4,15 +4,15 @@ import { followUserActionCreator } from "../Actions/Users/followUser";
 import { startFollowingUser } from "../Actions/Loadings/startFollowingUser";
 
 export const followUserThunk = (user) => {
-  return async (dispatch) => {
-    dispatch(startFollowingUser(user.id));
+	return async (dispatch) => {
+		dispatch(startFollowingUser(user.id));
 
-    const response = await follow(user.id);
+		const response = await follow(user.id);
 
-    if (response.resultCode === 0) {
-      dispatch(followUserActionCreator(user));
-    }
+		if (response.resultCode === 0) {
+			dispatch(followUserActionCreator(user));
+		}
 
-    dispatch(endFollowingUser(user.id));
-  };
+		dispatch(endFollowingUser(user.id));
+	};
 };

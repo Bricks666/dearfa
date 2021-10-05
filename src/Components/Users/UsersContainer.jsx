@@ -5,6 +5,6 @@ import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
 import { Users } from "./Users";
 
 export const UsersContainer = connect(
-  mapStateToProps(USERS),
-  mapDispatchToProps(USERS)
+	mapStateToProps(USERS),
+	mapDispatchToProps(USERS)
 )(Users);
