@@ -1,0 +1,29 @@
+/* BUTTON */
+
+.button {
+	padding: 0;
+	margin: 0;
+
+	border: none;
+	border-radius: none;
+}
+
+/* CROSS */
+
+.cross {
+	fill: var(--blue-light);
+
+	transition-property: transform;
+	transition-duration: 0.25s;
+	transition-timing-function: linear;
+	transform-origin: center;
+
+	cursor: pointer;
+}
+
+.cross:hover,
+.cross:active {
+	fill: var(--blue);
+
+	transform: scale(1.05);
+}

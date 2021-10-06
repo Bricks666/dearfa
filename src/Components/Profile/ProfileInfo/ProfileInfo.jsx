@@ -6,7 +6,7 @@ import { Photo } from "../../Shared/UserCardParts/Photo/Photo";
 
 import ProfileInfoStyle from "./ProfileInfo.module.css";
 
-function ProfileInfo(props) {
+const ProfileInfo = (props) => {
 	return (
 		<div className={`${props.className ?? ""} ${ProfileInfoStyle.userInfo}`}>
 			<SubsectionHeader className={`${ProfileInfoStyle.fullName}`}>
@@ -23,8 +23,9 @@ function ProfileInfo(props) {
 				className={ProfileInfoStyle.contacts}
 				contacts={props.user.contacts}
 			/>
+			{props.children}
 		</div>
 	);
-}
+};
 
 export { ProfileInfo };

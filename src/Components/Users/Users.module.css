@@ -1,9 +1,7 @@
 /* USERS */
 
 .users {
-  display: grid;
-
-  row-gap: 50px;
+	display: grid;
 }
 
 /* LIST */
@@ -14,10 +12,10 @@
 /* BUTTON */
 
 .button {
-  justify-self: center;
+	justify-self: center;
 
-  width: 200px;
-  height: min-content;
+	width: 200px;
+	height: min-content;
 
-  font-size: 24px;
+	font-size: 24px;
 }

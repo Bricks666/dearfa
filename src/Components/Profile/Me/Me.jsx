@@ -19,7 +19,7 @@ class Me extends Component {
 	}
 
 	componentDidMount() {
-		this.props.loadMe(this.props.id);
+		this.props.loadMe(this.props.me.userId);
 	}
 
 	render() {

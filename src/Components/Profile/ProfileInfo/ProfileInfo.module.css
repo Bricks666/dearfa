@@ -1,31 +1,32 @@
 /* USER INFO */
 
 .userInfo {
-    display: grid;
+	display: grid;
 
-    grid-template-columns: 150px 1fr;
+	grid-template-columns: 150px 1fr;
+	grid-template-rows: repeat(3, min-content) 1fr;
 
-    column-gap: 20px;
-    row-gap: 20px;
+	column-gap: 20px;
+	row-gap: 12px;
 }
 
 /* PHOTO */
 .photo {
-    height: 170px;
-    order: -1;
+	height: 170px;
+	order: -1;
 
-    grid-row: span 3;
+	grid-row: 1 / -1;
 }
 
 /*  FULL NAME */
 .fullName {
-    align-self: start;
+	align-self: start;
 
-    font-size: 24px;
+	font-size: 24px;
 }
 
 /* ABOUT USER */
 
 .contacts {
-    margin: 0;
+	margin: 0;
 }

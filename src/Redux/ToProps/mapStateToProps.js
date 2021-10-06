@@ -35,14 +35,14 @@ export const mapStateToProps = (componentName) => {
 	case APP: {
 		return (state) => {
 			return {
-				isLogin: state.auth.isLogin,
+				isLogin: state.login.isLogin,
 			};
 		};
 	}
 	case HEADER: {
 		return (state) => {
 			return {
-				isLogin: state.auth.isLogin,
+				isLogin: state.login.isLogin,
 				login: state.auth.fullName,
 			};
 		};
@@ -52,7 +52,6 @@ export const mapStateToProps = (componentName) => {
 			return {
 				me: state.auth,
 				isLoading: state.loadings.loadingMe,
-				id: state.auth.userId,
 			};
 		};
 	}

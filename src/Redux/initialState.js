@@ -17,8 +17,6 @@ export const initialState = {
 			alt: "Аватарка...",
 		},
 		contacts: {},
-		isLogin: false,
-		isLoaded: false,
 	},
 	chats: [
 		{
@@ -105,6 +103,7 @@ export const initialState = {
 		email: "",
 		isRemember: false,
 		isDisabled: false,
+		isLogin: false,
 	},
 	registration: {
 		fullName: "",

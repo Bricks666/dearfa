@@ -21,7 +21,9 @@
 
 .status {
 	max-width: max-content;
+	max-height: min-content;
 
+	word-break: break-all;
 	font-size: 14px;
 	font-weight: 400;
 }

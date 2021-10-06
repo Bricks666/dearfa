@@ -1,0 +1,33 @@
+/* FORM */
+
+.form {
+	display: flex;
+
+	justify-content: space-between;
+
+	flex-wrap: wrap;
+
+	row-gap: 10px;
+}
+
+/* HEADER */
+
+.header {
+	font-size: 18px;
+
+	flex-basis: 100%;
+}
+
+/* NEW STATUS */
+
+.newStatus {
+	width: 80%;
+}
+
+/* ACCEPT BUTTON */
+
+.acceptButton {
+	width: min-content;
+
+	padding: 10px 20px;
+}

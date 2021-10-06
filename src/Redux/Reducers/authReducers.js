@@ -7,7 +7,6 @@ export const authReducers = (state = initialState.auth, action) => {
 		return {
 			...state,
 			...action.data,
-			isLogin: true,
 		};
 	}
 	case SET_ME: {

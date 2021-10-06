@@ -34,7 +34,7 @@ export function Main(props) {
 			<Route exact path="/users/:page">
 				<UsersContainer className={props.className} />
 			</Route>
-			<Route exact path="/profile/:id">
+			<Route exact strict path="/profile/:id">
 				<UserProfileConnect className={props.className} />
 			</Route>
 			<Route>

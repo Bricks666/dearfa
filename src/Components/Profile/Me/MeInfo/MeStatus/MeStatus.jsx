@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Status } from "../../../../Shared/UserCardParts/Status/Status";
 import { Button } from "../../../../Shared/Buttons/Button/Button";
 import { ModalWindow } from "../../../../Shared/ModalWindow/ModalWindow";
-import { Field } from "../../../../Shared/Field/Field";
+import { NewStatusWindow } from "./NewStatusWindow/NewStatusWindow";
 
 import MeStatusStyle from "./MeStatus.module.css";
 
@@ -41,9 +41,15 @@ export class MeStatus extends Component {
 						Изменить статус
 					</Button>
 				</Status>
-				<ModalWindow condition={this.state.showModal} close={this.toggleModal}>
-					<Field value={this.state.newStatus} input={this.inputNewStatus} />
-					<Button onClick={this.setNewStatus}>Поставить новый статус</Button>
+				<ModalWindow
+					condition={this.state.showModal}
+					close={this.toggleModal}
+				>
+					<NewStatusWindow
+						setNewStatus={this.setNewStatus}
+						newStatus={this.state.newStatus}
+						input={this.inputNewStatus}
+					/>
 				</ModalWindow>
 			</>
 		);

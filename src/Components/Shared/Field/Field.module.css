@@ -1,25 +1,27 @@
 /* LABEL */
 
 .label {
-    display: grid;
+	display: grid;
 
-    row-gap: 2px;
+	row-gap: 2px;
 
-    font-size: 14px;
+	width: 250px;
+
+	font-size: 14px;
 }
 
 /* FIElD */
 
 .field {
-    width: 250px;
+	width: 100%;
 
-    padding: 5px;
+	padding: 5px;
 
-    border-radius: 0;
+	border-radius: 0;
 
-    border: 1px solid var(--grey);
+	border: 1px solid var(--grey);
 
-    box-shadow: none;
+	box-shadow: none;
 
-    filter: drop-shadow(1px 1px 1px var(--grey-light));
+	filter: drop-shadow(1px 1px 1px var(--grey-light));
 }

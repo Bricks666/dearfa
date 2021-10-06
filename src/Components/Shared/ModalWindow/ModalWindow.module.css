@@ -21,6 +21,26 @@
 /* INNER */
 
 .inner {
+	position: relative;
+
 	padding: 20px;
-    background-color: #fff;
+	padding-top: 30px;
+
+	background-color: #fff;
+}
+
+/* BUTTON */
+
+.button {
+	position: absolute;
+	z-index: 15;
+
+	top: 10px;
+	right: 10px;
+
+	width: 20px;
+	height: 20px;
+
+	grid-row: 1;
+	grid-column: -1;
 }

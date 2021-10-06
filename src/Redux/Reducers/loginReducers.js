@@ -1,5 +1,6 @@
 import { initialState } from "../initialState";
 import {
+	AUTH,
 	LOGIN_CHECKBOX_TOGGLE,
 	LOGIN_EMAIL_INPUT,
 	LOGIN_PASSWORD_INPUT,
@@ -8,6 +9,12 @@ import {
 
 export const loginReducers = (state = initialState.login, action) => {
 	switch (action.type) {
+	case AUTH: {
+		return {
+			...state,
+			isLogin: true
+		};
+	}
 	case LOGIN_EMAIL_INPUT: {
 		return {
 			...state,
