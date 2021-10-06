@@ -1,6 +1,6 @@
 import { UNFOLLOW_USER } from "../../ActionsConstants";
 
-export const unfollowUserActionCreator = (id) => {
+export const unfollowUser = (id) => {
 	return {
 		type: UNFOLLOW_USER,
 		id,

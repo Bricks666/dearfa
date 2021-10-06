@@ -3,6 +3,7 @@ import {
 	LOGIN_CHECKBOX_TOGGLE,
 	LOGIN_EMAIL_INPUT,
 	LOGIN_PASSWORD_INPUT,
+	LOGOUT,
 } from "../ActionsConstants";
 
 export const loginReducers = (state = initialState.login, action) => {
@@ -24,6 +25,9 @@ export const loginReducers = (state = initialState.login, action) => {
 			...state,
 			isRemember: !state.isRemember,
 		};
+	}
+	case LOGOUT: {
+		return initialState.login;
 	}
 	default: {
 		return state;

@@ -3,10 +3,10 @@ import { Switch, Route } from "react-router";
 import { Dialogs } from "../Dialogs/Dialogs";
 import { News } from "../News/News";
 import { NotFound } from "../NotFound/NotFound";
-import { ProfileContainer } from "../Profile/ProfileContainer";
+import { UserProfileConnect } from "../Profile/User/UserProfileConnect";
 import { RegistrationContainer } from "../Registration/RegistrationContainer";
 import { LoginContainer } from "../Login/LoginContainer";
-import { MeContainer } from "../Profile/Me";
+import { MeContainer } from "../Profile/Me/Me";
 import { UsersContainer } from "../Users/UsersContainer";
 import { FriendsContainer } from "../Friends/FriendsContainer";
 
@@ -19,7 +19,7 @@ export function Main(props) {
 			<Route path="/dialogs">
 				<Dialogs className={props.className} chats={props.state.chats} />
 			</Route>
-			<Route exact path="/friends">
+			<Route exact path="/friends/:page">
 				<FriendsContainer className={props.className} />
 			</Route>
 			<Route exact path="/news">
@@ -31,11 +31,11 @@ export function Main(props) {
 			<Route exact path="/registration">
 				<RegistrationContainer className={props.className} />
 			</Route>
-			<Route exact path="/users">
+			<Route exact path="/users/:page">
 				<UsersContainer className={props.className} />
 			</Route>
 			<Route exact path="/profile/:id">
-				<ProfileContainer className={props.className} />
+				<UserProfileConnect className={props.className} />
 			</Route>
 			<Route>
 				<NotFound className={props.className} />

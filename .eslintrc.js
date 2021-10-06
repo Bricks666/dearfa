@@ -11,7 +11,7 @@ module.exports = {
 		ecmaVersion: 12,
 		sourceType: "module",
 	},
-	plugins: ["react"],
+	plugins: ["react", "react-hooks"],
 	rules: {
 		indent: ["error", "tab"],
 		"linebreak-style": ["error", "unix"],
@@ -19,5 +19,7 @@ module.exports = {
 		semi: ["warn", "always"],
 		"react/prop-types": [0],
 		"react/display-name": [0],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
 	},
 };

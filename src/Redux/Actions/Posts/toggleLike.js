@@ -1,6 +1,6 @@
 import { TOGGLE_LIKE } from "../../ActionsConstants";
 
-export const toggleLikeActionCreator = (postId) => {
+export const toggleLike = (postId) => {
 	return {
 		type: TOGGLE_LIKE,
 		postId,

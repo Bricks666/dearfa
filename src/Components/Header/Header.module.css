@@ -1,39 +1,60 @@
 /* HEADER */
 
 .header {
-  display: flex;
+	display: flex;
 
-  align-items: center;
-  justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
 
-  padding: 0 20px;
+	padding: 0 20px;
 
-  min-height: 50px;
+	min-height: 50px;
 
-  background-color: var(--blue-light);
+	background-color: var(--blue-light);
 }
 
 /* LOGO */
 
 .logo {
-  width: 120px;
+	width: 120px;
 }
 
 /* AUTHORIZATION */
 
 .authorization {
-  font-size: 14px;
-  color: var(--white-lighter);
+	font-size: 14px;
+	color: var(--white-lighter);
 }
 
 /* LINK */
 
 .link {
-  line-height: 1em;
-  text-decoration: none;
-  color: var(--white-lighter);
+	line-height: 1em;
+	text-decoration: none;
+	color: var(--white-lighter);
 }
 
 .link:hover {
-  text-decoration: underline;
+	text-decoration: underline;
+}
+
+/* LOGOUT */
+
+.logout {
+	max-width: min-content;
+
+	background-color: transparent;
+
+	font-size: 14px;
+
+    padding: 0;
+
+	transition: none;
+}
+
+.logout:hover,
+.logout:active {
+	background-color: transparent;
+
+	text-decoration: underline;
 }

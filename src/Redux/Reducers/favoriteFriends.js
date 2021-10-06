@@ -1,5 +1,6 @@
 import {
 	FOLLOW_USER,
+	LOGOUT,
 	SET_FAVORITE_FRIENDS,
 	UNFOLLOW_USER,
 } from "../ActionsConstants";
@@ -15,7 +16,6 @@ export const favoriteFriends = (
 			...state,
 			list: action.data.items,
 			friendsCount: action.data.totalCount >= 6 ? 6 : action.data.totalCount,
-			isLoaded: true,
 		};
 	}
 	case UNFOLLOW_USER: {
@@ -33,6 +33,9 @@ export const favoriteFriends = (
 				friendsCount: ++state.friendsCount,
 			}
 			: state;
+	}
+	case LOGOUT: {
+		return initialState.favoriteFriends;
 	}
 	default: {
 		return state;

@@ -2,30 +2,29 @@ import React from "react";
 
 import { Contacts } from "../../Shared/UserCardParts/Contacts/Contacts";
 import { SubsectionHeader } from "../../Shared/SubsectionHeader/SubsectionHeader";
-
-import UserInfoStyle from "./UserInfo.module.css";
 import { Photo } from "../../Shared/UserCardParts/Photo/Photo";
-import { Status } from "../../Shared/UserCardParts/Status/Status";
 
-function UserInfo(props) {
+import ProfileInfoStyle from "./ProfileInfo.module.css";
+
+function ProfileInfo(props) {
 	return (
-		<div className={`${props.className ?? ""} ${UserInfoStyle.userInfo}`}>
-			<SubsectionHeader className={`${UserInfoStyle.fullName}`}>
+		<div className={`${props.className ?? ""} ${ProfileInfoStyle.userInfo}`}>
+			<SubsectionHeader className={`${ProfileInfoStyle.fullName}`}>
 				{props.user.fullName}
 			</SubsectionHeader>
-			<Status status={props.user.aboutMe} />
+			<props.Status status={props.user.status} />
 			<Photo
-				className={UserInfoStyle.photo}
+				className={ProfileInfoStyle.photo}
 				image={props.user.photos}
 				id={props.user.userId}
 				fullName={props.user.fullName}
 			/>
 			<Contacts
-				className={UserInfoStyle.contacts}
+				className={ProfileInfoStyle.contacts}
 				contacts={props.user.contacts}
 			/>
 		</div>
 	);
 }
 
-export { UserInfo };
+export { ProfileInfo };

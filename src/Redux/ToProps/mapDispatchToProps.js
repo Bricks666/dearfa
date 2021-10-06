@@ -3,7 +3,6 @@ import {
 	MAKE_MESSAGE,
 	FRIENDS_LIST,
 	FRIENDS_LIST_ITEM,
-	USERS_PAGES_LIST,
 	USERS_LIST,
 	USERS_LIST_ITEM,
 	MAKE_POST,
@@ -20,7 +19,8 @@ import {
 	REG_PASSWORD_AGAIN,
 	REG_FULLNAME,
 	REG_BUTTON,
-	FRIENDS_PAGES_LIST,
+	LOGOUT_BUTTON,
+	ME_STATUS,
 } from "./componentsConstants";
 
 import { loginEmailInput } from "../Actions/Login/loginEmailInput";
@@ -34,25 +34,26 @@ import { regFullNameInput } from "../Actions/Registration/regFullNameInput";
 
 import { loadFriendsThunk } from "../Thunks/loadFriendsThunk";
 
-import { addMessageActionCreator } from "../Actions/Dialogs/addMessage";
-import { inputMessageActionCreator } from "../Actions/Dialogs/inputMessage";
+import { addMessage } from "../Actions/Dialogs/addMessage";
+import { inputMessage } from "../Actions/Dialogs/inputMessage";
 
-import { addPostActionCreator } from "../Actions/Posts/addPost";
-import { inputPostActionCreator } from "../Actions/Posts/inputPost";
+import { addPost } from "../Actions/Posts/addPost";
+import { inputPost } from "../Actions/Posts/inputPost";
 
-import { toggleLikeActionCreator } from "../Actions/Posts/toggleLike";
+import { toggleLike } from "../Actions/Posts/toggleLike";
 
-import { nextUsersPageThunk } from "../Thunks/nextUsersPageThunk";
 
 import { followUserThunk } from "../Thunks/followUserThunk";
 import { unfollowUserThunk } from "../Thunks/unfollowUserThunk";
 import { authThunk } from "../Thunks/authThunk";
 import { loadFavoriteFriendsThunk } from "../Thunks/loadFavoriteFriendsThunk";
 import { unfollowFriendThunk } from "../Thunks/unfollowFriendThunk";
-import { nextFriendsPageThunk } from "../Thunks/nextFriendsPageThunk";
 import { loadUserThunk } from "../Thunks/loadUserThunk";
 import { setUsersThunk } from "../Thunks/loadUsersThunk";
 import { setMeThunk } from "../Thunks/setMeThunk";
+import { loginThunk } from "../Thunks/loginThunk";
+import { logoutThunk } from "../Thunks/logoutThunk";
+import { setNewStatusThunk } from "../Thunks/setNewStatusThunk";
 
 export const mapDispatchToProps = (componentName) => {
 	switch (componentName) {
@@ -75,11 +76,11 @@ export const mapDispatchToProps = (componentName) => {
 		};
 	}
 	case LOGIN_BUTTON: {
-		return () => {
+		return (dispatch) => {
 			return {
 				onClick(evt) {
 					evt.preventDefault();
-					console.log("click");
+					dispatch(loginThunk());
 				},
 			};
 		};
@@ -164,26 +165,26 @@ export const mapDispatchToProps = (componentName) => {
 	}
 	case MAKE_MESSAGE: {
 		return {
-			add: addMessageActionCreator,
-			input: inputMessageActionCreator,
+			add: addMessage,
+			input: inputMessage,
 		};
 	}
 	case MAKE_POST: {
 		return {
-			add: addPostActionCreator,
-			input: inputPostActionCreator,
+			add: addPost,
+			input: inputPost,
 		};
 	}
 	case LIKE: {
 		return {
-			toggle: toggleLikeActionCreator,
+			toggle: toggleLike,
 		};
 	}
 	case FAVORITE_FRIENDS: {
 		return (dispatch) => {
 			return {
-				loadFavoriteFriends(isLoaded) {
-					dispatch(loadFavoriteFriendsThunk(isLoaded));
+				loadFavoriteFriends() {
+					dispatch(loadFavoriteFriendsThunk());
 				},
 			};
 		};
@@ -191,8 +192,8 @@ export const mapDispatchToProps = (componentName) => {
 	case FRIENDS_LIST: {
 		return (dispatch) => {
 			return {
-				loadFriends(friendsCount, currentPage, isLoaded) {
-					dispatch(loadFriendsThunk(friendsCount, currentPage, isLoaded));
+				loadFriends(friendsCount, currentPage) {
+					dispatch(loadFriendsThunk(friendsCount, currentPage));
 				},
 			};
 		};
@@ -202,24 +203,6 @@ export const mapDispatchToProps = (componentName) => {
 			return {
 				unfollow(userId) {
 					dispatch(unfollowFriendThunk(userId));
-				},
-			};
-		};
-	}
-	case FRIENDS_PAGES_LIST: {
-		return (dispatch) => {
-			return {
-				nextPage(friendsCount, page) {
-					dispatch(nextFriendsPageThunk(friendsCount, page));
-				},
-			};
-		};
-	}
-	case USERS_PAGES_LIST: {
-		return (dispatch) => {
-			return {
-				nextPage(usersCount, page) {
-					dispatch(nextUsersPageThunk(usersCount, page));
 				},
 			};
 		};
@@ -242,6 +225,24 @@ export const mapDispatchToProps = (componentName) => {
 				follow(user) {
 					dispatch(followUserThunk(user));
 				},
+			};
+		};
+	}
+	case LOGOUT_BUTTON: {
+		return (dispatch) => {
+			return {
+				onClick() {
+					dispatch(logoutThunk());
+				}
+			};
+		};
+	}
+	case ME_STATUS: {
+		return (dispatch) => {
+			return {
+				setNewStatus(newStatus) {
+					dispatch(setNewStatusThunk(newStatus));
+				}
 			};
 		};
 	}

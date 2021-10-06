@@ -2,6 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
 	baseURL: "https://social-network.samuraijs.com/api/1.0/",
+	headers: { "API-KEY": "b5d52611-1432-460b-9a90-98ff97a4eb1b" },
 });
 
 export const getAuth = async () => {
@@ -19,25 +20,24 @@ export const follow = async (id) => {
 			{},
 			{
 				withCredentials: true,
-				headers: { "API-KEY": "8991c970-a910-48aa-8f58-0b57f2e3e339" },
 			}
 		)
 	).data;
 };
 
 export const getProfile = async (id) => {
-	return (
-		await instance.get(`profile/${id}`, {
-			withCredentials: true,
-		})
-	).data;
+	const data = {
+		...(await instance.get(`/profile/${id}`)).data,
+		status: (await instance.get(`/profile/status/${id}`)).data,
+	};
+
+	return data;
 };
 
 export const unfollow = async (id) => {
 	return (
 		await instance.delete(`follow/${id}`, {
 			withCredentials: true,
-			headers: { "API-KEY": "8991c970-a910-48aa-8f58-0b57f2e3e339" },
 		})
 	).data;
 };
@@ -66,5 +66,42 @@ export const getFavoriteFriends = async () => {
 		await instance.get("users?count=6&page=1&friend=true", {
 			withCredentials: true,
 		})
+	).data;
+};
+
+export const loginApi = async (email, password, rememberMe) => {
+	return (
+		await instance.post(
+			"/auth/login",
+			{
+				email,
+				rememberMe,
+				password,
+			},
+			{
+				withCredentials: true,
+			}
+		)
+	).data;
+};
+
+export const logoutApi = async () => {
+	return (
+		await instance.delete("/auth/login", {
+			withCredentials: true,
+		})
+	).data;
+};
+export const newStatus = async (newStatus) => {
+	return (
+		await instance.put(
+			"/profile/status",
+			{
+				status: newStatus,
+			},
+			{
+				withCredentials: true,
+			}
+		)
 	).data;
 };

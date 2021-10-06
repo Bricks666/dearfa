@@ -1,0 +1,13 @@
+/* STATUS */
+
+.status {
+	display: flex;
+
+	justify-content: space-between;
+}
+
+/* BUTTON */
+
+.button {
+	margin-left: auto;
+}

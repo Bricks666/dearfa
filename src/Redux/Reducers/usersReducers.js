@@ -2,8 +2,8 @@ import { initialState } from "../initialState";
 import {
 	SET_USERS,
 	FOLLOW_USER,
-	NEXT_USERS_PAGE,
 	UNFOLLOW_USER,
+	LOGOUT,
 } from "../ActionsConstants";
 
 export const usersReducers = (state = initialState.users, action) => {
@@ -30,13 +30,6 @@ export const usersReducers = (state = initialState.users, action) => {
 			}),
 		};
 	}
-	case NEXT_USERS_PAGE: {
-		return {
-			...state,
-			currentPage: action.currentPage,
-			list: action.users,
-		};
-	}
 	case SET_USERS: {
 		return {
 			...state,
@@ -44,6 +37,9 @@ export const usersReducers = (state = initialState.users, action) => {
 			totalUsers: action.data.totalCount,
 			pageCount: Math.ceil(action.data.totalCount / state.usersCount),
 		};
+	}
+	case LOGOUT: {
+		return initialState.users;
 	}
 	default: {
 		return state;

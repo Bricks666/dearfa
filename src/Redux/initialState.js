@@ -8,7 +8,6 @@ export const initialState = {
 		},
 		contacts: {},
 		followed: false,
-		isLoaded: false,
 	},
 	auth: {
 		userId: null,
@@ -54,21 +53,16 @@ export const initialState = {
 		list: [],
 		totalUsers: 0,
 		pageCount: 0,
-		currentPage: 1,
 		usersCount: 10,
-		isLoaded: false,
 	},
 	friends: {
 		list: [],
 		pageCount: 0,
-		currentPage: 1,
 		friendsCount: 10,
-		isLoaded: false,
 	},
 	favoriteFriends: {
 		list: [],
 		friendsCount: 0,
-		isLoaded: false,
 	},
 	posts: {
 		list: [
@@ -132,7 +126,7 @@ export const initialState = {
 			id: 2,
 		},
 		{
-			path: "/friends",
+			path: "/friends/1",
 			content: "Друзья",
 			id: 3,
 		},
@@ -147,7 +141,7 @@ export const initialState = {
 			id: 5,
 		},
 		{
-			path: "/users",
+			path: "/users/1",
 			content: "Пользователи",
 			exact: true,
 			id: 6,

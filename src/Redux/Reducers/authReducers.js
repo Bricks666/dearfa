@@ -1,4 +1,4 @@
-import { AUTH, SET_ME } from "../ActionsConstants";
+import { AUTH, LOGOUT, SET_ME, SET_NEW_STATUS } from "../ActionsConstants";
 import { initialState } from "../initialState";
 
 export const authReducers = (state = initialState.auth, action) => {
@@ -14,8 +14,16 @@ export const authReducers = (state = initialState.auth, action) => {
 		return {
 			...state,
 			...action.me,
-			isLoaded: true,
 		};
+	}
+	case SET_NEW_STATUS: {
+		return {
+			...state,
+			status: action.newStatus
+		};
+	}
+	case LOGOUT: {
+		return initialState.auth;
 	}
 	default: {
 		return state;

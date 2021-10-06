@@ -1,6 +1,6 @@
 import { ADD_MESSAGE } from "../../ActionsConstants";
 
-export const addMessageActionCreator = () => {
+export const addMessage = () => {
 	return {
 		type: ADD_MESSAGE,
 	};

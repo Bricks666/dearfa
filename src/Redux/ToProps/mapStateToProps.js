@@ -51,8 +51,7 @@ export const mapStateToProps = (componentName) => {
 		return (state) => {
 			return {
 				me: state.auth,
-				isLoading: state.auth.isLoading,
-				isLoaded: state.loadings.loadingAuth,
+				isLoading: state.loadings.loadingMe,
 				id: state.auth.userId,
 			};
 		};
@@ -110,7 +109,6 @@ export const mapStateToProps = (componentName) => {
 	case FRIENDS: {
 		return (state) => {
 			return {
-				currentPage: state.friends.currentPage,
 				friendsCount: state.friends.friendsCount,
 			};
 		};
@@ -120,7 +118,6 @@ export const mapStateToProps = (componentName) => {
 			return {
 				friends: state.favoriteFriends.list,
 				isLoading: state.loadings.loadingFavoriteFriends,
-				isLoaded: state.favoriteFriends.isLoaded,
 			};
 		};
 	}
@@ -129,7 +126,6 @@ export const mapStateToProps = (componentName) => {
 			return {
 				friends: state.friends.list,
 				isLoading: state.loadings.loadingFriends,
-				isLoaded: state.friends.isLoaded,
 			};
 		};
 	}
@@ -229,7 +225,6 @@ export const mapStateToProps = (componentName) => {
 	case USERS: {
 		return (state) => {
 			return {
-				currentPage: state.users.currentPage,
 				usersCount: state.users.usersCount,
 			};
 		};

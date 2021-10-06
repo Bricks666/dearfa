@@ -13,14 +13,10 @@ export function Friends(props) {
 			<SectionHeader>Друзья</SectionHeader>
 			<FriendsListContainer
 				className={FriendsStyle.list}
-				currentPage={props.currentPage}
 				friendsCount={props.friendsCount}
 				render={(props) => <FriendListItemContainer {...props} />}
 			/>
-			<PageListConnect
-				friendsCount={props.friendsCount}
-				currentPage={props.currentPage}
-			/>
+			<PageListConnect friendsCount={props.friendsCount} />
 		</main>
 	);
 }

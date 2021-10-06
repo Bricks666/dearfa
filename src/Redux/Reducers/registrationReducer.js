@@ -1,5 +1,6 @@
 import { initialState } from "../initialState";
 import {
+	LOGOUT,
 	REG_EMAIL_INPUT,
 	REG_FULLNAME_INPUT,
 	REG_PASSWORD_AGAIN_INPUT,
@@ -34,6 +35,9 @@ export const registrationReducers = (
 			...state,
 			passwordAgain: action.passwordAgain,
 		};
+	}
+	case LOGOUT: {
+		return initialState.registration;
 	}
 	default: {
 		return state;

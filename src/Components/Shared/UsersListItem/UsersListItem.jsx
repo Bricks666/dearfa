@@ -10,7 +10,6 @@ import { Status } from "../UserCardParts/Status/Status";
 import UsersListItemStyle from "./UsersListItem.module.css";
 
 export const UsersListItem = (props) => {
-	console.log(props.isDisabled);
 	return (
 		<li
 			className={`${UsersListItemStyle.itemWrapper} ${props.className ?? ""}`}
@@ -18,7 +17,7 @@ export const UsersListItem = (props) => {
 			<FullName id={props.user.id} fullName={props.user.name} />
 			<Status
 				className={UsersListItemStyle.status}
-				status={props.user.aboutMe}
+				status={props.user.status}
 			/>
 			<Photo
 				className={UsersListItemStyle.photo}

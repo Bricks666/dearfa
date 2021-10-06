@@ -1,25 +1,27 @@
 /* WRAPPER */
 
 .wrapper {
-  display: grid;
-  grid-template-columns: min-content max-content;
+	display: grid;
+	grid-template-columns: min-content max-content;
 
-  align-items: baseline;
+	align-items: baseline;
 
-  column-gap: 10px;
+	column-gap: 10px;
 
-  max-height: min-content;
+	max-height: min-content;
 
-  font-size: 16px;
-  font-weight: 500;
+	font-size: 16px;
+	font-weight: 500;
 
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 /* STATUS */
 
 .status {
-  font-size: 14px;
-  font-weight: 400;
+	max-width: max-content;
+
+	font-size: 14px;
+	font-weight: 400;
 }

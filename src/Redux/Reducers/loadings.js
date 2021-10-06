@@ -6,6 +6,7 @@ import {
 	END_LOADING_ME,
 	END_LOADING_PROFILE,
 	END_LOADING_USERS,
+	LOGOUT,
 	START_FOLLOWING_USER,
 	START_LOADING_AUTH,
 	START_LOADING_FAVORITE_FRIENDS,
@@ -101,6 +102,9 @@ export const loadings = (state = initialState.loadings, action) => {
 			...state,
 			loadingProfile: false,
 		};
+	}
+	case LOGOUT: {
+		return initialState.loadings;
 	}
 	default: {
 		return state;
