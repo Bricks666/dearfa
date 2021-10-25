@@ -3,10 +3,10 @@ import { Switch, Route } from "react-router";
 import { Dialogs } from "../Dialogs/Dialogs";
 import { News } from "../News/News";
 import { NotFound } from "../NotFound/NotFound";
-import { UserProfileConnect } from "../Profile/User/UserProfileConnect";
+import { UserProfileConnect } from "../User/UserProfileConnect";
 import { RegistrationContainer } from "../Registration/RegistrationContainer";
 import { LoginContainer } from "../Login/LoginContainer";
-import { MeContainer } from "../Profile/Me/Me";
+import { MeContainer } from "../Me/Me";
 import { UsersContainer } from "../Users/UsersContainer";
 import { FriendsContainer } from "../Friends/FriendsContainer";
 

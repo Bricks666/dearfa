@@ -9,6 +9,10 @@
   font-size: 16px;
 }
 
+.term::after {
+  content: ": ";
+}
+
 /* DESCRIPTION */
 
 .description {

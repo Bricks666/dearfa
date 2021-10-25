@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Status } from "../../../../Shared/UserCardParts/Status/Status";
-import { Button } from "../../../../Shared/Buttons/Button/Button";
-import { ModalWindow } from "../../../../Shared/ModalWindow/ModalWindow";
+
+import { Status } from "../../../Shared/UserCardParts/Status/Status";
+import { ModalWindow } from "../../../Shared/ModalWindow/ModalWindow";
 import { NewStatusWindow } from "./NewStatusWindow/NewStatusWindow";
+import { PenButton } from "../../../Shared/Buttons/PenButton/PenButton";
 
 import MeStatusStyle from "./MeStatus.module.css";
 
@@ -37,14 +38,12 @@ export class MeStatus extends Component {
 		return (
 			<>
 				<Status status={this.props.status} className={MeStatusStyle.status}>
-					<Button onClick={this.toggleModal} className={MeStatusStyle.button}>
-						Изменить статус
-					</Button>
+					<PenButton
+						onClick={this.toggleModal}
+						className={MeStatusStyle.button}
+					/>
 				</Status>
-				<ModalWindow
-					condition={this.state.showModal}
-					close={this.toggleModal}
-				>
+				<ModalWindow condition={this.state.showModal} close={this.toggleModal}>
 					<NewStatusWindow
 						setNewStatus={this.setNewStatus}
 						newStatus={this.state.newStatus}

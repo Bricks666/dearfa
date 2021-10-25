@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { ME_STATUS } from "../../../../../Redux/ToProps/componentsConstants";
-import { mapDispatchToProps } from "../../../../../Redux/ToProps/mapDispatchToProps";
+import { ME_STATUS } from "../../../../Redux/ToProps/componentsConstants";
+import { mapDispatchToProps } from "../../../../Redux/ToProps/mapDispatchToProps";
 import { MeStatus } from "./MeStatus";
 
 export const MeStatusConnect = connect(

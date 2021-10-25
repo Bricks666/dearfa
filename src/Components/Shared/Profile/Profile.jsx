@@ -1,13 +1,12 @@
 import React from "react";
 
 import { Picture } from "../Picture/Picture";
-import { Posts } from "../../Profile/Posts/Posts";
+import { Posts } from "./Posts/Posts";
 import { SectionHeader } from "../SectionHeader/SectionHeader";
 
 import ProfileStyle from "./Profile.module.css";
 
 function Profile(props) {
-	console.log(props);
 	return (
 		<main className={`${props.className ?? ""} ${ProfileStyle.profile}`}>
 			<SectionHeader className="visibility-hidden">Профиль</SectionHeader>

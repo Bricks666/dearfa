@@ -6,9 +6,7 @@ import ContactsStyle from "./Contacts.module.css";
 
 function Contacts(props) {
 	const contacts = renderContact(props.contacts ?? {});
-	if (contacts.length === 0) {
-		return null;
-	}
+
 	return (
 		<dl className={`${props.className ?? ""} ${ContactsStyle.contacts}`}>
 			<span className={ContactsStyle.header}>Контакты:</span>

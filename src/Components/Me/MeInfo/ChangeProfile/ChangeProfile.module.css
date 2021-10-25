@@ -1,0 +1,17 @@
+/* FORM */
+.form {
+	display: grid;
+	grid-template-columns: min-content 1fr;
+}
+
+/* PHOTO */
+.photo {
+	order: -1;
+
+	width: 200px;
+	height: 200px;
+
+  object-fit: cover;
+
+  pointer-events: none;
+}

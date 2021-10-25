@@ -19,6 +19,7 @@ export const HEADER = "HEADER CONNECT";
 export const ME = "ME CONNECT";
 export const ME_STATUS = "STATUS WITH CHANGE STATUS";
 export const PROFILE = "PROFILE CONNECT";
+export const CHANGE_PROFILE = "CHANGE PROFILE";
 
 export const MAIN = "MAIN CONNECT";
 

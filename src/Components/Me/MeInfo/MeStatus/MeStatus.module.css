@@ -1,0 +1,13 @@
+/* STATUS */
+
+.status {
+	display: grid;
+
+	grid-template-columns: min-content auto min-content;
+}
+
+/* BUTTON */
+
+.button {
+	padding: 0;
+}

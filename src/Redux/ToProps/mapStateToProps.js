@@ -28,6 +28,7 @@ import {
 	REG_PASSWORD_AGAIN,
 	FRIENDS_PAGES_LIST,
 	USERS_LIST_ITEM,
+	CHANGE_PROFILE,
 } from "./componentsConstants";
 
 export const mapStateToProps = (componentName) => {
@@ -254,6 +255,16 @@ export const mapStateToProps = (componentName) => {
 		return (state) => {
 			return {
 				companion: state.auth,
+			};
+		};
+	}
+	case CHANGE_PROFILE: {
+		return (state) => {
+			return {
+				contacts: state.auth.contacts,
+				status: state.auth.status,
+				fullName: state.auth.fullName,
+				photo: state.auth.photos.large
 			};
 		};
 	}

@@ -1,8 +1,8 @@
 import React from "react";
 
-import { CreatedPostsListContainer } from "../../Shared/CreatedPostsListContainer/CreatedPostsListContainer";
+import { CreatedPostsListContainer } from "../../CreatedPostsListContainer/CreatedPostsListContainer";
 import { MakePostContainer } from "./MakePost/MakePostContainer";
-import { SubsectionHeader } from "../../Shared/SubsectionHeader/SubsectionHeader";
+import { SubsectionHeader } from "../../SubsectionHeader/SubsectionHeader";
 
 import PostsStyle from "./Posts.module.css";
 

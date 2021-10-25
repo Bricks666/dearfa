@@ -9,7 +9,7 @@ function ContactsItem(props) {
 
 	return (
 		<>
-			<dt className={ContactsStyle.term}>{props.term}:</dt>
+			<dt className={ContactsStyle.term}>{props.term}</dt>
 			<dd className={ContactsStyle.description}>
 				<a
 					className={ContactsStyle.link}

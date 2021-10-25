@@ -1,0 +1,36 @@
+/* BUTTON */
+.button {
+  width: auto;
+  height: auto;
+
+	padding: 0;
+	margin: 0;
+
+	background-color: transparent;
+
+	transition: none;
+}
+
+.button:hover {
+	background-color: transparent;
+}
+
+/* PEN */
+.pen {
+  width: 20px;
+  height: 20px;
+
+  fill: var(--blue-light);
+
+  transition-property: transform, fill;
+  transition-timing-function: linear;
+  transition-duration: 0.15s;
+
+  cursor: pointer;
+}
+
+.pen:hover {
+  fill: var(--blue);
+
+  transform: scale(1.1);
+}

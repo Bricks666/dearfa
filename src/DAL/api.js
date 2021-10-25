@@ -105,3 +105,16 @@ export const newStatus = async (newStatus) => {
 		)
 	).data;
 };
+export const updatePhoto = async (photo) => {
+	const formData = new FormData();
+
+	formData.append("image", photo);
+	return (
+		await instance.put("/profile/photo", formData, {
+			withCredentials: true,
+			headers: {
+				"Content-Type": "multipart/form-data",
+			},
+		})
+	).data;
+};

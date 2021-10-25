@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Field } from "../../../../../Shared/Field/Field";
-import { SubsectionHeader } from "../../../../../Shared/SubsectionHeader/SubsectionHeader";
-import { Button } from "../../../../../Shared/Buttons/Button/Button";
+import { Field } from "../../../../Shared/Field/Field";
+import { SubsectionHeader } from "../../../../Shared/SubsectionHeader/SubsectionHeader";
+import { Button } from "../../../../Shared/Buttons/Button/Button";
 
 import NewStatusWindowStyle from "./NewStatusWindow.module.css";
 
@@ -24,7 +24,7 @@ export const NewStatusWindow = (props) => {
 				className={NewStatusWindowStyle.acceptButton}
 				onClick={props.setNewStatus}
 			>
-				Да
+				Сохранить
 			</Button>
 		</form>
 	);

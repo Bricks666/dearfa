@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { ME } from "../../../Redux/ToProps/componentsConstants";
-import { mapDispatchToProps } from "../../../Redux/ToProps/mapDispatchToProps";
-import { mapStateToProps } from "../../../Redux/ToProps/mapStateToProps";
-import { Profile } from "../../Shared/Profile/Profile";
-import { addLoading } from "../../Shared/AddLoading/AddLoading";
+import { ME } from "../../Redux/ToProps/componentsConstants";
+import { mapDispatchToProps } from "../../Redux/ToProps/mapDispatchToProps";
+import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
+import { Profile } from "../Shared/Profile/Profile";
+import { addLoading } from "../Shared/AddLoading/AddLoading";
 import { MeInfo } from "./MeInfo/MeInfo";
 
 const WithLoading = addLoading(Profile);

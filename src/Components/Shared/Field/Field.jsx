@@ -13,6 +13,7 @@ export const Field = (props) => {
 				value={props.value ?? ""}
 				onChange={props.input}
 				autoComplete={props.autocomplete?.toString()}
+				accept={props.accept}
 			/>
 		</label>
 	);
