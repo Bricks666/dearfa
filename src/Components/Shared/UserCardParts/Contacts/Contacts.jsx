@@ -8,10 +8,11 @@ function Contacts(props) {
 	const contacts = renderContact(props.contacts ?? {});
 
 	return (
-		<dl className={`${props.className ?? ""} ${ContactsStyle.contacts}`}>
+		<div className={`${ContactsStyle.contacts} ${props.className ?? ""}`}>
+			{props.children}
 			<span className={ContactsStyle.header}>Контакты:</span>
-			{contacts}
-		</dl>
+			<dl className={ContactsStyle.datalist}>{contacts}</dl>
+		</div>
 	);
 }
 

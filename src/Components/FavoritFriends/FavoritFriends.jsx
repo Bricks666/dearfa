@@ -16,7 +16,7 @@ const FavoritFriends = (props) => {
 			<UsersList
 				className={FavoritFriendsStyle.list}
 				users={props.friends}
-				render={(props) => <FavoritFriendsListItem {...props} />}
+				Card={FavoritFriendsListItem}
 			/>
 		</aside>
 	);

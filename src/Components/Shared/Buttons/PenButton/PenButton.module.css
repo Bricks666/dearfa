@@ -1,7 +1,7 @@
 /* BUTTON */
 .button {
-  width: auto;
-  height: auto;
+	width: auto;
+	height: auto;
 
 	padding: 0;
 	margin: 0;
@@ -9,6 +9,8 @@
 	background-color: transparent;
 
 	transition: none;
+
+	outline: none;
 }
 
 .button:hover {
@@ -17,20 +19,23 @@
 
 /* PEN */
 .pen {
-  width: 20px;
-  height: 20px;
+	width: 20px;
+	height: 20px;
 
-  fill: var(--blue-light);
+	fill: var(--blue-light);
 
-  transition-property: transform, fill;
-  transition-timing-function: linear;
-  transition-duration: 0.15s;
+	transition-property: transform, fill;
+	transition-timing-function: linear;
+	transition-duration: 0.15s;
 
-  cursor: pointer;
+	cursor: pointer;
+
+	outline: none;
 }
 
-.pen:hover {
-  fill: var(--blue);
+.pen:hover,
+.button:focus-visible .pen {
+	fill: var(--blue);
 
-  transform: scale(1.1);
+	transform: scale(1.1);
 }

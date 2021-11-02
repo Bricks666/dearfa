@@ -8,10 +8,10 @@ import { store } from "./Redux/store";
 import "./index.css";
 
 ReactDOM.render(
-	/* Из-за strict мода в друзья добавляется по два экземпляра */
-
-	<Provider store={store}>
-		<AppContainer state={store.getState()} dispatch={store.dispatch} />
-	</Provider>,
+	<React.StrictMode>
+		<Provider store={store}>
+			<AppContainer state={store.getState()} dispatch={store.dispatch} />
+		</Provider>
+	</React.StrictMode>,
 	document.getElementById("root")
 );

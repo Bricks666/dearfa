@@ -4,21 +4,17 @@ import { Picture } from "../../Picture/Picture";
 
 import PhotoStyle from "./Photo.module.css";
 
-export const Photo = (props) => {
+export const Photo = ({ className, fullName, id, photo }) => {
 	return (
 		<Link
-			className={`${PhotoStyle.link} ${props.className ?? ""}`}
-			to={`/profile/${props.id}`}
-			title={props.fullName}
+			className={`${PhotoStyle.link} ${className ?? ""}`}
+			to={`/profile/${id}`}
+			title={fullName}
 		>
 			<Picture
 				className={`fake-photo ${PhotoStyle.photo}`}
-				oneXSrc={
-					props.image.large ??
-					props.image.small ??
-					"/Images/ProfileBackground/SunSet"
-				}
-				alt={props.fullName}
+				oneXSrc={photo || "/Images/ProfileBackground/SunSet"}
+				alt={fullName}
 			/>
 		</Link>
 	);

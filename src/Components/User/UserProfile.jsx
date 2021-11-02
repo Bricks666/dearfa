@@ -1,30 +1,21 @@
 import React, { Component } from "react";
 import { Profile } from "../Shared/Profile/Profile";
-import { addLoading } from "../Shared/AddLoading/AddLoading";
+import { withLoading } from "../Shared/withLoading/withLoading";
 import { UserInfo } from "./UserInfo/UserInfo";
 
-const WithLoading = addLoading(Profile);
+const WithLoading = withLoading(Profile);
 
 export class UserProfile extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			id: props.user.userId,
-		};
-	}
-
 	loadProfile() {
 		this.props.loadProfile(this.props.match.params.id);
-		this.setState({ id: this.props.match.params.id });
 	}
 
 	componentDidMount() {
 		this.loadProfile();
 	}
 
-	componentDidUpdate() {
-		if (this.state.id !== this.props.match.params.id) {
+	componentDidUpdate(prevProps) {
+		if (prevProps.match.params.id !== this.props.match.params.id) {
 			this.loadProfile();
 		}
 	}

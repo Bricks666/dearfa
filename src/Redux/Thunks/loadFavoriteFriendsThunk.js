@@ -1,14 +1,16 @@
-import { getFavoriteFriends } from "../../DAL/api";
-import { endLoadingFavoriteFriends } from "../Actions/Loadings/endLoadingFavoriteFriends";
-import { setFavoriteFriends } from "../Actions/FavoriteFriends/setFavoriteFriends";
-import { startLoadingFavoriteFriends } from "../Actions/Loadings/startLoadingFavoriteFriends";
+import { api } from "../../DAL/api";
+import {
+	startLoadingFavoriteFriends,
+	endLoadingFavoriteFriends,
+} from "../Reducers/loadingsReducer";
+import { setFavoriteFriends } from "../Reducers/favoriteFriendsReducer";
 
 export const loadFavoriteFriendsThunk = () => {
 	return async (dispatch) => {
 		try {
 			dispatch(startLoadingFavoriteFriends());
 
-			const favoriteFriends = await getFavoriteFriends();
+			const favoriteFriends = await api.getFavoriteFriends();
 
 			dispatch(setFavoriteFriends(favoriteFriends));
 

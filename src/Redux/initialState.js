@@ -12,41 +12,14 @@ export const initialState = {
 	auth: {
 		userId: null,
 		fullName: null,
+		login: null,
 		photos: {
 			large: "/Images/Ava/Cosmic-animals",
 			alt: "Аватарка...",
 		},
 		contacts: {},
 	},
-	chats: [
-		{
-			id: 2,
-			messages: [
-				{
-					id: 1,
-					authorId: 1,
-					content: { text: "Привет" },
-				},
-				{
-					id: 2,
-					authorId: 2,
-					content: { text: "Смотри что могу" },
-				},
-				{
-					id: 3,
-					authorId: 2,
-					content: {
-						text: "Крокодилы танцуют на песке, будто ты попросил их там побыть",
-					},
-				},
-				{
-					id: 4,
-					authorId: 1,
-					content: { text: "Я тоже так могу" },
-				},
-			],
-		},
-	],
+	dialogs: [],
 	users: {
 		list: [],
 		totalUsers: 0,
@@ -57,6 +30,7 @@ export const initialState = {
 		list: [],
 		pageCount: 0,
 		friendsCount: 10,
+		totalCount: 0,
 	},
 	favoriteFriends: {
 		list: [],
@@ -159,5 +133,8 @@ export const initialState = {
 		loadingFriends: false,
 		loadingFavoriteFriends: false,
 		following: [],
+	},
+	loadeds: {
+		isLoadedAuth: false,
 	},
 };

@@ -13,7 +13,7 @@ export const Users = (props) => {
 			<SectionHeader>Все пользователи</SectionHeader>
 			<UsersListContainer
 				className={UsersStyle.list}
-				render={(props) => <UsersListItemContainer {...props} />}
+				Card={UsersListItemContainer}
 				usersCount={props.usersCount}
 			/>
 			<PagesListContainer usersCount={props.usersCount} />

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { FavoritFriends } from "./FavoritFriends";
-import { addLoading } from "../Shared/AddLoading/AddLoading";
+import { withLoading } from "../Shared/withLoading/withLoading";
 
-const WithLoading = addLoading(FavoritFriends);
+const WithLoading = withLoading(FavoritFriends);
+
 export class FavoriteFriendsClass extends Component {
 	componentDidMount() {
 		this.props.loadFavoriteFriends();

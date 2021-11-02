@@ -1,10 +1,10 @@
-import { logoutApi } from "../../DAL/api";
-import { logout } from "../Actions/Auth/logout";
+import { api } from "../../DAL/api";
+import { logout } from "../Reducers/loginReducer";
 
 export const logoutThunk = () => {
 	return async (dispatch) => {
 		try {
-			const response = await logoutApi();
+			const response = await api.logoutApi();
 
 			if (response.resultCode === 0) {
 				dispatch(logout());

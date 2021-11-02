@@ -1,9 +1,9 @@
 import React from "react";
 
 import { ProfileInfo } from "../../Shared/ProfileInfo/ProfileInfo";
-import { Photo } from "../../Shared/UserCardParts/Photo/Photo";
 import { Status } from "../../Shared/UserCardParts/Status/Status";
 import { Contacts } from "../../Shared/UserCardParts/Contacts/Contacts";
+import { Picture } from "../../Shared/Picture/Picture";
 
 import UserInfoStyle from "./UserInfo.module.css";
 
@@ -11,11 +11,10 @@ export const UserInfo = (props) => {
 	return (
 		<ProfileInfo user={props.user} className={props.className}>
 			<Status className={UserInfoStyle.status} status={props.user.status} />
-			<Photo
+			<Picture
 				className={UserInfoStyle.photo}
-				image={props.user.photos}
-				fullName={props.user.fullName}
-				id={props.user.id}
+				oneXSrc={props.user.photos.large || "/Images/ProfileBackground/SunSet"}
+				alt={props.user.fullName}
 			/>
 			<Contacts
 				className={UserInfoStyle.contacts}

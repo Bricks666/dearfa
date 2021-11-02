@@ -10,7 +10,6 @@ export const CrossButton = (props) => {
 		>
 			{props.children}
 			<svg
-				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 15 15"
 				className={`${CrossButtonStyle.cross} ${props.crossClassName ?? ""}`}
 			>

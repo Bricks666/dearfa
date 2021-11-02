@@ -14,12 +14,13 @@
 
 .field {
 	width: 100%;
+  height: min-content;
 
 	padding: 5px;
 
 	border-radius: 0;
 
-	border: 1px solid var(--grey);
+	border: 2px solid var(--blue-light);
 
 	box-shadow: none;
 

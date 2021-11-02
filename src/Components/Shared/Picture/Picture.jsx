@@ -2,7 +2,7 @@ import React from "react";
 
 import PictureStyle from "./Picture.module.css";
 
-function Picture(props) {
+export const Picture = React.memo((props) => {
 	return (
 		<picture className={props.className ?? ""}>
 			<source
@@ -31,6 +31,4 @@ function Picture(props) {
 			/>
 		</picture>
 	);
-}
-
-export { Picture };
+});

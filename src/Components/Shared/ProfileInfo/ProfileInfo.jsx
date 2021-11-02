@@ -4,13 +4,13 @@ import { SubsectionHeader } from "../SubsectionHeader/SubsectionHeader";
 
 import ProfileInfoStyle from "./ProfileInfo.module.css";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({ className, user, children }) => {
 	return (
-		<div className={`${ProfileInfoStyle.userInfo} ${props.className ?? ""}`}>
+		<div className={`${ProfileInfoStyle.userInfo} ${className ?? ""}`}>
 			<SubsectionHeader className={`${ProfileInfoStyle.fullName}`}>
-				{props.user.fullName}
+				{user.fullName}
 			</SubsectionHeader>
-			{props.children}
+			{children}
 		</div>
 	);
 };

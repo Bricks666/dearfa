@@ -9,7 +9,7 @@ import { RegistrationButton } from "./FormParts/RegistrationButton";
 
 import RegistrationStyle from "./Registration.module.css";
 
-export function Registration(props) {
+export const Registration = (props) => {
 	return (
 		<main className={`${props.className ?? ""} ${RegistrationStyle.main}`}>
 			<SectionHeader className={RegistrationStyle.header}>
@@ -31,4 +31,4 @@ export function Registration(props) {
 			</form>
 		</main>
 	);
-}
+};

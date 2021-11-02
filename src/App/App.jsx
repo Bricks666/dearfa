@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
 	BrowserRouter as Router,
 	Route,
@@ -9,36 +9,56 @@ import { HeaderContainer } from "../Components/Header/HeaderContainer";
 import { NavigationContainer } from "../Components/Navigation/NavigationContainer";
 import { MainWithLoading } from "../Components/Main/MainWithLoading";
 import { FavoritFriendsContainer } from "../Components/FavoritFriends/FavoritFriendsContainer";
+import { withLoading } from "../Components/Shared/withLoading/withLoading";
 
 import AppStyle from "./App.module.css";
 
-const App = (props) => {
+const AppWithoutLoading = React.memo((props) => {
 	return (
 		<Router>
 			<div
 				className={`${AppStyle.page} ${
-					props.isLogin ? "" : AppStyle.notLoginPage
+					props.isLogin === false && AppStyle.notLoginPage
 				}`}
 			>
 				<h1 className="visibility-hidden">Dear.Fa</h1>
 				<HeaderContainer className={AppStyle.header} />
-				{props.isLogin === false ? (
-					<Redirect to="/login" />
-				) : (
-					<Redirect exact from="/" to="/profile" />
-				)}
+
+				{/* Оказывается редирект нормально работает только внутри свича */}
+				<Switch>
+					{props.isLogin ? (
+						<Redirect exact from="/login" to="/profile" /> && (
+							<Redirect exact from="/" to="profile" />
+						)
+					) : (
+						<Redirect to="/login" />
+					)}
+				</Switch>
 
 				<Switch>
 					<Route path={["/login", "/registration"]} />
-					<Route path="">
+					<Route>
 						<NavigationContainer className={AppStyle.nav} />
 						<FavoritFriendsContainer className={AppStyle.lastFriends} />
 					</Route>
 				</Switch>
-				<MainWithLoading className={AppStyle.main} state={props.state} />
+
+				<MainWithLoading className={AppStyle.main} />
 			</div>
 		</Router>
 	);
-};
+});
+const AppWithLoading = withLoading(AppWithoutLoading);
 
-export { App };
+export const App = (props) => {
+	useEffect(() => {
+		props.auth();
+	}, []);
+
+	return (
+		<AppWithLoading
+			{...props}
+			className={`${props.className ?? ""} ${AppStyle.loading}`}
+		/>
+	);
+};

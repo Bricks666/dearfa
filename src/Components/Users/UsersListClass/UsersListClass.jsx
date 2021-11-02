@@ -1,39 +1,31 @@
-import React, { Component } from "react";
-import { addLoading } from "../../Shared/AddLoading/AddLoading";
+import React, { useCallback } from "react";
+import { withLoading } from "../../Shared/withLoading/withLoading";
 import { UsersList } from "../../Shared/UsersList/UsersList";
+import { useParamChangeListener } from "../../../Hooks/useParamChangeListener";
 
-const WithLoading = addLoading(UsersList);
+const WithLoading = withLoading(UsersList);
 
-export class UsersListClass extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			page: props.match.params.page,
-		};
-	}
+export const UsersListClass = ({
+	Card,
+	isLoading,
+	className,
+	users,
+	usersCount,
+	loadUsers,
+}) => {
+	useParamChangeListener(
+		"page",
+		useCallback((page) => {
+			loadUsers(usersCount, page);
+		}, [])
+	);
 
-	componentDidMount() {
-		if (this.props.users.length !== 0) {
-			return;
-		}
-		this.props.loadUsers(this.props.usersCount, this.state.page);
-	}
-
-	componentDidUpdate() {
-		if (this.state.page !== this.props.match.params.page) {
-			this.props.loadUsers(this.props.usersCount, this.props.match.params.page);
-			this.setState({ page: this.props.match.params.page });
-		}
-	}
-
-	render() {
-		return (
-			<WithLoading
-				className={this.props.className}
-				render={this.props.render}
-				users={this.props.users}
-				isLoading={this.props.isLoading}
-			/>
-		);
-	}
-}
+	return (
+		<WithLoading
+			className={className}
+			Card={Card}
+			users={users}
+			isLoading={isLoading}
+		/>
+	);
+};

@@ -1,76 +1,32 @@
-/* MESSAGE */
-
-.message {
-    display: grid;
-
-    grid-template-columns: min-content 1fr;
-
-    column-gap: 30px;
-}
-
 /* HEADING */
 
 .author {
-    display: block;
+	display: block;
 
-    margin: 0;
-    margin-bottom: 2px;
+	margin: 0;
+	margin-bottom: 2px;
 
-    text-align: left;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--black);
-}
-
-/* PHOTO */
-
-.photo {
-    width: 80px;
-    height: 80px;
-
-    border-radius: 50%;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--black);
 }
 
 /* CONTENT */
 
 .content {
-    position: relative;
+	margin: 0;
+	padding: 15px;
+	padding-top: 10px;
 
-    margin: 0;
-    margin-left: 20px;
-    padding: 15px;
-    padding-top: 10px;
+	height: min-content;
 
-    max-width: 550px;
-    width: max-content;
-    height: min-content;
+	background-color: var(--white-lighter);
 
-    background-color: var(--white-lighter);
+	line-height: 150%;
+	font-size: 13px;
 
-    line-height: 150%;
-    font-size: 13px;
+	word-break: break-all;
 
-    word-break: break-all;
-
-    filter: drop-shadow(1px 1px 1px var(--grey-light));
-}
-
-.content::before {
-    content: "";
-
-    position: absolute;
-
-    top: 4px;
-    left: -10px;
-
-    width: 20px;
-    height: 20px;
-
-    background-image: linear-gradient(
-        to right bottom,
-        var(--white-lighter) 51%,
-        transparent 51%
-    );
-
-    transform: rotate(-45deg);
+	filter: drop-shadow(1px 1px 1px var(--grey-light));
 }

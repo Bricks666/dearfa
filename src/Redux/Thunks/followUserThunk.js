@@ -1,18 +1,24 @@
-import { follow } from "../../DAL/api";
-import { endFollowingUser } from "../Actions/Loadings/endFollowingUser";
-import { followUser } from "../Actions/Users/followUser";
-import { startFollowingUser } from "../Actions/Loadings/startFollowingUser";
+import { api } from "../../DAL/api";
+import {
+	startFollowingUser,
+	endFollowingUser,
+} from "../Reducers/loadingsReducer";
+import { followUser } from "../Reducers/usersReducer";
 
 export const followUserThunk = (user) => {
 	return async (dispatch) => {
-		dispatch(startFollowingUser(user.id));
+		try {
+			dispatch(startFollowingUser(user.id));
 
-		const response = await follow(user.id);
+			const response = await api.follow(user.id);
 
-		if (response.resultCode === 0) {
-			dispatch(followUser(user));
+			if (response.resultCode === 0) {
+				dispatch(followUser(user));
+			}
+		} catch (e) {
+			console.log(e);
+		} finally {
+			dispatch(endFollowingUser(user.id));
 		}
-
-		dispatch(endFollowingUser(user.id));
 	};
 };

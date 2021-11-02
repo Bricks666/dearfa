@@ -7,7 +7,7 @@ import { FullName } from "../../UserCardParts/FullName/FullName";
 
 import PostStyle from "./Post.module.css";
 
-function Post(props) {
+export const Post = (props) => {
 	return (
 		<article className={PostStyle.post}>
 			<FullName
@@ -30,6 +30,4 @@ function Post(props) {
 			/>
 		</article>
 	);
-}
-
-export { Post };
+};

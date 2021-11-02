@@ -2,12 +2,12 @@ import React from "react";
 
 import FieldStyle from "./Field.module.css";
 
-export const Field = (props) => {
+export const Field = React.memo((props) => {
 	return (
 		<label className={`${props.className ?? ""} ${FieldStyle.label}`}>
 			{props.children}
 			<input
-				className={FieldStyle.field}
+				className={`${FieldStyle.field} ${props.fieldClass ?? ""}`}
 				type={props.type}
 				required={props.required}
 				value={props.value ?? ""}
@@ -17,4 +17,4 @@ export const Field = (props) => {
 			/>
 		</label>
 	);
-};
+});

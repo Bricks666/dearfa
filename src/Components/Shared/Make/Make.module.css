@@ -1,46 +1,48 @@
 /* MAKE MESSAGE */
 
 .form {
-    display: grid;
+	display: grid;
 
-    row-gap: 10px;
-    column-gap: 5px;
+	row-gap: 10px;
+	column-gap: 5px;
 }
 
 /* NEW MESSAGE TEXT */
 
 .textarea {
-    resize: none;
+	resize: none;
 
-    min-height: 70px;
-    height: min-content;
+	height: max(70px, min-content);
 
-    margin: 0;
-    padding: 10px;
+	margin: 0;
+	padding: 10px;
 
-    border: none;
+	border: none;
 
-    background-color: var(--white-lighter);
+	background-color: var(--white-lighter);
 
-    font-size: 16px;
-    color: var(--grey);
+	font-size: 16px;
+	color: var(--grey);
 
-    filter: drop-shadow(1px 1px 1px var(--grey-light));
+	filter: drop-shadow(1px 1px 1px var(--grey-light));
 }
 
 .textarea::placeholder {
-    font-size: 16px;
-    color: var(--grey);
+	font-size: 16px;
+	color: var(--grey);
 }
 
-.textarea:focus {
-    outline-color: var(--blue);
-    outline-width: 3px;
+/* LABEL */
+.label {
+	grid-column: 1/ -1;
+
+	font-weight: 500;
+	font-size: 14px;
 }
 
 /* BUTTON */
 
 .button {
-    justify-self: end;
-    align-self: start;
+	justify-self: end;
+	align-self: start;
 }

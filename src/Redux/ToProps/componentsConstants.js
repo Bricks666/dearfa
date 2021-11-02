@@ -19,7 +19,8 @@ export const HEADER = "HEADER CONNECT";
 export const ME = "ME CONNECT";
 export const ME_STATUS = "STATUS WITH CHANGE STATUS";
 export const PROFILE = "PROFILE CONNECT";
-export const CHANGE_PROFILE = "CHANGE PROFILE";
+export const CHANGE_CONTACTS = "CHANGE CONTACTS";
+export const ME_INFO = "ME INFO";
 
 export const MAIN = "MAIN CONNECT";
 
@@ -29,9 +30,11 @@ export const CREATED_POSTS = "CREATED POSTS LIST CONNECT";
 export const MAKE_POST = "MAKE POST CONNECT";
 export const LIKE = "LIKE CONNECT";
 
+export const DIALOGS = "DIALOGS PAGE CONNECT";
+export const CHAT = "CHAT CONNECT";
 export const DIALOG = "DIALOG CONNECT";
 export const MAKE_MESSAGE = "MAKE MESSAGE CONNECT";
-export const MESSAGES = "MESSAGES CONNECT";
+
 
 export const FRIENDS = "FRIENDS CONNECT";
 export const FRIENDS_LIST = "FRIENDS LIST CONNECT";

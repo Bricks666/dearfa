@@ -1,18 +1,19 @@
 /* NAVIGATION ITEM */
 
 .item {
-  list-style: none;
-  font-size: 20px;
-  line-height: 100%;
+	list-style: none;
+	font-size: 20px;
+	line-height: 100%;
 }
 
 /* NAVIGATION LINK */
 
 .link {
-  color: var(--white-lighter);
-  text-decoration: none;
+	color: var(--white-lightest);
+	text-decoration: none;
 }
 
-.link_currentPage {
-  text-decoration: underline;
+.link:hover,
+.linkCurrentPage {
+	text-decoration: underline;
 }

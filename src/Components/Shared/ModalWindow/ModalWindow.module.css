@@ -20,13 +20,33 @@
 
 /* INNER */
 
+@keyframes show {
+	from {
+		transform: scale(0);
+	}
+	80% {
+		transform: scale(1.1);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
 .inner {
 	position: relative;
+
+  max-height: 100vh;
 
 	padding: 20px;
 	padding-top: 30px;
 
 	background-color: #fff;
+
+  overflow: scroll;
+
+	animation-name: show;
+	animation-timing-function: ease-out;
+	animation-duration: 0.45s;
 }
 
 /* BUTTON */

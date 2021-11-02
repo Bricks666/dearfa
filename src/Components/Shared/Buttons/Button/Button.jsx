@@ -2,17 +2,18 @@ import React from "react";
 
 import ButtonStyle from "./Button.module.css";
 
-function Button(props) {
-	return (
-		<button
-			className={`${ButtonStyle.button} ${props.className ?? ""} `}
-			type={props.type}
-			onClick={props.onClick}
-			disabled={props.disabled}
-		>
-			{props.children}
-		</button>
-	);
-}
-
-export { Button };
+export const Button = React.memo(
+	({ className, type, onClick, disabled, children, title }) => {
+		return (
+			<button
+				className={`${ButtonStyle.button} ${className ?? ""} `}
+				type={type}
+				onClick={onClick}
+				disabled={disabled}
+				title={title}
+			>
+				{children}
+			</button>
+		);
+	}
+);

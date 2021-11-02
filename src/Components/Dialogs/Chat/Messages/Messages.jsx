@@ -1,18 +1,27 @@
 import React from "react";
-import { RenderMessages } from "./RenderMessages";
+import { Message } from "./Message/Message";
 
 import MessagesStyle from "./Messages.module.css";
 
-/* Стоит поменять название, например поставить текущий чат или текущий диалог */
-function Messages(props) {
+const Messages = ({ className, messages, authId }) => {
 	return (
 		<section
-			className={`${props.className} ${MessagesStyle.messages}`}
+			className={`${MessagesStyle.messages} ${className}`}
 			aria-label={"чат с кем-то"}
 		>
-			{RenderMessages(props.messages, MessagesStyle.message)}
+			{messages.map((message) => {
+				return (
+					<Message
+						className={authId === message.senderId && MessagesStyle.myMessage}
+						author={message.senderName}
+						key={message.id}
+					>
+						{message.body}
+					</Message>
+				);
+			})}
 		</section>
 	);
-}
+};
 
 export { Messages };

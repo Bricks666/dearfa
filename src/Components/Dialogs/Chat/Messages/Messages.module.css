@@ -1,19 +1,18 @@
 /* MESSAGES */
 
 .messages {
-  display: grid;
+	display: grid;
+	grid-template-columns: 400px auto 400px;
 
-  row-gap: 30px;
+	row-gap: 30px;
 
-  padding: 10px;
-  margin: 0;
+	padding: 10px;
+	margin: 0;
 
-  background-color: var(--blue-lightest);
+	background-color: var(--blue-lightest);
 }
 
-/* MESSAGE */
-
-.message {
-  width: max-content;
-  max-width: 550px;
+/* MY MESSAGE */
+.myMessage {
+	grid-column: 3;
 }

@@ -1,17 +1,72 @@
 /* FORM */
 .form {
 	display: grid;
+
 	grid-template-columns: min-content 1fr;
+	gap: 0.8em;
+
+	align-items: center;
+	justify-content: center;
+}
+
+/* HEADER */
+.header {
+	grid-column: 1 / -1;
+
+	padding: 0;
+
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.5em;
+}
+
+/* PHOTO LABEL */
+.photoLabel {
+	grid-column: 2;
+	grid-row: 2 / span 3;
+
+	cursor: pointer;
 }
 
 /* PHOTO */
 .photo {
-	order: -1;
-
 	width: 200px;
 	height: 200px;
+}
 
-  object-fit: cover;
+/* STATUS */
+.status {
+	grid-column: 1;
+}
 
-  pointer-events: none;
+/* FULLNAME */
+.fullName {
+	grid-column: 1;
+}
+
+/* CONTACTS */
+.contacts {
+	grid-column: 1 / -1;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1em;
+
+	padding: 0;
+	margin: 0;
+
+	border: 0;
+}
+
+/* SUBHEADER */
+.subheader {
+	padding: 0;
+	margin: 0;
+}
+
+/* BUTTON */
+.button {
+	grid-column: 2;
+
+	justify-self: end;
 }

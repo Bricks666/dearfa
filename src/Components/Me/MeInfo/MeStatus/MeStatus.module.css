@@ -3,11 +3,17 @@
 .status {
 	display: grid;
 
-	grid-template-columns: min-content auto min-content;
+	grid-template-columns: min-content min-content auto;
 }
 
 /* BUTTON */
 
 .button {
 	padding: 0;
+}
+
+/* PEN */
+
+.pen {
+  width: 1.2em;
 }

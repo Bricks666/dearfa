@@ -1,0 +1,11 @@
+export { default as auth } from "./authReducers";
+export { default as favoriteFriends } from "./favoriteFriendsReducer";
+export { default as posts } from "./postsReducer";
+export { default as profile } from "./profileReducer";
+export { default as dialogs } from "./dialogsReducer";
+export { default as friends } from "./friendsReducer";
+export { default as navigation } from "./navigationReducer";
+export { default as login } from "./loginReducer";
+export { default as registration } from "./registrationReducer";
+export { default as users } from "./usersReducer";
+export { default as loadings } from "./loadingsReducer";

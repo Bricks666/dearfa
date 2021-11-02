@@ -41,6 +41,8 @@ export class MeStatus extends Component {
 					<PenButton
 						onClick={this.toggleModal}
 						className={MeStatusStyle.button}
+						penClass={MeStatusStyle.pen}
+						title="статус"
 					/>
 				</Status>
 				<ModalWindow condition={this.state.showModal} close={this.toggleModal}>

@@ -14,6 +14,7 @@ function Posts(props) {
 			</SubsectionHeader>
 			<MakePostContainer
 				className={PostsStyle.makeMessage}
+				label="Новый пост"
 				placeholder="Чем вы хотите поделиться сегодня"
 				buttonMessage="Опубликовать"
 			/>

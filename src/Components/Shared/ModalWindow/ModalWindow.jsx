@@ -1,38 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useCallback } from "react";
+import { useEscListener } from "../../../Hooks/useEscListener";
 import { CrossButton } from "../Buttons/CrossButton/CrossButton";
 
 import ModalWindowStyle from "./ModalWindow.module.css";
 
-export const ModalWindow = (props) => {
-	useEffect(() => {
-		if (props.condition) {
-			window.onkeydown = (evt) => {
-				if (evt.keyCode === 27) {
-					props.close();
-				}
-			};
-			console.log("Esc");
-		}
-
-		return () => {
-			if (props.condition) {
-				window.onkeydown = null;
-				console.log("unsubscribe");
+export const ModalWindow = ({ className, close, condition, children }) => {
+	useEscListener(
+		useCallback(() => {
+			if (condition) {
+				close();
 			}
-		};
-	}, [props.condition]);
+		}, [close, condition]),
+		condition
+	);
 
-	return props.condition ? (
-		<div className={ModalWindowStyle.wrapper} onClick={props.close}>
+	return condition ? (
+		<div className={ModalWindowStyle.wrapper} onClick={close}>
 			<div
-				className={`${ModalWindowStyle.inner}  ${props.className ?? ""}`}
+				className={`${ModalWindowStyle.inner}  ${className ?? ""}`}
 				onClick={(e) => e.stopPropagation()}
 			>
-				<CrossButton
-					onClick={props.close}
-					className={ModalWindowStyle.button}
-				/>
-				{props.children}
+				<CrossButton onClick={close} className={ModalWindowStyle.button} />
+				{children}
 			</div>
 		</div>
 	) : (

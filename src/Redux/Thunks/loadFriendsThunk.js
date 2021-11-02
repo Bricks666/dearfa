@@ -1,13 +1,15 @@
-import { getFriends } from "../../DAL/api";
-import { endLoadingFriends } from "../Actions/Loadings/endLoadingFriends";
-import { setFriends } from "../Actions/Friends/setFriends";
-import { startLoadingFriends } from "../Actions/Loadings/startLoadingFriends";
+import { api } from "../../DAL/api";
+import {
+	startLoadingFriends,
+	endLoadingFriends,
+} from "../Reducers/loadingsReducer";
+import { setFriends } from "../Reducers/friendsReducer";
 
 export const loadFriendsThunk = (friendsCount, currentPage) => {
 	return async (dispatch) => {
 		dispatch(startLoadingFriends());
 
-		const friends = await getFriends(friendsCount, currentPage);
+		const friends = await api.getFriends(friendsCount, currentPage);
 
 		dispatch(setFriends(friends));
 

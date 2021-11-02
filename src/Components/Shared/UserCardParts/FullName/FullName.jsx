@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 import FullNameStyle from "./FullName.module.css";
 
-export const FullName = (props) => {
+export const FullName = ({ id, fullName, className, children }) => {
 	return (
 		<Link
-			className={`${FullNameStyle.link} ${props.className ?? ""}`}
-			to={`/profile/${props.id}`}
+			className={`${FullNameStyle.link} ${className ?? ""}`}
+			to={`/profile/${id}`}
 		>
-			<h4 className={FullNameStyle.name}>{props.fullName}</h4>
+			<h4 className={FullNameStyle.name}>{fullName || children}</h4>
 		</Link>
 	);
 };

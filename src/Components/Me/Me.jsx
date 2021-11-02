@@ -4,20 +4,12 @@ import { ME } from "../../Redux/ToProps/componentsConstants";
 import { mapDispatchToProps } from "../../Redux/ToProps/mapDispatchToProps";
 import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
 import { Profile } from "../Shared/Profile/Profile";
-import { addLoading } from "../Shared/AddLoading/AddLoading";
-import { MeInfo } from "./MeInfo/MeInfo";
+import { withLoading } from "../Shared/withLoading/withLoading";
+import { MeInfoConnect } from "./MeInfo/MeInfoConnect";
 
-const WithLoading = addLoading(Profile);
+const WithLoading = withLoading(Profile);
 
 class Me extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			newStatus: "",
-		};
-	}
-
 	componentDidMount() {
 		this.props.loadMe(this.props.me.userId);
 	}
@@ -28,7 +20,7 @@ class Me extends Component {
 				className={this.props.className}
 				user={this.props.me}
 				isLoading={this.props.isLoading}
-				ProfileInfo={MeInfo}
+				ProfileInfo={MeInfoConnect}
 			/>
 		);
 	}

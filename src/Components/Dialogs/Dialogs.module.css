@@ -1,43 +1,48 @@
 /* DIALOGS */
 
 .dialogs {
-  display: grid;
+	display: grid;
 
-  grid-template-columns: min-content 1fr;
-  grid-template-rows: min-content 1fr;
+	grid-template-columns: min-content 1fr;
+	grid-template-rows: min-content 1fr;
 
-  row-gap: 5px;
-  column-gap: 40px;
+	row-gap: 5px;
+	column-gap: 40px;
 
-  grid-auto-flow: column dense;
+	grid-auto-flow: column dense;
 }
 
 /* HEADING */
 
 .heading {
-  grid-column: span 2;
+	grid-column: 1;
 }
 
 /* DIALOGS LIST */
 
 .dialogList {
-  position: relative;
+	position: relative;
 
-  margin: 0;
-  margin-left: 20px;
+	margin: 0;
+	margin-left: 20px;
 
-  min-width: max-content;
-  width: 320px;
+	min-width: max-content;
+	width: 320px;
 }
 
 .dialogsList::after {
-  content: "";
+	content: "";
 
-  position: absolute;
-  right: -22px;
+	position: absolute;
+	right: -22px;
 
-  width: 4px;
-  height: 100%;
+	width: 4px;
+	height: 100%;
 
-  background-color: var(--grey-light);
+	background-color: var(--grey-light);
+}
+
+/* CHAT */
+.chat {
+	grid-row: 1 / -1;
 }

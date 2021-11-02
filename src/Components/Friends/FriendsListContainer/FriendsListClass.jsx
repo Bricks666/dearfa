@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { UsersList } from "../../Shared/UsersList/UsersList";
-import { addLoading } from "../../Shared/AddLoading/AddLoading";
+import { withLoading } from "../../Shared/withLoading/withLoading";
 
-const WithLoading = addLoading(UsersList);
+const WithLoading = withLoading(UsersList);
 export class FriendsListClass extends Component {
 	constructor(props) {
 		super(props);
@@ -17,15 +17,14 @@ export class FriendsListClass extends Component {
 			this.props.friendsCount,
 			this.props.match.params.page
 		);
-		this.setState({ page: this.props.match.params.page });
 	}
 
 	componentDidMount() {
 		this.loadFriends();
 	}
 
-	componentDidUpdate() {
-		if (this.state.page !== this.props.match.params.page) {
+	componentDidUpdate(prevProps) {
+		if (prevProps.match.params.page !== this.props.match.params.page) {
 			this.loadFriends();
 		}
 	}
@@ -33,7 +32,7 @@ export class FriendsListClass extends Component {
 		return (
 			<WithLoading
 				className={this.props.className}
-				render={this.props.render}
+				Card={this.props.Card}
 				users={this.props.friends}
 				isLoading={this.props.isLoading}
 			/>

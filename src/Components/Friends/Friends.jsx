@@ -14,7 +14,7 @@ export function Friends(props) {
 			<FriendsListContainer
 				className={FriendsStyle.list}
 				friendsCount={props.friendsCount}
-				render={(props) => <FriendListItemContainer {...props} />}
+				Card={FriendListItemContainer}
 			/>
 			<PageListConnect friendsCount={props.friendsCount} />
 		</main>

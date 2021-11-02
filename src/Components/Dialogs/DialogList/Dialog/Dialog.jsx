@@ -5,29 +5,27 @@ import { Picture } from "../../../Shared/Picture/Picture";
 
 import DialogStyle from "./Dialog.module.css";
 
-function Dialog(props) {
+const Dialog = ({ className, userName, id, photos: { small } }) => {
 	return (
-		<li className={`${props.className} ${DialogStyle.dialog}`}>
+		<li className={`${className} ${DialogStyle.dialog}`}>
 			<NavLink
-				to={`/dialogs/${props.id}`}
+				to={`/dialogs/${id}`}
 				className={DialogStyle.link}
 				activeClassName={DialogStyle.linkActive}
-				aria-label={`чат с ${props.companion.fullName}`}
+				aria-label={`чат с ${userName}`}
 			>
 				<SubsectionHeader className={`${DialogStyle.fullName}`}>
-					{props.companion.fullName}
+					{userName}
 				</SubsectionHeader>
 				<Picture
 					className={`${DialogStyle.photo} fake-photo`}
-					oneXSrc={
-						props.companion.photos.large ?? "Images/ProfileBackground/SunSet"
-					}
+					oneXSrc={small || "/Images/ProfileBackground/SunSet"}
 					twoXSrc=""
-					alt={props.companion.fullName}
+					alt={userName}
 				/>
 			</NavLink>
 		</li>
 	);
-}
+};
 
 export { Dialog };

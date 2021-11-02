@@ -1,14 +1,13 @@
-import { getProfile } from "../../DAL/api";
-import { endLoadingMe } from "../Actions/Loadings/endLoadingMe";
-import { setMe } from "../Actions/Me/setMe";
-import { startLoadingMe } from "../Actions/Loadings/startLoadingMe";
+import { api } from "../../DAL/api";
+import { endLoadingMe, startLoadingMe } from "../Reducers/loadingsReducer";
+import { setMe } from "../Reducers/authReducers";
 
 export const setMeThunk = (id) => {
 	return async (dispatch) => {
 		try {
 			dispatch(startLoadingMe());
 
-			const me = await getProfile(id);
+			const me = await api.getProfile(id);
 
 			dispatch(setMe(me));
 
