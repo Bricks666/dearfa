@@ -2,9 +2,7 @@ import { initialState } from "../initialState";
 import { AUTH } from "./authReducers";
 
 export const LOGOUT = "LOGOUT";
-const INPUT_EMAIL = "dearFa/login/INPUT_EMAIL";
-const INPUT_PASSWORD = "dearFa/login/INPUT_PASSWORD";
-const TOGGLE_CHECKBOX = "dearFa/login/TOGGLE_CHECKBOX";
+const SHOW_CAPTCHA = "dearFa/login/SHOW_CAPTCHA";
 
 export default function reducer(state = initialState.login, action) {
 	switch (action.type) {
@@ -12,28 +10,17 @@ export default function reducer(state = initialState.login, action) {
 			return {
 				...state,
 				isLogin: true,
-			};
-		}
-		case INPUT_EMAIL: {
-			return {
-				...state,
-				email: action.payload.email,
-			};
-		}
-		case INPUT_PASSWORD: {
-			return {
-				...state,
-				password: action.payload.password,
-			};
-		}
-		case TOGGLE_CHECKBOX: {
-			return {
-				...state,
-				isRemember: !state.isRemember,
+				captchaUrl: null,
 			};
 		}
 		case LOGOUT: {
 			return initialState.login;
+		}
+		case SHOW_CAPTCHA: {
+			return {
+				...state,
+				captchaUrl: action.payload.captchaUrl,
+			};
 		}
 		default: {
 			return state;
@@ -41,32 +28,17 @@ export default function reducer(state = initialState.login, action) {
 	}
 }
 
-export const loginCheckboxToggle = () => {
-	return {
-		type: TOGGLE_CHECKBOX,
-	};
-};
-
-export const loginEmailInput = (email) => {
-	return {
-		type: INPUT_EMAIL,
-		payload: {
-			email,
-		},
-	};
-};
-
-export const loginPasswordInput = (password) => {
-	return {
-		type: INPUT_PASSWORD,
-		payload: {
-			password,
-		},
-	};
-};
-
 export const logout = () => {
 	return {
 		type: LOGOUT,
+	};
+};
+
+export const setCaptcha = (captchaUrl) => {
+	return {
+		type: SHOW_CAPTCHA,
+		payload: {
+			captchaUrl,
+		},
 	};
 };

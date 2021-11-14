@@ -9,3 +9,4 @@ export { default as login } from "./loginReducer";
 export { default as registration } from "./registrationReducer";
 export { default as users } from "./usersReducer";
 export { default as loadings } from "./loadingsReducer";
+export { default as messages } from "./messagesReducer";

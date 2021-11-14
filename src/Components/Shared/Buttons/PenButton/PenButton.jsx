@@ -4,7 +4,7 @@ import { Button } from "../Button/Button";
 
 import PenButtonStyle from "./PenButton.module.css";
 
-export const PenButton = ({ className, penClass, title, ...props }) => {
+const PenButton = React.memo(({ className, penClass, title, ...props }) => {
 	return (
 		<Button
 			{...props}
@@ -19,4 +19,6 @@ export const PenButton = ({ className, penClass, title, ...props }) => {
 			</svg>
 		</Button>
 	);
-};
+});
+
+export { PenButton };

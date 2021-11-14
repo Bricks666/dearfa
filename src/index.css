@@ -12,6 +12,10 @@
 	--violet-lighter: rgb(243 184 243);
 	--violet: rgb(155 15 236);
 	--black: rgb(0 0 0);
+	--red: tomato;
+
+	--borderRadius: 15px;
+	--letterSpacing: 0.01em;
 }
 
 /* Класс временно заменяет отсутствующие фото нормально оформленным текстом */
@@ -20,8 +24,6 @@
 
 	justify-content: center;
 	align-items: center;
-
-	background-color: var(--blue-light);
 
 	color: var(--white);
 	font-size: 12px;
@@ -32,10 +34,16 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+
+	letter-spacing: var(--letterSpacing);
 }
 
 *:focus-visible {
-	outline: 2px solid var(--violet) !important ;
+	outline: 2px solid var(--violet);
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 body {

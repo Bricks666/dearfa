@@ -6,19 +6,19 @@ import { SectionHeader } from "../SectionHeader/SectionHeader";
 
 import ProfileStyle from "./Profile.module.css";
 
-function Profile(props) {
+const Profile = ({ className, user, ProfileInfo }) => {
 	return (
-		<main className={`${props.className ?? ""} ${ProfileStyle.profile}`}>
+		<main className={`${className ?? ""} ${ProfileStyle.profile}`}>
 			<SectionHeader className="visibility-hidden">Профиль</SectionHeader>
 			<Picture
 				className={`${ProfileStyle.image} fake-photo`}
-				oneXSrc={props.user.background ?? "/Images/ProfileBackground/SunSet"}
+				oneXSrc={user.background ?? "/Images/ProfileBackground/SunSet"}
 				alt={""}
 			/>
-			<props.ProfileInfo user={props.user} className={ProfileStyle.userInfo} />
+			<ProfileInfo user={user} className={ProfileStyle.userInfo} />
 			<Posts className={ProfileStyle.posts} />
 		</main>
 	);
-}
+};
 
 export { Profile };

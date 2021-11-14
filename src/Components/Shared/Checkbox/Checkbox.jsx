@@ -1,21 +1,19 @@
-import React from "react";
+import React, { memo } from "react";
 
 import CheckboxStyle from "./Checkbox.module.css";
 
-export function Checkbox(props) {
+export const Checkbox = memo(({ className, input, children }) => {
 	return (
-		<div className={`${props.className ?? ""}`}>
+		<div className={`${className ?? ""}`}>
 			<input
 				className={CheckboxStyle.input}
 				type="checkbox"
 				id="checkbox"
-				checked={props.checked}
-				disabled={props.disabled}
-				onChange={props.toggle}
+				{...input}
 			/>
 			<label className={CheckboxStyle.label} htmlFor="checkbox">
-				{props.children}
+				{children}
 			</label>
 		</div>
 	);
-}
+});

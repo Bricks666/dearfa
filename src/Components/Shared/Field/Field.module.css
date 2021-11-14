@@ -3,26 +3,66 @@
 .label {
 	display: grid;
 
-	row-gap: 2px;
+	row-gap: 5px;
 
 	width: 250px;
 
 	font-size: 14px;
+	font-weight: 500;
 }
 
 /* FIElD */
 
 .field {
 	width: 100%;
-  height: min-content;
+	height: min-content;
 
-	padding: 5px;
+	padding: 10px;
 
-	border-radius: 0;
+	border-radius: var(--borderRadius);
 
-	border: 2px solid var(--blue-light);
+	border: 2px solid var(--grey-light);
 
 	box-shadow: none;
 
 	filter: drop-shadow(1px 1px 1px var(--grey-light));
+
+	transition-property: border-color;
+	transition-timing-function: ease-out;
+	/* transition-duration: 0.15s; */
+}
+@keyframes fill-border {
+	from {
+		border-bottom-color: var(--blue-light);
+	}
+	75% {
+		border-color: var(--violet);
+		border-top-color: var(--grey-light);
+	}
+	to {
+		border-color: var(--red);
+	}
+}
+
+.field:focus,
+.field:focus-visible {
+	outline: none;
+
+	animation-name: fill-border;
+	animation-duration: 0.15s;
+	animation-fill-mode: both;
+}
+
+/* ERROR */
+.error {
+	padding: 15px 20px;
+
+	background-color: var(--red);
+
+	border-radius: var(--borderRadius);
+
+	color: var(--white);
+	text-align: center;
+	font-weight: 500;
+	letter-spacing: 0.01em;
 }

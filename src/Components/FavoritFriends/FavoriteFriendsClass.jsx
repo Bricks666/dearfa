@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FavoritFriends } from "./FavoritFriends";
-import { withLoading } from "../Shared/withLoading/withLoading";
+import { withLoading } from "../Shared";
 
 const WithLoading = withLoading(FavoritFriends);
 

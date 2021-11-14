@@ -1,6 +1,5 @@
 import {
 	LIKE,
-	MAKE_MESSAGE,
 	FRIENDS_LIST,
 	FRIENDS_LIST_ITEM,
 	USERS_LIST,
@@ -9,34 +8,14 @@ import {
 	PROFILE,
 	ME,
 	FAVORITE_FRIENDS,
-	LOGIN_BUTTON,
-	LOGIN_EMAIL,
-	LOGIN_PASSWORD,
-	LOGIN_CHECKBOX,
-	REG_EMAIL,
-	REG_PASSWORD,
-	REG_PASSWORD_AGAIN,
-	REG_FULLNAME,
-	REG_BUTTON,
 	LOGOUT_BUTTON,
 	ME_STATUS,
 	ME_INFO,
 	APP,
 	DIALOGS,
 	CHAT,
+	LOGIN,
 } from "./componentsConstants";
-
-import { loginEmailInput } from "../Reducers/loginReducer";
-import { loginPasswordInput } from "../Reducers/loginReducer";
-import { loginCheckboxToggle } from "../Reducers/loginReducer";
-
-import { regEmailInput } from "../Reducers/registrationReducer";
-import { regPasswordInput } from "../Reducers/registrationReducer";
-import { regPasswordAgainInput } from "../Reducers/registrationReducer";
-import { regFullNameInput } from "../Reducers/registrationReducer";
-
-import { addMessage } from "../Reducers/dialogsReducer";
-import { inputMessage } from "../Reducers/dialogsReducer";
 
 import { addPost } from "../Reducers/postsReducer";
 import { inputPost } from "../Reducers/postsReducer";
@@ -57,6 +36,7 @@ import { updateProfile } from "../Thunks/updateProfile";
 import { authThunk } from "../Thunks/authThunk";
 import { loadDialogs } from "../Thunks/loadDialogs";
 import { loadMessages } from "../Thunks/loadMessages";
+import { initialMessages } from "../Reducers/messagesReducer";
 
 export const mapDispatchToProps = (componentName) => {
 	switch (componentName) {
@@ -78,81 +58,11 @@ export const mapDispatchToProps = (componentName) => {
 				};
 			};
 		}
-		case LOGIN_BUTTON: {
+		case LOGIN: {
 			return (dispatch) => {
 				return {
-					onClick(evt) {
-						evt.preventDefault();
-						dispatch(loginThunk());
-					},
-				};
-			};
-		}
-		case LOGIN_EMAIL: {
-			return (dispatch) => {
-				return {
-					input(evt) {
-						dispatch(loginEmailInput(evt.target.value));
-					},
-				};
-			};
-		}
-		case LOGIN_PASSWORD: {
-			return (dispatch) => {
-				return {
-					input(evt) {
-						dispatch(loginPasswordInput(evt.target.value));
-					},
-				};
-			};
-		}
-		case LOGIN_CHECKBOX: {
-			return {
-				toggle: loginCheckboxToggle,
-			};
-		}
-		case REG_EMAIL: {
-			return (dispatch) => {
-				return {
-					input(evt) {
-						dispatch(regEmailInput(evt.target.value));
-					},
-				};
-			};
-		}
-		case REG_PASSWORD: {
-			return (dispatch) => {
-				return {
-					input(evt) {
-						dispatch(regPasswordInput(evt.target.value));
-					},
-				};
-			};
-		}
-		case REG_PASSWORD_AGAIN: {
-			return (dispatch) => {
-				return {
-					input(evt) {
-						dispatch(regPasswordAgainInput(evt.target.value));
-					},
-				};
-			};
-		}
-		case REG_FULLNAME: {
-			return (dispatch) => {
-				return {
-					input(evt) {
-						dispatch(regFullNameInput(evt.target.value));
-					},
-				};
-			};
-		}
-		case REG_BUTTON: {
-			return () => {
-				return {
-					onClick(evt) {
-						evt.preventDefault();
-						console.log("another click");
+					onSubmit({ email, password, remember }, { restart }, anything) {
+						dispatch(loginThunk(email, password, remember, restart, anything));
 					},
 				};
 			};
@@ -164,12 +74,6 @@ export const mapDispatchToProps = (componentName) => {
 						dispatch(loadUserThunk(id));
 					},
 				};
-			};
-		}
-		case MAKE_MESSAGE: {
-			return {
-				add: addMessage,
-				input: inputMessage,
 			};
 		}
 		case MAKE_POST: {
@@ -243,8 +147,8 @@ export const mapDispatchToProps = (componentName) => {
 		case ME_STATUS: {
 			return (dispatch) => {
 				return {
-					setNewStatus(newStatus) {
-						dispatch(setNewStatusThunk(newStatus));
+					setNewStatus({ status }) {
+						dispatch(setNewStatusThunk(status));
 					},
 				};
 			};
@@ -272,6 +176,9 @@ export const mapDispatchToProps = (componentName) => {
 				return {
 					loadMessages(id, page) {
 						dispatch(loadMessages(id, page));
+					},
+					initialMessages(id) {
+						dispatch(initialMessages(id));
 					},
 				};
 			};

@@ -4,16 +4,16 @@ import { renderContact } from "./renderContact";
 
 import ContactsStyle from "./Contacts.module.css";
 
-function Contacts(props) {
-	const contacts = renderContact(props.contacts ?? {});
+const Contacts = ({ className, contacts, children }) => {
+	const contactsElement = renderContact(contacts ?? {});
 
 	return (
-		<div className={`${ContactsStyle.contacts} ${props.className ?? ""}`}>
-			{props.children}
+		<div className={`${ContactsStyle.contacts} ${className ?? ""}`}>
+			{children}
 			<span className={ContactsStyle.header}>Контакты:</span>
-			<dl className={ContactsStyle.datalist}>{contacts}</dl>
+			<dl className={ContactsStyle.datalist}>{contactsElement}</dl>
 		</div>
 	);
-}
+};
 
 export { Contacts };

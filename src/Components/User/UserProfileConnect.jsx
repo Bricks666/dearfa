@@ -1,9 +1,11 @@
-import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import { connect } from "react-redux";
 import { compose } from "redux";
-import { PROFILE } from "../../Redux/ToProps/componentsConstants";
-import { mapDispatchToProps } from "../../Redux/ToProps/mapDispatchToProps";
-import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
+import {
+	mapStateToProps,
+	mapDispatchToProps,
+	PROFILE,
+} from "../../Redux/ToProps";
 import { UserProfile } from "./UserProfile";
 
 export const UserProfileConnect = compose(

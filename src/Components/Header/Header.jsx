@@ -6,7 +6,7 @@ import { LogoutButton } from "./Button/LogoutButton";
 
 import HeaderStyle from "./Header.module.css";
 
-function Header(props) {
+export const Header = (props) => {
 	return (
 		<header className={`${props.className ?? ""} ${HeaderStyle.header}`}>
 			<Logo
@@ -35,6 +35,4 @@ function Header(props) {
 			)}
 		</header>
 	);
-}
-
-export { Header };
+};

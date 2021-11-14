@@ -1,6 +1,5 @@
 import React from "react";
-import { SubsectionHeader } from "../Shared/SubsectionHeader/SubsectionHeader";
-import { UsersList } from "../Shared/UsersList/UsersList";
+import { UsersList, SubsectionHeader } from "../Shared";
 import { FavoritFriendsListItem } from "./FavoritFriendsListItem/FavoritFriendsListItem";
 
 import FavoritFriendsStyle from "./FavoritFriends.module.css";

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Photo } from "../../Shared/UserCardParts/Photo/Photo";
+import { Photo } from "../../Shared";
 
 import FavoritFriendsListItemStyle from "./FavoritFriendsListItem.module.css";
 
@@ -9,7 +9,7 @@ export const FavoritFriendsListItem = (props) => {
 		<li className={props.className}>
 			<Photo
 				className={FavoritFriendsListItemStyle.photo}
-				image={props.user.photos}
+				photo={props.user.photos.large}
 				id={props.user.id}
 				fullName={props.user.name}
 			/>

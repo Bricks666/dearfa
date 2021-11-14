@@ -10,7 +10,16 @@
 
 	min-height: 50px;
 
+	border-radius: var(--borderRadius);
+
 	background-color: var(--blue-light);
+}
+
+@media(max-width: 1580px) {
+  .header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
 
 /* LOGO */
@@ -47,7 +56,7 @@
 
 	font-size: 14px;
 
-    padding: 0;
+	padding: 0;
 
 	transition: none;
 }

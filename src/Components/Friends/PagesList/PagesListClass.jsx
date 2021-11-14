@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PagesList } from "../../Shared/PagesList/PagesList";
+import { PagesList } from "../../Shared";
 
 export class PagesListClass extends Component {
 	render() {

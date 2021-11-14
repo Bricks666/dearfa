@@ -1,10 +1,8 @@
-import React, { useCallback } from "react";
-import { MakeMessageContainer } from "./MakeMessage/MakeMessageContainer";
+import React, { useCallback, useEffect } from "react";
+import { MakeMessage } from "./MakeMessage/MakeMessage";
 import { Messages } from "./Messages/Messages";
-import { FullName } from "../../Shared/UserCardParts/FullName/FullName";
-import { useEscListener } from "../../../Hooks/useEscListener";
-import { Photo } from "../../Shared/UserCardParts/Photo/Photo";
-import { useParamChangeListener } from "../../../Hooks/useParamChangeListener";
+import { Photo, FullName } from "../../Shared";
+import { useEscListener, useParamChangeListener } from "../../../Hooks";
 
 import ChatStyle from "./Chat.module.css";
 
@@ -15,14 +13,19 @@ const Chat = ({
 	messages,
 	authId,
 	companion,
+	initialMessages,
 }) => {
 	const { id } = useParamChangeListener(
 		"id",
-		useCallback((id) => {
-			if (!!id !== false) {
-				loadMessages(id);
-			}
-		}, [])
+		useCallback(
+			(id) => {
+				if (!!id !== false) {
+					loadMessages(id);
+					console.log("GET");
+				}
+			},
+			[loadMessages]
+		)
 	);
 
 	useEscListener(
@@ -32,6 +35,10 @@ const Chat = ({
 			}
 		}, [history, id])
 	);
+
+	useEffect(() => {
+		initialMessages(id);
+	}, [id]);
 
 	if (!!id === false) {
 		return (
@@ -59,11 +66,9 @@ const Chat = ({
 				messages={messages}
 				authId={authId}
 			/>
-			<MakeMessageContainer
+			<MakeMessage
 				className={ChatStyle.makeMessage}
-				label="Новое сообщение"
 				placeholder="Ваше сообщение"
-				buttonMessage="Отправить"
 			/>
 		</section>
 	);

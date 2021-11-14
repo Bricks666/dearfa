@@ -1,0 +1,10 @@
+/* FORM */
+.form {
+	display: grid;
+  row-gap: 5px;
+}
+
+/* BUTTON */
+.button {
+	justify-self: end;
+}

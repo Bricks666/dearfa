@@ -2,7 +2,7 @@ import React from "react";
 
 import ButtonStyle from "./Button.module.css";
 
-export const Button = React.memo(
+const Button = React.memo(
 	({ className, type, onClick, disabled, children, title }) => {
 		return (
 			<button
@@ -17,3 +17,5 @@ export const Button = React.memo(
 		);
 	}
 );
+
+export { Button };

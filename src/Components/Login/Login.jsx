@@ -1,31 +1,15 @@
 import React from "react";
 
-import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
-import { EmailField } from "./FormParts/EmailField";
-import { PasswordField } from "./FormParts/PasswordField";
-import { RememberCheckbox } from "./FormParts/RememberCheckbox";
-import { LoginButton } from "./FormParts/LoginButton";
+import { SectionHeader } from "../Shared";
+import { LoginForm } from "./LoginForm";
 
 import LoginStyle from "./Login.module.css";
 
-export function Login(props) {
+export const Login = ({ className, onSubmit }) => {
 	return (
-		<main className={`${props.className} ${LoginStyle.main}`}>
+		<main className={`${className} ${LoginStyle.main}`}>
 			<SectionHeader className={LoginStyle.header}>Вход</SectionHeader>
-			<form className={LoginStyle.form}>
-				<EmailField className={LoginStyle.field} disabled={props.idDisabled}>
-					Ваша почта
-				</EmailField>
-				<PasswordField className={LoginStyle.field} disabled={props.isDisabled}>
-					Ваш пароль
-				</PasswordField>
-				<RememberCheckbox disabled={props.isDisabled}>
-					Запомнить меня
-				</RememberCheckbox>
-				<LoginButton className={LoginStyle.button} disabled={props.isDisabled}>
-					Войти
-				</LoginButton>
-			</form>
+			<LoginForm onSubmit={onSubmit} className={LoginStyle.form} />
 		</main>
 	);
-}
+};

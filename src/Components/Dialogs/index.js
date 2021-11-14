@@ -1,0 +1,1 @@
+export { DialogsConnect } from "./DialogsConnect";

@@ -5,16 +5,18 @@
 
 	display: grid;
 
-	grid-template-rows: min-content 1fr min-content;
+	grid-template-rows: 1fr min-content;
 
 	height: clamp(100%, 80vh, 1200px);
 }
 
 /* HEADER */
 .header {
-	position: relative;
-
+	position: absolute;
 	z-index: 2;
+	top: 0;
+	left: 0;
+	right: 0;
 
 	display: flex;
 
@@ -24,7 +26,11 @@
 
 	height: min-content;
 
-	padding: 4px;
+	padding: 6px;
+	padding-left: 10px;
+
+	border-radius: var(--borderRadius);
+
 	background-color: var(--blue-light);
 
 	box-shadow: 0 1px 2px var(--blue);
@@ -38,7 +44,7 @@
 
 /* NAME */
 .name {
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 400;
 	color: var(--white-lighter);
 }
@@ -47,11 +53,14 @@
 	text-decoration: underline;
 }
 
-/* MESSAGE */
+/* MESSAGES */
 
 .messages {
 	height: 100%;
-	overflow: scroll;
+
+	overflow-y: scroll;
+
+	border-radius: var(--borderRadius);
 }
 
 /* MAKE MESSAGE */

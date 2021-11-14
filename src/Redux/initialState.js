@@ -20,6 +20,7 @@ export const initialState = {
 		contacts: {},
 	},
 	dialogs: [],
+	messages: {},
 	users: {
 		list: [],
 		totalUsers: 0,
@@ -73,19 +74,10 @@ export const initialState = {
 		],
 	},
 	login: {
-		password: "",
-		email: "",
-		isRemember: false,
-		isDisabled: false,
 		isLogin: false,
+		captchaUrl: null,
 	},
-	registration: {
-		fullName: "",
-		email: "",
-		password: "",
-		passwordAgain: "",
-		isDisabled: false,
-	},
+	registration: {},
 	navigation: [
 		{
 			path: "/profile",

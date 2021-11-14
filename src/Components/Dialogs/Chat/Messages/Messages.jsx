@@ -12,8 +12,12 @@ const Messages = ({ className, messages, authId }) => {
 			{messages.map((message) => {
 				return (
 					<Message
-						className={authId === message.senderId && MessagesStyle.myMessage}
+						className={`${MessagesStyle.message} ${
+							authId === message.senderId && MessagesStyle.myMessage
+						}`}
+						isViewed={message.viewed}
 						author={message.senderName}
+						dateTime={message.addedAt}
 						key={message.id}
 					>
 						{message.body}

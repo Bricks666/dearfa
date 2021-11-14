@@ -1,13 +1,12 @@
 import React from "react";
 
-import { CreatedPostsListContainer } from "../Shared/CreatedPostsListContainer/CreatedPostsListContainer";
-import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
+import { SectionHeader, CreatedPostsListConnect } from "../Shared";
 
-export const News = (props) => {
+export const News = ({ className }) => {
 	return (
-		<main className={props.className}>
+		<main className={className}>
 			<SectionHeader>Новости</SectionHeader>
-			<CreatedPostsListContainer />
+			<CreatedPostsListConnect />
 		</main>
 	);
 };

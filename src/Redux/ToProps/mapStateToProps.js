@@ -1,12 +1,10 @@
 import {
-	LOGIN,
 	CREATED_POSTS,
 	MAKE_POST,
 	FAVORITE_FRIENDS,
 	FRIENDS_LIST,
 	USERS_PAGES_LIST,
 	USERS_LIST,
-	REG,
 	PROFILE,
 	NAVIGATION,
 	HEADER,
@@ -15,13 +13,6 @@ import {
 	USERS,
 	FRIENDS,
 	FRIENDS_LIST_ITEM,
-	LOGIN_EMAIL,
-	LOGIN_PASSWORD,
-	LOGIN_CHECKBOX,
-	REG_EMAIL,
-	REG_FULLNAME,
-	REG_PASSWORD,
-	REG_PASSWORD_AGAIN,
 	FRIENDS_PAGES_LIST,
 	USERS_LIST_ITEM,
 	CHANGE_CONTACTS,
@@ -92,7 +83,7 @@ export const mapStateToProps = (componentName) => {
 			};
 		}
 		case CHAT: {
-			return ({ dialogs, auth }, ownProps) => {
+			return ({ dialogs, auth, messages }, ownProps) => {
 				const currentDialog = dialogs.find(
 					(dialog) => dialog.id === +ownProps.match.params.id
 				);
@@ -100,7 +91,7 @@ export const mapStateToProps = (componentName) => {
 					messages:
 						ownProps.match.params.id === undefined
 							? []
-							: currentDialog?.messages ?? [],
+							: messages[currentDialog?.id] || [],
 					authId: auth.userId,
 					companion: {
 						name: currentDialog?.userName,
@@ -144,85 +135,6 @@ export const mapStateToProps = (componentName) => {
 			return (state) => {
 				return {
 					pageCount: state.friends.pageCount,
-				};
-			};
-		}
-		case REG: {
-			return (state) => {
-				return {
-					isDisabled: state.registration.isDisabled,
-				};
-			};
-		}
-		case LOGIN: {
-			return (state) => {
-				return {
-					isDisabled: state.login.isDisabled,
-				};
-			};
-		}
-		case REG_EMAIL: {
-			return (state) => {
-				return {
-					value: state.registration.email,
-					required: true,
-					autocomplete: false,
-					type: "email",
-				};
-			};
-		}
-		case REG_FULLNAME: {
-			return (state) => {
-				return {
-					value: state.registration.fullName,
-					required: true,
-					autocomplete: false,
-				};
-			};
-		}
-		case REG_PASSWORD: {
-			return (state) => {
-				return {
-					value: state.registration.password,
-					required: true,
-					autocomplete: false,
-					type: "password",
-				};
-			};
-		}
-		case REG_PASSWORD_AGAIN: {
-			return (state) => {
-				return {
-					value: state.registration.passwordAgain,
-					required: true,
-					autocomplete: false,
-					type: "password",
-				};
-			};
-		}
-		case LOGIN_EMAIL: {
-			return (state) => {
-				return {
-					value: state.login.email,
-					required: true,
-					autocomplete: true,
-				};
-			};
-		}
-		case LOGIN_PASSWORD: {
-			return (state) => {
-				return {
-					value: state.login.password,
-					required: true,
-					type: "password",
-					autocomplete: true,
-				};
-			};
-		}
-		case LOGIN_CHECKBOX: {
-			return (state) => {
-				return {
-					checked: state.login.isRemember,
 				};
 			};
 		}

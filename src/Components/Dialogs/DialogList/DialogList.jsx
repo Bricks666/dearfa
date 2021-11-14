@@ -3,12 +3,12 @@ import { renderDialogsList } from "./RenderDialogsList";
 
 import DialogListStyle from "./DialogList.module.css";
 
-function DialogList(props) {
+const DialogList = (props) => {
 	return (
-		<ul className={`${props.className ?? ""} ${DialogListStyle.dialogList}`}>
+		<ul className={`${DialogListStyle.dialogList} ${props.className ?? ""} `}>
 			{renderDialogsList(props.dialogs, DialogListStyle.dialog)}
 		</ul>
 	);
-}
+};
 
 export { DialogList };

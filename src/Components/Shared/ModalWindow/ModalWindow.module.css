@@ -35,18 +35,18 @@
 .inner {
 	position: relative;
 
-  max-height: 100vh;
+	max-height: 100vh;
 
 	padding: 20px;
 	padding-top: 30px;
 
 	background-color: #fff;
 
-  overflow: scroll;
+	border-radius: var(--borderRadius);
 
 	animation-name: show;
 	animation-timing-function: ease-out;
-	animation-duration: 0.45s;
+	animation-duration: 0.25s;
 }
 
 /* BUTTON */

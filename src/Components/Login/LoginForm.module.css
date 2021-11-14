@@ -1,0 +1,30 @@
+/* FORM */
+
+.form {
+	display: grid;
+
+	grid-template-columns: max-content auto;
+
+	align-items: center;
+
+	row-gap: 10px;
+}
+
+/* FIELD */
+
+.field {
+	grid-column: span 2;
+}
+
+/* ERROR */
+.error {
+	grid-column: span 2;
+}
+
+/* BUTTON */
+
+.button {
+	width: max-content;
+
+	justify-self: end;
+}

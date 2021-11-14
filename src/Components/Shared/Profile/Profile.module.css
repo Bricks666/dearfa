@@ -1,34 +1,31 @@
 /* PROFILE */
 
 .profile {
-  background-color: var(--white-lighter);
+	display: grid;
+	row-gap: 20px;
 
-  display: grid;
-  row-gap: 20px;
+	background-color: var(--white-lighter);
 }
 
 /* PICTURE */
 
 .image {
-  min-width: 100%;
-  max-height: 150px;
-  object-fit: cover;
+	min-width: 100%;
+	max-height: 150px;
 
-  background-color: var(--violet-lighter);
-
-  color: var(--white-lighter);
-  font-size: 24px;
-  font-weight: 700;
+	color: var(--white-lighter);
+	font-size: 24px;
+	font-weight: 700;
 }
 
 /* USER PROFILE */
 
 .userInfo {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 /* POSTS */
 
 .posts {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }

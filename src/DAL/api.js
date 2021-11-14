@@ -73,11 +73,7 @@ export const api = {
 		return (
 			await instance.post(
 				"/auth/login",
-				{
-					email,
-					rememberMe,
-					password,
-				},
+				{ email, password, rememberMe },
 				{
 					withCredentials: true,
 				}
@@ -157,6 +153,13 @@ export const api = {
 					withCredentials: true,
 				}
 			)
+		).data;
+	},
+	async getCaptcha() {
+		return (
+			await instance.get("security/get-captcha-url", {
+				withCredentials: true,
+			})
 		).data;
 	},
 };

@@ -1,58 +1,35 @@
-import React, { Component } from "react";
+import React, { useCallback, useState } from "react";
 
-import { Status } from "../../../Shared/UserCardParts/Status/Status";
-import { ModalWindow } from "../../../Shared/ModalWindow/ModalWindow";
-import { NewStatusWindow } from "./NewStatusWindow/NewStatusWindow";
-import { PenButton } from "../../../Shared/Buttons/PenButton/PenButton";
+import { NewStatus } from "./NewStatus/NewStatus";
+import { PenButton, ModalWindow, Status } from "../../../Shared";
 
 import MeStatusStyle from "./MeStatus.module.css";
 
-export class MeStatus extends Component {
-	constructor(props) {
-		super(props);
+export const MeStatus = ({ status, setNewStatus }) => {
+	const [showWindow, toggleShow] = useState(false);
 
-		this.state = {
-			showModal: false,
-			newStatus: props.status,
-		};
+	const onSubmit = (formData) => {
+		setNewStatus(formData);
+		toggleShow(false);
+	};
 
-		this.toggleModal = this.toggleModal.bind(this);
-		this.inputNewStatus = this.inputNewStatus.bind(this);
-		this.setNewStatus = this.setNewStatus.bind(this);
-	}
+	const toggle = useCallback(() => {
+		toggleShow(!showWindow);
+	}, [showWindow]);
 
-	setNewStatus() {
-		this.props.setNewStatus(this.state.newStatus);
-		this.toggleModal(false);
-	}
-
-	toggleModal() {
-		this.setState({ showModal: !this.state.showModal });
-	}
-
-	inputNewStatus(evt) {
-		this.setState({ newStatus: evt.target.value });
-	}
-
-	render() {
-		return (
-			<>
-				<Status status={this.props.status} className={MeStatusStyle.status}>
-					<PenButton
-						onClick={this.toggleModal}
-						className={MeStatusStyle.button}
-						penClass={MeStatusStyle.pen}
-						title="статус"
-					/>
-				</Status>
-				<ModalWindow condition={this.state.showModal} close={this.toggleModal}>
-					<NewStatusWindow
-						setNewStatus={this.setNewStatus}
-						newStatus={this.state.newStatus}
-						input={this.inputNewStatus}
-					/>
-				</ModalWindow>
-			</>
-		);
-	}
-}
+	return (
+		<>
+			<Status status={status} className={MeStatusStyle.status}>
+				<PenButton
+					onClick={toggle}
+					className={MeStatusStyle.button}
+					penClass={MeStatusStyle.pen}
+					title="статус"
+				/>
+			</Status>
+			<ModalWindow condition={showWindow} close={toggle}>
+				<NewStatus onSubmit={onSubmit} status={status} />
+			</ModalWindow>
+		</>
+	);
+};

@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
-import { withLoading } from "../../Shared/withLoading/withLoading";
-import { UsersList } from "../../Shared/UsersList/UsersList";
+import { UsersList, withLoading } from "../../Shared";
 import { useParamChangeListener } from "../../../Hooks/useParamChangeListener";
 
 const WithLoading = withLoading(UsersList);
@@ -15,9 +14,12 @@ export const UsersListClass = ({
 }) => {
 	useParamChangeListener(
 		"page",
-		useCallback((page) => {
-			loadUsers(usersCount, page);
-		}, [])
+		useCallback(
+			(page) => {
+				loadUsers(usersCount, page);
+			},
+			[usersCount]
+		)
 	);
 
 	return (

@@ -4,10 +4,6 @@ export const toValidNewProfileData = (notValidData) => {
 		contacts: notValidData.contacts,
 		aboutMe: notValidData.status,
 		fullName: notValidData.fullName,
-		photo: {
-			isNewPhoto: notValidData.newPhoto !== null,
-			newPhoto: notValidData.newPhoto,
-		},
 		lookingForAJob: true,
 		lookingForAJobDescription:
 			"Почему тут нельзя оставить пустую строку или я что то не пойму",

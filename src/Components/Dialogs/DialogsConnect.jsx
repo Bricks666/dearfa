@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
-import { DIALOGS } from "../../Redux/ToProps/componentsConstants";
-import { mapDispatchToProps } from "../../Redux/ToProps/mapDispatchToProps";
-import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
+import {
+	mapStateToProps,
+	mapDispatchToProps,
+	DIALOGS,
+} from "../../Redux/ToProps";
 import { Dialogs } from "./Dialogs";
 
 export const DialogsConnect = connect(

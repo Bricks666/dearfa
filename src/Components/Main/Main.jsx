@@ -1,45 +1,45 @@
 import React from "react";
 import { Switch, Route } from "react-router";
-import { News } from "../News/News";
-import { NotFound } from "../NotFound/NotFound";
-import { UserProfileConnect } from "../User/UserProfileConnect";
-import { LoginContainer } from "../Login/LoginContainer";
-import { MeContainer } from "../Me/Me";
-import { UsersContainer } from "../Users/UsersContainer";
-import { FriendsContainer } from "../Friends/FriendsContainer";
-import { Registration } from "../Registration/Registration";
-import { DialogsConnect } from "../Dialogs/DialogsConnect";
+import { News } from "../News";
+import { NotFound } from "../NotFound";
+import { UserProfileConnect } from "../User";
+import { MeConnect } from "../Me";
+import { UsersConnect } from "../Users";
+import { FriendsConnect } from "../Friends";
+import { DialogsConnect } from "../Dialogs";
+import { LoginConnect } from "../Login";
+import { RegistrationConnect } from "../Registration/RegistrationConnect";
 
-export function Main(props) {
+export const Main = ({ className }) => {
 	return (
 		<Switch>
 			<Route exact path="/profile">
-				<MeContainer className={props.className} />
+				<MeConnect className={className} />
 			</Route>
 			<Route exact path="/dialogs/:id?">
-				<DialogsConnect className={props.className} />
+				<DialogsConnect className={className} />
 			</Route>
 			<Route exact path="/friends/:page">
-				<FriendsContainer className={props.className} />
+				<FriendsConnect className={className} />
 			</Route>
 			<Route exact path="/news">
-				<News className={props.className} />
+				<News className={className} />
 			</Route>
 			<Route exact path="/login">
-				<LoginContainer className={props.className} />
+				<LoginConnect className={className} />
 			</Route>
 			<Route exact path="/registration">
-				<Registration className={props.className} />
+				<RegistrationConnect className={className} />
 			</Route>
 			<Route exact path="/users/:page">
-				<UsersContainer className={props.className} />
+				<UsersConnect className={className} />
 			</Route>
 			<Route exact path="/profile/:id">
-				<UserProfileConnect className={props.className} />
+				<UserProfileConnect className={className} />
 			</Route>
 			<Route>
-				<NotFound className={props.className} />
+				<NotFound className={className} />
 			</Route>
 		</Switch>
 	);
-}
+};

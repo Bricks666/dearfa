@@ -1,53 +1,59 @@
 /* DIALOG */
 
 .dialog {
-  list-style: none;
+	list-style: none;
+
+	background-color: var(--white-lighter);
 }
 
 /* LINK */
 
 .link {
-  display: grid;
+	display: grid;
 
-  grid-template-columns: min-content 1fr;
+	grid-template-columns: min-content 1fr;
 
-  column-gap: 16px;
+	column-gap: 16px;
 
-  align-items: center;
+	align-items: center;
 
-  padding: 10px;
+	padding: 10px;
 
-  text-decoration: none;
+	border-radius: var(--borderRadius);
 
-  background-color: var(--white-lighter);
+	text-decoration: none;
 
-  filter: drop-shadow(1px 1px 1px var(--grey-lighter))
-    drop-shadow(-1px -1px 1px var(--grey-lighter));
+	filter: drop-shadow(1px 1px 1px var(--grey-lighter))
+		drop-shadow(-1px -1px 1px var(--grey-lighter));
 }
 
 .linkActive {
-  background-color: var(--grey-lighter);
+	background-color: var(--grey-lighter);
 
-  filter: drop-shadow(1px 1px 1px var(--grey-light))
-    drop-shadow(-1px -1px 1px var(--grey-light));
+	filter: drop-shadow(1px 1px 1px var(--grey-light))
+		drop-shadow(-1px -1px 1px var(--grey-light));
 }
 
 /* FULL NAME */
 
 .fullName {
-  padding: 5px 10px;
+	padding: 5px 10px;
 
-  font-size: 18px;
-  font-weight: 400;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.linkActive .fullName {
+	font-weight: 500;
 }
 
 /* PHOTO */
 
 .photo {
-  order: -1;
+	order: -1;
 
-  width: 60px;
-  height: 60px;
+	width: 60px;
+	height: 60px;
 
-  border-radius: 50%;
+	border-radius: var(--borderRadius);
 }

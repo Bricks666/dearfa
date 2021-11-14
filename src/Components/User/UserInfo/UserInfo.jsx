@@ -1,9 +1,6 @@
 import React from "react";
 
-import { ProfileInfo } from "../../Shared/ProfileInfo/ProfileInfo";
-import { Status } from "../../Shared/UserCardParts/Status/Status";
-import { Contacts } from "../../Shared/UserCardParts/Contacts/Contacts";
-import { Picture } from "../../Shared/Picture/Picture";
+import { ProfileInfo, Picture, Status, Contacts } from "../../Shared";
 
 import UserInfoStyle from "./UserInfo.module.css";
 

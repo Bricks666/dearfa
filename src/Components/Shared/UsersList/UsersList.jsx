@@ -4,10 +4,10 @@ import { renderUsersList } from "./RenderUsersList";
 
 import UsersListStyle from "./UsersList.module.css";
 
-export const UsersList = (props) => {
+export const UsersList = ({ Card, users, className }) => {
 	return (
-		<ul className={`${UsersListStyle.list} ${props.className ?? ""}`}>
-			{renderUsersList(props.Card, props.users, [])}
+		<ul className={`${UsersListStyle.list} ${className ?? ""}`}>
+			{renderUsersList(Card, users, [])}
 		</ul>
 	);
 };

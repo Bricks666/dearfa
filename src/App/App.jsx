@@ -5,31 +5,31 @@ import {
 	Switch,
 	Redirect,
 } from "react-router-dom";
-import { HeaderContainer } from "../Components/Header/HeaderContainer";
-import { NavigationContainer } from "../Components/Navigation/NavigationContainer";
-import { MainWithLoading } from "../Components/Main/MainWithLoading";
-import { FavoritFriendsContainer } from "../Components/FavoritFriends/FavoritFriendsContainer";
-import { withLoading } from "../Components/Shared/withLoading/withLoading";
+import { NavigationConnect } from "../Components/Navigation";
+import { MainConnect } from "../Components/Main";
+import { FavoritFriendsConnect } from "../Components/FavoritFriends";
+import { withLoading } from "../Components/Shared";
+import { HeaderConnect } from "../Components/Header";
 
 import AppStyle from "./App.module.css";
 
-const AppWithoutLoading = React.memo((props) => {
+const AppWithoutLoading = React.memo(({ isLogin }) => {
 	return (
 		<Router>
 			<div
 				className={`${AppStyle.page} ${
-					props.isLogin === false && AppStyle.notLoginPage
+					isLogin === false && AppStyle.notLoginPage
 				}`}
 			>
 				<h1 className="visibility-hidden">Dear.Fa</h1>
-				<HeaderContainer className={AppStyle.header} />
+				<HeaderConnect className={AppStyle.header} />
 
-				{/* Оказывается редирект нормально работает только внутри свича */}
 				<Switch>
-					{props.isLogin ? (
-						<Redirect exact from="/login" to="/profile" /> && (
-							<Redirect exact from="/" to="profile" />
-						)
+					(<Redirect exact from="/" to="/profile" />)
+				</Switch>
+				<Switch>
+					{isLogin ? (
+						<Redirect exact from="/login" to="/profile" />
 					) : (
 						<Redirect to="/login" />
 					)}
@@ -38,12 +38,12 @@ const AppWithoutLoading = React.memo((props) => {
 				<Switch>
 					<Route path={["/login", "/registration"]} />
 					<Route>
-						<NavigationContainer className={AppStyle.nav} />
-						<FavoritFriendsContainer className={AppStyle.lastFriends} />
+						<NavigationConnect className={AppStyle.nav} />
+						<FavoritFriendsConnect className={AppStyle.lastFriends} />
 					</Route>
 				</Switch>
 
-				<MainWithLoading className={AppStyle.main} />
+				<MainConnect className={AppStyle.main} />
 			</div>
 		</Router>
 	);

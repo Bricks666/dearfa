@@ -1,43 +1,20 @@
 /* MAIN */
 
 .main {
-  display: grid;
+	display: grid;
 
-  grid-template-rows: repeat(2, min-content);
+	grid-template-rows: repeat(2, min-content);
 
-  justify-content: center;
+	justify-content: center;
 }
 
 /* HEADER */
 
 .header {
-  transform: translateX(50%);
+	transform: translateX(50%);
 }
 
 /* FORM */
-
 .form {
-  display: grid;
-
-  grid-template-columns: max-content auto;
-
-  align-items: center;
-
-  row-gap: 10px;
-
-  max-width: min-content;
-}
-
-/* FIELD */
-
-.field {
-  grid-column: span 2;
-}
-
-/* BUTTON */
-
-.button {
-  width: max-content;
-
-  justify-self: end;
+	max-width: min-content;
 }

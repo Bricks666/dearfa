@@ -1,9 +1,7 @@
 import React from "react";
 
-import { LikeContainer } from "./LikeContainer/LikeContainer";
-import { Date } from "../../UserCardParts/Date/Date";
-import { Photo } from "../../UserCardParts/Photo/Photo";
-import { FullName } from "../../UserCardParts/FullName/FullName";
+import { LikeConnect } from "./LikeConnect/LikeConnect";
+import { Date, Photo, FullName } from "../../";
 
 import PostStyle from "./Post.module.css";
 
@@ -23,7 +21,7 @@ export const Post = (props) => {
 				fullName={"Кирилл Цыганков"}
 			/>
 			<p className={PostStyle.content}>{props.post.content.text}</p>
-			<LikeContainer
+			<LikeConnect
 				className={PostStyle.like}
 				status={props.post.like}
 				postId={props.post.id}

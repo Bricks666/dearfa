@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
-import { CHANGE_CONTACTS } from "../../../../Redux/ToProps/componentsConstants";
-import { mapStateToProps } from "../../../../Redux/ToProps/mapStateToProps";
-import { mapDispatchToProps } from "../../../../Redux/ToProps/mapDispatchToProps";
+import {
+	mapStateToProps,
+	mapDispatchToProps,
+	CHANGE_CONTACTS,
+} from "../../../../Redux/ToProps";
 import { ChangeProfile } from "./ChangeProfile";
 
 export const ChangeProfileConnect = connect(

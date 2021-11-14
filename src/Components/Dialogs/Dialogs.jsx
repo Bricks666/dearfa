@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { DialogList } from "./DialogList/DialogList";
-import { SectionHeader } from "../Shared/SectionHeader/SectionHeader";
 import { ChatConnect } from "./Chat/ChatConnect";
+import { SectionHeader } from "../Shared";
 
 import DialogsStyle from "./Dialogs.module.css";
 

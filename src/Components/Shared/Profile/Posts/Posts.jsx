@@ -1,26 +1,21 @@
 import React from "react";
 
-import { CreatedPostsListContainer } from "../../CreatedPostsListContainer/CreatedPostsListContainer";
-import { MakePostContainer } from "./MakePost/MakePostContainer";
+import { CreatedPostsListConnect } from "../../CreatedPostsListConnect/CreatedPostsListConnect";
+import { MakePost } from "./MakePost/MakePost";
 import { SubsectionHeader } from "../../SubsectionHeader/SubsectionHeader";
 
 import PostsStyle from "./Posts.module.css";
 
-function Posts(props) {
+const Posts = ({ className }) => {
 	return (
-		<section className={`${props.className ?? ""} ${PostsStyle.posts}`}>
+		<section className={`${PostsStyle.posts} ${className ?? ""}`}>
 			<SubsectionHeader className={`${PostsStyle.heading}`}>
 				Мои посты
 			</SubsectionHeader>
-			<MakePostContainer
-				className={PostsStyle.makeMessage}
-				label="Новый пост"
-				placeholder="Чем вы хотите поделиться сегодня"
-				buttonMessage="Опубликовать"
-			/>
-			<CreatedPostsListContainer />
+			<MakePost className={PostsStyle.makeMessage} />
+			<CreatedPostsListConnect />
 		</section>
 	);
-}
+};
 
 export { Posts };

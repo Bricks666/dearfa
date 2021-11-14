@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Profile } from "../Shared/Profile/Profile";
-import { withLoading } from "../Shared/withLoading/withLoading";
+import { Profile, withLoading } from "../Shared";
 import { UserInfo } from "./UserInfo/UserInfo";
 
 const WithLoading = withLoading(Profile);

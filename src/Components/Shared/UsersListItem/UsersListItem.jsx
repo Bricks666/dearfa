@@ -23,7 +23,7 @@ export const UsersListItem = (props) => {
 				className={UsersListItemStyle.photo}
 				id={props.user.id}
 				fullName={props.user.name}
-				image={props.user.photos}
+				photo={props.user.photos.large}
 			/>
 
 			<Contacts

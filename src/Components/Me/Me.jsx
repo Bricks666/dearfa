@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { ME } from "../../Redux/ToProps/componentsConstants";
-import { mapDispatchToProps } from "../../Redux/ToProps/mapDispatchToProps";
-import { mapStateToProps } from "../../Redux/ToProps/mapStateToProps";
-import { Profile } from "../Shared/Profile/Profile";
-import { withLoading } from "../Shared/withLoading/withLoading";
+import { mapStateToProps, mapDispatchToProps, ME } from "../../Redux/ToProps";
+import { Profile, withLoading } from "../Shared";
 import { MeInfoConnect } from "./MeInfo/MeInfoConnect";
 
 const WithLoading = withLoading(Profile);
@@ -26,7 +23,7 @@ class Me extends Component {
 	}
 }
 
-export const MeContainer = connect(
+export const MeConnect = connect(
 	mapStateToProps(ME),
 	mapDispatchToProps(ME)
 )(Me);

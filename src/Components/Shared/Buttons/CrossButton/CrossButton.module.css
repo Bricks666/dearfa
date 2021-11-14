@@ -1,11 +1,17 @@
 /* BUTTON */
 
 .button {
-	padding: 0;
+	padding: 0px;
 	margin: 0;
 
 	border: none;
-	border-radius: none;
+	border-radius: 50%;
+}
+
+.button:hover,
+.button:active,
+.button:focus-visible {
+	background-color: inherit;
 }
 
 /* CROSS */
@@ -22,8 +28,7 @@
 }
 
 .cross:hover,
-.cross:active {
+.cross:active,
+.cross:focus-visible {
 	fill: var(--blue);
-
-	transform: scale(1.05);
 }
