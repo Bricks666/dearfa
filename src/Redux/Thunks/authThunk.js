@@ -16,7 +16,7 @@ export const authThunk = () => {
 				dispatch(setAuth(response.data));
 			}
 		} catch (e) {
-			console.timeLog(e.message);
+			console.log(e.message);
 		} finally {
 			dispatch(endLoadingAuth());
 		}

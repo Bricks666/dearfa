@@ -1,1 +1,1 @@
-export { FriendsConnect } from "./FriendsConnect";
+export { Friends } from "./Friends";

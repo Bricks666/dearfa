@@ -2,7 +2,7 @@ export const toValidNewProfileData = (notValidData) => {
 	return {
 		userId: notValidData.userId,
 		contacts: notValidData.contacts,
-		aboutMe: notValidData.status,
+		aboutMe: notValidData.aboutMe,
 		fullName: notValidData.fullName,
 		lookingForAJob: true,
 		lookingForAJobDescription:

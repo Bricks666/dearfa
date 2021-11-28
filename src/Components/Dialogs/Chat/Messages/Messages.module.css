@@ -1,24 +1,35 @@
+/* WRAPPER */
+.wrapper {
+	display: grid;
+
+	align-items: end;
+
+	height: 100%;
+
+	background-color: var(--blue-lightest);
+}
+
 /* MESSAGES */
-
 .messages {
-	display: flex;
+	display: grid;
 
-	flex-direction: column;
-	justify-content: end;
-  row-gap: 10px;
+	row-gap: 10px;
+
+	height: min-content;
 
 	padding: 10px;
 	margin: 0;
-
-	background-color: var(--blue-lightest);
 }
 
 /* MESSAGE */
 .message {
 	width: 400px;
 }
+.message:not(.myMessage)::before {
+	content: none;
+}
 
 /* MY MESSAGE */
 .myMessage {
-  align-self: end;
+	justify-self: end;
 }

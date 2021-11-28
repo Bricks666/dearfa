@@ -1,0 +1,11 @@
+export * as messagesSelectors from "./messagesSelectors";
+export * as dialogsSelectors from "./dialogsSelectors";
+export * as authSelectors from "./authSelectors";
+export * as loadingsSelectors from "./loadingsSelectors";
+export * as loginSelectors from "./loginSelectors";
+export * as postsSelectors from "./postsSelectors";
+export * as navigationSelectors from "./navigationSelectors";
+export * as profileSelectors from "./profileSelectors";
+export * as friendsSelectors from "./friendsSelectors";
+export * as favoriteFriendsSelectors from "./favoriteFriendsSelectors";
+export * as usersSelectors from "./usersSelectors";

@@ -1,1 +1,1 @@
-export { UsersConnect } from "./UsersConnect";
+export { Users } from "./Users";

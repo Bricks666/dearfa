@@ -102,7 +102,7 @@ export const api = {
 	},
 	async updateContacts(newProfileData) {
 		return (
-			await instance.put("/profile", newProfileData, {
+			await instance.put("/profile", JSON.stringify(newProfileData), {
 				withCredentials: true,
 				headers: {
 					"Content-Type": "application/json",
@@ -130,7 +130,7 @@ export const api = {
 			})
 		).data;
 	},
-	async getMessagesWith(id, page, count = 10) {
+	async getMessagesWith(id, page, count = 20) {
 		return (
 			await instance.get(`dialogs/${id}/messages?page=${page}&count=${count}`, {
 				withCredentials: true,

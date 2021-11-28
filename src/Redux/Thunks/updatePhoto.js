@@ -1,14 +1,13 @@
 import { api } from "../../DAL/api";
-import { setPhotos } from "../Reducers/authReducers";
+import { setNewPhotos } from "../Reducers/profileReducer";
 
 export const updatePhoto = (photo) => {
 	return async (dispatch) => {
 		try {
 			const { data, resultCode } = await api.updatePhoto(photo);
-			console.log(resultCode);
 
 			if (resultCode === 0) {
-				dispatch(setPhotos(data.photos));
+				dispatch(setNewPhotos(data.photos));
 			}
 		} catch (e) {
 			console.log(e.message);

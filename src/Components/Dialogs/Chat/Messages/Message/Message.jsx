@@ -1,4 +1,6 @@
+import classNames from "classnames";
 import React from "react";
+import { Date } from "../../../../Shared";
 
 import MessageStyle from "./Message.module.css";
 
@@ -9,18 +11,15 @@ export const Message = ({
 	isViewed,
 	dateTime,
 }) => {
-	console.log(dateTime);
 	return (
 		<article
-			className={`${MessageStyle.message} ${
-				isViewed ? "" : MessageStyle.notViewed
-			} ${className ?? ""}`}
+			className={classNames(MessageStyle.message, className, {
+				[MessageStyle.notViewed]: isViewed == false,
+			})}
 		>
 			<span className={MessageStyle.author}>{author}</span>
 			<p className={MessageStyle.content}>{children}</p>
-			<time className={MessageStyle.dateTime} dateTime={dateTime}>
-				{new Date(dateTime).toLocaleString()}
-			</time>
+			<Date className={MessageStyle.dateTime} date={dateTime} />
 		</article>
 	);
 };

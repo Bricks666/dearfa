@@ -1,1 +1,1 @@
-export { HeaderConnect } from "./HeaderConnect";
+export { Header } from "./Header";

@@ -21,28 +21,15 @@
 /* DIALOGS LIST */
 
 .dialogList {
-	position: relative;
-
 	margin: 0;
 	margin-left: 20px;
 
-	min-width: max-content;
 	width: 320px;
-}
-
-.dialogsList::after {
-	content: "";
-
-	position: absolute;
-	right: -22px;
-
-	width: 4px;
-	height: 100%;
-
-	background-color: var(--grey-light);
 }
 
 /* CHAT */
 .chat {
 	grid-row: 1 / -1;
+
+	height: 800px;
 }

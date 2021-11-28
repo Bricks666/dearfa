@@ -1,20 +1,24 @@
 import { api } from "../../DAL/api";
-import { setMe } from "../Reducers/authReducers";
 import { updatePhoto } from "./updatePhoto";
-import { startLoadingMe, endLoadingMe } from "../Reducers/loadingsReducer";
+import {
+	endLoadingProfile,
+	startLoadingProfile,
+} from "../Reducers/loadingsReducer";
 import { toValidNewProfileData } from "../../Services/toValidNewProfileData";
+import { setProfile } from "../Reducers/profileReducer";
 
 export const updateProfile = ({ photo, ...newContactsData }) => {
 	return async (dispatch) => {
 		try {
-			dispatch(startLoadingMe());
+			dispatch(startLoadingProfile());
 			const validNewData = toValidNewProfileData(newContactsData);
-			let { resultCode } = await api.updateContacts(
-				JSON.stringify(validNewData)
-			);
-			console.log("ALL IS GOOD");
+
+			const { resultCode, ...data } = await api.updateContacts(validNewData);
+
+			console.log(data);
+
 			if (resultCode === 0) {
-				await dispatch(setMe(validNewData));
+				await dispatch(setProfile(newContactsData));
 			}
 
 			if (photo.newPhoto !== null) {
@@ -23,7 +27,7 @@ export const updateProfile = ({ photo, ...newContactsData }) => {
 		} catch (e) {
 			console.log(e.message);
 		} finally {
-			dispatch(endLoadingMe());
+			dispatch(endLoadingProfile());
 		}
 	};
 };

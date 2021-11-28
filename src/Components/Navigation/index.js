@@ -1,1 +1,1 @@
-export { NavigationConnect } from "./NavigationConnect";
+export { Navigation } from "./Navigation";

@@ -1,11 +1,11 @@
 import React from "react";
 
-import { DialogConnect } from "./Dialog/DialogConnect";
+import { Dialog } from "./Dialog/Dialog";
 
 export const renderDialogsList = (dialogs, className) => {
 	return dialogs.map((dialog) => {
 		return (
-			<DialogConnect className={className} {...dialog} key={dialog.id} />
+			<Dialog className={className} {...dialog} key={dialog.id} />
 		);
 	});
 };

@@ -1,5 +1,5 @@
 import { api } from "../../DAL/api";
-import { setNewStatus } from "../Reducers/authReducers";
+import { setNewStatus } from "../Reducers/profileReducer";
 
 export const setNewStatusThunk = (status) => {
 	return async (dispatch) => {

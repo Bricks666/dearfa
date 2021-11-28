@@ -1,0 +1,45 @@
+/* HEADER */
+.header {
+	display: flex;
+
+	align-items: center;
+
+	column-gap: 20px;
+
+	height: min-content;
+
+	padding: 6px;
+	padding-left: 10px;
+
+	border-radius: var(--borderRadius);
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+
+	background-color: var(--blue-light);
+
+	box-shadow: 0 1px 2px var(--blue);
+}
+
+/* PHOTO */
+.photo {
+	width: 50px;
+	height: 50px;
+}
+
+/* NAME */
+.name {
+	font-size: 16px;
+	font-weight: 400;
+	color: var(--white-lighter);
+}
+
+.name:hover {
+	text-decoration: underline;
+}
+
+/* DATE */
+.date {
+	font-size: 12px;
+
+	color: var(--white-lighter);
+}

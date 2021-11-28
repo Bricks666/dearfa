@@ -1,1 +1,1 @@
-export { MainConnect } from "./MainConnect";
+export { Main } from "./Main";

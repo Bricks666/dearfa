@@ -5,10 +5,8 @@ import { ButtonLink } from "../Buttons/ButtonLink/ButtonLink";
 
 import PagesListStyle from "./PagesList.module.css";
 
-export const PagesList = (props) => {
-	const rootPath = props.match.path.replace(":page", "");
-	const currentPage = +props.match.params.page;
-	const pages = renderPagesList(rootPath, currentPage, props.pageCount, {
+export const PagesList = ({ currentPage, rootPath, pageCount }) => {
+	const pages = renderPagesList(rootPath, currentPage, pageCount, {
 		pageNumber: PagesListStyle.pageNumber,
 		selected: PagesListStyle.selected,
 		link: PagesListStyle.link,
@@ -24,10 +22,7 @@ export const PagesList = (props) => {
 				Первая
 			</ButtonLink>
 			{pages}
-			<ButtonLink
-				className={PagesListStyle.button}
-				to={rootPath + props.pageCount}
-			>
+			<ButtonLink className={PagesListStyle.button} to={rootPath + pageCount}>
 				Последняя
 			</ButtonLink>
 		</ul>

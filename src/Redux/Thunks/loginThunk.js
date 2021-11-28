@@ -3,7 +3,7 @@ import { authThunk } from "./authThunk";
 
 import { FORM_ERROR } from "final-form";
 
-export const loginThunk = (email, password, remember, restart, anything) => {
+export const loginThunk = (email, password, remember, restart, setError) => {
 	return async (dispatch) => {
 		try {
 			const { messages, resultCode } = await api.loginApi(
@@ -20,7 +20,7 @@ export const loginThunk = (email, password, remember, restart, anything) => {
 			restart();
 		} catch (e) {
 			console.log(e.message);
-			anything({ [FORM_ERROR]: e.message });
+			setError({ [FORM_ERROR]: e.message });
 		}
 	};
 };

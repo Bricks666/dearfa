@@ -1,22 +1,17 @@
 import React from "react";
 
 import { SectionHeader } from "../Shared";
-import { FriendsListConnect } from "./FriendsListConnect/FriendsListConnect";
-import { PageListConnect } from "./PagesList/PageListConnect";
-import { FriendListItemConnect } from "./FriendsListConnect/FriendsListItemConnect/FriendsListItemConnect";
+import { FriendsList } from "./FriendsList/FriendsList";
+import { FriendsPagesList } from "./FriendsPagesList/FriendsPagesList";
 
 import FriendsStyle from "./Friends.module.css";
 
-export function Friends(props) {
+export const Friends = ({ className }) => {
 	return (
-		<main className={props.className}>
+		<main className={className}>
 			<SectionHeader>Друзья</SectionHeader>
-			<FriendsListConnect
-				className={FriendsStyle.list}
-				friendsCount={props.friendsCount}
-				Card={FriendListItemConnect}
-			/>
-			<PageListConnect friendsCount={props.friendsCount} />
+			<FriendsList className={FriendsStyle.list} />
+			<FriendsPagesList />
 		</main>
 	);
-}
+};

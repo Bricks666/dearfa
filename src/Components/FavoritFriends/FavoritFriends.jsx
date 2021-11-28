@@ -1,23 +1,31 @@
 import React from "react";
-import { UsersList, SubsectionHeader } from "../Shared";
-import { FavoritFriendsListItem } from "./FavoritFriendsListItem/FavoritFriendsListItem";
+import { List, SubsectionHeader } from "../Shared";
+import { FavoritFriendCard } from "./FavoritFriendCard/FavoritFriendCard";
+import classNames from "classnames";
+import { useLoading, useFavoritFriends } from "../../Hooks";
 
 import FavoritFriendsStyle from "./FavoritFriends.module.css";
 
-const FavoritFriends = (props) => {
+const FavoritFriends = ({ className }) => {
+	const { friends } = useFavoritFriends();
+	const { LoadingWrapper } = useLoading("loadingFavoriteFriends");
+
 	return (
-		<aside
-			className={`${FavoritFriendsStyle.lastCommunications} ${
-				props.className ?? ""
-			}`}
-		>
-			<SubsectionHeader>Избранные друзья</SubsectionHeader>
-			<UsersList
-				className={FavoritFriendsStyle.list}
-				users={props.friends}
-				Card={FavoritFriendsListItem}
-			/>
-		</aside>
+		<LoadingWrapper>
+			<aside
+				className={classNames(
+					FavoritFriendsStyle.lastCommunications,
+					className
+				)}
+			>
+				<SubsectionHeader>Избранные друзья</SubsectionHeader>
+				<List
+					className={FavoritFriendsStyle.list}
+					items={friends}
+					Card={FavoritFriendCard}
+				/>
+			</aside>
+		</LoadingWrapper>
 	);
 };
 

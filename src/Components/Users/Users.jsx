@@ -1,22 +1,18 @@
 import React from "react";
 
+import classNames from "classnames";
 import { SectionHeader } from "../Shared";
-import { UsersListItemConnect } from "./UsersListItemConnect/UsersListItemConnect";
-import { UsersListConnect } from "./UsersListConnect/UsersListConnect";
-import { PagesListConnect } from "./PagesList/PagesListConnect";
+import { UsersPagesList } from "./PagesList/UsersPagesList";
+import { UsersList } from "./UsersList/UsersList";
 
 import UsersStyle from "./Users.module.css";
 
-export const Users = ({ usersCount, className }) => {
+export const Users = ({ className }) => {
 	return (
-		<main className={`${className ?? ""} ${UsersStyle.users}`}>
+		<main className={classNames(UsersStyle.users, className)}>
 			<SectionHeader>Все пользователи</SectionHeader>
-			<UsersListConnect
-				className={UsersStyle.list}
-				Card={UsersListItemConnect}
-				usersCount={usersCount}
-			/>
-			<PagesListConnect usersCount={usersCount} />
+			<UsersList className={UsersStyle.list} />
+			<UsersPagesList />
 		</main>
 	);
 };

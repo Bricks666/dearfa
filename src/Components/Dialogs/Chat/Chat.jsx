@@ -1,33 +1,24 @@
-import React, { useCallback, useEffect } from "react";
+import React, { memo, useCallback } from "react";
+import classNames from "classnames";
+import { useHistory } from "react-router";
+import {
+	useEscListener,
+	useLoading,
+	useLoadMessages,
+	useParamChangeListener,
+} from "../../../Hooks";
+
 import { MakeMessage } from "./MakeMessage/MakeMessage";
 import { Messages } from "./Messages/Messages";
-import { Photo, FullName } from "../../Shared";
-import { useEscListener, useParamChangeListener } from "../../../Hooks";
+import { Companion } from "./Companion/Companion";
 
 import ChatStyle from "./Chat.module.css";
 
-const Chat = ({
-	className,
-	history,
-	loadMessages,
-	messages,
-	authId,
-	companion,
-	initialMessages,
-}) => {
-	const { id } = useParamChangeListener(
-		"id",
-		useCallback(
-			(id) => {
-				if (!!id !== false) {
-					loadMessages(id);
-					console.log("GET");
-				}
-			},
-			[loadMessages]
-		)
-	);
-
+const Chat = memo(({ className }) => {
+	const { loadMessages } = useLoadMessages();
+	const { id } = useParamChangeListener("id", loadMessages);
+	const { LoadingWrapper } = useLoading("loadingMessages");
+	const history = useHistory();
 	useEscListener(
 		useCallback(() => {
 			if (!!id !== false) {
@@ -36,42 +27,27 @@ const Chat = ({
 		}, [history, id])
 	);
 
-	useEffect(() => {
-		initialMessages(id);
-	}, [id]);
-
 	if (!!id === false) {
 		return (
-			<section className={`${ChatStyle.chat} ${className ?? ""}`}>
+			<section className={classNames(ChatStyle.chat, className)}>
 				<p className={ChatStyle.withoutChat}>Пока что не открыт ни один чат</p>
 			</section>
 		);
 	}
 
 	return (
-		<section className={`${ChatStyle.chat} ${className ?? ""}`}>
-			<header className={ChatStyle.header}>
-				<Photo
-					className={ChatStyle.photo}
-					photo={companion.photo}
-					fullName={companion.name}
-					id={companion.id}
+		<section className={classNames(ChatStyle.chat, className)}>
+			<Companion className={ChatStyle.header} dialogId={+id} />
+			<LoadingWrapper>
+				<Messages className={ChatStyle.messages} dialogId={+id} />
+				<MakeMessage
+					className={ChatStyle.makeMessage}
+					placeholder="Ваше сообщение"
+					dialogId={+id}
 				/>
-				<FullName className={ChatStyle.name} id={companion.id}>
-					{companion.name}
-				</FullName>
-			</header>
-			<Messages
-				className={ChatStyle.messages}
-				messages={messages}
-				authId={authId}
-			/>
-			<MakeMessage
-				className={ChatStyle.makeMessage}
-				placeholder="Ваше сообщение"
-			/>
+			</LoadingWrapper>
 		</section>
 	);
-};
+});
 
 export { Chat };

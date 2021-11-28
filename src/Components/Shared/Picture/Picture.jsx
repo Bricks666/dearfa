@@ -1,33 +1,24 @@
+import classNames from "classnames";
 import React from "react";
 
 import PictureStyle from "./Picture.module.css";
 
-export const Picture = React.memo((props) => {
+export const Picture = React.memo(({ className, oneXSrc, twoXSrc, alt }) => {
 	return (
-		<picture className={props.className ?? ""}>
+		<picture className={className ?? ""}>
 			<source
-				srcSet={
-					(props.oneXSrc ?? "") +
-					".avif 1x," +
-					(props.twoXSrc ?? "") +
-					".avif 2x"
-				}
+				srcSet={(oneXSrc ?? "") + ".avif 1x," + (twoXSrc ?? "") + ".avif 2x"}
 				type="image/avif"
 			></source>
 			<source
-				srcSet={
-					(props.oneXSrc ?? "") +
-					".webp 1x," +
-					(props.twoXSrc ?? "") +
-					".webp 2x"
-				}
+				srcSet={(oneXSrc ?? "") + ".webp 1x," + (twoXSrc ?? "") + ".webp 2x"}
 				type="image/webp"
 			></source>
 			<img
-				className={`${props.className ?? ""} ${PictureStyle.photo}`}
-				src={(props.oneXSrc ?? "") + ".jpg 1x"}
-				srcSet={(props.twoXSrc ?? "") + ".jpg 2x,"}
-				alt={props.alt ?? ""}
+				className={classNames(PictureStyle.photo, className)}
+				src={(oneXSrc ?? "") + ".jpg 1x"}
+				srcSet={(twoXSrc ?? "") + ".jpg 2x,"}
+				alt={alt ?? ""}
 			/>
 		</picture>
 	);

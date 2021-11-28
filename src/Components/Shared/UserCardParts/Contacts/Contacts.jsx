@@ -1,18 +1,23 @@
 import React from "react";
 
 import { renderContact } from "./renderContact";
+import { DataList, DataListItem } from "../..";
 
 import ContactsStyle from "./Contacts.module.css";
 
-const Contacts = ({ className, contacts, children }) => {
-	const contactsElement = renderContact(contacts ?? {});
+const Contacts = ({ contacts }) => {
+	const contactsElement = renderContact(contacts || {});
 
 	return (
-		<div className={`${ContactsStyle.contacts} ${className ?? ""}`}>
-			{children}
-			<span className={ContactsStyle.header}>Контакты:</span>
-			<dl className={ContactsStyle.datalist}>{contactsElement}</dl>
-		</div>
+		<DataListItem
+			className={ContactsStyle.contacts}
+			term="Контакты: "
+			desc={
+				<DataList className={ContactsStyle.datalist}>
+					{contactsElement}
+				</DataList>
+			}
+		/>
 	);
 };
 

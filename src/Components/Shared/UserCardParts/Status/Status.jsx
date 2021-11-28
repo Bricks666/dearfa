@@ -1,12 +1,12 @@
 import React from "react";
+import { DataListItem } from "../..";
 
-import StatusStyle from "./Status.module.css";
-
-export const Status = (props) => {
+export const Status = ({ children, status, className }) => {
 	return (
-		<p className={`${StatusStyle.wrapper} ${props.className ?? ""}`}>
-			{props.children}
-			Статус: <span className={StatusStyle.status}>{props.status}</span>
-		</p>
+		<DataListItem
+			className={className}
+			term={<>{children} Статус:</>}
+			desc={status}
+		/>
 	);
 };

@@ -3,7 +3,7 @@ import {
 	startLoadingProfile,
 	endLoadingProfile,
 } from "../Reducers/loadingsReducer";
-import { setUserInfo } from "../Reducers/profileReducer";
+import { setProfile } from "../Reducers/profileReducer";
 
 export const loadUserThunk = (id) => {
 	return async (dispatch) => {
@@ -11,7 +11,8 @@ export const loadUserThunk = (id) => {
 			dispatch(startLoadingProfile());
 
 			const user = await api.getProfile(id);
-			dispatch(setUserInfo(user));
+
+			dispatch(setProfile(user));
 
 			dispatch(endLoadingProfile());
 		} catch (e) {

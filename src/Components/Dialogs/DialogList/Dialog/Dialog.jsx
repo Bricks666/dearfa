@@ -1,12 +1,13 @@
-import React from "react";
+import classNames from "classnames";
+import React, { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { SubsectionHeader, Picture } from "../../../Shared";
 
 import DialogStyle from "./Dialog.module.css";
 
-export const Dialog = ({ className, userName, id, photos: { small } }) => {
+export const Dialog = memo(({ className, userName, id, photos: { small } }) => {
 	return (
-		<li className={`${DialogStyle.dialog} ${className ?? ""} `}>
+		<li className={classNames(DialogStyle.dialog, className)}>
 			<NavLink
 				to={`/dialogs/${id}`}
 				className={DialogStyle.link}
@@ -25,4 +26,4 @@ export const Dialog = ({ className, userName, id, photos: { small } }) => {
 			</NavLink>
 		</li>
 	);
-};
+});

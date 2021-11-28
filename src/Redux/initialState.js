@@ -11,13 +11,7 @@ export const initialState = {
 	},
 	auth: {
 		userId: null,
-		fullName: null,
 		login: null,
-		photos: {
-			large: "/Images/Ava/Cosmic-animals",
-			alt: "Аватарка...",
-		},
-		contacts: {},
 	},
 	dialogs: [],
 	messages: {},
@@ -80,7 +74,7 @@ export const initialState = {
 	registration: {},
 	navigation: [
 		{
-			path: "/profile",
+			path: "/profile/",
 			content: "Профиль",
 			exact: true,
 			id: 1,
@@ -118,15 +112,13 @@ export const initialState = {
 		},
 	],
 	loadings: {
-		loadingAuth: false,
-		loadingMe: false,
+		loadingAuth: true,
 		loadingProfile: false,
 		loadingUsers: false,
 		loadingFriends: false,
 		loadingFavoriteFriends: false,
+		loadingDialogs: false,
+		loadingMessages: false,
 		following: [],
-	},
-	loadeds: {
-		isLoadedAuth: false,
 	},
 };

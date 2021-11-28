@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import { SectionHeader } from "../Shared";
-
 import { RegistrationForm } from "./RegistrationForm";
+import classNames from "classnames";
 
 import RegistrationStyle from "./Registration.module.css";
 
-const Registration = ({ className, onSubmit }) => {
+const Registration = ({ className }) => {
+	const onSubmit = useCallback((...data) => console.log(data), []);
 	return (
-		<main className={`${className ?? ""} ${RegistrationStyle.main}`}>
+		<main className={classNames(RegistrationStyle.main, className)}>
 			<SectionHeader className={RegistrationStyle.header}>
 				Регистрация
 			</SectionHeader>

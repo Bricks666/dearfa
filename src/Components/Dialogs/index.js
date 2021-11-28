@@ -1,1 +1,1 @@
-export { DialogsConnect } from "./DialogsConnect";
+export { Dialogs } from "./Dialogs";

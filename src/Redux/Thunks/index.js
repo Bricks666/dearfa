@@ -1,0 +1,1 @@
+export { loadFavoriteFriendsThunk } from "./loadFavoriteFriendsThunk";

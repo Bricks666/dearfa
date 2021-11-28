@@ -1,17 +1,17 @@
 /* DIALOG LIST */
 
 .dialogList {
-  display: flex;
+	display: grid;
 
-  flex-direction: column;
+	row-gap: 5px;
 
-  row-gap: 5px;
+	height: min-content;
 
-  padding: 0;
+	padding: 0;
 }
 
 /* DIALOG */
 
 .dialog {
-  margin: 0;
+	margin: 0;
 }

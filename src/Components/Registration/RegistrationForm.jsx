@@ -2,13 +2,14 @@ import React from "react";
 import { Field as ReactField, Form as ReactForm } from "react-final-form";
 import { FORM_ERROR } from "final-form";
 import { Button, Field, ErrorMessage } from "../Shared";
+import classNames from "classnames";
 
 import RegistrationFormStyle from "./RegistrationForm.module.css";
 
 const Form = ({ handleSubmit, className, error, valid, submitting }) => {
 	return (
 		<form
-			className={`${RegistrationFormStyle.form} ${className ?? ""}`}
+			className={classNames(RegistrationFormStyle.form, className)}
 			onSubmit={handleSubmit}
 		>
 			<ReactField name="name" component={Field}>

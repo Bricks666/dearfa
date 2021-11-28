@@ -1,20 +1,17 @@
-import React, { useEffect } from "react";
+import React, { memo } from "react";
 import { DialogList } from "./DialogList/DialogList";
-import { ChatConnect } from "./Chat/ChatConnect";
+import { Chat } from "./Chat/Chat";
 import { SectionHeader } from "../Shared";
+import classNames from "classnames";
 
 import DialogsStyle from "./Dialogs.module.css";
 
-export const Dialogs = React.memo(({ dialogs, className, loadDialogs }) => {
-	useEffect(() => {
-		loadDialogs();
-	}, []);
-
+export const Dialogs = memo(({ className }) => {
 	return (
-		<main className={`${DialogsStyle.dialogs} ${className ?? ""} `}>
+		<main className={classNames(DialogsStyle.dialogs, className)}>
 			<SectionHeader className={DialogsStyle.heading}>Диалоги</SectionHeader>
-			<DialogList className={DialogsStyle.dialogList} dialogs={dialogs} />
-			<ChatConnect className={DialogsStyle.chat} />
+			<DialogList className={DialogsStyle.dialogList} />
+			<Chat className={DialogsStyle.chat} />
 		</main>
 	);
 });

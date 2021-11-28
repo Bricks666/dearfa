@@ -1,11 +1,11 @@
 import React from "react";
 
-import { LikeConnect } from "./LikeConnect/LikeConnect";
+import { Like } from "./Like/Like";
 import { Date, Photo, FullName } from "../../";
 
 import PostStyle from "./Post.module.css";
 
-export const Post = (props) => {
+export const Post = ({ post }) => {
 	return (
 		<article className={PostStyle.post}>
 			<FullName
@@ -13,18 +13,18 @@ export const Post = (props) => {
 				id={1}
 				fullName={"Кирилл Цыганков"}
 			/>
-			<Date className={PostStyle.dateTime} date={props.post.date} />
+			<Date className={PostStyle.dateTime} date={post.date} />
 			<Photo
 				className={PostStyle.photo}
 				image={{ url: "", alt: "" }}
 				id={1}
 				fullName={"Кирилл Цыганков"}
 			/>
-			<p className={PostStyle.content}>{props.post.content.text}</p>
-			<LikeConnect
+			<p className={PostStyle.content}>{post.content.text}</p>
+			<Like
 				className={PostStyle.like}
-				status={props.post.like}
-				postId={props.post.id}
+				status={post.like}
+				postId={post.id}
 			/>
 		</article>
 	);

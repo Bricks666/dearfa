@@ -2,10 +2,10 @@ import React from "react";
 
 import { parseDate } from "./ParseDate";
 
-export const Date = (props) => {
+export const Date = ({ date, className, children }) => {
 	return (
-		<time className={props.className ?? ""} dateTime={props.date}>
-			{parseDate(props.date)}
+		<time className={className || ""} dateTime={date}>
+			{children} {parseDate(date)}
 		</time>
 	);
 };

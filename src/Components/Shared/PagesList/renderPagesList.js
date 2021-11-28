@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -11,9 +12,9 @@ export const renderPagesList = (rootPath, currentPage, pageCount, styles) => {
 		pages.push(
 			<li
 				key={i}
-				className={`${styles.pageNumber} ${
-					i === currentPage ? styles.selected : ""
-				}`}
+				className={classNames(styles.pageNumber, {
+					[styles.selected]: i === currentPage,
+				})}
 			>
 				<Link className={styles.link} to={rootPath + i}>
 					{i}

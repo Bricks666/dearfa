@@ -13,8 +13,10 @@ const START_LOADING_FAVORITE_FRIENDS = "dearFa/loadings/FAVORITE_FRIENDS_START";
 const END_LOADING_FAVORITE_FRIENDS = "dearFa/loadings/FAVORITE_FRIENDS_END";
 const START_LOADING_USERS = "dearFa/loadings/USERS_START";
 const END_LOADING_USERS = "dearFa/loadings/USERS_END";
-const START_LOADING_ME = "dearFa/loadings/ME_START";
-const END_LOADING_ME = "dearFa/loadings/ME_END";
+const START_LOADING_DIALOGS = "dearFa/loadings/DIALOGS_START";
+const END_LOADING_DIALOGS = "dearFa/loadings/DIALOGS_END";
+const START_LOADING_MESSAGES = "dearFa/loadings/MESSAGES_START";
+const END_LOADING_MESSAGES = "dearFa/loadings/MESSAGES_END";
 
 export default function reducer(state = initialState.loadings, action) {
 	switch (action.type) {
@@ -78,18 +80,6 @@ export default function reducer(state = initialState.loadings, action) {
 				loadingAuth: false,
 			};
 		}
-		case START_LOADING_ME: {
-			return {
-				...state,
-				loadingMe: true,
-			};
-		}
-		case END_LOADING_ME: {
-			return {
-				...state,
-				loadingMe: false,
-			};
-		}
 		case START_LOADING_PROFILE: {
 			return {
 				...state,
@@ -102,8 +92,32 @@ export default function reducer(state = initialState.loadings, action) {
 				loadingProfile: false,
 			};
 		}
+		case START_LOADING_DIALOGS: {
+			return {
+				...state,
+				loadingDialogs: true,
+			};
+		}
+		case END_LOADING_DIALOGS: {
+			return {
+				...state,
+				loadingDialogs: false,
+			};
+		}
+		case START_LOADING_MESSAGES: {
+			return {
+				...state,
+				loadingMessages: true,
+			};
+		}
+		case END_LOADING_MESSAGES: {
+			return {
+				...state,
+				loadingMessages: false,
+			};
+		}
 		case LOGOUT: {
-			return initialState.loadings;
+			return { ...initialState.loadings, loadingAuth: false };
 		}
 		default: {
 			return state;
@@ -189,14 +203,26 @@ export const endLoadingUsers = () => {
 	};
 };
 
-export const startLoadingMe = () => {
+export const startLoadingDialogs = () => {
 	return {
-		type: START_LOADING_ME,
+		type: START_LOADING_DIALOGS,
 	};
 };
 
-export const endLoadingMe = () => {
+export const endLoadingDialogs = () => {
 	return {
-		type: END_LOADING_ME,
+		type: END_LOADING_DIALOGS,
+	};
+};
+
+export const startLoadingMessages = () => {
+	return {
+		type: START_LOADING_MESSAGES,
+	};
+};
+
+export const endLoadingMessages = () => {
+	return {
+		type: END_LOADING_MESSAGES,
 	};
 };

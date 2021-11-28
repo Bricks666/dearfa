@@ -1,1 +1,1 @@
-export { FavoritFriendsConnect } from "./FavoritFriendsConnect";
+export { FavoritFriends } from "./FavoritFriends";

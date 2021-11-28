@@ -1,1 +1,0 @@
-export { UserProfileConnect } from "./UserProfileConnect";

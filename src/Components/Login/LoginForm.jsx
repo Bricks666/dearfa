@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 
 import { Field as ReactField, Form as ReactForm } from "react-final-form";
@@ -8,7 +9,7 @@ import LoginFormStyle from "./LoginForm.module.css";
 const Form = ({ className, handleSubmit, error, submitError }) => {
 	return (
 		<form
-			className={`${LoginFormStyle.form} ${className ?? ""}`}
+			className={classNames(LoginFormStyle.form, className)}
 			onSubmit={handleSubmit}
 		>
 			{(error || submitError) && (
