@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import React, { memo } from "react";
+import React, {  } from "react";
 import { useCompanion } from "../../../../Hooks";
 import { Photo, FullName, Date } from "../../../Shared";
 
 import CompanionStyle from "./Companion.module.css";
 
-export const Companion = memo(({ className, dialogId }) => {
+export const Companion = (({ className, dialogId }) => {
 	const { companion } = useCompanion(dialogId);
 	return (
 		<header className={classNames(CompanionStyle.header, className)}>

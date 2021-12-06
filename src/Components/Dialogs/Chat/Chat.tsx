@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { useCallback } from "react";
 import classNames from "classnames";
 import { useHistory } from "react-router";
 import {
@@ -14,7 +14,7 @@ import { Companion } from "./Companion/Companion";
 
 import ChatStyle from "./Chat.module.css";
 
-const Chat = memo(({ className }) => {
+const Chat = ({ className }) => {
 	const { loadMessages } = useLoadMessages();
 	const { id } = useParamChangeListener("id", loadMessages);
 	const { LoadingWrapper } = useLoading("loadingMessages");
@@ -48,6 +48,6 @@ const Chat = memo(({ className }) => {
 			</LoadingWrapper>
 		</section>
 	);
-});
+};
 
 export { Chat };

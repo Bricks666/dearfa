@@ -1,9 +1,9 @@
 import classNames from "classnames";
-import React, { memo } from "react";
+import React, {  } from "react";
 
 import SubsectionHeaderStyle from "./SubsectionHeader.module.css";
 
-const SubsectionHeader = memo(({ className, children }) => {
+const SubsectionHeader = (({ className, children }) => {
 	return (
 		<h3 className={classNames(SubsectionHeaderStyle.header, className)}>
 			{children}

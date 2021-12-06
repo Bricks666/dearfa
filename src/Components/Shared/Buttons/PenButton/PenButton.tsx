@@ -4,7 +4,7 @@ import { Button } from "../Button/Button";
 
 import PenButtonStyle from "./PenButton.module.css";
 
-const PenButton = React.memo(({ className, penClass, title, ...props }) => {
+const PenButton = (({ className, penClass, title, ...props }) => {
 	return (
 		<Button
 			{...props}

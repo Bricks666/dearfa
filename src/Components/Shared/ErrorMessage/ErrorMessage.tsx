@@ -1,9 +1,9 @@
 import classNames from "classnames";
-import React, { memo } from "react";
+import React, {  } from "react";
 
 import ErrorMessageStyle from "./ErrorMessage.module.css";
 
-const ErrorMessage = memo(({ className, children }) => {
+const ErrorMessage = (({ className, children }) => {
 	return (
 		<div className={classNames(ErrorMessageStyle.errorMessage, className)}>
 			{children}

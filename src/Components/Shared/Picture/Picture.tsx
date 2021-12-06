@@ -1,9 +1,19 @@
-import classNames from "classnames";
 import React from "react";
+import classNames from "classnames";
 
 import PictureStyle from "./Picture.module.css";
 
-export const Picture = React.memo(({ className, oneXSrc, twoXSrc, alt }) => {
+export const Picture = ({
+	className,
+	oneXSrc,
+	twoXSrc,
+	alt,
+}: {
+	className?: string;
+	oneXSrc: string;
+	twoXSrc?: string;
+	alt: string;
+}) => {
 	return (
 		<picture className={className ?? ""}>
 			<source
@@ -22,4 +32,4 @@ export const Picture = React.memo(({ className, oneXSrc, twoXSrc, alt }) => {
 			/>
 		</picture>
 	);
-});
+};

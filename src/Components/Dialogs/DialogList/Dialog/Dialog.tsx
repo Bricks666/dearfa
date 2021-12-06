@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import React, { memo } from "react";
+import React, {  } from "react";
 import { NavLink } from "react-router-dom";
 import { SubsectionHeader, Picture } from "../../../Shared";
 
 import DialogStyle from "./Dialog.module.css";
 
-export const Dialog = memo(({ className, userName, id, photos: { small } }) => {
+export const Dialog = (({ className, userName, id, photos: { small } }) => {
 	return (
 		<li className={classNames(DialogStyle.dialog, className)}>
 			<NavLink

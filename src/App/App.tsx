@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import {
 	BrowserRouter as Router,
 	Route,
@@ -14,7 +14,7 @@ import classNames from "classnames";
 
 import AppStyle from "./App.module.css";
 
-export const App = () => {
+export const App: FC = () => {
 	const { LoadingWrapper } = useLoading("loadingAuth");
 	const isLogin = useIsLogin();
 	const { auth } = useAuth();

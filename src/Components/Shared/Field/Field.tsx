@@ -3,7 +3,7 @@ import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 
 import FieldStyle from "./Field.module.css";
 
-const Field = React.memo(
+const Field = (
 	({
 		input,
 		meta: { error, touched },

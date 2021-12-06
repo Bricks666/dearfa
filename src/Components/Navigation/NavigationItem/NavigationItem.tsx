@@ -1,9 +1,9 @@
-import React, { memo } from "react";
+import React, {  } from "react";
 import { NavLink } from "react-router-dom";
 
 import NavigationItemStyle from "./NavigationItem.module.css";
 
-export const NavigationItem = memo(
+export const NavigationItem = (
 	({ children, to, exact }) => {
 		return (
 			<li className={NavigationItemStyle.item}>

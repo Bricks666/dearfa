@@ -1,20 +1,20 @@
 import classNames from "classnames";
-import React, { memo, useEffect, useRef } from "react";
+import React, { /* useEffect, */ useRef } from "react";
 import { useAuth, useCompanion, useMessages } from "../../../../Hooks";
 import { Message } from "./Message/Message";
 
 import MessagesStyle from "./Messages.module.css";
 
-const Messages = memo(({ className, dialogId }) => {
+const Messages = ({ className, dialogId }) => {
 	const { userId: authId } = useAuth();
 	const { messages } = useMessages(dialogId);
 	const {
 		companion: { name: companionName },
 	} = useCompanion(dialogId);
 	const parent = useRef();
-	useEffect(() => {
-		parent.current.scrollTo({ top: parent.current.scrollHeight });
-	}, []);
+	/* 	useEffect(() => {
+		parent.current?.scrollTo({ top: parent.current.scrollHeight });
+	}, []); */
 
 	return (
 		<section
@@ -41,6 +41,6 @@ const Messages = memo(({ className, dialogId }) => {
 			</div>
 		</section>
 	);
-});
+};
 
 export { Messages };

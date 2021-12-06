@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import classNames from "classnames";
 
 import { renderDialogsList } from "./RenderDialogsList";
 import { useLoading, useDialogsList } from "../../../Hooks/";
 
 import DialogListStyle from "./DialogList.module.css";
+import { IDialogsList } from "../../../types/Components/Dialogs";
 
-const DialogList = ({ className }) => {
+const DialogList: FC<IDialogsList> = ({ className }) => {
 	const { dialogs, loadDialogs } = useDialogsList();
 	const { LoadingWrapper } = useLoading("loadingDialogs");
 

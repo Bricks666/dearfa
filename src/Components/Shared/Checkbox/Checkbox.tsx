@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React, {  } from "react";
 
 import CheckboxStyle from "./Checkbox.module.css";
 
-export const Checkbox = memo(({ className, input, children }) => {
+export const Checkbox = (({ className, input, children }) => {
 	return (
 		<div className={`${className ?? ""}`}>
 			<input
