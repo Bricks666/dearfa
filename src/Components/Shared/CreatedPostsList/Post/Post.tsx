@@ -1,11 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Like } from "./Like/Like";
 import { Date, Photo, FullName } from "../../";
 
 import PostStyle from "./Post.module.css";
+import { IPost } from "../../../../Types/Redux";
 
-export const Post = ({ post }) => {
+interface IPostComponent {
+	post: IPost;
+}
+
+export const Post: FC<IPostComponent> = ({ post }) => {
 	return (
 		<article className={PostStyle.post}>
 			<FullName
@@ -16,16 +21,12 @@ export const Post = ({ post }) => {
 			<Date className={PostStyle.dateTime} date={post.date} />
 			<Photo
 				className={PostStyle.photo}
-				image={{ url: "", alt: "" }}
+				photo=""
 				id={1}
 				fullName={"Кирилл Цыганков"}
 			/>
-			<p className={PostStyle.content}>{post.content.text}</p>
-			<Like
-				className={PostStyle.like}
-				status={post.like}
-				postId={post.id}
-			/>
+			<p className={PostStyle.content}>{post.content}</p>
+			<Like className={PostStyle.like} status={post.like} postId={post.id} />
 		</article>
 	);
 };

@@ -1,61 +1,61 @@
 /* INPUT */
 
 .input {
-    display: inline-block;
+	display: inline-block;
 
-    position: absolute;
+	position: absolute;
 
-    width: 1px;
-    height: 1px;
+	width: 1px;
+	height: 1px;
 
-    overflow: hidden;
+	overflow: hidden;
 
-    clip: rect(0 0 0 0);
+	clip: rect(0 0 0 0);
 }
 
 /* LABEL */
 
 .label {
-    position: relative;
+	position: relative;
 
-    padding-left: 30px;
+	padding-left: 30px;
 
-    font-size: 12px;
+	font-size: 12px;
 }
 
 .label::before {
-    content: "";
+	content: "";
 
-    display: inline-block;
+	display: inline-block;
 
-    position: absolute;
-    left: 0;
+	position: absolute;
+	left: 0;
 
-    width: 24px;
-    height: 24px;
+	width: 24px;
+	height: 24px;
 
-    background-image: url("./checkbox.svg");
-    background-position: 0 1px;
-    background-repeat: no-repeat;
-    background-size: 24px auto;
+	background-image: url("/src/Assets/Patterns/checkbox.svg");
+	background-position: 0 1px;
+	background-repeat: no-repeat;
+	background-size: 24px auto;
 }
 
 .input:checked ~ .label::before {
-    background-position: 0 -24px;
+	background-position: 0 -24px;
 }
 
 .input:focus-visible ~ .label::before {
-    background-position: 0 -50px;
+	background-position: 0 -50px;
 }
 
 .input:focus-visible:checked ~ .label::before {
-    background-position: 0 -79px;
+	background-position: 0 -79px;
 }
 
 .input:disabled ~ .label::before {
-    background-position: 0 -107px;
+	background-position: 0 -107px;
 }
 
 .input:disabled:checked ~ .label::before {
-    background-position: 0 -131px;
+	background-position: 0 -131px;
 }

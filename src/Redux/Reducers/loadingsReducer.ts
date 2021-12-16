@@ -1,122 +1,128 @@
-import { LOGOUT } from "./loginReducer";
 import { initialState } from "../initialState";
+import {
+	LoadingsActionTypes,
+	LoadingsActions,
+	StartLoadingAuthAC,
+	EndLoadingAuthAC,
+	StartLoadingProfileAC,
+	EndLoadingProfileAC,
+	StartLoadingFriendsAC,
+	EndLoadingFriendsAC,
+	StartFollowingAC,
+	EndFollowingAC,
+	StartLoadingFavoriteFriendsAC,
+	EndLoadingFavoriteFriendsAC,
+	StartLoadingUsersAC,
+	EndLoadingUsersAC,
+	StartLoadingDialogsAC,
+	EndLoadingDialogsAC,
+	StartLoadingMessagesAC,
+	EndLoadingMessagesAC,
+	ILoadingsState,
+} from "../../Types/Redux";
 
-const START_LOADING_AUTH = "dearFa/loadings/AUTH_START";
-export const END_LOADING_AUTH = "dearFa/loadings/AUTH_END";
-const START_LOADING_PROFILE = "dearFa/loadings/PROFILE_START";
-const END_LOADING_PROFILE = "dearFa/loadings/PROFILE_END";
-const START_LOADING_FRIENDS = "dearFa/loadings/FRIENDS_START";
-const END_LOADING_FRIENDS = "dearFa/loadings/FRIENDS_END";
-const START_FOLLOWING_USER = "dearFa/loadings/FOLLOWING_START";
-const END_FOLLOWING_USER = "dearFa/loadings/FOLLOWING_END";
-const START_LOADING_FAVORITE_FRIENDS = "dearFa/loadings/FAVORITE_FRIENDS_START";
-const END_LOADING_FAVORITE_FRIENDS = "dearFa/loadings/FAVORITE_FRIENDS_END";
-const START_LOADING_USERS = "dearFa/loadings/USERS_START";
-const END_LOADING_USERS = "dearFa/loadings/USERS_END";
-const START_LOADING_DIALOGS = "dearFa/loadings/DIALOGS_START";
-const END_LOADING_DIALOGS = "dearFa/loadings/DIALOGS_END";
-const START_LOADING_MESSAGES = "dearFa/loadings/MESSAGES_START";
-const END_LOADING_MESSAGES = "dearFa/loadings/MESSAGES_END";
-
-export default function reducer(state = initialState.loadings, action) {
+export default function reducer(
+	state = initialState.loadings,
+	action: LoadingsActions
+): ILoadingsState {
 	switch (action.type) {
-		case START_LOADING_FRIENDS: {
+		case LoadingsActionTypes.START_LOADING_FRIENDS: {
 			return {
 				...state,
 				loadingFriends: true,
 			};
 		}
-		case END_LOADING_FRIENDS: {
+		case LoadingsActionTypes.END_LOADING_FRIENDS: {
 			return {
 				...state,
 				loadingFriends: false,
 			};
 		}
-		case START_LOADING_FAVORITE_FRIENDS: {
+		case LoadingsActionTypes.START_LOADING_FAVORITE_FRIENDS: {
 			return {
 				...state,
 				loadingFavoriteFriends: true,
 			};
 		}
-		case END_LOADING_FAVORITE_FRIENDS: {
+		case LoadingsActionTypes.END_LOADING_FAVORITE_FRIENDS: {
 			return {
 				...state,
 				loadingFavoriteFriends: false,
 			};
 		}
-		case START_FOLLOWING_USER: {
+		case LoadingsActionTypes.START_FOLLOWING_USER: {
 			return {
 				...state,
-				following: [...state.following, action.userId],
+				following: [...state.following, action.payload.userId],
 			};
 		}
-		case END_FOLLOWING_USER: {
+		case LoadingsActionTypes.END_FOLLOWING_USER: {
 			return {
 				...state,
-				following: state.following.filter((id) => id !== action.userId),
+				following: state.following.filter((id) => id !== action.payload.userId),
 			};
 		}
-		case START_LOADING_USERS: {
+		case LoadingsActionTypes.START_LOADING_USERS: {
 			return {
 				...state,
 				loadingUsers: true,
 			};
 		}
-		case END_LOADING_USERS: {
+		case LoadingsActionTypes.END_LOADING_USERS: {
 			return {
 				...state,
 				loadingUsers: false,
 			};
 		}
-		case START_LOADING_AUTH: {
+		case LoadingsActionTypes.START_LOADING_AUTH: {
 			return {
 				...state,
 				loadingAuth: true,
 			};
 		}
-		case END_LOADING_AUTH: {
+		case LoadingsActionTypes.END_LOADING_AUTH: {
 			return {
 				...state,
 				loadingAuth: false,
 			};
 		}
-		case START_LOADING_PROFILE: {
+		case LoadingsActionTypes.START_LOADING_PROFILE: {
 			return {
 				...state,
 				loadingProfile: true,
 			};
 		}
-		case END_LOADING_PROFILE: {
+		case LoadingsActionTypes.END_LOADING_PROFILE: {
 			return {
 				...state,
 				loadingProfile: false,
 			};
 		}
-		case START_LOADING_DIALOGS: {
+		case LoadingsActionTypes.START_LOADING_DIALOGS: {
 			return {
 				...state,
 				loadingDialogs: true,
 			};
 		}
-		case END_LOADING_DIALOGS: {
+		case LoadingsActionTypes.END_LOADING_DIALOGS: {
 			return {
 				...state,
 				loadingDialogs: false,
 			};
 		}
-		case START_LOADING_MESSAGES: {
+		case LoadingsActionTypes.START_LOADING_MESSAGES: {
 			return {
 				...state,
 				loadingMessages: true,
 			};
 		}
-		case END_LOADING_MESSAGES: {
+		case LoadingsActionTypes.END_LOADING_MESSAGES: {
 			return {
 				...state,
 				loadingMessages: false,
 			};
 		}
-		case LOGOUT: {
+		case LoadingsActionTypes.RESET: {
 			return { ...initialState.loadings, loadingAuth: false };
 		}
 		default: {
@@ -125,104 +131,105 @@ export default function reducer(state = initialState.loadings, action) {
 	}
 }
 
-export const startLoadingAuth = () => {
+export const startLoadingAuth: StartLoadingAuthAC = () => {
 	return {
-		type: START_LOADING_AUTH,
+		type: LoadingsActionTypes.START_LOADING_AUTH,
 	};
 };
 
-export const endLoadingAuth = () => {
+export const endLoadingAuth: EndLoadingAuthAC = () => {
 	return {
-		type: END_LOADING_AUTH,
+		type: LoadingsActionTypes.END_LOADING_AUTH,
 	};
 };
 
-export const startLoadingProfile = () => {
+export const startLoadingProfile: StartLoadingProfileAC = () => {
 	return {
-		type: START_LOADING_PROFILE,
+		type: LoadingsActionTypes.START_LOADING_PROFILE,
 	};
 };
 
-export const endLoadingProfile = () => {
+export const endLoadingProfile: EndLoadingProfileAC = () => {
 	return {
-		type: END_LOADING_PROFILE,
+		type: LoadingsActionTypes.END_LOADING_PROFILE,
 	};
 };
 
-export const endLoadingFriends = () => {
+export const startLoadingFriends: StartLoadingFriendsAC = () => {
 	return {
-		type: END_LOADING_FRIENDS,
+		type: LoadingsActionTypes.START_LOADING_FRIENDS,
 	};
 };
 
-export const startLoadingFriends = () => {
+export const endLoadingFriends: EndLoadingFriendsAC = () => {
 	return {
-		type: START_LOADING_FRIENDS,
+		type: LoadingsActionTypes.END_LOADING_FRIENDS,
 	};
 };
 
-export const startFollowingUser = (userId) => {
+export const startFollowingUser: StartFollowingAC = (userId) => {
 	return {
-		type: START_FOLLOWING_USER,
+		type: LoadingsActionTypes.START_FOLLOWING_USER,
 		payload: {
 			userId,
 		},
 	};
 };
 
-export const endFollowingUser = (userId) => {
+export const endFollowingUser: EndFollowingAC = (userId) => {
 	return {
-		type: END_FOLLOWING_USER,
+		type: LoadingsActionTypes.END_FOLLOWING_USER,
 		payload: {
 			userId,
 		},
 	};
 };
 
-export const startLoadingFavoriteFriends = () => {
+export const startLoadingFavoriteFriends: StartLoadingFavoriteFriendsAC =
+	() => {
+		return {
+			type: LoadingsActionTypes.START_LOADING_FAVORITE_FRIENDS,
+		};
+	};
+
+export const endLoadingFavoriteFriends: EndLoadingFavoriteFriendsAC = () => {
 	return {
-		type: START_LOADING_FAVORITE_FRIENDS,
+		type: LoadingsActionTypes.END_LOADING_FAVORITE_FRIENDS,
 	};
 };
 
-export const endLoadingFavoriteFriends = () => {
+export const startLoadingUsers: StartLoadingUsersAC = () => {
 	return {
-		type: END_LOADING_FAVORITE_FRIENDS,
+		type: LoadingsActionTypes.START_LOADING_USERS,
 	};
 };
 
-export const startLoadingUsers = () => {
+export const endLoadingUsers: EndLoadingUsersAC = () => {
 	return {
-		type: START_LOADING_USERS,
+		type: LoadingsActionTypes.END_LOADING_USERS,
 	};
 };
 
-export const endLoadingUsers = () => {
+export const startLoadingDialogs: StartLoadingDialogsAC = () => {
 	return {
-		type: END_LOADING_USERS,
+		type: LoadingsActionTypes.START_LOADING_DIALOGS,
 	};
 };
 
-export const startLoadingDialogs = () => {
+export const endLoadingDialogs: EndLoadingDialogsAC = () => {
 	return {
-		type: START_LOADING_DIALOGS,
+		type: LoadingsActionTypes.END_LOADING_DIALOGS,
 	};
 };
 
-export const endLoadingDialogs = () => {
+export const startLoadingMessages: StartLoadingMessagesAC = () => {
 	return {
-		type: END_LOADING_DIALOGS,
+		type: LoadingsActionTypes.START_LOADING_MESSAGES,
 	};
 };
 
-export const startLoadingMessages = () => {
+export const endLoadingMessages: EndLoadingMessagesAC = () => {
 	return {
-		type: START_LOADING_MESSAGES,
-	};
-};
-
-export const endLoadingMessages = () => {
-	return {
-		type: END_LOADING_MESSAGES,
+		type: LoadingsActionTypes.END_LOADING_MESSAGES,
 	};
 };

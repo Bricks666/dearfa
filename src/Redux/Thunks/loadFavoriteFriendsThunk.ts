@@ -1,22 +1,23 @@
-import { api } from "../../DAL/api";
+import { getFavoriteFriends } from "../../Api";
 import {
 	startLoadingFavoriteFriends,
 	endLoadingFavoriteFriends,
 } from "../Reducers/loadingsReducer";
 import { setFavoriteFriends } from "../Reducers/favoriteFriendsReducer";
+import { LoadFavoriteFriendsThunk } from "../../Types/Redux";
 
-export const loadFavoriteFriendsThunk = () => {
+export const loadFavoriteFriendsThunk: LoadFavoriteFriendsThunk = () => {
 	return async (dispatch) => {
 		try {
 			dispatch(startLoadingFavoriteFriends());
 
-			const favoriteFriends = await api.getFavoriteFriends();
+			const favoriteFriends = (await getFavoriteFriends()).data;
 
 			dispatch(setFavoriteFriends(favoriteFriends));
 
 			dispatch(endLoadingFavoriteFriends());
 		} catch (e) {
-			console.log(e.message);
+			console.log(e);
 		}
 	};
 };

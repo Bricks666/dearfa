@@ -1,14 +1,23 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
 
-export const useParamChangeListener = (
+/* Нужно нормально затипизировать */
+type UseParamChangeListener = (
 	paramName: string,
-	subscriber: Function
+	subscriber: (param: string) => void
+) => string | "";
+
+export const useParamChangeListener: UseParamChangeListener = (
+	paramName: string,
+	subscriber: (param: string) => void
 ) => {
-	const { [paramName]: param } = useParams();
+	const params = useParams();
+	const param = params[paramName] || "";
 	useEffect(() => {
-		subscriber(param);
+		if (param !== "") {
+			subscriber(param);
+		}
 	}, [param, subscriber]);
 
-	return { [paramName]: param };
+	return param;
 };

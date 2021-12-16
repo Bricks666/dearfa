@@ -1,21 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
+import { IOnlyClassComponent, URLorNull } from "../../../Types/Common";
 
 import PictureStyle from "./Picture.module.css";
 
-export const Picture = ({
-	className,
-	oneXSrc,
-	twoXSrc,
-	alt,
-}: {
-	className?: string;
-	oneXSrc: string;
-	twoXSrc?: string;
+interface IPicture extends IOnlyClassComponent {
+	oneXSrc: URLorNull;
+	twoXSrc?: URLorNull;
 	alt: string;
-}) => {
+}
+
+export const Picture: FC<IPicture> = ({ className, oneXSrc, twoXSrc, alt }) => {
 	return (
-		<picture className={className ?? ""}>
+		<picture className={classNames(className)}>
 			<source
 				srcSet={(oneXSrc ?? "") + ".avif 1x," + (twoXSrc ?? "") + ".avif 2x"}
 				type="image/avif"

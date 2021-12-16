@@ -1,22 +1,21 @@
-import { api } from "../../DAL/api";
-import {
-	startLoadingAuth,
-	endLoadingAuth,
-} from "../Reducers/loadingsReducer";
+import { getAuth } from "../../Api";
+import { startLoadingAuth, endLoadingAuth } from "../Reducers/loadingsReducer";
 import { setAuth } from "../Reducers/authReducers";
+import { AuthThunk } from "../../Types/Redux";
 
-export const authThunk = () => {
+export const authThunk: AuthThunk = () => {
 	return async (dispatch) => {
 		try {
 			dispatch(startLoadingAuth());
 
-			const response = await api.getAuth();
+			const response = await getAuth();
 
 			if (response.resultCode === 0) {
 				dispatch(setAuth(response.data));
 			}
-		} catch (e) {
-			console.log(e.message);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		} catch (e: any) {
+			console.log(e?.message);
 		} finally {
 			dispatch(endLoadingAuth());
 		}

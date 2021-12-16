@@ -1,21 +1,20 @@
-import { LOGOUT } from "./loginReducer";
 import { initialState } from "../initialState";
+import {
+	DialogsActionTypes,
+	IDialog,
+	DialogsActions,
+	SetDialogsAC,
+	ResetDialogsAC,
+} from "../../Types/Redux";
 
-const SET_DIALOGS = "dearFa/dialogs/SET_DIALOGS";
-const START_DIALOG = "dearFa/dialogs/START_DIALOG";
-
-export default function reducer(state = initialState.dialogs, action) {
+export default function reducer(
+	state = initialState.dialogs,
+	action: DialogsActions
+): IDialog[] {
 	switch (action.type) {
-		case SET_DIALOGS: {
+		case DialogsActionTypes.SET_DIALOGS: {
 			return [...action.payload];
-		}
-		case START_DIALOG: {
-			return [
-				state.find(action.payload.id),
-				...state.filter((dialog) => dialog.id !== action.payload.id),
-			];
-		}
-		case LOGOUT: {
+		}		case DialogsActionTypes.RESET: {
 			return initialState.dialogs;
 		}
 		default: {
@@ -24,18 +23,14 @@ export default function reducer(state = initialState.dialogs, action) {
 	}
 }
 
-export const setDialogs = (dialogs) => {
+export const setDialogs: SetDialogsAC = (dialogs) => {
 	return {
-		type: SET_DIALOGS,
+		type: DialogsActionTypes.SET_DIALOGS,
 		payload: dialogs,
 	};
 };
-
-export const startDialog = (id) => {
+export const resetDialogs: ResetDialogsAC = () => {
 	return {
-		type: START_DIALOG,
-		payload: {
-			id,
-		},
+		type: DialogsActionTypes.RESET,
 	};
 };

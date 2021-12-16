@@ -1,35 +1,28 @@
+import {
+	IMessagesState,
+	MessagesActions,
+	MessagesActionTypes,
+	ResetMessagesAC,
+	SetMessagesAC,
+} from "../../Types/Redux";
 import { initialState } from "../initialState";
 
-const INIT_MESSAGES = "dearFa/messages/INIT_MESSAGES";
-const SET_MESSAGES = "dearFa/messages/SET_MESSAGES";
-const ADD_MESSAGE = "dearFa/messages/ADD_MESSAGE";
-
-export default function reducer(state = initialState.messages, action) {
+export default function reducer(
+	state = initialState.messages,
+	action: MessagesActions
+): IMessagesState {
 	switch (action.type) {
-		case INIT_MESSAGES: {
-			if (state[action.payload.dialogId] !== undefined) {
-				return state;
-			}
-
-			return {
-				...state,
-				[action.payload.dialogId]: [],
-			};
-		}
-		case SET_MESSAGES: {
-			return {
-				...state,
-				[action.payload.dialogId]: action.payload.messages,
-			};
-		}
-		case ADD_MESSAGE: {
+		case MessagesActionTypes.SET_MESSAGES: {
 			return {
 				...state,
 				[action.payload.dialogId]: [
 					...state[action.payload.dialogId],
-					action.payload.message,
+					...action.payload.messages,
 				],
 			};
+		}
+		case MessagesActionTypes.RESET: {
+			return initialState.messages;
 		}
 		default: {
 			return state;
@@ -37,18 +30,9 @@ export default function reducer(state = initialState.messages, action) {
 	}
 }
 
-export const initialMessages = (dialogId) => {
+export const setMessages: SetMessagesAC = (dialogId, messages) => {
 	return {
-		type: INIT_MESSAGES,
-		payload: {
-			dialogId,
-		},
-	};
-};
-
-export const setMessages = (dialogId, messages) => {
-	return {
-		type: SET_MESSAGES,
+		type: MessagesActionTypes.SET_MESSAGES,
 		payload: {
 			dialogId,
 			messages,
@@ -56,12 +40,8 @@ export const setMessages = (dialogId, messages) => {
 	};
 };
 
-export const addMessage = (dialogId, message) => {
+export const resetMessages: ResetMessagesAC = () => {
 	return {
-		type: ADD_MESSAGE,
-		payload: {
-			dialogId,
-			message,
-		},
+		type: MessagesActionTypes.RESET,
 	};
 };

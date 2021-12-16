@@ -1,11 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { useLoading, useFriends, useParamChangeListener } from "../../../Hooks";
+import { IOnlyClassComponent } from "../../../Types/Common";
 import { List } from "../../Shared";
 import { FriendCard } from "./FriendCard";
 
-export const FriendsList = ({ className }) => {
-	const { LoadingWrapper } = useLoading("loadingFriends");
+export const FriendsList: FC<IOnlyClassComponent> = ({ className }) => {
+	const LoadingWrapper = useLoading("loadingFriends");
 	const { friends, loadFriends } = useFriends();
 	useParamChangeListener("page", loadFriends);
 

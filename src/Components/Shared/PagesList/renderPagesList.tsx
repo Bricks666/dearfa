@@ -1,8 +1,21 @@
 import classNames from "classnames";
-import React from "react";
+import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
+import { TypedObject } from "../../../Types/Common";
 
-export const renderPagesList = (rootPath, currentPage, pageCount, styles) => {
+type RenderPagesList = (
+	rootPath: string,
+	currentPage: number,
+	pageCount: number,
+	styles: TypedObject<string>
+) => ReactElement[];
+
+export const renderPagesList: RenderPagesList = (
+	rootPath,
+	currentPage,
+	pageCount,
+	styles
+) => {
 	const pages = [];
 	const start = currentPage - 5;
 	const end =

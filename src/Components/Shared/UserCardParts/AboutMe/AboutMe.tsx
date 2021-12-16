@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import { DataListItem } from "../..";
+import { IOnlyClassComponent } from "../../../../Types/Common";
 
-export const AboutMe = ({ className, aboutMe }) => {
+interface IAboutMe extends IOnlyClassComponent {
+	aboutMe: string;
+}
+export const AboutMe: FC<IAboutMe> = ({ className, aboutMe }) => {
 	return <DataListItem className={className} term="Обо мне:" desc={aboutMe} />;
 };

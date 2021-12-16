@@ -1,12 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { renderContact } from "./renderContact";
 import { DataList, DataListItem } from "../..";
 
 import ContactsStyle from "./Contacts.module.css";
+import { EmptyObject, IOnlyClassComponent } from "../../../../Types/Common";
+import { IContacts } from "../../../../Types/Redux";
 
-const Contacts = ({ contacts }) => {
-	const contactsElement = renderContact(contacts || {});
+interface IContactsComponent extends IOnlyClassComponent {
+	contacts: IContacts | EmptyObject;
+}
+
+const Contacts: FC<IContactsComponent> = ({ contacts }) => {
+	const contactsElement = renderContact(contacts);
 
 	return (
 		<DataListItem

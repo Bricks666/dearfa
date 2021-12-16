@@ -7,11 +7,13 @@ import { store } from "./Redux/store";
 
 import "./index.css";
 
+const root = document.getElementById("root");
+
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<App />
 		</Provider>
 	</React.StrictMode>,
-	document.getElementById("root")
+	root
 );

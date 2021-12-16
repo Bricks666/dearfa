@@ -1,21 +1,45 @@
-import React from "react";
+import React, { FC } from "react";
+import classNames from "classnames";
 import { Field as ReactField, Form as ReactForm } from "react-final-form";
 import { FORM_ERROR } from "final-form";
 import { Button, Field, ErrorMessage } from "../Shared";
-import classNames from "classnames";
+import {
+	FormSubmitHandler,
+	FormValidateHandler,
+	IFormInner,
+	IOnlyClassComponent,
+	ValidationErrors,
+} from "../../Types/Common";
 
 import RegistrationFormStyle from "./RegistrationForm.module.css";
 
-const Form = ({ handleSubmit, className, error, valid, submitting }) => {
+type FormValues = {
+	email: string;
+	name: string;
+	password: string;
+	passwordAgain: string;
+};
+
+interface IRegistrationForm extends IOnlyClassComponent {
+	onSubmit: FormSubmitHandler<FormValues>;
+}
+
+const Form: FC<IFormInner<FormValues>> = ({
+	handleSubmit,
+	className,
+	error,
+	valid,
+	submitting,
+}) => {
 	return (
 		<form
 			className={classNames(RegistrationFormStyle.form, className)}
 			onSubmit={handleSubmit}
 		>
-			<ReactField name="name" component={Field}>
+			<ReactField name="name" render={Field}>
 				Имя
 			</ReactField>
-			<ReactField name="email" type="email" component={Field}>
+			<ReactField name="email" type="email" render={Field}>
 				Почта
 			</ReactField>
 			{error && (
@@ -23,10 +47,10 @@ const Form = ({ handleSubmit, className, error, valid, submitting }) => {
 					{error}
 				</ErrorMessage>
 			)}
-			<ReactField name="password" type="password" component={Field}>
+			<ReactField name="password" type="password" render={Field}>
 				Пароль
 			</ReactField>
-			<ReactField name="passwordAgain" type="password" component={Field}>
+			<ReactField name="passwordAgain" type="password" render={Field}>
 				Повторите пароль
 			</ReactField>
 			<Button
@@ -39,8 +63,13 @@ const Form = ({ handleSubmit, className, error, valid, submitting }) => {
 	);
 };
 
-const validate = ({ email, name, password, passwordAgain }) => {
-	const errors = {};
+const validate: FormValidateHandler<FormValues> = ({
+	email,
+	name,
+	password,
+	passwordAgain,
+}) => {
+	const errors: ValidationErrors<FormValues> = {};
 	if (name === undefined) {
 		errors.name = "Имя это обязательное поле";
 	}
@@ -64,7 +93,7 @@ const validate = ({ email, name, password, passwordAgain }) => {
 	return errors;
 };
 
-const RegistrationForm = ({ onSubmit, className }) => {
+const RegistrationForm: FC<IRegistrationForm> = ({ onSubmit, className }) => {
 	return (
 		<ReactForm
 			className={className}

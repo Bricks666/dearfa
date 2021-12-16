@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { updateProfile as updateProfileThunk } from "../Redux/Thunks/updateProfile";
+import { updateProfileThunk } from "../Redux/Thunks/updateProfileThunk";
 
 export const useUpdateProfile = () => {
 	const dispatch = useDispatch();

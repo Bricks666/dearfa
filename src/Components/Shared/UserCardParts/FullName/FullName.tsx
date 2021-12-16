@@ -1,16 +1,22 @@
-import React from "react";
+import classNames from "classnames";
+import React, { FC } from "react";
 
 import { Link } from "react-router-dom";
+import { IOnlyClassComponent } from "../../../../Types/Common";
 
 import FullNameStyle from "./FullName.module.css";
 
-export const FullName = ({ id, fullName, className, children }) => {
+interface IFullName extends IOnlyClassComponent {
+	id: number;
+}
+
+export const FullName: FC<IFullName> = ({ id, className, children }) => {
 	return (
 		<Link
-			className={`${FullNameStyle.link} ${className ?? ""}`}
+			className={classNames(FullNameStyle.link, className)}
 			to={`/profile/${id}`}
 		>
-			<h4 className={FullNameStyle.name}>{fullName || children}</h4>
+			<h4 className={FullNameStyle.name}>{children}</h4>
 		</Link>
 	);
 };

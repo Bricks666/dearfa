@@ -1,14 +1,40 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
-import { Form, Field as ReactField } from "react-final-form";
+import { Form as ReactForm, Field as ReactField } from "react-final-form";
 
 import { Field, Button } from "../../../Shared";
 import { ChangeProfilePhoto } from "./Photo/ChangeProfilePhoto";
 import { FileInput } from "./FileInput/FileInput";
 
 import ChangeProfileStyle from "./ChangeProfile.module.css";
+import {
+	FormSubmitHandler,
+	ID,
+	IFormInner,
+	IOnlyClassComponent,
+	URLorNull,
+} from "../../../../Types/Common";
+import { IContacts } from "../../../../Types/Redux";
+import { useUserProfile } from "../../../../Hooks";
 
-const ChangeProfileForm = ({
+interface IChangePhoto {
+	photo: URLorNull;
+	newPhotoURL: URLorNull;
+	newPhoto: File | null;
+}
+
+type FormValues = {
+	userId: ID;
+	name: string;
+	aboutMe: string;
+	photo: IChangePhoto;
+} & IContacts;
+
+interface IChangeProfileForm extends IOnlyClassComponent {
+	onSubmit: FormSubmitHandler<FormValues>;
+}
+
+const Form: FC<IFormInner<FormValues>> = ({
 	handleSubmit,
 	initialValues,
 	values,
@@ -23,54 +49,54 @@ const ChangeProfileForm = ({
 			<legend className={ChangeProfileStyle.header}>Изменение профиля</legend>
 			<ReactField
 				name="photo"
-				component={FileInput}
+				render={FileInput}
 				className={ChangeProfileStyle.photoLabel}
 				accept="image/*"
 			>
 				<ChangeProfilePhoto
 					className={ChangeProfileStyle.photo}
-					photo={initialValues.photo.photo}
+					photo={initialValues?.photo?.photo || null}
 					newPhotoURL={values.photo.newPhotoURL}
 				/>
 			</ReactField>
 			<ReactField
 				className={ChangeProfileStyle.fullName}
 				name="name"
-				component={Field}
+				render={Field}
 			>
 				Имя
 			</ReactField>
 			<ReactField
 				className={ChangeProfileStyle.aboutMe}
 				name="aboutMe"
-				component={Field}
+				render={Field}
 			>
 				Обо мне
 			</ReactField>
 			<fieldset className={ChangeProfileStyle.contacts}>
 				<legend className={ChangeProfileStyle.subheader}>Контакты</legend>
-				<ReactField name="facebook" component={Field}>
+				<ReactField name="facebook" render={Field}>
 					Facebook
 				</ReactField>
-				<ReactField name="github" component={Field}>
+				<ReactField name="github" render={Field}>
 					Github
 				</ReactField>
-				<ReactField name="instagram" component={Field}>
+				<ReactField name="instagram" render={Field}>
 					Instagram
 				</ReactField>
-				<ReactField name="email" component={Field}>
+				<ReactField name="email" render={Field}>
 					Email
 				</ReactField>
-				<ReactField name="twitter" component={Field}>
+				<ReactField name="twitter" render={Field}>
 					Twitter
 				</ReactField>
-				<ReactField name="vk" component={Field}>
+				<ReactField name="vk" render={Field}>
 					Vk
 				</ReactField>
-				<ReactField name="website" component={Field}>
+				<ReactField name="website" render={Field}>
 					Website
 				</ReactField>
-				<ReactField name="youtube" component={Field}>
+				<ReactField name="youtube" render={Field}>
 					Youtube
 				</ReactField>
 			</fieldset>
@@ -81,25 +107,31 @@ const ChangeProfileForm = ({
 	);
 };
 
-export const ChangeProfile = ({
-	userId,
-	contacts,
-	fullName,
-	aboutMe,
-	photos: { large: photo },
+export const ChangeProfileForm: FC<IChangeProfileForm> = ({
+	className,
 	onSubmit,
 }) => {
+	const { user } = useUserProfile();
+	const initialValues: Partial<FormValues> = {
+		userId: user.userId,
+		photo: { newPhoto: null, newPhotoURL: null, photo: user.photos.large },
+		name: user.fullName,
+		aboutMe: user.aboutMe,
+		github: user.contacts.github,
+		facebook: user.contacts.facebook,
+		instagram: user.contacts.instagram,
+		mailLink: user.contacts.mailLink,
+		twitter: user.contacts.twitter,
+		vk: user.contacts.vk,
+		website: user.contacts.website,
+		youtube: user.contacts.youtube,
+	};
 	return (
-		<Form
-			initialValues={{
-				userId,
-				...contacts,
-				photo: { newPhoto: null, newPhotoURL: null, photo },
-				name: fullName,
-				aboutMe,
-			}}
+		<ReactForm
+			className={className}
+			initialValues={initialValues}
 			onSubmit={onSubmit}
-			render={ChangeProfileForm}
+			render={Form}
 		/>
 	);
 };

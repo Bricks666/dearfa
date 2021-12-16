@@ -1,11 +1,12 @@
 import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useTypedDispatch, useTypedSelector } from ".";
 import { loadDialogsThunk } from "../Redux/Thunks/loadDialogsThunk";
 import { dialogsSelectors } from "../Selectors";
+import { UseDialogsList } from "../Types/Hooks";
 
-export const useDialogsList = () => {
-	const dialogs = useSelector(dialogsSelectors.getDialogs);
-	const dispatch = useDispatch();
+export const useDialogsList: UseDialogsList = () => {
+	const dialogs = useTypedSelector(dialogsSelectors.getDialogs);
+	const dispatch = useTypedDispatch();
 
 	const loadDialogs = useCallback(() => {
 		dispatch(loadDialogsThunk());

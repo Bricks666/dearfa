@@ -1,11 +1,14 @@
 import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useTypedDispatch, useTypedSelector } from ".";
 import { authThunk } from "../Redux/Thunks/authThunk";
 import { authSelectors } from "../Selectors";
+import { UseAuth } from "../Types/Hooks";
 
-export const useAuth = () => {
-	const { login, userId } = useSelector(authSelectors.getAuth);
-	const dispatch = useDispatch();
+export const useAuth: UseAuth = () => {
+	const { login, userId } = useTypedSelector(authSelectors.getAuth);
+
+	const dispatch = useTypedDispatch();
+
 	const auth = useCallback(() => {
 		dispatch(authThunk());
 	}, [dispatch]);

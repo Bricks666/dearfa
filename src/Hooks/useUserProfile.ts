@@ -1,14 +1,15 @@
 import { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useTypedDispatch, useTypedSelector } from ".";
 import { loadUserThunk } from "../Redux/Thunks/loadUserThunk";
 import { profileSelectors } from "../Selectors";
+import { LoadUser, UseUserProfile } from "../Types/Hooks";
 
-export const useUserProfile = () => {
-	const user = useSelector(profileSelectors.getProfile);
+export const useUserProfile: UseUserProfile = () => {
+	const user = useTypedSelector(profileSelectors.getProfile);
 
-	const dispatch = useDispatch();
+	const dispatch = useTypedDispatch();
 
-	const loadUser = useCallback(
+	const loadUser: LoadUser = useCallback(
 		(id) => {
 			dispatch(loadUserThunk(id));
 		},

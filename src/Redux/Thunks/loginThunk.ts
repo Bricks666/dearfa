@@ -1,26 +1,23 @@
-import { api } from "../../DAL/api";
+import { login } from "../../Api";
 import { authThunk } from "./authThunk";
+import { LoginThunk } from "../../Types/Redux";
 
-import { FORM_ERROR } from "final-form";
-
-export const loginThunk = (email, password, remember, restart, setError) => {
+export const loginThunk: LoginThunk = (email, password, rememberMe) => {
 	return async (dispatch) => {
 		try {
-			const { messages, resultCode } = await api.loginApi(
+			const { messages, resultCode } = await login({
 				email,
 				password,
-				remember
-			);
+				rememberMe,
+			});
 
 			if (resultCode !== 0) {
 				throw new Error(messages[0]);
 			}
 
 			dispatch(authThunk());
-			restart();
 		} catch (e) {
-			console.log(e.message);
-			setError({ [FORM_ERROR]: e.message });
+			console.log(e);
 		}
 	};
 };

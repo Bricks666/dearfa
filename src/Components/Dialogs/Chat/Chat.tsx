@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
+import React, { FC, useCallback } from "react";
 import classNames from "classnames";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 import {
 	useEscListener,
 	useLoading,
@@ -11,20 +11,21 @@ import {
 import { MakeMessage } from "./MakeMessage/MakeMessage";
 import { Messages } from "./Messages/Messages";
 import { Companion } from "./Companion/Companion";
+import { IOnlyClassComponent } from "../../../Types/Common";
 
 import ChatStyle from "./Chat.module.css";
 
-const Chat = ({ className }) => {
+const Chat: FC<IOnlyClassComponent> = ({ className }) => {
 	const { loadMessages } = useLoadMessages();
-	const { id } = useParamChangeListener("id", loadMessages);
-	const { LoadingWrapper } = useLoading("loadingMessages");
-	const history = useHistory();
+	const id = useParamChangeListener("id", loadMessages);
+	const LoadingWrapper = useLoading("loadingMessages");
+	const navigate = useNavigate();
 	useEscListener(
 		useCallback(() => {
 			if (!!id !== false) {
-				history.push("/dialogs");
+				navigate("/dialogs");
 			}
-		}, [history, id])
+		}, [navigate, id])
 	);
 
 	if (!!id === false) {
@@ -40,11 +41,7 @@ const Chat = ({ className }) => {
 			<Companion className={ChatStyle.header} dialogId={+id} />
 			<LoadingWrapper>
 				<Messages className={ChatStyle.messages} dialogId={+id} />
-				<MakeMessage
-					className={ChatStyle.makeMessage}
-					placeholder="Ваше сообщение"
-					dialogId={+id}
-				/>
+				<MakeMessage className={ChatStyle.makeMessage} dialogId={+id} />
 			</LoadingWrapper>
 		</section>
 	);

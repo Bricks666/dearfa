@@ -1,15 +1,16 @@
-import { api } from "../../DAL/api";
+import { unfollow } from "../../Api";
+import { UnfollowThunk } from "../../Types/Redux";
 import {
 	startFollowingUser,
 	endFollowingUser,
 } from "../Reducers/loadingsReducer";
 import { unfollowUser } from "../Reducers/usersReducer";
 
-export const unfollowThunk = (userId) => {
+export const unfollowThunk: UnfollowThunk = (userId) => {
 	return async (dispatch) => {
 		dispatch(startFollowingUser(userId));
 
-		const response = await api.unfollow(userId);
+		const response = await unfollow(userId);
 
 		if (response.resultCode === 0) {
 			dispatch(unfollowUser(userId));

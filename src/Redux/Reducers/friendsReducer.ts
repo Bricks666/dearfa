@@ -1,12 +1,19 @@
-import { LOGOUT } from "./loginReducer";
 import { initialState } from "../initialState";
-import { FOLLOW_USER, UNFOLLOW_USER } from "./usersReducer";
+import {
+	FriendsActions,
+	FriendsActionTypes,
+	IFriendsState,
+	ResetFriendsAc,
+	SetFriendsAC,
+	UsersActionTypes,
+} from "../../Types/Redux";
 
-const SET_FRIENDS = "dearFa/friends/SET_FRIENDS";
-
-export default function reducer(state = initialState.friends, action) {
+export default function reducer(
+	state = initialState.friends,
+	action: FriendsActions
+): IFriendsState {
 	switch (action.type) {
-		case SET_FRIENDS: {
+		case FriendsActionTypes.SET_FRIENDS: {
 			return {
 				...state,
 				list: action.payload.items,
@@ -14,7 +21,7 @@ export default function reducer(state = initialState.friends, action) {
 				pageCount: Math.ceil(action.payload.totalCount / state.friendsCount),
 			};
 		}
-		case FOLLOW_USER: {
+		case UsersActionTypes.FOLLOW_USER: {
 			return {
 				...state,
 				list: [...state.list, { ...action.payload, followed: true }],
@@ -22,7 +29,7 @@ export default function reducer(state = initialState.friends, action) {
 				pageCount: Math.ceil(state.totalCount / state.friendsCount),
 			};
 		}
-		case UNFOLLOW_USER: {
+		case UsersActionTypes.UNFOLLOW_USER: {
 			return {
 				...state,
 				list: state.list.filter((friend) => friend.id !== action.payload.id),
@@ -30,7 +37,7 @@ export default function reducer(state = initialState.friends, action) {
 				pageCount: Math.ceil(state.totalCount / state.friendsCount),
 			};
 		}
-		case LOGOUT: {
+		case FriendsActionTypes.RESET: {
 			return initialState.friends;
 		}
 		default:
@@ -38,9 +45,15 @@ export default function reducer(state = initialState.friends, action) {
 	}
 }
 
-export const setFriends = (data) => {
+export const setFriends: SetFriendsAC = (data) => {
 	return {
-		type: SET_FRIENDS,
+		type: FriendsActionTypes.SET_FRIENDS,
 		payload: data,
+	};
+};
+
+export const resetFriends: ResetFriendsAc = () => {
+	return {
+		type: FriendsActionTypes.RESET,
 	};
 };

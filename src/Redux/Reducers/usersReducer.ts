@@ -1,13 +1,20 @@
+import {
+	UsersActions,
+	UsersActionTypes,
+	IUsersState,
+	FollowUserAC,
+	SetUsersAC,
+	UnfollowUserAC,
+	ResetUsersAC,
+} from "../../Types/Redux";
 import { initialState } from "../initialState";
-import { LOGOUT } from "./loginReducer";
 
-export const UNFOLLOW_USER = "UNFOLLOW";
-export const FOLLOW_USER = "FOLLOW";
-const SET_USERS = "dearFa/users/SET_USERS";
-
-export default function reducer(state = initialState.users, action) {
+export default function reducer(
+	state = initialState.users,
+	action: UsersActions
+): IUsersState {
 	switch (action.type) {
-		case FOLLOW_USER: {
+		case UsersActionTypes.FOLLOW_USER: {
 			return {
 				...state,
 				list: state.list.map((user) => {
@@ -18,7 +25,7 @@ export default function reducer(state = initialState.users, action) {
 				}),
 			};
 		}
-		case UNFOLLOW_USER: {
+		case UsersActionTypes.UNFOLLOW_USER: {
 			return {
 				...state,
 				list: state.list.map((friend) => {
@@ -29,7 +36,7 @@ export default function reducer(state = initialState.users, action) {
 				}),
 			};
 		}
-		case SET_USERS: {
+		case UsersActionTypes.SET_USERS: {
 			return {
 				...state,
 				list: action.payload.items,
@@ -37,7 +44,7 @@ export default function reducer(state = initialState.users, action) {
 				pageCount: Math.ceil(action.payload.totalCount / state.usersCount),
 			};
 		}
-		case LOGOUT: {
+		case UsersActionTypes.RESET: {
 			return initialState.users;
 		}
 		default: {
@@ -46,25 +53,31 @@ export default function reducer(state = initialState.users, action) {
 	}
 }
 
-export const followUser = (user) => {
+export const followUser: FollowUserAC = (user) => {
 	return {
-		type: FOLLOW_USER,
+		type: UsersActionTypes.FOLLOW_USER,
 		payload: user,
 	};
 };
 
-export const setUsers = (data) => {
+export const setUsers: SetUsersAC = (data) => {
 	return {
-		type: SET_USERS,
+		type: UsersActionTypes.SET_USERS,
 		payload: data,
 	};
 };
 
-export const unfollowUser = (id) => {
+export const unfollowUser: UnfollowUserAC = (id) => {
 	return {
-		type: UNFOLLOW_USER,
+		type: UsersActionTypes.UNFOLLOW_USER,
 		payload: {
 			id,
 		},
+	};
+};
+
+export const resetUsers: ResetUsersAC = () => {
+	return {
+		type: UsersActionTypes.RESET,
 	};
 };

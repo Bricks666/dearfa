@@ -1,29 +1,35 @@
-import React from "react";
+import React, { FC } from "react";
+import { IOnlyClassComponent } from "../../../../../Types/Common";
 
 import ContactsStyle from "./ContactsItem.module.css";
 
-function ContactsItem(props) {
-	if (Boolean(props.description) === false) {
+interface IContactComponent extends IOnlyClassComponent {
+	term: string;
+	description: string;
+}
+
+const ContactsItem: FC<IContactComponent> = ({ description, term }) => {
+	if (Boolean(description) === false) {
 		return null;
 	}
-
+	const href = `${
+		description.includes("https://") ? "" : "https://"
+	}${description}`;
 	return (
 		<>
-			<dt className={ContactsStyle.term}>{props.term}</dt>
+			<dt className={ContactsStyle.term}>{term}</dt>
 			<dd className={ContactsStyle.description}>
 				<a
 					className={ContactsStyle.link}
-					href={`${props.description.includes("https://") ? "" : "https://"}${
-						props.description
-					}`}
+					href={href}
 					target="_blank"
 					rel="noreferrer"
 				>
-					{props.description}
+					{description}
 				</a>
 			</dd>
 		</>
 	);
-}
+};
 
 export { ContactsItem };

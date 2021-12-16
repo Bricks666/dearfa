@@ -1,10 +1,10 @@
-import classNames from "classnames";
 import React, { FC } from "react";
-import { ISectionHeader } from "../../../types/Components/Shared/SectionHeader";
+import classNames from "classnames";
+import { IOnlyClassComponent } from "../../../Types/Common";
 
 import SectionHeaderStyle from "./SectionHeader.module.css";
 
-export const SectionHeader: FC<ISectionHeader> = ({ className, children }) => {
+export const SectionHeader: FC<IOnlyClassComponent> = ({ className, children }) => {
 	return (
 		<h2 className={classNames(SectionHeaderStyle.header, className)}>
 			{children}

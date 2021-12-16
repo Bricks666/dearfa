@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route } from "react-router";
+import React, { FC } from "react";
+import { Routes, Route } from "react-router";
 import { News } from "../News";
 import { NotFound } from "../NotFound";
 import { Profile } from "../Profile";
@@ -8,34 +8,35 @@ import { Friends } from "../Friends";
 import { Dialogs } from "../Dialogs";
 import { Login } from "../Login";
 import { Registration } from "../Registration/Registration";
+import { IOnlyClassComponent } from "../../Types/Common";
 
-export const Main = ({ className }) => {
+export const Main: FC<IOnlyClassComponent> = ({ className }) => {
 	return (
-		<Switch>
-			<Route exact path="/profile/:id">
+		<Routes>
+			<Route path="/profile/:id">
 				<Profile className={className} />
 			</Route>
-			<Route exact path="/dialogs/:id?">
+			<Route path="/dialogs/:id?">
 				<Dialogs className={className} />
 			</Route>
-			<Route exact path="/friends/:page">
+			<Route path="/friends/:page">
 				<Friends className={className} />
 			</Route>
-			<Route exact path="/news">
+			<Route path="/news">
 				<News className={className} />
 			</Route>
-			<Route exact path="/login">
+			<Route path="/login">
 				<Login className={className} />
 			</Route>
-			<Route exact path="/registration">
+			<Route path="/registration">
 				<Registration className={className} />
 			</Route>
-			<Route exact path="/users/:page">
+			<Route path="/users/:page">
 				<Users className={className} />
 			</Route>
 			<Route>
 				<NotFound className={className} />
 			</Route>
-		</Switch>
+		</Routes>
 	);
 };

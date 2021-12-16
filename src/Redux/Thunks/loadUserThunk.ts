@@ -1,22 +1,23 @@
-import { api } from "../../DAL/api";
+import { getProfile } from "../../Api";
+import { LoadUserThunk } from "../../Types/Redux";
 import {
 	startLoadingProfile,
 	endLoadingProfile,
 } from "../Reducers/loadingsReducer";
-import { setProfile } from "../Reducers/profileReducer";
+import { setInfo } from "../Reducers/profileReducer";
 
-export const loadUserThunk = (id) => {
+export const loadUserThunk: LoadUserThunk = (id) => {
 	return async (dispatch) => {
 		try {
 			dispatch(startLoadingProfile());
 
-			const user = await api.getProfile(id);
+			const user = (await getProfile(id)).data;
 
-			dispatch(setProfile(user));
+			dispatch(setInfo(user));
 
 			dispatch(endLoadingProfile());
 		} catch (e) {
-			console.log(e.message);
+			console.log(e);
 		}
 	};
 };

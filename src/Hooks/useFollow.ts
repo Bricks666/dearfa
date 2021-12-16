@@ -1,9 +1,11 @@
-import { useDispatch } from "react-redux";
 import { useCallback } from "react";
 import { followThunk } from "../Redux/Thunks/followThunk";
+import { useTypedDispatch } from ".";
+import { UseFollow } from "../Types/Hooks";
 
-export const useFollow = (user) => {
-	const dispatch = useDispatch();
+export const useFollow: UseFollow = (user) => {
+	const dispatch = useTypedDispatch();
+
 	const follow = useCallback(() => {
 		dispatch(followThunk(user));
 	}, [user, dispatch]);

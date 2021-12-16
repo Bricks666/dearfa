@@ -1,16 +1,26 @@
-import React from "react";
+import React, { FC } from "react";
 
-import { useParams, useRouteMatch } from "react-router";
+import { useParams, useLocation } from "react-router";
+import { IOnlyClassComponent } from "../../../Types/Common";
 import { PagesList } from "./PagesList";
 
-export const PagesListWithRouting = ({ className, pageCount }) => {
-	const { page } = useParams();
-	const { path } = useRouteMatch();
+interface IPagesListWithRouting extends IOnlyClassComponent {
+	pageCount: number;
+}
+
+export const PagesListWithRouting: FC<IPagesListWithRouting> = ({
+	className,
+	pageCount,
+}) => {
+	const { page } = useParams<"page">();
+	const { pathname } = useLocation();
+	const currentPage = typeof page === "undefined" ? 1 : +page;
+	const rootPath = pathname.replace(":page", "");
 	return (
 		<PagesList
 			className={className}
-			currentPage={+page}
-			rootPath={path.replace(":page", "")}
+			currentPage={currentPage}
+			rootPath={rootPath}
 			pageCount={+pageCount}
 		/>
 	);

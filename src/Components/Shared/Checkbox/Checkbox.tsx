@@ -1,10 +1,17 @@
-import React, {  } from "react";
+import classNames from "classnames";
+import React, { FC } from "react";
+import { FieldRenderProps } from "react-final-form";
+import { IOnlyClassComponent } from "../../../Types/Common";
 
 import CheckboxStyle from "./Checkbox.module.css";
 
-export const Checkbox = (({ className, input, children }) => {
+interface ICheckbox
+	extends IOnlyClassComponent,
+		FieldRenderProps<undefined, HTMLInputElement> {}
+
+export const Checkbox: FC<ICheckbox> = ({ className, input, children }) => {
 	return (
-		<div className={`${className ?? ""}`}>
+		<div className={classNames(className)}>
 			<input
 				className={CheckboxStyle.input}
 				type="checkbox"
@@ -16,4 +23,4 @@ export const Checkbox = (({ className, input, children }) => {
 			</label>
 		</div>
 	);
-});
+};

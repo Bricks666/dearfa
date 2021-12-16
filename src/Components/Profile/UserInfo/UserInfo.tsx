@@ -1,11 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
+import { IProfileState } from "../../../Types/Redux";
 
 import { ButtonLink } from "../../Shared";
 import { UserDescription } from "../UserDescription/UserDescription";
 
 import UserInfoStyle from "./UserInfo.module.css";
 
-export const UserInfo = ({ user }) => {
+interface IUserInfo {
+	user: IProfileState;
+}
+
+export const UserInfo: FC<IUserInfo> = ({ user }) => {
 	return (
 		<>
 			<UserDescription

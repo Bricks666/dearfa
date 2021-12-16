@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
+import { useTypedSelector } from ".";
 import { messagesSelectors } from "../Selectors";
 
 export const useMessages = (dialogId) => {
-	const messages = useSelector((state) =>
+	const messages = useTypedSelector((state) =>
 		messagesSelectors.getDialogMessages(state, dialogId)
 	);
 

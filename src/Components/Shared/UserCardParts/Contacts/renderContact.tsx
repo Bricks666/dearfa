@@ -1,8 +1,12 @@
-import React from "react";
+import React, { ReactElement } from "react";
+import { EmptyObject } from "../../../../Types/Common";
+import { IContacts } from "../../../../Types/Redux";
 
 import { ContactsItem } from "./ContactsItem/ContactsItem";
 
-export const renderContact = (contacts) => {
+type RenderContacts = (contacts: IContacts | EmptyObject) => ReactElement[];
+
+export const renderContact: RenderContacts = (contacts) => {
 	return Object.entries(contacts)
 		.filter((pair) => Boolean(pair[1]))
 		.map((pair) => {

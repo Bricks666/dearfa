@@ -1,10 +1,17 @@
 import classNames from "classnames";
-import React from "react";
+import React, { FC } from "react";
 import { useLike } from "../../../../../Hooks";
+import { IOnlyClassComponent } from "../../../../../Types/Common";
+import { ILike } from "../../../../../Types/Redux";
 
 import LikeStyle from "./Like.module.css";
 
-export const Like = ({ className, postId, status }) => {
+interface ILikeComponent extends IOnlyClassComponent {
+	postId: number;
+	status: ILike;
+}
+
+export const Like: FC<ILikeComponent> = ({ className, postId, status }) => {
 	const { toggleLike } = useLike(postId);
 	return (
 		<label className={classNames(LikeStyle.label, className)}>

@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux";
+import { useTypedSelector } from ".";
 import { loadingsSelectors } from "../Selectors";
+import { UseIsFollowing } from "../Types/Hooks";
 
-export const useIsFollowing = (userId) => {
-	return useSelector(loadingsSelectors.getFollowings).includes(userId);
+export const useIsFollowing: UseIsFollowing = (userId) => {
+	return useTypedSelector(loadingsSelectors.getFollowings).includes(userId);
 };

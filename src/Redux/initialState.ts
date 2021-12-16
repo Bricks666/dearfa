@@ -1,17 +1,23 @@
-export const initialState = {
+import { IStore } from "../Types/Redux";
+
+export const initialState: IStore = {
 	profile: {
 		userId: 0,
 		fullName: "",
+		aboutMe: "",
 		photos: {
 			large: "/Images/Ava/Cosmic-animals",
-			alt: "Аватарка...",
+			small: "/Images/Ava/Cosmic-animals",
 		},
 		contacts: {},
 		followed: false,
+		lookingForAJob: true,
+		lookingForAJobDescription: "",
+		status: "",
 	},
 	auth: {
-		userId: null,
-		login: null,
+		userId: 0,
+		login: "",
 	},
 	dialogs: [],
 	messages: {},
@@ -31,47 +37,44 @@ export const initialState = {
 		list: [],
 		friendsCount: 0,
 	},
-	posts: {
-		list: [
-			{
-				id: 1,
-				date: new Date(),
-				authorId: 1,
-				content: {
-					text: "Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
-				},
-				like: {
-					count: 175,
-					isLiked: false,
-				},
+	posts: [
+		{
+			id: 1,
+			date: new Date(),
+			authorId: 1,
+			content:
+				"Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
+
+			like: {
+				count: 175,
+				isLiked: false,
 			},
-			{
-				id: 2,
-				date: new Date("2021-05-04T15:02:00"),
-				authorId: 1,
-				content: { text: "Магия ВК" },
-				like: {
-					count: 37,
-					isLiked: true,
-				},
+		},
+		{
+			id: 2,
+			date: new Date("2021-05-04T15:02:00"),
+			authorId: 1,
+			content: "Магия ВК",
+			like: {
+				count: 37,
+				isLiked: true,
 			},
-			{
-				id: 3,
-				date: new Date("2021-03-20T15:02:00"),
-				authorId: 1,
-				content: { text: "Как ты думаешь, мы хотим спать?" },
-				like: {
-					count: 15,
-					isLiked: true,
-				},
+		},
+		{
+			id: 3,
+			date: new Date("2021-03-20T15:02:00"),
+			authorId: 1,
+			content: "Как ты думаешь, мы хотим спать?",
+			like: {
+				count: 15,
+				isLiked: true,
 			},
-		],
-	},
+		},
+	],
 	login: {
 		isLogin: false,
-		captchaUrl: null,
+		captchaURL: null,
 	},
-	registration: {},
 	navigation: [
 		{
 			path: "/profile/",

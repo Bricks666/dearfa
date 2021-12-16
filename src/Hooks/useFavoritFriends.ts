@@ -1,11 +1,12 @@
-import { useSelector, useDispatch } from "react-redux";
 import { favoriteFriendsSelectors } from "../Selectors";
 import { loadFavoriteFriendsThunk } from "../Redux/Thunks";
 import { useEffect } from "react";
+import { useTypedDispatch, useTypedSelector } from ".";
+import { UseFavoriteFriends } from "../Types/Hooks";
 
-export const useFavoritFriends = () => {
-	const friends = useSelector(favoriteFriendsSelectors.getList);
-	const dispatch = useDispatch();
+export const useFavoritFriends: UseFavoriteFriends = () => {
+	const friends = useTypedSelector(favoriteFriendsSelectors.getList);
+	const dispatch = useTypedDispatch();
 
 	useEffect(() => {
 		dispatch(loadFavoriteFriendsThunk());

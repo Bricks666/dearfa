@@ -1,29 +1,38 @@
 import classNames from "classnames";
-import React, {  } from "react";
+import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
+import { IOnlyClassComponent } from "../../../../Types/Common";
+import { IDialog } from "../../../../Types/Redux";
 import { SubsectionHeader, Picture } from "../../../Shared";
 
 import DialogStyle from "./Dialog.module.css";
 
-export const Dialog = (({ className, userName, id, photos: { small } }) => {
+interface IDialogComponent extends IOnlyClassComponent, IDialog {}
+
+export const Dialog: FC<IDialogComponent> = ({
+	className,
+	userName,
+	id,
+	photos: { small },
+}) => {
 	return (
 		<li className={classNames(DialogStyle.dialog, className)}>
 			<NavLink
 				to={`/dialogs/${id}`}
-				className={DialogStyle.link}
-				activeClassName={DialogStyle.linkActive}
+				className={({ isActive }) =>
+					isActive ? DialogStyle.activeLink : DialogStyle.link
+				}
 				aria-label={`чат с ${userName}`}
 			>
-				<SubsectionHeader className={`${DialogStyle.fullName}`}>
+				<SubsectionHeader className={DialogStyle.fullName}>
 					{userName}
 				</SubsectionHeader>
 				<Picture
-					className={`${DialogStyle.photo} fake-photo`}
+					className={classNames(DialogStyle.photo, "fake-photo")}
 					oneXSrc={small || "/Images/ProfileBackground/SunSet"}
-					twoXSrc=""
 					alt={userName}
 				/>
 			</NavLink>
 		</li>
 	);
-});
+};

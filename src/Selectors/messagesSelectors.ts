@@ -1,7 +1,11 @@
-export const getMessages = (state) => {
+import { IMessagesState } from "../Types/Redux";
+import { StandardSelector } from "../Types/Selectors";
+import { GetDialogMessages } from "../Types/Selectors/Messages";
+
+export const getMessages: StandardSelector<IMessagesState> = (state) => {
 	return state.messages;
 };
 
-export const getDialogMessages = (state, dialogId) => {
+export const getDialogMessages: GetDialogMessages = (state, dialogId) => {
 	return getMessages(state)[dialogId] || [];
 };

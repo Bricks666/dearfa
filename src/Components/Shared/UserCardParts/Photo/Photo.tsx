@@ -1,11 +1,18 @@
 import classNames from "classnames";
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
+import { IOnlyClassComponent, URLorNull } from "../../../../Types/Common";
 import { Picture } from "../../Picture/Picture";
 
 import PhotoStyle from "./Photo.module.css";
 
-export const Photo = ({ className, fullName, photo, id }) => {
+interface IPhoto extends IOnlyClassComponent {
+	id: number;
+	photo: URLorNull;
+	fullName: string;
+}
+
+export const Photo: FC<IPhoto> = ({ className, fullName, photo, id }) => {
 	return (
 		<Link
 			className={classNames(PhotoStyle.link, className)}

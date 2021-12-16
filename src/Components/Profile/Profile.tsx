@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
 import {
 	useIsAuthUser,
@@ -7,17 +7,18 @@ import {
 	useUserProfile,
 } from "../../Hooks";
 import { SectionHeader, Picture } from "../Shared";
-import { Posts } from "./Posts/Posts";
+import { Posts } from "../Posts/Posts";
 import { UserInfo } from "./UserInfo/UserInfo";
 import { MeInfo } from "./MeInfo/MeInfo";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
+import { IOnlyClassComponent } from "../../Types/Common";
 
 import ProfileStyle from "./Profile.module.css";
 
-export const Profile = ({ className }) => {
-	const { LoadingWrapper } = useLoading("loadingProfile");
+export const Profile: FC<IOnlyClassComponent> = ({ className }) => {
+	const LoadingWrapper = useLoading("loadingProfile");
 	const { user, loadUser } = useUserProfile();
-	const { id } = useParamChangeListener("id", loadUser);
+	const id = useParamChangeListener("id", loadUser);
 	const isAuthUser = useIsAuthUser(id);
 
 	return (
@@ -26,7 +27,7 @@ export const Profile = ({ className }) => {
 				<SectionHeader className="visibility-hidden">Профиль</SectionHeader>
 				<Picture
 					className={classNames(ProfileStyle.image, "fake-photo")}
-					oneXSrc={"/Images/ProfileBackground/SunSet"}
+					oneXSrc="/Images/ProfileBackground/SunSet"
 					alt=""
 				/>
 				<ProfileInfo

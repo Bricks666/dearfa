@@ -1,1 +1,16 @@
+export { updatePhotoThunk } from "./updatePhotoThunk";
+export { unfollowThunk } from "./unfollowThunk";
+export { setNewStatusThunk } from "./setNewStatusThunk";
+export { sendMessageThunk } from "./sendMessageThunk";
+export { logoutThunk } from "./logoutThunk";
+export { loginThunk } from "./loginThunk";
+export { loadMessagesThunk } from "./loadMessagesThunk";
+export { loadFriendsThunk } from "./loadFriendsThunk";
+export { getCaptchaThunk } from "./getCaptchaThunk";
+export { followThunk } from "./followThunk";
+export { loadDialogsThunk } from "./loadDialogsThunk";
 export { loadFavoriteFriendsThunk } from "./loadFavoriteFriendsThunk";
+export { loadUsersThunk } from "./loadUsersThunk";
+export { loadUserThunk } from "./loadUserThunk";
+export { updateProfileThunk } from "./updateProfileThunk";
+export { authThunk } from "./authThunk";

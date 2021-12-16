@@ -1,8 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
+import { DateType, IOnlyClassComponent } from "../../../../Types/Common";
 
 import { parseDate } from "./ParseDate";
 
-export const Date = ({ date, className, children }) => {
+interface IDate extends IOnlyClassComponent {
+	date: DateType;
+}
+
+export const Date: FC<IDate> = ({ date, className, children }) => {
 	return (
 		<time className={className || ""} dateTime={date}>
 			{children} {parseDate(date)}

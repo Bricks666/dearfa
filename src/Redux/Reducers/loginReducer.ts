@@ -1,25 +1,32 @@
+import {
+	ILoginState,
+	LoginAC,
+	LoginActions,
+	LoginActionTypes,
+	LogoutAC,
+	SetCaptchaAC,
+} from "../../Types/Redux";
 import { initialState } from "../initialState";
-import { AUTH } from "./authReducers";
 
-export const LOGOUT = "LOGOUT";
-const SHOW_CAPTCHA = "dearFa/login/SHOW_CAPTCHA";
-
-export default function reducer(state = initialState.login, action) {
+export default function reducer(
+	state = initialState.login,
+	action: LoginActions
+): ILoginState {
 	switch (action.type) {
-		case AUTH: {
+		case LoginActionTypes.LOGIN: {
 			return {
 				...state,
 				isLogin: true,
-				captchaUrl: null,
+				captchaURL: null,
 			};
 		}
-		case LOGOUT: {
+		case LoginActionTypes.LOGOUT: {
 			return initialState.login;
 		}
-		case SHOW_CAPTCHA: {
+		case LoginActionTypes.SET_CAPTCHA: {
 			return {
 				...state,
-				captchaUrl: action.payload.captchaUrl,
+				captchaURL: action.payload.captchaURL,
 			};
 		}
 		default: {
@@ -28,17 +35,23 @@ export default function reducer(state = initialState.login, action) {
 	}
 }
 
-export const logout = () => {
+export const logout: LogoutAC = () => {
 	return {
-		type: LOGOUT,
+		type: LoginActionTypes.LOGOUT,
 	};
 };
 
-export const setCaptcha = (captchaUrl) => {
+export const setCaptcha: SetCaptchaAC = (captchaURL) => {
 	return {
-		type: SHOW_CAPTCHA,
+		type: LoginActionTypes.SET_CAPTCHA,
 		payload: {
-			captchaUrl,
+			captchaURL,
 		},
+	};
+};
+
+export const login: LoginAC = () => {
+	return {
+		type: LoginActionTypes.LOGIN,
 	};
 };

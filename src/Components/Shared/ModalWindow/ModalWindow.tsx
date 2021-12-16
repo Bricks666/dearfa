@@ -1,10 +1,25 @@
-import React, { useCallback } from "react";
+import classNames from "classnames";
+import React, { FC, useCallback } from "react";
 import { useEscListener } from "../../../Hooks/useEscListener";
+import { EventHandler, IOnlyClassComponent } from "../../../Types/Common";
 import { CrossButton } from "../Buttons/CrossButton/CrossButton";
 
 import ModalWindowStyle from "./ModalWindow.module.css";
 
-export const ModalWindow = ({ className, close, condition, children }) => {
+interface IModalWindow extends IOnlyClassComponent {
+	close: EventHandler<
+		HTMLButtonElement | HTMLDivElement,
+		MouseEvent | KeyboardEvent
+	>;
+	condition: boolean;
+}
+
+export const ModalWindow: FC<IModalWindow> = ({
+	className,
+	close,
+	condition,
+	children,
+}) => {
 	useEscListener(
 		useCallback(() => {
 			if (condition) {
@@ -17,14 +32,16 @@ export const ModalWindow = ({ className, close, condition, children }) => {
 	return condition ? (
 		<div className={ModalWindowStyle.wrapper} onClick={close}>
 			<div
-				className={`${ModalWindowStyle.inner}  ${className ?? ""}`}
+				className={classNames(ModalWindowStyle.inner, className)}
 				onClick={(e) => e.stopPropagation()}
 			>
-				<CrossButton onClick={close} className={ModalWindowStyle.button} />
+				<CrossButton
+					onClick={close}
+					className={ModalWindowStyle.button}
+					disabled={false}
+				/>
 				{children}
 			</div>
 		</div>
-	) : (
-		""
-	);
+	) : null;
 };

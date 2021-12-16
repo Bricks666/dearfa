@@ -1,6 +1,8 @@
 import classNames from "classnames";
-import React from "react";
+import React, { FC } from "react";
 import { DataList } from "..";
+import { EventHandler, IOnlyClassComponent } from "../../../Types/Common";
+import { IUser } from "../../../Types/Redux";
 
 import { Button } from "../Buttons/Button/Button";
 import { ButtonLink } from "../Buttons/ButtonLink/ButtonLink";
@@ -10,10 +12,21 @@ import { Status } from "../UserCardParts/Status/Status";
 
 import UserCardStyle from "./UserCard.module.css";
 
-export const UserCard = ({ user, className, onClick, isFollowing }) => {
+interface IUserCard extends IOnlyClassComponent {
+	user: IUser;
+	onClick: EventHandler<HTMLButtonElement, MouseEvent>;
+	isFollowing: boolean;
+}
+
+export const UserCard: FC<IUserCard> = ({
+	user,
+	className,
+	onClick,
+	isFollowing,
+}) => {
 	return (
 		<li className={classNames(UserCardStyle.itemWrapper, className)}>
-			<FullName id={user.id} fullName={user.name} />
+			<FullName id={user.id}>{user.name}</FullName>
 			<DataList>
 				<Status className={UserCardStyle.status} status={user.status} />
 			</DataList>

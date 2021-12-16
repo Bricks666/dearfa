@@ -1,16 +1,17 @@
-import { api } from "../../DAL/api";
+import { follow } from "../../Api";
+import { FollowThunk } from "../../Types/Redux";
 import {
 	startFollowingUser,
 	endFollowingUser,
 } from "../Reducers/loadingsReducer";
 import { followUser } from "../Reducers/usersReducer";
 
-export const followThunk = (user) => {
+export const followThunk: FollowThunk = (user) => {
 	return async (dispatch) => {
 		try {
 			dispatch(startFollowingUser(user.id));
 
-			const response = await api.follow(user.id);
+			const response = (await follow(user.id)).data;
 			if (response.resultCode === 0) {
 				dispatch(followUser(user));
 			}

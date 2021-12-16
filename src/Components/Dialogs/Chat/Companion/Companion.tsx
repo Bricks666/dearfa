@@ -1,12 +1,17 @@
 import classNames from "classnames";
-import React, {  } from "react";
+import React, { FC } from "react";
 import { useCompanion } from "../../../../Hooks";
+import { IOnlyClassComponent } from "../../../../Types/Common";
 import { Photo, FullName, Date } from "../../../Shared";
 
 import CompanionStyle from "./Companion.module.css";
 
-export const Companion = (({ className, dialogId }) => {
-	const { companion } = useCompanion(dialogId);
+interface ICompanionComponent extends IOnlyClassComponent {
+	dialogId: number;
+}
+
+export const Companion: FC<ICompanionComponent> = ({ className, dialogId }) => {
+	const companion = useCompanion(dialogId);
 	return (
 		<header className={classNames(CompanionStyle.header, className)}>
 			<Photo
@@ -21,4 +26,4 @@ export const Companion = (({ className, dialogId }) => {
 			<Date className={CompanionStyle.date} date={companion.lastActive} />
 		</header>
 	);
-});
+};

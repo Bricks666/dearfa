@@ -1,10 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
+import { FieldRenderProps } from "react-final-form";
 
 import { ErrorMessage } from "../";
+import { IOnlyClassComponent } from "../../../Types/Common";
 
 import TextareaStyle from "./Textarea.module.css";
 
-export const Textarea = ({
+interface ITextarea
+	extends IOnlyClassComponent,
+		FieldRenderProps<string, HTMLTextAreaElement> {
+	placeholder?: string;
+}
+
+export const Textarea: FC<ITextarea> = ({
 	children,
 	placeholder,
 	input,
@@ -17,8 +25,8 @@ export const Textarea = ({
 			{children}
 			<textarea
 				className={TextareaStyle.textarea}
-				{...input}
 				placeholder={placeholder}
+				{...input}
 			/>
 		</label>
 	);

@@ -1,28 +1,35 @@
-import { LOGOUT } from "./loginReducer";
+import {
+	ProfileActionTypes,
+	ProfileActions,
+	SetInfoAC,
+	ResetProfileAC,
+	SetNewPhotosAC,
+	SetNewStatusAC,
+	IProfileState,
+} from "../../Types/Redux";
 import { initialState } from "../initialState";
 
-const SET_INFO = "dearFa/profile/SET_INFO";
-const SET_NEW_STATUS = "dearFa/profile/SET_NEW_STATUS";
-const SET_NEW_PHOTOS = "dearFa/profile/SET_NEW_PHOTOS";
-
-export default function reducer(state = initialState.profile, action) {
+export default function reducer(
+	state = initialState.profile,
+	action: ProfileActions
+): IProfileState {
 	switch (action.type) {
-		case SET_INFO: {
-			return { ...state, ...action.payload.info };
+		case ProfileActionTypes.SET_INFO: {
+			return { ...state, ...action.payload };
 		}
-		case SET_NEW_STATUS: {
+		case ProfileActionTypes.SET_NEW_STATUS: {
 			return {
 				...state,
 				status: action.payload.status,
 			};
 		}
-		case SET_NEW_PHOTOS: {
+		case ProfileActionTypes.SET_NEW_PHOTOS: {
 			return {
 				...state,
 				photos: action.payload.photos,
 			};
 		}
-		case LOGOUT: {
+		case ProfileActionTypes.RESET: {
 			return initialState.profile;
 		}
 		default:
@@ -30,28 +37,32 @@ export default function reducer(state = initialState.profile, action) {
 	}
 }
 
-export const setProfile = (info) => {
+export const setInfo: SetInfoAC = (info) => {
 	return {
-		type: SET_INFO,
-		payload: {
-			info,
-		},
+		type: ProfileActionTypes.SET_INFO,
+		payload: info,
 	};
 };
 
-export const setNewStatus = (status) => {
+export const setNewStatus: SetNewStatusAC = (status) => {
 	return {
-		type: SET_NEW_STATUS,
+		type: ProfileActionTypes.SET_NEW_STATUS,
 		payload: {
 			status,
 		},
 	};
 };
-export const setNewPhotos = (photos) => {
+export const setNewPhotos: SetNewPhotosAC = (photos) => {
 	return {
-		type: SET_NEW_PHOTOS,
+		type: ProfileActionTypes.SET_NEW_PHOTOS,
 		payload: {
 			photos,
 		},
+	};
+};
+
+export const resetProfile: ResetProfileAC = () => {
+	return {
+		type: ProfileActionTypes.RESET,
 	};
 };

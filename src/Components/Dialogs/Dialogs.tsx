@@ -1,13 +1,13 @@
 import React, { FC } from "react";
+import classNames from "classnames";
 import { DialogList } from "./DialogList/DialogList";
 import { Chat } from "./Chat/Chat";
 import { SectionHeader } from "../Shared";
-import classNames from "classnames";
+import { IOnlyClassComponent } from "../../Types/Common";
 
 import DialogsStyle from "./Dialogs.module.css";
-import { IDialogs } from "../../types/Components/Dialogs";
 
-export const Dialogs: FC<IDialogs> = ({ className }) => {
+export const Dialogs: FC<IOnlyClassComponent> = ({ className }) => {
 	return (
 		<main className={classNames(DialogsStyle.dialogs, className)}>
 			<SectionHeader className={DialogsStyle.heading}>Диалоги</SectionHeader>

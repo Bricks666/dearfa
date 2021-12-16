@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import classNames from "classnames";
 import { SectionHeader } from "../Shared";
@@ -6,8 +6,9 @@ import { UsersPagesList } from "./PagesList/UsersPagesList";
 import { UsersList } from "./UsersList/UsersList";
 
 import UsersStyle from "./Users.module.css";
+import { IOnlyClassComponent } from "../../Types/Common";
 
-export const Users = ({ className }) => {
+export const Users: FC<IOnlyClassComponent> = ({ className }) => {
 	return (
 		<main className={classNames(UsersStyle.users, className)}>
 			<SectionHeader>Все пользователи</SectionHeader>

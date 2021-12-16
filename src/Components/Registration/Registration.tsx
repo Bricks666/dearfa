@@ -1,12 +1,13 @@
-import React, { useCallback } from "react";
+import React, { FC, useCallback } from "react";
 
 import { SectionHeader } from "../Shared";
 import { RegistrationForm } from "./RegistrationForm";
 import classNames from "classnames";
 
 import RegistrationStyle from "./Registration.module.css";
+import { IOnlyClassComponent } from "../../Types/Common";
 
-const Registration = ({ className }) => {
+const Registration: FC<IOnlyClassComponent> = ({ className }) => {
 	const onSubmit = useCallback((...data) => console.log(data), []);
 	return (
 		<main className={classNames(RegistrationStyle.main, className)}>

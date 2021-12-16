@@ -1,11 +1,22 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { renderPagesList } from "./renderPagesList";
 import { ButtonLink } from "../Buttons/ButtonLink/ButtonLink";
 
 import PagesListStyle from "./PagesList.module.css";
+import { IOnlyClassComponent } from "../../../Types/Common";
 
-export const PagesList = ({ currentPage, rootPath, pageCount }) => {
+interface IPagesList extends IOnlyClassComponent {
+	currentPage: number;
+	rootPath: string;
+	pageCount: number;
+}
+
+export const PagesList: FC<IPagesList> = ({
+	currentPage,
+	rootPath,
+	pageCount,
+}) => {
 	const pages = renderPagesList(rootPath, currentPage, pageCount, {
 		pageNumber: PagesListStyle.pageNumber,
 		selected: PagesListStyle.selected,
@@ -13,7 +24,7 @@ export const PagesList = ({ currentPage, rootPath, pageCount }) => {
 	});
 
 	if (pages.length === 0) {
-		return "";
+		return null;
 	}
 
 	return (

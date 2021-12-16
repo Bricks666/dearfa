@@ -1,19 +1,20 @@
-import { api } from "../../DAL/api";
-import { addMessage } from "../Reducers/messagesReducer";
+import { sendMessage } from "../../Api";
+import { SendMessageThunk } from "../../Types/Redux";
+import { setMessages } from "../Reducers/messagesReducer";
 
-export const sendMessageThunk = (userId, message) => {
+export const sendMessageThunk: SendMessageThunk = (userId, message) => {
 	return async (dispatch) => {
 		try {
 			const {
 				resultCode,
 				data: { message: newMessage },
-			} = await api.sendMessage(userId, message);
+			} = await sendMessage(userId, message);
 
 			if (resultCode === 0) {
-				dispatch(addMessage(userId, newMessage));
+				dispatch(setMessages(userId, [newMessage]));
 			}
 		} catch (e) {
-			console.log(e.message);
+			console.log(e);
 		}
 	};
 };

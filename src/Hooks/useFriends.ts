@@ -1,12 +1,13 @@
 import { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useTypedDispatch, useTypedSelector } from ".";
 import { loadFriendsThunk } from "../Redux/Thunks/loadFriendsThunk";
 import { friendsSelectors } from "../Selectors";
+import { UseFriends } from "../Types/Hooks";
 
-export const useFriends = () => {
-	const friendsCount = useSelector(friendsSelectors.getCount);
-	const friends = useSelector(friendsSelectors.getList);
-	const dispatch = useDispatch();
+export const useFriends: UseFriends = () => {
+	const friendsCount = useTypedSelector(friendsSelectors.getCount);
+	const friends = useTypedSelector(friendsSelectors.getList);
+	const dispatch = useTypedDispatch();
 
 	const loadFriends = useCallback(
 		(page) => {

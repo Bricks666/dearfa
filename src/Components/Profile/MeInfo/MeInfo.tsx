@@ -1,15 +1,21 @@
-import React, { useCallback, useState } from "react";
-import { ChangeProfile } from "./ChangeProfile/ChangeProfile";
+import React, { FC, useCallback, useState } from "react";
+import { ChangeProfileForm } from "./ChangeProfile/ChangeProfile";
 import { ChangingStatus } from "./ChangingStatus/ChangingStatus";
 import { ModalWindow, Button } from "../../Shared";
 import { useUpdateProfile } from "../../../Hooks";
 import { UserDescription } from "../UserDescription/UserDescription";
 
 import MeInfoStyle from "./MeInfo.module.css";
+import { IProfileState } from "../../../Types/Redux";
 
-export const MeInfo = ({ user }) => {
-	const [showChangeProfile, toggleChangeProfile] = useState(false);
+interface IMeInfo {
+	user: IProfileState;
+}
+
+export const MeInfo: FC<IMeInfo> = ({ user }) => {
+	const [showChangeProfile, toggleChangeProfile] = useState<boolean>(false);
 	const { updateProfile } = useUpdateProfile();
+	/* TODO: Пересмотреть наличие данного хука, может вынести логику */
 	const updateProfileCB = useCallback(
 		({ userId, name: fullName, aboutMe, photo, ...contacts }) => {
 			updateProfile({ userId, fullName, aboutMe, photo, contacts });
@@ -41,7 +47,7 @@ export const MeInfo = ({ user }) => {
 				condition={showChangeProfile}
 				close={toggleShowChangeProfile}
 			>
-				<ChangeProfile {...user} onSubmit={updateProfileCB} />
+				<ChangeProfileForm {...user} onSubmit={updateProfileCB} />
 			</ModalWindow>
 		</>
 	);

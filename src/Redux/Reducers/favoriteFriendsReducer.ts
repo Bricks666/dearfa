@@ -1,12 +1,19 @@
-import { LOGOUT } from "./loginReducer";
-import { FOLLOW_USER, UNFOLLOW_USER } from "./usersReducer";
+import {
+	FavoriteFriendsActions,
+	FavoriteFriendsActionTypes,
+	IFavoriteFriendsState,
+	ResetFavoriteFriendsAC,
+	SetFavoriteFriendsAC,
+	UsersActionTypes,
+} from "../../Types/Redux";
 import { initialState } from "../initialState";
 
-const SET_FAVORITE_FRIENDS = "dearFa/favoriteFriends/SET_FAVORITE_FRIENDS";
-
-export default function reducer(state = initialState.favoriteFriends, action) {
+export default function reducer(
+	state = initialState.favoriteFriends,
+	action: FavoriteFriendsActions
+): IFavoriteFriendsState {
 	switch (action.type) {
-		case SET_FAVORITE_FRIENDS: {
+		case FavoriteFriendsActionTypes.SET_FAVORITE_FRIENDS: {
 			return {
 				...state,
 				list: action.payload.items,
@@ -14,7 +21,7 @@ export default function reducer(state = initialState.favoriteFriends, action) {
 					action.payload.totalCount >= 6 ? 6 : action.payload.totalCount,
 			};
 		}
-		case UNFOLLOW_USER: {
+		case UsersActionTypes.UNFOLLOW_USER: {
 			const newList = state.list.filter(
 				(friend) => friend.id !== action.payload.id
 			);
@@ -25,16 +32,16 @@ export default function reducer(state = initialState.favoriteFriends, action) {
 					state.friendsCount - (newList.length !== state.list.length ? 1 : 0),
 			};
 		}
-		case FOLLOW_USER: {
+		case UsersActionTypes.FOLLOW_USER: {
 			return state.friendsCount < 6
 				? {
-					...state,
-					list: [...state.list, action.payload],
-					friendsCount: ++state.friendsCount,
-				}
+						...state,
+						list: [...state.list, action.payload],
+						friendsCount: ++state.friendsCount,
+				  }
 				: state;
 		}
-		case LOGOUT: {
+		case FavoriteFriendsActionTypes.RESET: {
 			return initialState.favoriteFriends;
 		}
 		default: {
@@ -43,11 +50,15 @@ export default function reducer(state = initialState.favoriteFriends, action) {
 	}
 }
 
-export const setFavoriteFriends = (data) => {
+export const setFavoriteFriends: SetFavoriteFriendsAC = (data) => {
 	return {
-		type: SET_FAVORITE_FRIENDS,
-		payload: {
-			...data,
-		},
+		type: FavoriteFriendsActionTypes.SET_FAVORITE_FRIENDS,
+		payload: data,
+	};
+};
+
+export const resetFavoriteFriends: ResetFavoriteFriendsAC = () => {
+	return {
+		type: FavoriteFriendsActionTypes.RESET,
 	};
 };

@@ -1,16 +1,23 @@
-import React from "react";
-import { RenderNavigation } from "./RenderNavigation";
+import React, { FC } from "react";
 import classNames from "classnames";
+import { useNavigation } from "../../Hooks";
+import { NavigationItem } from "./NavigationItem/NavigationItem";
+import { IOnlyClassComponent } from "../../Types/Common";
 
 import NavigationStyle from "./Navigation.module.css";
-import { useNavigation } from "../../Hooks";
 
-export const Navigation = ({ className }) => {
+export const Navigation: FC<IOnlyClassComponent> = ({ className }) => {
 	const navigationItems = useNavigation();
 	return (
 		<nav className={classNames(NavigationStyle.navigation, className)}>
 			<ul className={NavigationStyle.list}>
-				{RenderNavigation(navigationItems)}
+				{navigationItems.map((navigationItem) => (
+					<NavigationItem
+						to={navigationItem.path}
+						text={navigationItem.text}
+						key={navigationItem.id}
+					/>
+				))}
 			</ul>
 		</nav>
 	);

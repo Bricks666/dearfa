@@ -1,9 +1,17 @@
 import classNames from "classnames";
-import React from "react";
+import React, { FC, ReactNode } from "react";
+import { IOnlyClassComponent } from "../../../Types/Common";
 
 import DataListItemStyle from "./DataListItem.module.css";
 
-export const DataListItem = ({
+interface IDataTermItem extends IOnlyClassComponent {
+	term: ReactNode;
+	desc: ReactNode;
+	termClassName?: string;
+	descClassName?: string;
+}
+
+export const DataListItem: FC<IDataTermItem> = ({
 	className,
 	termClassName,
 	descClassName,

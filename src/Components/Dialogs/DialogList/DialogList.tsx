@@ -1,15 +1,15 @@
 import React, { FC, useEffect } from "react";
 import classNames from "classnames";
 
-import { renderDialogsList } from "./RenderDialogsList";
 import { useLoading, useDialogsList } from "../../../Hooks/";
+import { IOnlyClassComponent } from "../../../Types/Common";
+import { Dialog } from "./Dialog/Dialog";
 
 import DialogListStyle from "./DialogList.module.css";
-import { IDialogsList } from "../../../types/Components/Dialogs";
 
-const DialogList: FC<IDialogsList> = ({ className }) => {
+const DialogList: FC<IOnlyClassComponent> = ({ className }) => {
 	const { dialogs, loadDialogs } = useDialogsList();
-	const { LoadingWrapper } = useLoading("loadingDialogs");
+	const LoadingWrapper = useLoading("loadingDialogs");
 
 	useEffect(() => {
 		loadDialogs();
@@ -18,7 +18,13 @@ const DialogList: FC<IDialogsList> = ({ className }) => {
 	return (
 		<LoadingWrapper className={className}>
 			<ul className={classNames(DialogListStyle.dialogList, className)}>
-				{renderDialogsList(dialogs, DialogListStyle.dialog)}
+				{dialogs.map((dialog) => (
+					<Dialog
+						className={DialogListStyle.dialog}
+						{...dialog}
+						key={dialog.id}
+					></Dialog>
+				))}
 			</ul>
 		</LoadingWrapper>
 	);

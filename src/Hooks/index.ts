@@ -1,3 +1,5 @@
+export { useTypedSelector } from "./useTypedSelector";
+export { useTypedDispatch } from "./useTypedDispatch";
 export { useEscListener } from "./useEscListener";
 export { useParamChangeListener } from "./useParamChangeListener";
 export { useLoading } from "./useLoading";
@@ -16,7 +18,7 @@ export { useUpdateProfile } from "./useUpdateProfile";
 export { useSetNewStatus } from "./useSetNewStatus";
 export { useIsLogin } from "./useIsLogin";
 export { useAuth } from "./useAuth";
-export { useAuthURL } from "./useAuthURL";
+export { useProfileURL } from "./useProfileURL";
 export { usePosts } from "./usePosts";
 export { useLike } from "./useLike";
 export { useDialogsList } from "./useDialogsList";
