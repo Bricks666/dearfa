@@ -11,7 +11,7 @@ export const loadFavoriteFriendsThunk: LoadFavoriteFriendsThunk = () => {
 		try {
 			dispatch(startLoadingFavoriteFriends());
 
-			const favoriteFriends = (await getFavoriteFriends()).data;
+			const favoriteFriends = await getFavoriteFriends();
 
 			dispatch(setFavoriteFriends(favoriteFriends));
 

@@ -10,11 +10,11 @@ export const getUsers = async (usersCount: number, currentPage: number) => {
 };
 
 export const getFriends = async (usersCount: number, currentPage: number) => {
-	const requestURL: URL = `${baseURL}&page=${currentPage}&count=${usersCount}&friend=true`;
+	const requestURL: URL = `${baseURL}?page=${currentPage}&count=${usersCount}&friend=true`;
 	return (await makeGetRequest<ResponseWithUsers>(requestURL)).data;
 };
 
 export const getFavoriteFriends = async () => {
-	const requestURL: URL = `${baseURL}&page=${1}&count=${6}&friend=true`;
+	const requestURL: URL = `${baseURL}?page=${1}&count=${6}&friend=true`;
 	return (await makeGetRequest<ResponseWithUsers>(requestURL)).data;
 };

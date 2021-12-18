@@ -1,13 +1,8 @@
-import React, { FC } from "react";
+import React from "react";
 import { useTypedSelector } from ".";
 import { Loading } from "../Components/Shared/Loading/Loading";
 import { loadingsSelectors } from "../Selectors";
-import { IOnlyClassComponent } from "../Types/Common";
-import { LoadingTypes } from "../Types/Redux";
-
-type LoadingWrapper = FC<IOnlyClassComponent>;
-
-type UseLoading = (loadingName: LoadingTypes) => LoadingWrapper;
+import { UseLoading, LoadingWrapper } from "../Types/Hooks";
 
 export const useLoading: UseLoading = (loadingName) => {
 	const loadingStatus = useTypedSelector((state) =>

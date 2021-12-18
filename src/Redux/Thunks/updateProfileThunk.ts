@@ -18,7 +18,8 @@ export const updateProfileThunk: UpdateProfileThunk = ({
 			const { resultCode, ...data } = await updateProfile(newContactsData);
 
 			if (resultCode === 0) {
-				dispatch(setInfo(newContactsData));
+				/* TODO: Сделать отдельные типы для отправки */
+				dispatch(setInfo(newContactsData as IProfileState));
 			}
 
 			if (photo.newPhoto !== null) {

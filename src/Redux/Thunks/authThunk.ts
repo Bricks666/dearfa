@@ -2,6 +2,8 @@ import { getAuth } from "../../Api";
 import { startLoadingAuth, endLoadingAuth } from "../Reducers/loadingsReducer";
 import { setAuth } from "../Reducers/authReducers";
 import { AuthThunk } from "../../Types/Redux";
+import { login } from "../Reducers/loginReducer";
+import { updateProfileURL } from "../Reducers/navigationReducer";
 
 export const authThunk: AuthThunk = () => {
 	return async (dispatch) => {
@@ -12,10 +14,11 @@ export const authThunk: AuthThunk = () => {
 
 			if (response.resultCode === 0) {
 				dispatch(setAuth(response.data));
+				dispatch(login());
+				dispatch(updateProfileURL(response.data.id));
 			}
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		} catch (e: any) {
-			console.log(e?.message);
+		} catch (e) {
+			console.log(e);
 		} finally {
 			dispatch(endLoadingAuth());
 		}

@@ -18,6 +18,7 @@ export const Header: FC<IOnlyClassComponent> = ({ className }) => {
 
 	return (
 		<header className={classNames(HeaderStyle.header, className)}>
+			<h1 className="visibility-hidden">Dear.Fa</h1>
 			<Logo className={HeaderStyle.logo} src="/Images/logo.svg" alt="Logo" />
 			{isLogin ? (
 				<div className={HeaderStyle.authorization}>

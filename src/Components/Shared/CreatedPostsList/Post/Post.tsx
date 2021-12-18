@@ -13,12 +13,10 @@ interface IPostComponent {
 export const Post: FC<IPostComponent> = ({ post }) => {
 	return (
 		<article className={PostStyle.post}>
-			<FullName
-				className={PostStyle.author}
-				id={1}
-				fullName={"Кирилл Цыганков"}
-			/>
-			<Date className={PostStyle.dateTime} date={post.date} />
+			<FullName className={PostStyle.author} id={1}>
+				Кирилл Цыганков
+			</FullName>
+			<Date className={PostStyle.dateTime} date={post.date.toLocaleString()} />
 			<Photo
 				className={PostStyle.photo}
 				photo=""

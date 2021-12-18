@@ -6,9 +6,8 @@ import { makeGetRequest, makePutRequest } from "./makeRequest";
 const baseURl: URL = "profile/";
 
 export const getProfile = async (id: ID) => {
-	return (
-		await makeGetRequest<IStandardServerResponse<IProfileState>>(baseURl + id)
-	).data;
+
+	return (await makeGetRequest<IProfileState>(baseURl + id)).data;
 };
 
 export const getStatus = async (id: ID) => {
@@ -17,7 +16,7 @@ export const getStatus = async (id: ID) => {
 
 export const getProfileWithStatus = async (id: ID) => {
 	return {
-		...(await getProfile(id)).data,
+		...(await getProfile(id)),
 		status: await getStatus(id),
 	};
 };

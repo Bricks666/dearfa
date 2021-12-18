@@ -1,5 +1,5 @@
-import { URLorNull } from "../Types/Common";
-import { DateType, IDialog } from "../Types/Redux";
+import { URLorNull, DateType } from "../Types/Common";
+import { IDialog } from "../Types/Redux";
 import {
 	CurrentDialogSelector,
 	GetCurrentDialogSelector,
@@ -12,9 +12,9 @@ export const getDialogs: StandardSelector<IDialog[]> = (state) => {
 
 export const getCurrentDialogs: GetCurrentDialogSelector = (
 	state,
-	targetDialogId
+	dialogId
 ) => {
-	return getDialogs(state).find((dialog) => dialog.id === targetDialogId);
+	return getDialogs(state).find((dialog) => dialog.id == dialogId);
 };
 
 export const getCompanionPhoto: CurrentDialogSelector<URLorNull> = (

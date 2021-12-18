@@ -1,7 +1,7 @@
-import { DateType } from "./Common";
+import { ID, DateType } from "../Common";
 
 export interface IMessagesState {
-	[dialogId: number]: IMessage[];
+	[dialogId: ID]: IMessage[];
 }
 
 export interface IMessage {
@@ -19,7 +19,7 @@ export enum MessagesActionTypes {
 }
 
 interface ISetMessagesPayload {
-	dialogId: number;
+	dialogId: ID;
 	messages: IMessage[];
 }
 
@@ -35,7 +35,7 @@ interface IResetMessagesAction {
 export type MessagesActions = ISetMessagesAction | IResetMessagesAction;
 
 export type SetMessagesAC = (
-	dialogId: number,
+	dialogId: ID,
 	messages: IMessage[]
 ) => ISetMessagesAction;
 export type ResetMessagesAC = () => IResetMessagesAction;

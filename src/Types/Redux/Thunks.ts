@@ -18,7 +18,7 @@ export type LoadFriendsThunk = (
 ) => TypedThunk<void>;
 
 export type LoadMessagesThunk = (
-	dialogId: number,
+	dialogId: ID,
 	page: number
 ) => TypedThunk<void>;
 
@@ -38,7 +38,7 @@ export type LoginThunk = (
 export type LogoutThunk = () => TypedThunk<void>;
 
 export type SendMessageThunk = (
-	dialogId: number,
+	dialogId: ID,
 	message: string
 ) => TypedThunk<void>;
 

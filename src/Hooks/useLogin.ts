@@ -5,8 +5,8 @@ import { loginThunk } from "../Redux/Thunks/loginThunk";
 export const useLogin = () => {
 	const dispatch = useDispatch();
 	const login = useCallback(
-		({ email, password, remember }, { restart }, setError) => {
-			dispatch(loginThunk(email, password, remember, restart, setError));
+		({ email, password, remember } /* , { restart }, setError */) => {
+			dispatch(loginThunk(email, password, remember /* , restart, setError */));
 		},
 		[dispatch]
 	);

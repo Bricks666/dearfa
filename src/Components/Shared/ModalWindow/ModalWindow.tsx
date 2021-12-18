@@ -1,5 +1,10 @@
 import classNames from "classnames";
-import React, { FC, useCallback } from "react";
+import React, {
+	FC,
+	MouseEventHandler,
+	SyntheticEvent,
+	useCallback,
+} from "react";
 import { useEscListener } from "../../../Hooks/useEscListener";
 import { EventHandler, IOnlyClassComponent } from "../../../Types/Common";
 import { CrossButton } from "../Buttons/CrossButton/CrossButton";
@@ -26,7 +31,7 @@ export const ModalWindow: FC<IModalWindow> = ({
 				close();
 			}
 		}, [close, condition]),
-		condition
+		[condition]
 	);
 
 	return condition ? (

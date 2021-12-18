@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import { IOnlyClassComponent, URLorNull } from "../../../../Types/Common";
+import { ID, IOnlyClassComponent, URLorNull } from "../../../../Types/Common";
 import { Picture } from "../../Picture/Picture";
 
 import PhotoStyle from "./Photo.module.css";
 
 interface IPhoto extends IOnlyClassComponent {
-	id: number;
+	id: ID;
 	photo: URLorNull;
 	fullName: string;
 }

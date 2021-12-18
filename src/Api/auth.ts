@@ -29,6 +29,7 @@ export const login = async (credentials: ILoginRequest) => {
 };
 
 export const logout = async () => {
-	return (await makeDeleteRequest<IStandardServerResponse>(baseURL + "logout"))
+
+	return (await makeDeleteRequest<IStandardServerResponse>(baseURL + "login"))
 		.data;
 };

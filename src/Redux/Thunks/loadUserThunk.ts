@@ -9,9 +9,10 @@ import { setInfo } from "../Reducers/profileReducer";
 export const loadUserThunk: LoadUserThunk = (id) => {
 	return async (dispatch) => {
 		try {
+
 			dispatch(startLoadingProfile());
 
-			const user = (await getProfile(id)).data;
+			const user = await getProfile(id);
 
 			dispatch(setInfo(user));
 

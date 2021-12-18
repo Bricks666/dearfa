@@ -2,12 +2,12 @@ import classNames from "classnames";
 import React, { FC } from "react";
 
 import { Link } from "react-router-dom";
-import { IOnlyClassComponent } from "../../../../Types/Common";
+import { ID, IOnlyClassComponent } from "../../../../Types/Common";
 
 import FullNameStyle from "./FullName.module.css";
 
 interface IFullName extends IOnlyClassComponent {
-	id: number;
+	id: ID;
 }
 
 export const FullName: FC<IFullName> = ({ id, className, children }) => {

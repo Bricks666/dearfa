@@ -13,7 +13,7 @@ export default function reducer(
 	switch (action.type) {
 		case NavigationActionTypes.UPDATE_PROFILE_URL: {
 			return state.map((item) => {
-				if (item.content === "Профиль") {
+				if (item.text === "Профиль") {
 					return {
 						...item,
 						path: `/profile/${action.payload.userId}`,

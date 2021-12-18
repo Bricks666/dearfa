@@ -16,7 +16,7 @@ export default function reducer(
 			return {
 				...state,
 				[action.payload.dialogId]: [
-					...state[action.payload.dialogId],
+					...(state[action.payload.dialogId] || []),
 					...action.payload.messages,
 				],
 			};

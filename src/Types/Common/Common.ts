@@ -19,7 +19,7 @@ export interface IPhotos {
 export type DateType = string;
 
 export type EventHandler<Element, EventType> = (
-	event: SyntheticEvent<Element, EventType>
+	event?: SyntheticEvent<Element, EventType>
 ) => void | Promise<void>;
 
 export type ButtonType = "submit" | "reset" | "button";

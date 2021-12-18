@@ -78,39 +78,37 @@ export const initialState: IStore = {
 	navigation: [
 		{
 			path: "/profile/",
-			content: "Профиль",
-			exact: true,
+			text: "Профиль",
 			id: 1,
 		},
 		{
 			path: "/dialogs",
-			content: "Сообщения",
+			text: "Сообщения",
 			id: 2,
 		},
 		{
 			path: "/friends/1",
-			content: "Друзья",
+			text: "Друзья",
 			id: 3,
 		},
 		{
 			path: "/news",
-			content: "Новости",
+			text: "Новости",
 			id: 4,
 		},
 		{
 			path: "/music",
-			content: "Музыка",
+			text: "Музыка",
 			id: 5,
 		},
 		{
 			path: "/users/1",
-			content: "Пользователи",
-			exact: true,
+			text: "Пользователи",
 			id: 6,
 		},
 		{
 			path: "/settings",
-			content: "Настройки",
+			text: "Настройки",
 			id: 7,
 		},
 	],

@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { IOnlyClassComponent } from "../../../Types/Common";
@@ -15,9 +16,9 @@ export const NavigationItem: FC<INavigationItem> = ({ text, to }) => {
 			<NavLink
 				to={to}
 				className={({ isActive }) =>
-					isActive
-						? NavigationItemStyle.linkCurrentPage
-						: NavigationItemStyle.link
+					classNames(NavigationItemStyle.link, {
+						[NavigationItemStyle.linkCurrentPage]: isActive,
+					})
 				}
 			>
 				{text}

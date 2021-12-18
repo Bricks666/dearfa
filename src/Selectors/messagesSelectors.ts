@@ -7,5 +7,5 @@ export const getMessages: StandardSelector<IMessagesState> = (state) => {
 };
 
 export const getDialogMessages: GetDialogMessages = (state, dialogId) => {
-	return getMessages(state)[dialogId] || [];
+	return getMessages(state)[+dialogId] || [];
 };

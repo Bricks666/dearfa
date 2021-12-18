@@ -1,8 +1,8 @@
-import { DateType } from "../Common";
+import { ID } from "../Common";
 
 export interface IPost {
-	id: number;
-	date: DateType;
+	id: ID;
+	date: Date;
 	authorId: number;
 	content: string;
 	like: ILike;
@@ -18,7 +18,7 @@ export enum PostsActionTypes {
 }
 
 interface IToggleLikePayload {
-	postId: number;
+	postId: ID;
 }
 
 interface IToggleLikeAction {
@@ -28,5 +28,5 @@ interface IToggleLikeAction {
 
 export type PostsActions = IToggleLikeAction;
 
-export type ToggleLikeAC = (postId: number) => IToggleLikeAction;
+export type ToggleLikeAC = (postId: ID) => IToggleLikeAction;
 export type CreateLike = (isLiked: boolean, prevCount: number) => ILike;

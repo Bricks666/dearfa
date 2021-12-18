@@ -1,12 +1,14 @@
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useTypedDispatch } from ".";
 import { sendMessageThunk } from "../Redux/Thunks/sendMessageThunk";
+import { UseSendMessages } from "../Types/Hooks";
 
-export const useSendMessage = (dialogId) => {
-	const dispatch = useDispatch();
+export const useSendMessage: UseSendMessages = (dialogId) => {
+	const dispatch = useTypedDispatch();
 
 	const sendMessage = useCallback(
 		({ message }) => {
+			debugger;
 			dispatch(sendMessageThunk(dialogId, message));
 		},
 		[dispatch, dialogId]

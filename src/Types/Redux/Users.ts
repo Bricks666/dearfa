@@ -1,5 +1,5 @@
-import { URLorNull } from "../Common";
-import { IPhotos } from "./Common";
+import { IPhotos, URLorNull } from "../Common";
+
 export interface IUsersState {
 	list: IUser[];
 	pageCount: number;

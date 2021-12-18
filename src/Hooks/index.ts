@@ -1,3 +1,5 @@
+export { useFriendsPageCount } from "./useFriendsPageCount";
+export { useUsersPageCount } from "./useUsersPageCount";
 export { useTypedSelector } from "./useTypedSelector";
 export { useTypedDispatch } from "./useTypedDispatch";
 export { useEscListener } from "./useEscListener";
@@ -11,7 +13,7 @@ export { useUnfollow } from "./useUnfollow";
 export { useFriends } from "./useFriends";
 export { useIsFollowing } from "./useIsFollowing";
 export { useLogin } from "./useLogin";
-export { useUserProfile } from "./useUserProfile";
+export { useProfile } from "./useProfile";
 export { useNavigation } from "./useNavigation";
 export { useIsAuthUser } from "./useIsAuthUser";
 export { useUpdateProfile } from "./useUpdateProfile";
