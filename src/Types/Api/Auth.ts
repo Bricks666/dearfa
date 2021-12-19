@@ -1,3 +1,5 @@
+import { IStandardServerResponse } from ".";
+
 export interface IAuthResponse {
 	id: number;
 	login: string;
@@ -11,3 +13,11 @@ export interface ILoginRequest {
 	password: string;
 	rememberMe: boolean;
 }
+
+export type GetAuth = () => Promise<IStandardServerResponse<IAuthResponse>>;
+
+export type Login = (
+	credentials: ILoginRequest
+) => Promise<IStandardServerResponse<ILoginResponse>>;
+
+export type Logout = () => Promise<IStandardServerResponse>;

@@ -11,7 +11,7 @@ export const loadUsersThunk: LoadUsersThunk = (usersCount, page) => {
 		try {
 			dispatch(startLoadingUsers());
 
-			const users = await getUsers(usersCount, page);
+			const users = await getUsers(usersCount, page, false);
 
 			dispatch(setUsers(users));
 			dispatch(endLoadingUsers());

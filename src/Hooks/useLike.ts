@@ -10,5 +10,5 @@ export const useLike: UseLike = (postId) => {
 		dispatch(toggleLikeAC(postId));
 	}, [dispatch, postId]);
 
-	return toggleLike;
+	return { toggleLike };
 };

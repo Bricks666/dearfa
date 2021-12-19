@@ -32,7 +32,7 @@ export type ID = number | string;
 
 export type FormSubmitHandler<T> = (
 	formValues: T,
-	formApi: FormApi<T, Partial<T>>,
+	formApi?: FormApi<T, Partial<T>>,
 	errorsCallback?: (errors?: SubmissionErrors) => void
 ) => void;
 

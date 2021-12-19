@@ -9,7 +9,7 @@ import { IOnlyClassComponent } from "../../Types/Common";
 
 const FavoritFriends: FC<IOnlyClassComponent> = ({ className }) => {
 	const { friends } = useFavoritFriends();
-	const LoadingWrapper = useLoading("loadingFavoriteFriends");
+	const { LoadingWrapper } = useLoading("loadingFavoriteFriends");
 
 	return (
 		<aside

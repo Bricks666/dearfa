@@ -5,7 +5,7 @@ import { setMessages } from "../Reducers/messagesReducer";
 export const sendMessageThunk: SendMessageThunk = (dialogId, message) => {
 	return async (dispatch) => {
 		try {
-      debugger;
+
 			const {
 				resultCode,
 				data: { message: newMessage },

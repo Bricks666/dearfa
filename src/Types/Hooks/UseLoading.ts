@@ -4,4 +4,8 @@ import { IOnlyClassComponent } from "./../Common/Common";
 
 export type LoadingWrapper = FC<IOnlyClassComponent>;
 
-export type UseLoading = (loadingName: LoadingTypes) => LoadingWrapper;
+export interface IUseLoadingResponse {
+	LoadingWrapper: LoadingWrapper;
+}
+
+export type UseLoading = (loadingName: LoadingTypes) => IUseLoadingResponse;

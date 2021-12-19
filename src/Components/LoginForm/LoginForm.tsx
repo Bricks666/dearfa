@@ -15,6 +15,7 @@ import LoginFormStyle from "./LoginForm.module.css";
 type FormValues = {
 	email: string;
 	password: string;
+	remember: boolean;
 };
 
 type Validate = (data: FormValues) => ValidationErrors<FormValues>;

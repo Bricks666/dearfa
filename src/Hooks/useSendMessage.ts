@@ -8,7 +8,7 @@ export const useSendMessage: UseSendMessages = (dialogId) => {
 
 	const sendMessage = useCallback(
 		({ message }) => {
-			debugger;
+
 			dispatch(sendMessageThunk(dialogId, message));
 		},
 		[dispatch, dialogId]

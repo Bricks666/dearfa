@@ -11,7 +11,7 @@ interface ICompanionComponent extends IOnlyClassComponent {
 }
 
 export const Companion: FC<ICompanionComponent> = ({ className, dialogId }) => {
-	const companion = useCompanion(dialogId);
+	const { companion } = useCompanion(dialogId);
 	return (
 		<header className={classNames(CompanionStyle.header, className)}>
 			<Photo

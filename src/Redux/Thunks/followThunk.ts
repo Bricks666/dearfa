@@ -12,7 +12,7 @@ export const followThunk: FollowThunk = (user) => {
 			dispatch(startFollowingUser(user.id));
 
 			const response = await follow(user.id);
-			debugger;
+
 			if (response.resultCode === 0) {
 				dispatch(followUser(user));
 			}

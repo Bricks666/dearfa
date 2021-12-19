@@ -11,8 +11,7 @@ export const loadMessagesThunk: LoadMessagesThunk = (dialogId, page) => {
 		try {
 			dispatch(startLoadingMessages());
 			const response = await getMessages(dialogId, page);
-			debugger;
-			console.log(response);
+
 			dispatch(setMessages(dialogId, response.items));
 		} catch (e) {
 			console.log(e);

@@ -12,5 +12,5 @@ export const useLoading: UseLoading = (loadingName) => {
 		return loadingStatus ? <Loading className={className} /> : <>{children}</>;
 	};
 
-	return LoadingWrapper;
+	return { LoadingWrapper };
 };

@@ -12,7 +12,7 @@ interface ILikeComponent extends IOnlyClassComponent {
 }
 
 export const Like: FC<ILikeComponent> = ({ className, postId, status }) => {
-	const toggleLike = useLike(postId);
+	const { toggleLike } = useLike(postId);
 	return (
 		<label className={classNames(LikeStyle.label, className)}>
 			<input

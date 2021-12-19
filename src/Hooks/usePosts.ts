@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
+import { useTypedSelector } from ".";
 import { postsSelectors } from "../Selectors";
+import { UsePosts } from "../Types/Hooks";
 
-export const usePosts = () => {
-	const posts = useSelector(postsSelectors.getPosts);
-
-	return posts;
+export const usePosts: UsePosts = () => {
+	return useTypedSelector(postsSelectors.getPosts);
 };

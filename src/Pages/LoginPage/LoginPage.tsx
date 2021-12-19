@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import { useLogin } from "../../Hooks";
+import { useSignin } from "../../Hooks";
 import { IOnlyClassComponent } from "../../Types/Common";
 import { LoginForm } from "../../Components/LoginForm";
 import { SectionHeader } from "../../Components/Shared";
@@ -8,12 +8,12 @@ import { SectionHeader } from "../../Components/Shared";
 import LoginPageStyle from "./LoginPage.module.css";
 
 export const LoginPage: FC<IOnlyClassComponent> = ({ className }) => {
-	const { login: onSubmit } = useLogin();
+	const { signin } = useSignin();
 
 	return (
 		<main className={classNames(LoginPageStyle.main, className)}>
 			<SectionHeader className={LoginPageStyle.header}>Вход</SectionHeader>
-			<LoginForm className={LoginPageStyle.form} onSubmit={onSubmit} />
+			<LoginForm className={LoginPageStyle.form} onSubmit={signin} />
 		</main>
 	);
 };

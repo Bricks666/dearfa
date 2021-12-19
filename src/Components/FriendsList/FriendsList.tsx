@@ -5,7 +5,7 @@ import { List } from "../Shared";
 import { FriendCard } from "./FriendCard";
 
 export const FriendsList: FC<IOnlyClassComponent> = ({ className }) => {
-	const LoadingWrapper = useLoading("loadingFriends");
+	const { LoadingWrapper } = useLoading("loadingFriends");
 	const { friends, loadFriends } = useFriends();
 	useParamChangeListener("page", loadFriends);
 

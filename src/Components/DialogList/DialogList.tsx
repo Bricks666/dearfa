@@ -9,7 +9,7 @@ import DialogListStyle from "./DialogList.module.css";
 
 const DialogList: FC<IOnlyClassComponent> = ({ className }) => {
 	const { dialogs, loadDialogs } = useDialogsList();
-	const LoadingWrapper = useLoading("loadingDialogs");
+	const { LoadingWrapper } = useLoading("loadingDialogs");
 
 	useEffect(() => {
 		loadDialogs();

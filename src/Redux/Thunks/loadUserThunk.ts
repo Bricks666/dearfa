@@ -1,4 +1,4 @@
-import { getProfile } from "../../Api";
+import { getProfileWithStatus } from "../../Api";
 import { LoadUserThunk } from "../../Types/Redux";
 import {
 	startLoadingProfile,
@@ -9,10 +9,9 @@ import { setInfo } from "../Reducers/profileReducer";
 export const loadUserThunk: LoadUserThunk = (id) => {
 	return async (dispatch) => {
 		try {
-
 			dispatch(startLoadingProfile());
 
-			const user = await getProfile(id);
+			const user = await getProfileWithStatus(id);
 
 			dispatch(setInfo(user));
 

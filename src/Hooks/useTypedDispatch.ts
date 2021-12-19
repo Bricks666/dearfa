@@ -1,4 +1,4 @@
 import { useDispatch } from "react-redux";
-import { TypedDispatch } from "../Types/Hooks";
+import { UseTypedDispatch } from "../Types/Hooks";
 
-export const useTypedDispatch = () => useDispatch<TypedDispatch>();
+export const useTypedDispatch: UseTypedDispatch = () => useDispatch();

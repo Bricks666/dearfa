@@ -16,7 +16,7 @@ import { UserInfo } from "../../Components/UserInfo";
 import ProfilePageStyle from "./ProfilePage.module.css";
 
 export const ProfilePage: FC<IOnlyClassComponent> = ({ className }) => {
-	const LoadingWrapper = useLoading("loadingProfile");
+	const { LoadingWrapper } = useLoading("loadingProfile");
 	const { user, loadUser } = useProfile();
 	useParamChangeListener("id", loadUser);
 	const isAuthUser = useIsAuthUser(user.userId);
@@ -28,7 +28,7 @@ export const ProfilePage: FC<IOnlyClassComponent> = ({ className }) => {
 				<SectionHeader className="visibility-hidden">Профиль</SectionHeader>
 				<Picture
 					className={classNames(ProfilePageStyle.image, "fake-photo")}
-					oneXSrc="/Images/ProfileBackground/SunSet"
+					oneXSrc="/../src/Assets/Images/ProfileBackground/SunSet"
 					alt=""
 				/>
 				<ProfileInfo

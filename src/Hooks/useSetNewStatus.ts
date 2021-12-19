@@ -1,10 +1,11 @@
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useTypedDispatch } from ".";
 import { setNewStatusThunk } from "../Redux/Thunks/setNewStatusThunk";
+import { SetNewStatus, UseSetNewStatus } from "../Types/Hooks";
 
-export const useSetNewStatus = () => {
-	const dispatch = useDispatch();
-	const setNewStatus = useCallback(
+export const useSetNewStatus: UseSetNewStatus = () => {
+	const dispatch = useTypedDispatch();
+	const setNewStatus: SetNewStatus = useCallback(
 		({ status }) => {
 			dispatch(setNewStatusThunk(status));
 		},

@@ -15,7 +15,7 @@ const axiosInstance = Axios.create({
 	withCredentials: true,
 });
 
-export const makeGetRequest: GetRequest = async <T>(url: URL) => {
+export const makeGetRequest: GetRequest = async <T = EmptyObject>(url: URL) => {
 	return await axiosInstance.get<T>(url);
 };
 

@@ -7,7 +7,7 @@ import { IUser } from "../../Types/Redux";
 
 export const UsersList: FC<IOnlyClassComponent> = ({ className }) => {
 	const { users, loadUsers } = useUsersList();
-	const LoadingWrapper = useLoading("loadingUsers");
+	const { LoadingWrapper } = useLoading("loadingUsers");
 	useParamChangeListener("page", loadUsers);
 	return (
 		<LoadingWrapper>

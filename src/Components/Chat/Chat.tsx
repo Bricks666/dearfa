@@ -17,9 +17,12 @@ import ChatStyle from "./Chat.module.css";
 
 const Chat: FC<IOnlyClassComponent> = ({ className }) => {
 	const { id = "" } = useParams();
+
 	const { loadMessages } = useLoadMessages(id);
 	useParamChangeListener("id", loadMessages);
-	const LoadingWrapper = useLoading("loadingMessages");
+
+	const { LoadingWrapper } = useLoading("loadingMessages");
+
 	const navigate = useNavigate();
 	const escPressHandler = useCallback(() => {
 		if (!!id !== false) {
@@ -27,14 +30,6 @@ const Chat: FC<IOnlyClassComponent> = ({ className }) => {
 		}
 	}, [navigate, id]);
 	useEscListener(escPressHandler);
-
-	if (!!id === false) {
-		return (
-			<section className={classNames(ChatStyle.chat, className)}>
-				<p className={ChatStyle.withoutChat}>Пока что не открыт ни один чат</p>
-			</section>
-		);
-	}
 
 	return (
 		<section className={classNames(ChatStyle.chat, className)}>

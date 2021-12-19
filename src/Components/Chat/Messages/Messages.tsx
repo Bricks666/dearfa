@@ -13,7 +13,9 @@ interface IMessages extends IOnlyClassComponent {
 const Messages: FC<IMessages> = ({ className, dialogId }) => {
 	const { userId: authId } = useAuth();
 	const { messages } = useMessages(dialogId);
-	const { name: companionName } = useCompanion(dialogId);
+	const {
+		companion: { name: companionName },
+	} = useCompanion(dialogId);
 
 	return (
 		<section

@@ -15,7 +15,7 @@ export const updateProfileThunk: UpdateProfileThunk = ({
 		try {
 			dispatch(startLoadingProfile());
 
-			const { resultCode, ...data } = await updateProfile(newContactsData);
+			const { resultCode } = await updateProfile(newContactsData);
 
 			if (resultCode === 0) {
 				/* TODO: Сделать отдельные типы для отправки */

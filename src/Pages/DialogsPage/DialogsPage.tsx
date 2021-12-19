@@ -7,6 +7,7 @@ import { Chat } from "../../Components/Chat";
 
 import DialogsPageStyle from "./DialogsPage.module.css";
 import { Route, Routes } from "react-router-dom";
+import { EmptyChat } from "../../Components/EmptyChat";
 
 export const DialogsPage: FC<IOnlyClassComponent> = ({ className }) => {
 	return (
@@ -19,6 +20,10 @@ export const DialogsPage: FC<IOnlyClassComponent> = ({ className }) => {
 				<Route
 					path=":id"
 					element={<Chat className={DialogsPageStyle.chat} />}
+				/>
+				<Route
+					path="*"
+					element={<EmptyChat className={DialogsPageStyle.chat} />}
 				/>
 			</Routes>
 		</main>

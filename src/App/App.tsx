@@ -10,7 +10,7 @@ import { routes } from "../Routes";
 import AppStyle from "./App.module.css";
 
 export const App: FC = () => {
-	const LoadingWrapper = useLoading("loadingAuth");
+	const { LoadingWrapper } = useLoading("loadingAuth");
 	const isLogin = useIsLogin();
 	const { auth } = useAuth();
 

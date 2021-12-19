@@ -18,5 +18,5 @@ export const useCompanion: UseCompanion = (dialogId) => {
 		};
 	}
 
-	return companion;
+	return { companion };
 };

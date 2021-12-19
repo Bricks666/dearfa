@@ -1,4 +1,5 @@
 import { ThunkDispatch } from "redux-thunk";
 import { AppState, RootActions } from "../Redux";
 
-export type TypedDispatch = ThunkDispatch<AppState, undefined, RootActions>;
+type TypedDispatch = ThunkDispatch<AppState, undefined, RootActions>;
+export type UseTypedDispatch = () => TypedDispatch;
