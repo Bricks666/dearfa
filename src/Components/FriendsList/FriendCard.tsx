@@ -1,12 +1,9 @@
 import React, { FC, useMemo } from "react";
 import { useIsFollowing, useUnfollow } from "../../Hooks";
-import { IOnlyClassComponent } from "../../Types/Common";
-import { IUser } from "../../Types/Redux";
+import { IFriendComponent } from "../../Types/Components";
 import { UserCard } from "../Shared";
 
-interface IFriendCard extends IOnlyClassComponent, IUser {}
-
-export const FriendCard: FC<IFriendCard> = ({
+export const FriendCard: FC<IFriendComponent> = ({
 	className,
 	id,
 	name,
@@ -15,7 +12,7 @@ export const FriendCard: FC<IFriendCard> = ({
 	followed,
 	uniqueUrlName,
 }) => {
-	const user: IUser = useMemo(() => {
+	const user = useMemo(() => {
 		return {
 			id,
 			name,

@@ -29,7 +29,6 @@ export const UserListCard: FC<IUserCard> = ({
 	const { follow } = useFollow(user);
 	const { unfollow } = useUnfollow(id);
 	const isFollowing = useIsFollowing(id);
-	console.log(followed);
 
 	return (
 		<UserCard

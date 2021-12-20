@@ -1,21 +1,10 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import {
-	ButtonType,
-	EventHandler,
-	IOnlyClassComponent,
-} from "../../../../Types/Common";
+import { IButtonComponent } from "../../../Types/Components";
 
 import ButtonStyle from "./Button.module.css";
 
-export interface IButton extends IOnlyClassComponent {
-	disabled?: boolean;
-	onClick?: EventHandler<HTMLButtonElement, MouseEvent>;
-	type?: ButtonType;
-	title?: string;
-}
-
-const Button: FC<IButton> = ({
+const Button: FC<IButtonComponent> = ({
 	className,
 	type,
 	onClick,

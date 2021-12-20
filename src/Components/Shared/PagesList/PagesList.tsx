@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 import { renderPagesList } from "./renderPagesList";
-import { ButtonLink } from "../Buttons/ButtonLink/ButtonLink";
+import { ButtonLink } from "../ButtonLink/ButtonLink";
 
 import PagesListStyle from "./PagesList.module.css";
 import { IOnlyClassComponent } from "../../../Types/Common";

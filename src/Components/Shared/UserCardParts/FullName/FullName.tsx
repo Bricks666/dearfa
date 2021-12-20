@@ -1,16 +1,15 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-
 import { Link } from "react-router-dom";
-import { ID, IOnlyClassComponent } from "../../../../Types/Common";
+import { IFullNameComponent } from "../../../../Types/Components";
 
 import FullNameStyle from "./FullName.module.css";
 
-interface IFullName extends IOnlyClassComponent {
-	id: ID;
-}
-
-export const FullName: FC<IFullName> = ({ id, className, children }) => {
+export const FullName: FC<IFullNameComponent> = ({
+	id,
+	className,
+	children,
+}) => {
 	return (
 		<Link
 			className={classNames(FullNameStyle.link, className)}

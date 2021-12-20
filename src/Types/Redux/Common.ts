@@ -1,5 +1,4 @@
 import { store } from "../../Redux/store";
-import { TypedUseSelectorHook, useSelector } from "react-redux";
 import {
 	AuthActions,
 	DialogsActions,
@@ -16,8 +15,6 @@ import {
 import { ThunkAction } from "redux-thunk";
 
 export type AppState = ReturnType<typeof store.getState>;
-
-export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
 
 export type RootActions =
 	| ProfileActions

@@ -1,16 +1,11 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import { IOnlyClassComponent } from "../../../../Types/Common";
-import { IMessage } from "../../../../Types/Redux";
 import { Date } from "../../../Shared";
+import { IMessageComponent } from "../../../../Types/Components";
 
 import MessageStyle from "./Message.module.css";
 
-interface IMessageCard
-	extends IOnlyClassComponent,
-		Omit<IMessage, "body" | "id" | "senderId"> {}
-
-export const Message: FC<IMessageCard> = ({
+export const Message: FC<IMessageComponent> = ({
 	className,
 	children,
 	senderName,

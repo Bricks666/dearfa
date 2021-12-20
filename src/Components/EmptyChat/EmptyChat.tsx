@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { IOnlyClassComponent } from "../../Types/Common";
+import { IOnlyClassComponent } from "../../Types/Components";
 
 export const EmptyChat: FC<IOnlyClassComponent> = ({ className }) => {
 	return (

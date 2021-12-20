@@ -1,13 +1,10 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
-import { IOnlyClassComponent } from "../../../Types/Common";
-import { IDialog } from "../../../Types/Redux";
+import { IDialogComponent } from "../../../Types/Components";
 import { SubsectionHeader, Picture } from "../../Shared";
 
 import DialogStyle from "./Dialog.module.css";
-
-interface IDialogComponent extends IOnlyClassComponent, IDialog {}
 
 export const Dialog: FC<IDialogComponent> = ({
 	className,

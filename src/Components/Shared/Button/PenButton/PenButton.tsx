@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 
-import { Button, IButton } from "../Button/Button";
+import { Button, IButton } from "../Button";
 
 import PenButtonStyle from "./PenButton.module.css";
 /* Доделать стили, поставить карандаш на фон */

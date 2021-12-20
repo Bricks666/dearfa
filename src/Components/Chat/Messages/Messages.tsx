@@ -1,16 +1,12 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 import { useAuth, useCompanion, useMessages } from "../../../Hooks";
-import { IOnlyClassComponent } from "../../../Types/Common";
+import { IMessagesComponent } from "../../../Types/Components";
 import { Message } from "./Message/Message";
 
 import MessagesStyle from "./Messages.module.css";
 
-interface IMessages extends IOnlyClassComponent {
-	dialogId: number;
-}
-
-const Messages: FC<IMessages> = ({ className, dialogId }) => {
+const Messages: FC<IMessagesComponent> = ({ className, dialogId }) => {
 	const { userId: authId } = useAuth();
 	const { messages } = useMessages(dialogId);
 	const {

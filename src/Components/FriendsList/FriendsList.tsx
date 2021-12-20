@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useLoading, useFriends, useParamChangeListener } from "../../Hooks";
-import { IOnlyClassComponent } from "../../Types/Common";
+import { IOnlyClassComponent } from "../../Types/Components";
 import { List } from "../Shared";
 import { FriendCard } from "./FriendCard";
 

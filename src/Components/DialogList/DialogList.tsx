@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import classNames from "classnames";
 
 import { useLoading, useDialogsList } from "../../Hooks/";
-import { IOnlyClassComponent } from "../../Types/Common";
+import { IOnlyClassComponent } from "../../Types/Components";
 import { Dialog } from "./Dialog/Dialog";
 
 import DialogListStyle from "./DialogList.module.css";

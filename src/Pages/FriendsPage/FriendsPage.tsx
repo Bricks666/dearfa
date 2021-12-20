@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { PagesListWithRouting, SectionHeader } from "../../Components/Shared";
 import { FriendsList } from "../../Components/FriendsList";
 import { useFriendsPageCount } from "../../Hooks";
-import { IOnlyClassComponent } from "../../Types/Common";
+import { IOnlyClassComponent } from "../../Types/Components";
 
 import FriendsPageStyle from "./FriendsPage.module.css";
 

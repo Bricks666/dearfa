@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import { IOnlyClassComponent, URLorNull } from "../../../Types/Common";
+import { IOnlyClassComponent } from "../../../Types/Components";
 
 import PictureStyle from "./Picture.module.css";
 

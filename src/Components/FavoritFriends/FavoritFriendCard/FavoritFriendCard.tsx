@@ -1,16 +1,11 @@
 import React, { FC } from "react";
-import { IOnlyClassComponent } from "../../../Types/Common";
-import { IUser } from "../../../Types/Redux";
+import { IFavoriteFriendComponent } from "../../../Types/Components";
 
 import { Photo } from "../../Shared";
 
 import FavoriteFriendCardStyle from "./FavoritFriendCard.module.css";
 
-interface IFavoriteFriendsCard
-	extends IOnlyClassComponent,
-		Pick<IUser, "photos" | "id" | "name"> {}
-
-export const FavoritFriendCard: FC<IFavoriteFriendsCard> = ({
+export const FavoritFriendCard: FC<IFavoriteFriendComponent> = ({
 	className,
 	photos: { small },
 	id,

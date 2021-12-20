@@ -1,7 +1,7 @@
-export { Button } from "./Buttons/Button/Button";
-export { ButtonLink } from "./Buttons/ButtonLink/ButtonLink";
-export { CrossButton } from "./Buttons/CrossButton/CrossButton";
-export { PenButton } from "./Buttons/PenButton/PenButton";
+export { Button } from "./Button/Button";
+export { ButtonLink } from "./ButtonLink/ButtonLink";
+export { CrossButton } from "./CrossButton/CrossButton";
+export { PenButton } from "./Button/PenButton/PenButton";
 export { Checkbox } from "./Checkbox/Checkbox";
 export { CreatedPostsList } from "./CreatedPostsList/CreatedPostsList";
 export { Field } from "./Field/Field";

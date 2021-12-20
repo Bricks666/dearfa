@@ -11,7 +11,7 @@ import {
 import { MakeMessage } from "./MakeMessage/MakeMessage";
 import { Messages } from "./Messages/Messages";
 import { Companion } from "./Companion/Companion";
-import { IOnlyClassComponent } from "../../Types/Common";
+import { IOnlyClassComponent } from "../../Types/Components";
 
 import ChatStyle from "./Chat.module.css";
 

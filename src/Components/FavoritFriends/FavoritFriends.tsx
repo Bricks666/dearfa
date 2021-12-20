@@ -3,9 +3,9 @@ import { List, SubsectionHeader } from "../Shared";
 import { FavoritFriendCard } from "./FavoritFriendCard/FavoritFriendCard";
 import classNames from "classnames";
 import { useLoading, useFavoritFriends } from "../../Hooks";
+import { IOnlyClassComponent } from "../../Types/Components";
 
 import FavoritFriendsStyle from "./FavoritFriends.module.css";
-import { IOnlyClassComponent } from "../../Types/Common";
 
 const FavoritFriends: FC<IOnlyClassComponent> = ({ className }) => {
 	const { friends } = useFavoritFriends();

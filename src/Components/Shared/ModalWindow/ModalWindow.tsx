@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { FC, useCallback } from "react";
 import { useEscListener } from "../../../Hooks/useEscListener";
 import { EventHandler, IOnlyClassComponent } from "../../../Types/Common";
-import { CrossButton } from "../Buttons/CrossButton/CrossButton";
+import { CrossButton } from "../CrossButton/CrossButton";
 
 import ModalWindowStyle from "./ModalWindow.module.css";
 

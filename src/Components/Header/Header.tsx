@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { LogoutButton } from "./Button/LogoutButton";
 import { authSelectors } from "../../Selectors";
 import { useProfileURL, useIsLogin } from "../../Hooks";
-import { IOnlyClassComponent } from "../../Types/Common";
+import { IOnlyClassComponent } from "../../Types/Components";
 
 import HeaderStyle from "./Header.module.css";
 

@@ -1,14 +1,10 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 import { useCompanion } from "../../../Hooks";
-import { IOnlyClassComponent } from "../../../Types/Common";
+import { ICompanionComponent } from "../../../Types/Components";
 import { Photo, FullName, Date } from "../../Shared";
 
 import CompanionStyle from "./Companion.module.css";
-
-interface ICompanionComponent extends IOnlyClassComponent {
-	dialogId: number;
-}
 
 export const Companion: FC<ICompanionComponent> = ({ className, dialogId }) => {
 	const { companion } = useCompanion(dialogId);

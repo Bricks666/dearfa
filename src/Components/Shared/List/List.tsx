@@ -1,17 +1,8 @@
 import classNames from "classnames";
-import React, { FC, ReactElement } from "react";
-import { IOnlyClassComponent } from "../../../Types/Common";
+import React from "react";
+import { ListComponent } from "../../../Types/Components";
 
 import ListStyle from "./List.module.css";
-
-interface IList<T> extends IOnlyClassComponent {
-	items: T[];
-	Card: FC<T>;
-}
-
-type ListComponent = <T extends { id: number }>(
-	props: IList<T>
-) => ReactElement;
 
 export const List: ListComponent = ({ Card, items, className }) => {
 	return (
