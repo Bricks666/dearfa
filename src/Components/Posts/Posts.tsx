@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-
 import classNames from "classnames";
 import { MakePost } from "./MakePost/MakePost";
-import { SubsectionHeader, CreatedPostsList } from "../Shared";
-import { IOnlyClassComponent } from "../../Types/Common";
+import { SubsectionHeader } from "../Shared";
+import { IOnlyClassComponent } from "../../Types/Components";
+import { CreatedPostsList } from "../CreatedPostsList";
 
 import PostsStyle from "./Posts.module.css";
 

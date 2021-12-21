@@ -1,16 +1,11 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
-import { IOnlyClassComponent } from "../../../Types/Common";
+import { INavigationItemComponent } from "../../../Types/Components";
 
 import NavigationItemStyle from "./NavigationItem.module.css";
 
-interface INavigationItem extends IOnlyClassComponent {
-	to: string;
-	text: string;
-}
-
-export const NavigationItem: FC<INavigationItem> = ({ text, to }) => {
+export const NavigationItem: FC<INavigationItemComponent> = ({ text, to }) => {
 	return (
 		<li className={NavigationItemStyle.item}>
 			<NavLink

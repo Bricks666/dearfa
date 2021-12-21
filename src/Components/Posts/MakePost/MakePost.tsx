@@ -2,15 +2,15 @@ import classNames from "classnames";
 import React, { FC, useCallback } from "react";
 import { Form as ReactForm, Field as ReactField } from "react-final-form";
 import {
-	FormSubmitHandler,
-	IFormInner,
+	MakePostFormComponent,
+	MakePostHandler,
 	IOnlyClassComponent,
-} from "../../../Types/Common";
+} from "../../../Types/Components";
 import { Button, Textarea } from "../../Shared";
 
 import MakePostStyle from "./MakePost.module.css";
 
-const Form: FC<IFormInner<FormValues>> = ({
+const Form: FC<MakePostFormComponent> = ({
 	className,
 	handleSubmit,
 	pristine,
@@ -34,13 +34,9 @@ const Form: FC<IFormInner<FormValues>> = ({
 	);
 };
 
-type FormValues = {
-	messages: string;
-};
-
 export const MakePost: FC<IOnlyClassComponent> = ({ className }) => {
-	const onSubmit = useCallback<FormSubmitHandler<FormValues>>(
-		({ messages }) => console.log(messages),
+	const onSubmit = useCallback<MakePostHandler>(
+		({ message }) => console.log(message),
 		[]
 	);
 	return (

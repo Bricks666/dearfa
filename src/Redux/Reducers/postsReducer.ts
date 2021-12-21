@@ -7,10 +7,10 @@ import {
 } from "../../Types/Redux";
 import { initialState } from "../initialState";
 
-const createLike: CreateLike = (isLiked, prevCount) => {
+const createLike: CreateLike = (liked, prevCount) => {
 	return {
-		isLiked,
-		count: prevCount + (isLiked ? 1 : -1),
+		liked,
+		count: prevCount + (liked ? 1 : -1),
 	};
 };
 
@@ -18,22 +18,19 @@ export default function reducer(
 	state = initialState.posts,
 	action: PostsActions
 ): IPost[] {
-	switch (action.type) {
-		case PostsActionTypes.TOGGLE_LIKE: {
-			return state.map((post) => {
-				if (post.id === action.payload.postId) {
-					return {
-						...post,
-						like: createLike(!post.like.isLiked, post.like.count),
-					};
-				}
-				return post;
-			});
-		}
-		default: {
-			return state;
-		}
+	if (action.type === PostsActionTypes.TOGGLE_LIKE) {
+		return state.map((post) => {
+			if (post.id === action.payload.postId) {
+				return {
+					...post,
+					like: createLike(!post.like.liked, post.like.count),
+				};
+			}
+			return post;
+		});
 	}
+
+	return state;
 }
 
 export const toggleLike: ToggleLikeAC = (postId) => {

@@ -1,30 +1,17 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-
 import { Field as ReactField, Form as ReactForm } from "react-final-form";
 import {
-	IOnlyClassComponent,
-	IFormInner,
-	FormSubmitHandler,
-	ValidationErrors,
-} from "../../Types/Common";
+	ILoginComponent,
+	LoginFormComponent,
+	LoginFormValidate,
+	LoginFormValidationErrors,
+} from "../../Types/Components";
 import { Field, Checkbox, Button, ErrorMessage } from "../Shared";
 
 import LoginFormStyle from "./LoginForm.module.css";
 
-type FormValues = {
-	email: string;
-	password: string;
-	remember: boolean;
-};
-
-type Validate = (data: FormValues) => ValidationErrors<FormValues>;
-
-interface ILoginForm extends IOnlyClassComponent {
-	onSubmit: FormSubmitHandler<FormValues>;
-}
-
-const Form: FC<IFormInner<FormValues>> = ({
+const Form: FC<LoginFormComponent> = ({
 	className,
 	handleSubmit,
 	error,
@@ -67,8 +54,8 @@ const Form: FC<IFormInner<FormValues>> = ({
 	);
 };
 
-const validate: Validate = ({ email, password }) => {
-	const errors: ValidationErrors<FormValues> = {};
+const validate: LoginFormValidate = ({ email, password }) => {
+	const errors: LoginFormValidationErrors = {};
 
 	if (email === undefined) {
 		errors.email = "Email is require field";
@@ -80,9 +67,9 @@ const validate: Validate = ({ email, password }) => {
 	return errors;
 };
 
-export const LoginForm: FC<ILoginForm> = ({ className, onSubmit }) => {
+export const LoginForm: FC<ILoginComponent> = ({ className, onSubmit }) => {
 	return (
-		<ReactForm<FormValues>
+		<ReactForm
 			className={className}
 			onSubmit={onSubmit}
 			validate={validate}

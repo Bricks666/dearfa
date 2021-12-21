@@ -5,7 +5,6 @@ export const useStartFrom: UseStartFrom = (targetElement, parentElement) => {
 	useEffect(() => {
 		if (targetElement === undefined) {
 			console.log(targetElement);
-			return;
 		}
 		/* const { x, y } = targetElement.; */
 		/* console.log(x, y, targetElement);

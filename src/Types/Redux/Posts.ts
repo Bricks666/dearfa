@@ -10,7 +10,7 @@ export interface IPost {
 
 export interface ILike {
 	count: number;
-	isLiked: boolean;
+	liked: boolean;
 }
 
 export enum PostsActionTypes {

@@ -6,12 +6,12 @@ import { Button, Textarea } from "../../Shared";
 import { useSendMessage } from "../../../Hooks";
 import {
 	IMakeMessageComponent,
-	IMakeMessageForm,
+	MakeMessageFromComponent,
 } from "../../../Types/Components";
 
 import MakeMessageStyle from "./MakeMessage.module.css";
 
-const Form: FC<IMakeMessageForm> = ({ handleSubmit, className }) => {
+const Form: FC<MakeMessageFromComponent> = ({ handleSubmit, className }) => {
 	return (
 		<form
 			onSubmit={handleSubmit}

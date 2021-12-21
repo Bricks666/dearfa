@@ -15,7 +15,7 @@ export const Message: FC<IMessageComponent> = ({
 	return (
 		<article
 			className={classNames(MessageStyle.message, className, {
-				[MessageStyle.notViewed]: viewed == false,
+				[MessageStyle.notViewed]: viewed === false,
 			})}
 		>
 			<span className={MessageStyle.author}>{senderName}</span>

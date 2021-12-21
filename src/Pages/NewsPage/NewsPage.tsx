@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import { CreatedPostsList, SectionHeader } from "../../Components/Shared";
-import { IOnlyClassComponent } from "../../Types/Common";
+import { SectionHeader } from "../../Components/Shared";
+import { CreatedPostsList } from "../../Components/CreatedPostsList";
+import { IOnlyClassComponent } from "../../Types/Components";
 
 export const NewsPage: FC<IOnlyClassComponent> = ({ className }) => {
 	return (

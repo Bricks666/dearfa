@@ -30,7 +30,7 @@ export const ModalWindow: FC<IModalWindow> = ({
 	);
 
 	return condition ? (
-		<div className={ModalWindowStyle.wrapper} onClick={close}>
+		<div className={ModalWindowStyle.wrapper} onClick={close} role="dialog">
 			<div
 				className={classNames(ModalWindowStyle.inner, className)}
 				onClick={(e) => e.stopPropagation()}

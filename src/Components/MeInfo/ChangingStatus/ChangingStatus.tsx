@@ -1,6 +1,5 @@
 import React, { FC, useCallback, useState } from "react";
-
-import { NewStatus } from "./NewStatus/NewStatus";
+import { ChangeStatus } from "./ChangeStatus/ChangeStatus";
 import { PenButton, ModalWindow, Status } from "../../Shared";
 import { useSetNewStatus } from "../../../Hooks";
 
@@ -35,7 +34,7 @@ export const ChangingStatus: FC<IChangingStatus> = ({ status }) => {
 				/>
 			</Status>
 			<ModalWindow condition={showWindow} close={toggle}>
-				<NewStatus onSubmit={onSubmit} status={status} />
+				<ChangeStatus onSubmit={onSubmit} status={status} />
 			</ModalWindow>
 		</>
 	);

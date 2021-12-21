@@ -3,38 +3,18 @@ import classNames from "classnames";
 import { Form as ReactForm, Field as ReactField } from "react-final-form";
 
 import { Field, Button } from "../../Shared";
-import { ChangeProfilePhoto } from "./Photo/ChangeProfilePhoto";
-import { FileInput } from "./FileInput/FileInput";
+import { ChangedPhoto } from "./ChangedPhoto/ChangedPhoto";
+import { FileInput } from "../../Shared/FileInput/FileInput";
+import { useProfile } from "../../../Hooks";
+import {
+	ChangeProfileForm,
+	ChangeProfileInitial,
+	IChangeProfileComponent,
+} from "../../../Types/Components";
 
 import ChangeProfileStyle from "./ChangeProfile.module.css";
-import {
-	FormSubmitHandler,
-	ID,
-	IFormInner,
-	IOnlyClassComponent,
-	URLorNull,
-} from "../../../Types/Common";
-import { IContacts } from "../../../Types/Redux";
-import { useProfile } from "../../../Hooks";
 
-interface IChangePhoto {
-	photo: URLorNull;
-	newPhotoURL: URLorNull;
-	newPhoto: File | null;
-}
-
-type FormValues = {
-	userId: ID;
-	name: string;
-	aboutMe: string;
-	photo: IChangePhoto;
-} & IContacts;
-
-interface IChangeProfileForm extends IOnlyClassComponent {
-	onSubmit: FormSubmitHandler<FormValues>;
-}
-
-const Form: FC<IFormInner<FormValues>> = ({
+const Form: FC<ChangeProfileForm> = ({
 	handleSubmit,
 	initialValues,
 	values,
@@ -53,7 +33,7 @@ const Form: FC<IFormInner<FormValues>> = ({
 				className={ChangeProfileStyle.photoLabel}
 				accept="image/*"
 			>
-				<ChangeProfilePhoto
+				<ChangedPhoto
 					className={ChangeProfileStyle.photo}
 					photo={initialValues?.photo?.photo || null}
 					newPhotoURL={values.photo.newPhotoURL}
@@ -107,12 +87,12 @@ const Form: FC<IFormInner<FormValues>> = ({
 	);
 };
 
-export const ChangeProfileForm: FC<IChangeProfileForm> = ({
+export const ChangeProfile: FC<IChangeProfileComponent> = ({
 	className,
 	onSubmit,
 }) => {
 	const { user } = useProfile();
-	const initialValues: Partial<FormValues> = {
+	const initialValues: ChangeProfileInitial = {
 		userId: user.userId,
 		photo: { newPhoto: null, newPhotoURL: null, photo: user.photos.large },
 		name: user.fullName,

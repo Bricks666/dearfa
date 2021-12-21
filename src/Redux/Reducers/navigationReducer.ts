@@ -10,21 +10,19 @@ export default function reducer(
 	state = initialState.navigation,
 	action: NavigationActions
 ): INavigationItem[] {
-	switch (action.type) {
-		case NavigationActionTypes.UPDATE_PROFILE_URL: {
-			return state.map((item) => {
-				if (item.text === "Профиль") {
-					return {
-						...item,
-						path: `/profile/${action.payload.userId}`,
-					};
-				}
-				return item;
-			});
-		}
-		default:
-			return state;
+	if (action.type === NavigationActionTypes.UPDATE_PROFILE_URL) {
+		return state.map((item) => {
+			if (item.text === "Профиль") {
+				return {
+					...item,
+					path: `/profile/${action.payload.userId}`,
+				};
+			}
+			return item;
+		});
 	}
+
+	return state;
 }
 
 export const updateProfileURL: UpdateProfileURLAC = (userId) => {

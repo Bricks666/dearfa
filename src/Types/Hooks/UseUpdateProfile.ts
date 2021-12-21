@@ -1,4 +1,4 @@
-import { EmptyObject, FormSubmitHandler } from "../Common";
+import { FormSubmitHandler } from "../Common";
 
 export type UseUpdateProfile = () => IUseUpdateProfileResponse;
 
