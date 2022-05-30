@@ -1,0 +1,61 @@
+/* INPUT */
+
+.input {
+	display: inline-block;
+
+	position: absolute;
+
+	width: 1px;
+	height: 1px;
+
+	overflow: hidden;
+
+	clip: rect(0 0 0 0);
+}
+
+/* LABEL */
+
+.label {
+	position: relative;
+
+	padding-left: 30px;
+
+	font-size: 12px;
+}
+
+.label::before {
+	content: "";
+
+	display: inline-block;
+
+	position: absolute;
+	left: 0;
+
+	width: 24px;
+	height: 24px;
+
+	background-image: url("/src/assets/Patterns/checkbox.svg");
+	background-position: 0 1px;
+	background-repeat: no-repeat;
+	background-size: 24px auto;
+}
+
+.input:checked ~ .label::before {
+	background-position: 0 -24px;
+}
+
+.input:focus-visible ~ .label::before {
+	background-position: 0 -50px;
+}
+
+.input:focus-visible:checked ~ .label::before {
+	background-position: 0 -79px;
+}
+
+.input:disabled ~ .label::before {
+	background-position: 0 -107px;
+}
+
+.input:disabled:checked ~ .label::before {
+	background-position: 0 -131px;
+}

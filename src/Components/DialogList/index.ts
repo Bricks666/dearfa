@@ -1,1 +1,0 @@
-export { DialogList } from "./DialogList";
