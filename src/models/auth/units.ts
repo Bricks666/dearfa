@@ -3,7 +3,7 @@ import { createDomain } from 'effector-logger';
 import { createGate } from 'effector-react';
 import { LoginRequest } from '@/api/auth';
 import { StandardServerResponse } from '@/types';
-import { AuthUser } from './types';
+import { AuthUser, LoginResponse } from './types';
 
 const LoginDomain = createDomain();
 
@@ -16,7 +16,7 @@ export const authFx = LoginDomain.effect<
 >();
 export const loginFx = LoginDomain.effect<
 	LoginRequest,
-	StandardServerResponse<void>
+	StandardServerResponse<LoginResponse>
 >();
 export const logoutFx = LoginDomain.effect<void, StandardServerResponse>();
 

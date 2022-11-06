@@ -2,9 +2,9 @@ import Axios, { AxiosRequestConfig } from 'axios';
 import { URL, EmptyObject } from '@/types';
 
 const axiosInstance = Axios.create({
-	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+	baseURL: import.meta.env.VITE_API_URL,
 	headers: {
-		'API-KEY': 'b5d52611-1432-460b-9a90-98ff97a4eb1b',
+		'API-KEY': import.meta.env.VITE_API_KEY,
 	},
 	withCredentials: true,
 });

@@ -4,8 +4,8 @@ import { useUnit } from 'effector-react';
 import { IconButton, Menu, MenuItem } from '@mui/material';
 import { AccountCircleOutlined } from '@mui/icons-material';
 import { $authUser, logoutMutation } from '@/models/auth';
+import { CommonProps, VoidFunction } from '@/types';
 import { useToggle } from '@/hooks';
-import { CommonProps } from '@/types';
 
 interface MenuOption {
 	readonly label: string;
@@ -13,11 +13,12 @@ interface MenuOption {
 	readonly onClick?: VoidFunction;
 }
 
-export const ProfileMenu: React.FC<CommonProps> = (props) => {
+export const ProfileMenu: React.FC<CommonProps> = React.memo((props) => {
 	const { className } = props;
 	const { onToggle, toggled } = useToggle();
 	const anchor = React.useRef(null);
 	const { id: authId } = useUnit($authUser)!;
+	const logout = useUnit(logoutMutation.start);
 	const menuOptions: MenuOption[] = React.useMemo(
 		() => [
 			{
@@ -30,7 +31,7 @@ export const ProfileMenu: React.FC<CommonProps> = (props) => {
 			},
 			{
 				label: 'Выйти',
-				onClick: logoutMutation.start,
+				onClick: () => logout(),
 			},
 		],
 		[authId]
@@ -59,4 +60,4 @@ export const ProfileMenu: React.FC<CommonProps> = (props) => {
 			</Menu>
 		</>
 	);
-};
+});

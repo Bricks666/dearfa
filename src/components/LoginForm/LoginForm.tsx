@@ -1,42 +1,25 @@
 import * as React from 'react';
+import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import {
 	Button,
 	Checkbox,
 	FormControlLabel,
 	Stack,
-	SxProps,
 	TextField,
 } from '@mui/material';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { CommonProps } from '@/types';
-import { validateScheme } from './validating';
 import { LoginRequest } from '@/api/auth';
 import { loginMutation } from '@/models/auth';
+import { CommonProps } from '@/types';
+import { validateScheme } from './validating';
+
+import styles from './LoginForm.module.css';
 
 const initialState: LoginRequest = {
 	email: '',
 	password: '',
 	rememberMe: false,
-};
-
-/** TODO: Переписать форму */
-const form: SxProps = {
-	display: 'grid',
-	gridTemplateColumns: 'max-content auto',
-	width: '460px',
-};
-
-const field: SxProps = {
-	gridColumn: 'span 2',
-};
-
-const checkbox: SxProps = {
-	width: 'max-content',
-};
-
-const button: SxProps = {
-	justifySelf: 'end',
 };
 
 export const LoginForm: React.FC<CommonProps> = React.memo((props) => {
@@ -45,42 +28,42 @@ export const LoginForm: React.FC<CommonProps> = React.memo((props) => {
 		defaultValues: initialState,
 		resolver: joiResolver(validateScheme),
 	});
-	console.debug('Form');
 	const { errors, isSubmitting } = formState;
 	const { email, password } = errors;
 
 	return (
 		<Stack
-			className={className}
+			className={cn(styles.form, className)}
 			spacing={1}
-			sx={form}
 			component='form'
 			onSubmit={handleSubmit(loginMutation.start)}>
 			<TextField
+				className={styles.field}
 				{...register('email')}
 				variant='standard'
 				label='Почта'
 				error={!!email}
 				helperText={email?.message}
-				sx={field}
 			/>
 			<TextField
+				className={styles.field}
 				{...register('password')}
 				type='password'
 				variant='standard'
 				label='Пароль'
 				error={!!password}
 				helperText={password?.message}
-				sx={field}
 			/>
 			<FormControlLabel
-				control={<Checkbox {...register('rememberMe')} sx={checkbox} />}
+				control={
+					<Checkbox className={styles.checkbox} {...register('rememberMe')} />
+				}
 				label='Запомнить меня'
 			/>
 
 			<Button
+				className={styles.button}
 				type='submit'
-				sx={button}
 				variant='contained'
 				disabled={isSubmitting}>
 				Войти

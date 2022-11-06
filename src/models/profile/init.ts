@@ -63,14 +63,23 @@ sample({
 });
 
 sample({
-	source: [$profileInfo, getInfoQuery.$data, getStatusQuery.$data],
-	fn: ([oldInfo, info, status]: [
-		ProfileInfo,
-		Info | null,
-		string | null
-	]): ProfileInfo => {
+	clock: getInfoQuery.$data,
+	source: $profileInfo,
+	fn: (oldInfo, info): ProfileInfo => {
 		return {
-			...(info ?? oldInfo),
+			...oldInfo,
+			...info,
+		};
+	},
+	target: $profileInfo,
+});
+
+sample({
+	clock: getStatusQuery.$data,
+	source: $profileInfo,
+	fn: (oldInfo, status): ProfileInfo => {
+		return {
+			...oldInfo,
 			status: status ?? oldInfo.status,
 		};
 	},

@@ -1,96 +1,21 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import cn from 'classnames';
-/* import { Field as ReactField, Form as ReactForm } from "react-final-form"; */
-/* import { FORM_ERROR } from "final-form"; */
-import { Button, Field, ErrorMessage } from '../Shared';
-/* import {
-	IRegistrationComponent,
-	RegistrationFormComponent,
-	RegistrationValidation,
-	RegistrationValidationError,
-} from "../../types/Components"; */
+import { Button, Stack, TextField } from '@mui/material';
+import { CommonProps } from '@/types';
 
 import styles from './RegistrationForm.module.css';
 
-const Form: FC = (/* {
-	handleSubmit,
-	className,
-	error,
-	valid,
-	submitting,
-} */) => {
-	return null;
-	/* 		<form
-			className={cn(styles.form, className)}
-			onSubmit={handleSubmit}
-		>
-			<ReactField name="name" render={Field}>
-				Имя
-			</ReactField>
-			<ReactField name="email" type="email" render={Field}>
-				Почта
-			</ReactField>
-			{error && (
-				<ErrorMessage className={styles.error}>
-					{error}
-				</ErrorMessage>
-			)}
-			<ReactField name="password" type="password" render={Field}>
-				Пароль
-			</ReactField>
-			<ReactField name="passwordAgain" type="password" render={Field}>
-				Повторите пароль
-			</ReactField>
-			<Button
-				className={styles.button}
-				disabled={valid === false || submitting}
-			>
+export const RegistrationForm: React.FC<CommonProps> = React.memo((props) => {
+	const { className } = props;
+
+	return (
+		<Stack className={cn(styles.form, className)} spacing={1} component='form'>
+			<TextField variant='standard' label='Почта' />
+			<TextField type='password' variant='standard' label='Пароль' />
+
+			<Button className={styles.button} type='submit' variant='contained'>
 				Зарегистрироваться
 			</Button>
-		</form> */
-};
-/*
-const validate: RegistrationValidation = ({
-	email,
-	name,
-	password,
-	passwordAgain,
-}) => {
-	const errors: RegistrationValidationError = {};
-	if (name === undefined) {
-		errors.name = "Имя это обязательное поле";
-	}
-	if (email === undefined) {
-		errors.email = "Почта это обязательное поле";
-	}
-	if (password === undefined) {
-		errors.password = "Пароль не введен";
-	}
-	if (passwordAgain === undefined) {
-		errors.passwordAgain = "Повторите пароль";
-	}
-	if (
-		password !== passwordAgain &&
-		password !== undefined &&
-		passwordAgain !== undefined
-	) {
-		errors[FORM_ERROR] = "Пароли не совпадают";
-	}
-
-	return errors;
-}; */
-
-const RegistrationForm: FC /* <IRegistrationComponent> */ = (/* {
-	onSubmit,
-	className,
-} */) => {
-	return null;
-	/* 		<ReactForm
-			className={className}
-			onSubmit={onSubmit}
-			validate={validate}
-			render={Form}
-		/> */
-};
-
-export { RegistrationForm };
+		</Stack>
+	);
+});

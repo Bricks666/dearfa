@@ -1,0 +1,17 @@
+.form {
+	display: grid;
+	grid-template-columns: max-content auto;
+	width: 460px;
+}
+
+.field {
+	grid-column: span 2;
+}
+
+.checkbox {
+	width: max-content;
+}
+
+.button {
+	justify-self: end;
+}

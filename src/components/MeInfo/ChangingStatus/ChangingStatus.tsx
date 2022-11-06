@@ -10,13 +10,10 @@ interface ChangingStatusProps {
 
 export const ChangingStatus: FC<ChangingStatusProps> = ({ status }) => {
 	const [showWindow, toggleShow] = useState<boolean>(false);
-	const onSubmit = useCallback(
-		(formData: string) => {
-			updateStatusThunk(formData);
-			toggleShow(false);
-		},
-		[dispatch]
-	);
+	const onSubmit = useCallback((formData: string) => {
+		updateStatusThunk(formData);
+		toggleShow(false);
+	}, []);
 
 	const toggle = useCallback(() => {
 		toggleShow(!showWindow);

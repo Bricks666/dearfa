@@ -1,19 +1,22 @@
-import React, { FC, useCallback, useState } from 'react';
-import { ChangeProfile } from './ChangeProfile/ChangeProfile';
-import { ChangingStatus } from './ChangingStatus/ChangingStatus';
+import * as React from 'react';
+import { ProfileInfo } from '@/models/profile';
+import { CommonProps } from '@/types';
 import { ModalWindow, Button } from '../Shared';
 import { UserDescription } from '../UserDescription/UserDescription';
-import { User } from '@/models/users';
+import { ChangeProfile } from './ChangeProfile/ChangeProfile';
+import { ChangingStatus } from './ChangingStatus/ChangingStatus';
 
 import styles from './MeInfo.module.css';
 
-interface MeInfoProps {
-	readonly user: User;
+export interface MeInfoProps extends CommonProps {
+	readonly user: ProfileInfo;
 }
 
 /** TODO: Возможно не стоит делать этот блок, как отдельный компонент */
-export const MeInfo: FC<MeInfoProps> = ({ user }) => {
-	const [showChangeProfile, toggleChangeProfile] = useState<boolean>(false);
+export const MeInfo: React.FC<MeInfoProps> = (props) => {
+	const { user } = props;
+	const [showChangeProfile, toggleChangeProfile] =
+		React.useState<boolean>(false);
 	/* 	const updateProfile = useCallback(
 		({ userId, name: fullName, aboutMe, photo, ...contacts }) => {
 			dispatch(
@@ -24,7 +27,7 @@ export const MeInfo: FC<MeInfoProps> = ({ user }) => {
 		[dispatch]
 	); */
 
-	const toggleShowChangeProfile = useCallback(() => {
+	const toggleShowChangeProfile = React.useCallback(() => {
 		toggleChangeProfile(!showChangeProfile);
 	}, [showChangeProfile]);
 

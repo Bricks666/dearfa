@@ -1,11 +1,10 @@
-import { StandardServerResponse } from '@/types';
-import { URL } from '@/types';
+import { StandardServerResponse, URL } from '@/types';
 import {
 	makeDeleteRequest,
 	makeGetRequest,
 	makePostRequest,
 } from './makeRequest';
-import { AuthUser } from '@/models/auth';
+import { AuthUser, LoginResponse } from '@/models/auth';
 
 const baseURL: URL = 'auth/';
 
@@ -20,7 +19,7 @@ export interface LoginRequest {
 }
 
 export const login = async (credentials: LoginRequest) => {
-	return makePostRequest<StandardServerResponse<void>, LoginRequest>(
+	return makePostRequest<StandardServerResponse<LoginResponse>, LoginRequest>(
 		`${baseURL}login`,
 		credentials
 	);

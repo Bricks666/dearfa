@@ -10,7 +10,7 @@ import { Navigation } from './Navigation';
 
 import styles from './Header.module.css';
 
-export const Header: React.FC<CommonProps> = (props) => {
+export const Header: React.FC<CommonProps> = React.memo((props) => {
 	const { className } = props;
 	const isAuth = useUnit($isAuth);
 
@@ -48,4 +48,4 @@ export const Header: React.FC<CommonProps> = (props) => {
 			</Toolbar>
 		</AppBar>
 	);
-};
+});

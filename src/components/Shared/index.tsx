@@ -23,5 +23,5 @@ export { LookingJob } from './UserCardParts/LookingJob/LookingJob';
 export { DataListItem } from './DataListItem/DataLIstItem';
 export { DataList } from './DataList/DataList';
 export { AboutMe } from './UserCardParts/AboutMe/AboutMe';
-export { PostCard as Post } from './Post/Post';
+export { PostCard } from './PostCard';
 export { Like } from './Like/Like';
