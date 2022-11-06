@@ -1,13 +1,13 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { StandardProps } from '@/interfaces/components';
-import { ID, URL } from '@/interfaces/common';
+import { CommonProps } from '@/types';
+import { ID, URL } from '@/types';
 import { Picture } from '../../Picture/Picture';
 
-import PhotoStyle from './Photo.module.css';
+import styles from './Photo.module.css';
 
-interface PhotoProps extends StandardProps {
+interface PhotoProps extends CommonProps {
 	readonly id: ID;
 	readonly photo: URL | null;
 	readonly fullName: string;
@@ -16,11 +16,11 @@ interface PhotoProps extends StandardProps {
 export const Photo: FC<PhotoProps> = ({ className, fullName, photo, id }) => {
 	return (
 		<Link
-			className={classNames(PhotoStyle.link, className)}
+			className={cn(styles.link, className)}
 			to={`/profile/${id}`}
 			title={fullName}>
 			<Picture
-				className={classNames(PhotoStyle.photo, 'fake-photo')}
+				className={cn(styles.photo, 'fake-photo')}
 				oneXSrc={photo || '/images/bg/bg'}
 				alt={fullName}
 			/>

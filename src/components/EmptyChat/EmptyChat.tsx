@@ -1,10 +1,12 @@
-import classNames from 'classnames';
-import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import * as React from 'react';
+import cn from 'classnames';
+import { CommonProps } from '@/types';
 
-export const EmptyChat: FC<StandardProps> = ({ className }) => {
+export const EmptyChat: React.FC<CommonProps> = (props) => {
+	const { className } = props;
+
 	return (
-		<section className={classNames(className)}>
+		<section className={cn(className)}>
 			<p>На данный момент ни один чат не выбран</p>
 		</section>
 	);

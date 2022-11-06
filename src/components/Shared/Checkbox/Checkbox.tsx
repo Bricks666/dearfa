@@ -1,23 +1,23 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import { StandardProps } from '@/interfaces/components';
+import cn from 'classnames';
+import { CommonProps } from '@/types';
 
-import CheckboxStyle from './Checkbox.module.css';
+import styles from './Checkbox.module.css';
 
-interface CheckboxProps extends StandardProps {
+interface CheckboxProps extends CommonProps {
 	readonly input: object;
 }
 
 export const Checkbox: FC<CheckboxProps> = ({ className, input, children }) => {
 	return (
-		<div className={classNames(className)}>
+		<div className={cn(className)}>
 			<input
-				className={CheckboxStyle.input}
+				className={styles.input}
 				type='checkbox'
 				id='checkbox'
 				{...input}
 			/>
-			<label className={CheckboxStyle.label} htmlFor='checkbox'>
+			<label className={styles.label} htmlFor='checkbox'>
 				{children}
 			</label>
 		</div>

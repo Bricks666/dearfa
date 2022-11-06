@@ -1,19 +1,19 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import LogoStyle from './Logo.module.css';
+import styles from './Logo.module.css';
 
-interface LogoProps extends StandardProps {
+interface LogoProps extends CommonProps {
 	readonly alt: string;
 	readonly src: string;
 }
 
 export const Logo: FC<LogoProps> = ({ className, alt, src }) => {
 	return (
-		<Link className={classNames(LogoStyle.logo, className)} to='/'>
-			<img className={LogoStyle.image} src={src} alt={alt} />
+		<Link className={cn(styles.logo, className)} to='/'>
+			<img className={styles.image} src={src} alt={alt} />
 		</Link>
 	);
 };

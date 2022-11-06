@@ -1,32 +1,26 @@
-import React, { FC, Suspense, useCallback, useEffect } from 'react';
+import * as React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useGate, useUnit } from 'effector-react';
 import {
 	CircularProgress,
 	Container,
 	LinearProgress,
 	Stack,
 } from '@mui/material';
-import { Header } from '@/components/Header';
 import { routes } from '@/routes';
-import { authThunk, selectAuthorization } from '@/models/auth';
-import { useTypedDispatch, useTypedSelector } from '@/hooks';
+import { AuthGate, authQuery } from '@/models/auth';
+import { Header } from '@/components/Header';
 
-import AppStyle from './App.module.css';
+import styles from './App.module.css';
 
-export const App: FC = () => {
-	const isAuthorizing = useTypedSelector(selectAuthorization);
-	const dispatch = useTypedDispatch();
-	const auth = useCallback(() => {
-		dispatch(authThunk());
-	}, [dispatch]);
-
-	useEffect(() => {
-		auth();
-	}, [auth]);
+export const App: React.FC = () => {
+	const status = useUnit(authQuery.$status);
+	const isAuthorizing = status === 'initial' || status === 'pending';
+	useGate(AuthGate);
 
 	return (
 		<Stack spacing={isAuthorizing ? 0 : 4} alignItems='center'>
-			<Header className={AppStyle.header} />
+			<Header className={styles.header} />
 			{isAuthorizing ? (
 				<LinearProgress color='secondary' />
 			) : (
@@ -36,9 +30,9 @@ export const App: FC = () => {
 							<Route
 								path={path}
 								element={
-									<Suspense key={path} fallback={<CircularProgress />}>
-										<Component className={AppStyle.main} />
-									</Suspense>
+									<React.Suspense key={path} fallback={<CircularProgress />}>
+										<Component className={styles.main} />
+									</React.Suspense>
 								}
 								key={path}
 							/>

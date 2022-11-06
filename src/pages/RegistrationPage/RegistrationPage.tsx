@@ -1,19 +1,17 @@
 import React, { FC, useCallback } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { SectionHeader } from '@/components/Shared';
 import { RegistrationForm } from '@/components/RegistrationForm';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import RegistrationPageStyle from './RegistrationPage.module.css';
+import styles from './RegistrationPage.module.css';
 
-const RegistrationPage: FC<StandardProps> = ({ className }) => {
+const RegistrationPage: FC<CommonProps> = ({ className }) => {
 	const onSubmit = useCallback((...data: unknown[]) => console.log(data), []);
 	console.log(onSubmit);
 	return (
-		<main className={classNames(RegistrationPageStyle.main, className)}>
-			<SectionHeader className={RegistrationPageStyle.header}>
-				Регистрация
-			</SectionHeader>
+		<main className={cn(styles.main, className)}>
+			<SectionHeader className={styles.header}>Регистрация</SectionHeader>
 			<RegistrationForm /* onSubmit={onSubmit} */ />
 		</main>
 	);

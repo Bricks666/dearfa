@@ -1,12 +1,12 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC, MouseEventHandler } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import ButtonStyle from './Button.module.css';
+import styles from './Button.module.css';
 
 type ButtonType = 'submit' | 'reset' | 'button';
 
-export interface ButtonProps extends StandardProps {
+export interface ButtonProps extends CommonProps {
 	readonly disabled?: boolean;
 	readonly type?: ButtonType;
 	readonly title?: string;
@@ -23,7 +23,7 @@ const Button: FC<ButtonProps> = ({
 }) => {
 	return (
 		<button
-			className={classNames(ButtonStyle.button, className)}
+			className={cn(styles.button, className)}
 			type={type}
 			onClick={onClick}
 			disabled={disabled}

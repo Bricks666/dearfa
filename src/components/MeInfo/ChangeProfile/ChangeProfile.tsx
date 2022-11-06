@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { Field, Button } from '@/components/Shared';
 import { ChangedPhoto } from './ChangedPhoto/ChangedPhoto';
 import { FileInput } from '@/components/Shared/FileInput/FileInput';
@@ -10,7 +10,7 @@ import { useProfile } from '@/hooks';
 	IChangeProfileComponent,
 } from "../../../types/Components";
  */
-import ChangeProfileStyle from './ChangeProfile.module.css';
+import styles from './ChangeProfile.module.css';
 
 const Form: FC = (/* {
 	handleSubmit,
@@ -22,37 +22,37 @@ const Form: FC = (/* {
 	return null;
 	/* 	<form
 			onSubmit={handleSubmit}
-			className={classNames(ChangeProfileStyle.form, className)}
+			className={cn(styles.form, className)}
 		>
-			<legend className={ChangeProfileStyle.header}>Изменение профиля</legend>
+			<legend className={styles.header}>Изменение профиля</legend>
 			<ReactField
 				name="photo"
 				render={FileInput}
-				className={ChangeProfileStyle.photoLabel}
+				className={styles.photoLabel}
 				accept="image/*"
 			>
 				<ChangedPhoto
-					className={ChangeProfileStyle.photo}
+					className={styles.photo}
 					photo={initialValues?.photo?.photo || null}
 					newPhotoURL={values.photo.newPhotoURL}
 				/>
 			</ReactField>
 			<ReactField
-				className={ChangeProfileStyle.fullName}
+				className={styles.fullName}
 				name="name"
 				render={Field}
 			>
 				Имя
 			</ReactField>
 			<ReactField
-				className={ChangeProfileStyle.aboutMe}
+				className={styles.aboutMe}
 				name="aboutMe"
 				render={Field}
 			>
 				Обо мне
 			</ReactField>
-			<fieldset className={ChangeProfileStyle.contacts}>
-				<legend className={ChangeProfileStyle.subheader}>Контакты</legend>
+			<fieldset className={styles.contacts}>
+				<legend className={styles.subheader}>Контакты</legend>
 				<ReactField name="facebook" render={Field}>
 					Facebook
 				</ReactField>
@@ -78,7 +78,7 @@ const Form: FC = (/* {
 					Youtube
 				</ReactField>
 			</fieldset>
-			<Button className={ChangeProfileStyle.button} disabled={pristine}>
+			<Button className={styles.button} disabled={pristine}>
 				Сохранить изменения
 			</Button>
 		</form> */

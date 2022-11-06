@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import { StandardProps } from '@/interfaces/components';
+import cn from 'classnames';
+import { CommonProps } from '@/types';
 
-import LoadingStyle from './Loading.module.css';
+import styles from './Loading.module.css';
 
-export const Loading: FC<StandardProps> = ({ className }) => {
+export const Loading: FC<CommonProps> = ({ className }) => {
 	return (
-		<div className={classNames(LoadingStyle.wrapper, className)}>
-			<div className={LoadingStyle.loading} />
+		<div className={cn(styles.wrapper, className)}>
+			<div className={styles.loading} />
 		</div>
 	);
 };

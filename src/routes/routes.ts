@@ -1,22 +1,20 @@
-import { ComponentType, lazy } from 'react';
-
-import { URL } from '@/interfaces/common';
-import { StandardProps } from '@/interfaces/components';
+import * as React from 'react';
+import { URL, CommonProps } from '@/types';
 
 interface Routes {
-	readonly Component: ComponentType<StandardProps>;
+	readonly Component: React.ComponentType<CommonProps>;
 	readonly path: URL;
 	readonly onlyAuth?: boolean;
 }
 
-const LoginPage = lazy(() => import('../pages/LoginPage'));
-const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
-const ProfilePage = lazy(() => import('../pages/ProfilePage'));
-const DialogsPage = lazy(() => import('../pages/DialogsPage'));
-const UsersPage = lazy(() => import('../pages/UsersPage'));
-const FriendsPage = lazy(() => import('../pages/FriendsPage'));
-const NewsPage = lazy(() => import('../pages/NewsPage'));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const LoginPage = React.lazy(() => import('../pages/LoginPage'));
+const RegistrationPage = React.lazy(() => import('../pages/RegistrationPage'));
+const ProfilePage = React.lazy(() => import('../pages/ProfilePage'));
+const DialogsPage = React.lazy(() => import('../pages/DialogsPage'));
+const UsersPage = React.lazy(() => import('../pages/UsersPage'));
+const FriendsPage = React.lazy(() => import('../pages/FriendsPage'));
+const NewsPage = React.lazy(() => import('../pages/NewsPage'));
+const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'));
 
 export const routes: Routes[] = [
 	{

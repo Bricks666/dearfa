@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-export const LookingJob: FC<StandardProps> = ({ className }) => {
+export const LookingJob: FC<CommonProps> = ({ className }) => {
 	return (
 		<div className={className}>
 			<dt>Ищет работу:</dt>

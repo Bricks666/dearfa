@@ -1,25 +1,24 @@
-import React, { FC } from 'react';
-import classNames from 'classnames';
-import { useDialogsList } from '@/hooks';
+import * as React from 'react';
+import cn from 'classnames';
+import { useQuery } from '@farfetched/react';
+import { getDialogsQuery } from '@/models/dialogs';
+import { CommonProps } from '@/types';
 import { DialogCard } from './Dialog/Dialog';
-import { StandardProps } from '@/interfaces/components';
 
-import DialogsListStyle from './DialogsList.module.css';
+import styles from './DialogsList.module.css';
 
-const DialogsList: FC<StandardProps> = ({ className }) => {
-	const dialogs = useDialogsList();
+const DialogsList: React.FC<CommonProps> = React.memo((props) => {
+	const { className } = props;
+	const { data: dialogs } = useQuery(getDialogsQuery);
 	/** TODO: Добавить загрузку */
+
 	return (
-		<ul className={classNames(DialogsListStyle.dialogList, className)}>
-			{dialogs.map((dialog) => (
-				<DialogCard
-					className={DialogsListStyle.dialog}
-					{...dialog}
-					key={dialog.id}
-				/>
+		<ul className={cn(styles.dialogList, className)}>
+			{dialogs?.map((dialog) => (
+				<DialogCard className={styles.dialog} {...dialog} key={dialog.id} />
 			))}
 		</ul>
 	);
-};
+});
 
 export { DialogsList };

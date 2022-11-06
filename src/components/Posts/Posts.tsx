@@ -1,19 +1,19 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { CreatePost } from './CreatePost/CreatePost';
 import { SubsectionHeader } from '../Shared';
 import { CreatedPostsList } from '../CreatedPostsList';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import PostsStyle from './Posts.module.css';
+import styles from './Posts.module.css';
 
-const Posts: FC<StandardProps> = ({ className }) => {
+const Posts: FC<CommonProps> = ({ className }) => {
 	return (
-		<section className={classNames(PostsStyle.posts, className)}>
-			<SubsectionHeader className={`${PostsStyle.heading}`}>
+		<section className={cn(styles.posts, className)}>
+			<SubsectionHeader className={`${styles.heading}`}>
 				Мои посты
 			</SubsectionHeader>
-			<CreatePost className={PostsStyle.makeMessage} />
+			<CreatePost className={styles.makeMessage} />
 			<CreatedPostsList />
 		</section>
 	);

@@ -1,13 +1,13 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { ComponentType, FC } from 'react';
-import { EmptyObject } from '@/interfaces/common';
-import { StandardProps } from '@/interfaces/components';
+import { EmptyObject } from '@/types';
+import { CommonProps } from '@/types';
 import { Contacts } from '@/models/profile';
 import { AboutMe, Contacts as ContactsUI, DataList, Status } from '../Shared';
 
-import UserDescriptionStyle from './UserDescription.module.css';
+import styles from './UserDescription.module.css';
 
-interface UserDescriptionProps extends StandardProps {
+interface UserDescriptionProps extends CommonProps {
 	contacts: Contacts | EmptyObject;
 	aboutMe: string;
 	status: string;
@@ -21,8 +21,7 @@ export const UserDescription: FC<UserDescriptionProps> = ({
 	Status: StatusItem = Status,
 }) => {
 	return (
-		<DataList
-			className={classNames(UserDescriptionStyle.userDescription, className)}>
+		<DataList className={cn(styles.userDescription, className)}>
 			<AboutMe aboutMe={aboutMe} />
 			<StatusItem status={status} />
 			<ContactsUI contacts={contacts} />

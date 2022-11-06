@@ -1,15 +1,11 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import ErrorMessageStyle from './ErrorMessage.module.css';
+import styles from './ErrorMessage.module.css';
 
-const ErrorMessage: FC<StandardProps> = ({ className, children }) => {
-	return (
-		<div className={classNames(ErrorMessageStyle.errorMessage, className)}>
-			{children}
-		</div>
-	);
+const ErrorMessage: FC<CommonProps> = ({ className, children }) => {
+	return <div className={cn(styles.errorMessage, className)}>{children}</div>;
 };
 
 export { ErrorMessage };

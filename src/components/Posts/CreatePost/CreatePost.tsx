@@ -1,6 +1,6 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC, useCallback } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 /* import { Form as ReactForm, Field as ReactField } from "react-final-form"; */
 /* import {
 	CreatePostFormComponent,
@@ -9,7 +9,7 @@ import { StandardProps } from '@/interfaces/components';
 } from "../../../types/Components"; */
 import { Button, Textarea } from '../../Shared';
 
-import CreatePostStyle from './CreatePost.module.css';
+import styles from './CreatePost.module.css';
 
 const Form: FC = (/* {
 	className,
@@ -18,7 +18,7 @@ const Form: FC = (/* {
 } */) => {
 	return null;
 	/* 		<form
-			className={classNames(CreatePostStyle.form, className)}
+			className={cn(styles.form, className)}
 			onSubmit={handleSubmit}
 		>
 			<ReactField
@@ -28,13 +28,13 @@ const Form: FC = (/* {
 			>
 				Ваш новый пост
 			</ReactField>
-			<Button className={CreatePostStyle.button} disabled={pristine}>
+			<Button className={styles.button} disabled={pristine}>
 				Опубликовать
 			</Button>
 		</form> */
 };
 
-export const CreatePost: FC<StandardProps> = () => {
+export const CreatePost: FC<CommonProps> = () => {
 	return null;
 	/* 		<ReactForm className={className} onSubmit={onSubmit} component={Form} /> */
 };

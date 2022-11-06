@@ -1,29 +1,29 @@
+import * as React from 'react';
+import cn from 'classnames';
 import { Typography } from '@mui/material';
-import classNames from 'classnames';
-import React, { ComponentType, FC } from 'react';
 import { ProfileInfo } from '@/models/profile';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { SubsectionHeader, Photo } from '../Shared';
 
-import ProfileInfoStyle from './ProfileInfo.module.css';
+import styles from './ProfileInfo.module.css';
 
-interface IProfileInfoComponent extends StandardProps {
+interface ProfileProps extends CommonProps {
 	readonly user: ProfileInfo;
-	readonly AdditionalInfo: ComponentType<any>;
+	readonly AdditionalInfo: React.ComponentType;
 }
 
-const ProfileInfo: FC<IProfileInfoComponent> = ({
+const ProfileInfo: React.FC<ProfileProps> = ({
 	className,
 	user,
 	AdditionalInfo,
 }) => {
 	return (
-		<div className={classNames(ProfileInfoStyle.userInfo, className)}>
-			<Typography variant='h3' className={ProfileInfoStyle.fullName}>
+		<div className={cn(styles.userInfo, className)}>
+			<Typography variant='h3' className={styles.fullName}>
 				{user.fullName}
 			</Typography>
 			<Photo
-				className={ProfileInfoStyle.photo}
+				className={styles.photo}
 				photo={user.photos.large}
 				id={user.userId}
 				fullName={user.fullName}

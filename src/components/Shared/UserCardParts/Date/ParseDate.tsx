@@ -1,4 +1,4 @@
-import { DateType } from '@/interfaces/common';
+import { DateType } from '@/types';
 
 type ParseDate = (date: DateType) => string;
 

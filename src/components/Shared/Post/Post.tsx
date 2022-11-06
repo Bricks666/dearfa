@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Post } from '@/models/posts';
 import { Date, Photo, FullName, Like } from '..';
 
-import PostStyle from './Post.module.css';
+import styles from './Post.module.css';
 
 interface PostCardProps {
 	readonly post: Post;
@@ -10,20 +10,20 @@ interface PostCardProps {
 
 export const PostCard: FC<PostCardProps> = ({ post }) => {
 	return (
-		<article className={PostStyle.post}>
-			<FullName className={PostStyle.author} id={1}>
+		<article className={styles.post}>
+			<FullName className={styles.author} id={1}>
 				Кирилл Цыганков
 			</FullName>
-			<Date className={PostStyle.dateTime} date={post.date.toLocaleString()} />
+			<Date className={styles.dateTime} date={post.date.toLocaleString()} />
 			<Photo
-				className={PostStyle.photo}
+				className={styles.photo}
 				photo=''
 				id={1}
 				fullName='Кирилл Цыганков'
 			/>
-			<p className={PostStyle.content}>{post.content}</p>
+			<p className={styles.content}>{post.content}</p>
 			<Like
-				className={PostStyle.like}
+				className={styles.like}
 				status={post.like}
 				likeHandler={console.log}
 			/>

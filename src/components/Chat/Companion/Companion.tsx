@@ -1,31 +1,28 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { Photo, FullName, Date } from '@/components/Shared';
 
-import CompanionStyle from './Companion.module.css';
+import styles from './Companion.module.css';
 
-interface CompanionProps extends StandardProps {
+interface CompanionProps extends CommonProps {
 	readonly dialogId: number;
 }
 
 export const Companion: FC<CompanionProps> = ({ className, dialogId }) => {
 	/* const { companion } = useCompanion(dialogId); */
 	return (
-		<header className={classNames(CompanionStyle.header, className)}>
+		<header className={cn(styles.header, className)}>
 			<Photo
-				className={CompanionStyle.photo}
+				className={styles.photo}
 				photo={/* companion.photo */ ''}
 				fullName={/* companion.name */ ''}
 				id={/* companion.id */ 0}
 			/>
-			<FullName className={CompanionStyle.name} id={/* companion.id */ 0}>
+			<FullName className={styles.name} id={/* companion.id */ 0}>
 				{/* companion.name */ ''}
 			</FullName>
-			<Date
-				className={CompanionStyle.date}
-				date={/* companion.lastActive */ ''}
-			/>
+			<Date className={styles.date} date={/* companion.lastActive */ ''} />
 		</header>
 	);
 };

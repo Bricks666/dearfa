@@ -3,7 +3,7 @@ import { ProfileInfo } from '@/models/profile';
 import { ButtonLink } from '../Shared';
 import { UserDescription } from '../UserDescription/UserDescription';
 
-import UserInfoStyle from './UserInfo.module.css';
+import styles from './UserInfo.module.css';
 
 interface UserInfoProps {
 	readonly user: ProfileInfo;
@@ -17,9 +17,7 @@ export const UserInfo: FC<UserInfoProps> = ({ user }) => {
 				aboutMe={user.aboutMe}
 				status={user.status}
 			/>
-			<ButtonLink
-				className={UserInfoStyle.button}
-				to={`/dialogs/${user.userId}`}>
+			<ButtonLink className={styles.button} to={`/dialogs/${user.userId}`}>
 				Написать
 			</ButtonLink>
 		</>

@@ -1,15 +1,36 @@
-import { URL } from '@/interfaces/common';
-import { ResponseWithUsers } from '@/interfaces/responses';
-import { makeGetRequest } from './makeRequest';
+import {
+	StandardServerResponse,
+	URL,
+	Pagination,
+	ResponseWithItems,
+} from '@/types';
+import { User } from '@/models/users';
+import {
+	makeDeleteRequest,
+	makeGetRequest,
+	makePostRequest,
+} from './makeRequest';
 
-const baseURL: URL = 'users/';
+const usersBaseURL: URL = 'users/';
 
-export const getUsersApi = async (count: number, page: number) => {
-	const requestURL: URL = `${baseURL}?page=${count}&count=${page}`;
-	return await makeGetRequest<ResponseWithUsers>(requestURL);
+export const getAll = async (options: Pagination) => {
+	const { count, page } = options;
+	const requestURL: URL = `${usersBaseURL}?page=${count}&count=${page}`;
+	return makeGetRequest<ResponseWithItems<User>>(requestURL);
 };
 
-export const getFriendsApi = async (count: number, page: number) => {
-	const requestURL: URL = `${baseURL}?page=${page}&count=${count}&friend=true`;
-	return await makeGetRequest<ResponseWithUsers>(requestURL);
+export const getFriends = async (options: Pagination) => {
+	const { count, page } = options;
+	const requestURL: URL = `${usersBaseURL}?page=${page}&count=${count}&friend=true`;
+	return makeGetRequest<ResponseWithItems<User>>(requestURL);
+};
+
+const followBaseURL: URL = 'follow/';
+
+export const follow = async (id: number) => {
+	return makePostRequest<StandardServerResponse>(followBaseURL + id);
+};
+
+export const unfollow = async (id: number) => {
+	return makeDeleteRequest<StandardServerResponse>(followBaseURL + id);
 };

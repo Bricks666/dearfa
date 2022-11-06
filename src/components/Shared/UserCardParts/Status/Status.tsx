@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { DataListItem } from '../..';
 
-interface StatusProps extends StandardProps {
+interface StatusProps extends CommonProps {
 	readonly status: string;
 }
 

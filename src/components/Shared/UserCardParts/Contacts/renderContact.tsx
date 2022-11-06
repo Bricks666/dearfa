@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { EmptyObject } from '@/interfaces/common';
+import { EmptyObject } from '@/types';
 import { Contacts } from '@/models/profile';
 import { ContactsItem } from './ContactsItem/ContactsItem';
 

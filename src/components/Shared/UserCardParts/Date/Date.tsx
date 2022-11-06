@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { DateType } from '@/interfaces/common';
-import { StandardProps } from '@/interfaces/components';
+import { DateType } from '@/types';
+import { CommonProps } from '@/types';
 
 import { parseDate } from './ParseDate';
 
-interface DateProps extends StandardProps {
+interface DateProps extends CommonProps {
 	readonly date: DateType;
 }
 

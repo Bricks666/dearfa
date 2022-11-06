@@ -1,21 +1,22 @@
-import classNames from 'classnames';
-import React, { FC } from 'react';
+import * as React from 'react';
+import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import { StandardProps } from '@/interfaces/components';
-import { ID } from '@/interfaces/common';
+import { CommonProps } from '@/types';
 
-import FullNameStyle from './FullName.module.css';
+import styles from './FullName.module.css';
 
-interface FullNameProps extends StandardProps {
-	readonly id: ID;
+export interface FullNameProps extends CommonProps {
+	readonly id: number;
 }
 
-export const FullName: FC<FullNameProps> = ({ id, className, children }) => {
+export const FullName: React.FC<FullNameProps> = ({
+	id,
+	className,
+	children,
+}) => {
 	return (
-		<Link
-			className={classNames(FullNameStyle.link, className)}
-			to={`/profile/${id}`}>
-			<h4 className={FullNameStyle.name}>{children}</h4>
+		<Link className={cn(styles.link, className)} to={`/profile/${id}`}>
+			<h4 className={styles.name}>{children}</h4>
 		</Link>
 	);
 };

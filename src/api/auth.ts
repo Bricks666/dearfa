@@ -1,40 +1,31 @@
-import { StandardServerResponse } from '@/interfaces/responses';
-import { URL } from '@/interfaces/common';
+import { StandardServerResponse } from '@/types';
+import { URL } from '@/types';
 import {
 	makeDeleteRequest,
 	makeGetRequest,
 	makePostRequest,
 } from './makeRequest';
+import { AuthUser } from '@/models/auth';
 
 const baseURL: URL = 'auth/';
 
-export interface AuthResponse {
-	readonly id: number;
-	readonly login: string;
-}
-
-export const getAuthApi = async () => {
-	return await makeGetRequest<StandardServerResponse<AuthResponse>>(
-		`${baseURL}me`
-	);
+export const auth = async () => {
+	return makeGetRequest<StandardServerResponse<AuthUser>>(`${baseURL}me`);
 };
 
-export interface LoginResponse {
-	readonly userId: number;
-}
 export interface LoginRequest {
 	readonly email: string;
 	readonly password: string;
 	readonly rememberMe: boolean;
 }
 
-export const loginApi = async (credentials: LoginRequest) => {
-	return await makePostRequest<
-		StandardServerResponse<LoginResponse>,
-		LoginRequest
-	>(`${baseURL}login`, credentials);
+export const login = async (credentials: LoginRequest) => {
+	return makePostRequest<StandardServerResponse<void>, LoginRequest>(
+		`${baseURL}login`,
+		credentials
+	);
 };
 
-export const logoutApi = async () => {
-	return await makeDeleteRequest<StandardServerResponse>(`${baseURL}login`);
+export const logout = async () => {
+	return makeDeleteRequest<StandardServerResponse>(`${baseURL}login`);
 };

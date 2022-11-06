@@ -1,21 +1,17 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import { useSelector } from 'react-redux';
+import cn from 'classnames';
 import { PagesListWithRouting, SectionHeader } from '@/components/Shared';
 import { UsersList } from '@/components/UsersList';
-import { StandardProps } from '@/interfaces/components';
-import { selectPageCount } from '@/models/users';
+import { CommonProps } from '@/types';
 
-import UsersPageStyle from './UsersPage.module.css';
+import styles from './UsersPage.module.css';
 
-export const UsersPage: FC<StandardProps> = ({ className }) => {
-	const pageCount = useSelector(selectPageCount);
-
+export const UsersPage: FC<CommonProps> = ({ className }) => {
 	return (
-		<main className={classNames(UsersPageStyle.users, className)}>
+		<main className={cn(styles.users, className)}>
 			<SectionHeader>Все пользователи</SectionHeader>
-			<UsersList className={UsersPageStyle.list} />
-			<PagesListWithRouting pageCount={pageCount} />
+			<UsersList className={styles.list} />
+			<PagesListWithRouting pageCount={10} />
 		</main>
 	);
 };

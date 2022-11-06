@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { DataListItem } from '../..';
 
-interface AboutMeProps extends StandardProps {
+interface AboutMeProps extends CommonProps {
 	readonly aboutMe: string;
 }
 export const AboutMe: FC<AboutMeProps> = ({ className, aboutMe }) => {

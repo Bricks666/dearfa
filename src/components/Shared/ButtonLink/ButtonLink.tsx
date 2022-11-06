@@ -1,11 +1,11 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
 import { Link, To } from 'react-router-dom';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import ButtonLinkStyle from './ButtonLink.module.css';
+import styles from './ButtonLink.module.css';
 
-export interface ButtonLinkProps extends StandardProps {
+export interface ButtonLinkProps extends CommonProps {
 	readonly to: To;
 }
 
@@ -15,7 +15,7 @@ export const ButtonLink: FC<ButtonLinkProps> = ({
 	to,
 }) => {
 	return (
-		<Link className={classNames(ButtonLinkStyle.link, className)} to={to}>
+		<Link className={cn(styles.link, className)} to={to}>
 			{children}
 		</Link>
 	);

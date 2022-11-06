@@ -1,8 +1,8 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
 import { Button, Field, SubsectionHeader } from '../../../Shared';
 
-import ChangeStatusStyle from './ChangeStatus.module.css';
+import styles from './ChangeStatus.module.css';
 
 const ChangeStatusForm: FC = (/* {
 	handleSubmit,
@@ -12,17 +12,17 @@ const ChangeStatusForm: FC = (/* {
 	return (
 		<form
 		/* 			onSubmit={handleSubmit}
-			className={classNames(ChangeStatusStyle.form, className)} */
+			className={cn(styles.form, className)} */
 		>
-			{/* 			<SubsectionHeader className={ChangeStatusStyle.header}>
+			{/* 			<SubsectionHeader className={styles.header}>
 				Изменение статуса
 			</SubsectionHeader>
 			<ReactField
-				className={ChangeStatusStyle.newStatus}
+				className={styles.newStatus}
 				render={Field}
 				name="status"
 			/>
-			<Button className={ChangeStatusStyle.acceptButton} disabled={pristine}>
+			<Button className={styles.acceptButton} disabled={pristine}>
 				Сохранить
 			</Button> */}
 		</form>

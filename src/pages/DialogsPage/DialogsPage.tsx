@@ -1,31 +1,28 @@
-import React, { FC } from 'react';
-import classNames from 'classnames';
+import * as React from 'react';
+import cn from 'classnames';
+import { useGate } from 'effector-react';
 import { Route, Routes } from 'react-router-dom';
+import { DialogsGate } from '@/models/dialogs';
+import { CommonProps } from '@/types';
 import { SectionHeader } from '@/components/Shared';
 import { DialogsList } from '@/components/DialogsList';
 import { Chat } from '@/components/Chat';
 import { EmptyChat } from '@/components/EmptyChat';
-import { StandardProps } from '@/interfaces/components';
 
-import DialogsPageStyle from './DialogsPage.module.css';
+import styles from './DialogsPage.module.css';
 
-export const DialogsPage: FC<StandardProps> = ({ className }) => {
+export const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
+	const { className } = props;
+	useGate(DialogsGate);
+
 	return (
-		<main className={classNames(DialogsPageStyle.dialogs, className)}>
-			<SectionHeader className={DialogsPageStyle.heading}>
-				Диалоги
-			</SectionHeader>
-			<DialogsList className={DialogsPageStyle.dialogList} />
+		<main className={cn(styles.dialogs, className)}>
+			<SectionHeader className={styles.heading}>Диалоги</SectionHeader>
+			<DialogsList className={styles.dialogList} />
 			<Routes>
-				<Route
-					path=':id'
-					element={<Chat className={DialogsPageStyle.chat} />}
-				/>
-				<Route
-					path='*'
-					element={<EmptyChat className={DialogsPageStyle.chat} />}
-				/>
+				<Route path=':id' element={<Chat className={styles.chat} />} />
+				<Route path='*' element={<EmptyChat className={styles.chat} />} />
 			</Routes>
 		</main>
 	);
-};
+});

@@ -1,11 +1,11 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
-import FieldStyle from './Field.module.css';
+import styles from './Field.module.css';
 
-interface FieldProps extends StandardProps {
+interface FieldProps extends CommonProps {
 	readonly input: object;
 	readonly meta: any;
 	readonly fieldClass?: string;
@@ -22,11 +22,11 @@ const Field: FC<FieldProps> = ({
 }) => {
 	const showError = touched && error;
 	return (
-		<label className={classNames(FieldStyle.label, className)}>
+		<label className={cn(styles.label, className)}>
 			{showError && <ErrorMessage>{error}</ErrorMessage>}
 			{children}
 			<input
-				className={classNames(FieldStyle.field, fieldClass)}
+				className={cn(styles.field, fieldClass)}
 				{...input}
 				accept={accept}
 			/>

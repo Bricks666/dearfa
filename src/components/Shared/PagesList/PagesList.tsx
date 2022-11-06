@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { renderPagesList } from './renderPagesList';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import PagesListStyle from './PagesList.module.css';
+import styles from './PagesList.module.css';
 
-interface PaginationProps extends StandardProps {
+interface PaginationProps extends CommonProps {
 	currentPage: number;
 	rootPath: string;
 	pageCount: number;
@@ -17,9 +17,9 @@ export const PagesList: FC<PaginationProps> = ({
 	pageCount,
 }) => {
 	const pages = renderPagesList(rootPath, currentPage, pageCount, {
-		pageNumber: PagesListStyle.pageNumber,
-		selected: PagesListStyle.selected,
-		link: PagesListStyle.link,
+		pageNumber: styles.pageNumber,
+		selected: styles.selected,
+		link: styles.link,
 	});
 
 	if (pages.length === 0) {
@@ -27,12 +27,12 @@ export const PagesList: FC<PaginationProps> = ({
 	}
 
 	return (
-		<ul className={PagesListStyle.pagesList}>
-			<ButtonLink className={PagesListStyle.button} to={rootPath + 1}>
+		<ul className={styles.pagesList}>
+			<ButtonLink className={styles.button} to={rootPath + 1}>
 				Первая
 			</ButtonLink>
 			{pages}
-			<ButtonLink className={PagesListStyle.button} to={rootPath + pageCount}>
+			<ButtonLink className={styles.button} to={rootPath + pageCount}>
 				Последняя
 			</ButtonLink>
 		</ul>

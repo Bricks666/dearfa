@@ -1,17 +1,17 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import PenButtonStyle from './PenButton.module.css';
+import styles from './PenButton.module.css';
 
-interface PenButtonProps extends StandardProps {
+interface PenButtonProps extends CommonProps {
 	readonly title: string;
 }
 
 const PenButton: FC<PenButtonProps> = ({ className, title }) => {
 	return (
 		<button
-			className={classNames(PenButtonStyle.button, className)}
+			className={cn(styles.button, className)}
 			title={title}
 			type='button'
 		/>

@@ -1,25 +1,20 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { List, SubsectionHeader } from '../Shared';
 import { FavoritFriendCard } from './FavoritFriendCard/FavoritFriendCard';
 import { useFavoritFriends } from '@/hooks';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import FavoritFriendsStyle from './FavoritFriends.module.css';
+import styles from './FavoritFriends.module.css';
 
-const FavoritFriends: FC<StandardProps> = ({ className }) => {
+const FavoritFriends: FC<CommonProps> = ({ className }) => {
 	const friends = useFavoritFriends();
 
 	/** TODO: Добавить загрузку */
 	return (
-		<aside
-			className={classNames(FavoritFriendsStyle.lastCommunications, className)}>
+		<aside className={cn(styles.lastCommunications, className)}>
 			<SubsectionHeader>Избранные друзья</SubsectionHeader>
-			<List
-				className={FavoritFriendsStyle.list}
-				items={friends}
-				Card={FavoritFriendCard}
-			/>
+			<List className={styles.list} items={friends} Card={FavoritFriendCard} />
 		</aside>
 	);
 };

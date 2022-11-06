@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useMemo } from 'react';
+import * as React from 'react';
 import {
 	Drawer,
 	IconButton,
@@ -19,24 +19,26 @@ import {
 	ImportContacts,
 	Settings,
 } from '@mui/icons-material';
+import { useUnit } from 'effector-react';
 import { NavLink, To } from 'react-router-dom';
-import { StandardProps } from '@/interfaces/components';
-import { useToggle, useTypedSelector } from '@/hooks';
+import { $authUser } from '@/models/auth';
+import { CommonProps } from '@/types';
+import { useToggle } from '@/hooks';
 import { Logo } from '../Logo';
 
-import NavigationStyle from './Navigation.module.css';
-import { selectAuthId } from '@/models/auth';
+import styles from './Navigation.module.css';
 
 interface NavigationItem {
 	readonly to: To;
 	readonly label: string;
-	readonly icon?: ReactNode;
+	readonly icon?: React.ReactNode;
 }
 
-export const Navigation: FC<StandardProps> = ({ className }) => {
-	const authId = useTypedSelector(selectAuthId);
+export const Navigation: React.FC<CommonProps> = (props) => {
+	const { className } = props;
+	const { id: authId } = useUnit($authUser)!;
 	const { toggled, onToggle } = useToggle();
-	const navigationItems: NavigationItem[] = useMemo(
+	const navigationItems: NavigationItem[] = React.useMemo(
 		() => [
 			{
 				to: `/profile/${authId}`,
@@ -81,10 +83,14 @@ export const Navigation: FC<StandardProps> = ({ className }) => {
 			<IconButton onClick={onToggle} color='inherit'>
 				<Menu color='inherit' />
 			</IconButton>
-			<Drawer open={toggled} onClose={onToggle} anchor='left'>
+			<Drawer
+				className={className}
+				open={toggled}
+				onClose={onToggle}
+				anchor='left'>
 				<Stack onClick={onToggle}>
 					<Logo src='/Images/logo.svg' alt='Logo' />
-					<List className={NavigationStyle.list}>
+					<List className={styles.list}>
 						{navigationItems.map(({ to, label, icon }) => (
 							<ListItem key={label} disablePadding>
 								<ListItemButton component={NavLink} to={to}>

@@ -1,32 +1,31 @@
-import React, { FC, useCallback } from 'react';
-import classNames from 'classnames';
+import * as React from 'react';
+import cn from 'classnames';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEscListener } from '@/hooks';
 import { MakeMessage } from './MakeMessage/MakeMessage';
 import { Messages } from './Messages/Messages';
 import { Companion } from './Companion/Companion';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import ChatStyle from './Chat.module.css';
+import styles from './Chat.module.css';
 
-const Chat: FC<StandardProps> = ({ className }) => {
+const Chat: React.FC<CommonProps> = React.memo((props) => {
+	const { className } = props;
 	const { id = '' } = useParams();
 
 	const navigate = useNavigate();
-	const escPressHandler = useCallback(() => {
-		if (id) {
-			navigate('/dialogs');
-		}
-	}, [navigate, id]);
+	const escPressHandler = React.useCallback(() => {
+		navigate('/dialogs');
+	}, [navigate]);
 	useEscListener(escPressHandler);
 
 	return (
-		<section className={classNames(ChatStyle.chat, className)}>
-			<Companion className={ChatStyle.header} dialogId={+id} />
-			<Messages className={ChatStyle.messages} dialogId={+id} />
-			<MakeMessage /* className={ChatStyle.makeMessage} dialogId={+id}  */ />
+		<section className={cn(styles.chat, className)}>
+			<Companion className={styles.header} dialogId={+id} />
+			<Messages className={styles.messages} dialogId={+id} />
+			<MakeMessage /* className={styles.makeMessage} dialogId={+id}  */ />
 		</section>
 	);
-};
+});
 
 export { Chat };

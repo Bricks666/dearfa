@@ -1,20 +1,18 @@
-import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
+import * as React from 'react';
 import { PagesListWithRouting, SectionHeader } from '@/components/Shared';
 import { FriendsList } from '@/components/FriendsList';
-import { StandardProps } from '@/interfaces/components';
-import { selectPageCount } from '@/models/friends';
+import { CommonProps } from '@/types';
 
-import FriendsPageStyle from './FriendsPage.module.css';
+import styles from './FriendsPage.module.css';
 
-export const FriendsPage: FC<StandardProps> = ({ className }) => {
-	const pageCount = useSelector(selectPageCount);
+export const FriendsPage: React.FC<CommonProps> = (props) => {
+	const { className } = props;
 
 	return (
 		<main className={className}>
 			<SectionHeader>Друзья</SectionHeader>
-			<FriendsList className={FriendsPageStyle.list} />
-			<PagesListWithRouting pageCount={pageCount} />
+			<FriendsList className={styles.list} />
+			<PagesListWithRouting pageCount={10} />
 		</main>
 	);
 };

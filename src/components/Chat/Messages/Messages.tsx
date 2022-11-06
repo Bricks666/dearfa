@@ -1,32 +1,31 @@
-import classNames from 'classnames';
-import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
-import { StandardProps } from '@/interfaces/components';
-import { selectAuthId } from '@/models/auth';
-import { MessageCard } from './Message/Message';
+import * as React from 'react';
+import cn from 'classnames';
+import { useUnit } from 'effector-react';
+import { $authUser } from '@/models/auth';
 import { useMessages } from '@/hooks';
+import { CommonProps } from '@/types';
+import { MessageCard } from './Message/Message';
 
-import MessagesStyle from './Messages.module.css';
+import styles from './Messages.module.css';
 
-interface MessagesProps extends StandardProps {
+interface MessagesProps extends CommonProps {
 	readonly dialogId: number;
 }
 
-const Messages: FC<MessagesProps> = ({ className, dialogId }) => {
-	const authId = useSelector(selectAuthId);
+const Messages: React.FC<MessagesProps> = (props) => {
+	const { className, dialogId } = props;
+	const { id: authId } = useUnit($authUser)!;
 	const messages = useMessages(dialogId);
 
 	/** TODO: Добавить загрузку */
 	return (
-		<section
-			className={classNames(MessagesStyle.wrapper, className)}
-			aria-label='чат с'>
-			<div className={MessagesStyle.messages}>
+		<section className={cn(styles.wrapper, className)} aria-label='чат с'>
+			<div className={styles.messages}>
 				{messages.map((message) => {
 					return (
 						<MessageCard
-							className={classNames(MessagesStyle.message, {
-								[MessagesStyle.myMessage]: authId === message.senderId,
+							className={cn(styles.message, {
+								[styles.myMessage]: authId === message.senderId,
 							})}
 							viewed={message.viewed}
 							senderName={message.senderName}

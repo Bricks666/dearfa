@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import {
 	Button,
@@ -9,11 +9,10 @@ import {
 	TextField,
 } from '@mui/material';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { LoginRequest } from '@/api';
-import { useTypedDispatch } from '@/hooks';
-import { StandardProps } from '@/interfaces/components';
-import { loginThunk } from '@/models/auth';
+import { CommonProps } from '@/types';
 import { validateScheme } from './validating';
+import { LoginRequest } from '@/api/auth';
+import { loginMutation } from '@/models/auth';
 
 const initialState: LoginRequest = {
 	email: '',
@@ -40,28 +39,23 @@ const button: SxProps = {
 	justifySelf: 'end',
 };
 
-export const LoginForm: FC<StandardProps> = ({ className }) => {
+export const LoginForm: React.FC<CommonProps> = React.memo((props) => {
+	const { className } = props;
 	const { handleSubmit, register, formState } = useForm<LoginRequest>({
 		defaultValues: initialState,
 		resolver: joiResolver(validateScheme),
 	});
-	const dispatch = useTypedDispatch();
-	const onSubmit = useCallback(
-		(values: LoginRequest) => {
-			dispatch(loginThunk(values));
-		},
-		[dispatch]
-	);
-
+	console.debug('Form');
 	const { errors, isSubmitting } = formState;
 	const { email, password } = errors;
+
 	return (
 		<Stack
 			className={className}
 			spacing={1}
 			sx={form}
 			component='form'
-			onSubmit={handleSubmit(onSubmit)}>
+			onSubmit={handleSubmit(loginMutation.start)}>
 			<TextField
 				{...register('email')}
 				variant='standard'
@@ -93,4 +87,4 @@ export const LoginForm: FC<StandardProps> = ({ className }) => {
 			</Button>
 		</Stack>
 	);
-};
+});

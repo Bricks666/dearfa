@@ -1,38 +1,34 @@
-import React, { FC } from 'react';
-import classNames from 'classnames';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import * as React from 'react';
+import { useUnit } from 'effector-react';
+import cn from 'classnames';
 import { Stack } from '@mui/material';
 import { Picture } from '@/components/Shared';
-import { useProfile } from '@/hooks';
+import { $authUser } from '@/models/auth';
 import { ProfileInfo } from '@/components/ProfileInfo/ProfileInfo';
 import { Posts } from '@/components/Posts/Posts';
 import { MeInfo } from '@/components/MeInfo';
 import { UserInfo } from '@/components/UserInfo';
-import { StandardProps } from '@/interfaces/components';
-import { selectAuthId } from '@/models/auth';
+import { CommonProps } from '@/types';
 
-import ProfilePageStyle from './ProfilePage.module.css';
+import styles from './ProfilePage.module.css';
 
-export const ProfilePage: FC<StandardProps> = ({ className }) => {
-	const { id = 0 } = useParams();
-	const user = useProfile(+id);
-	const authId = useSelector(selectAuthId);
+export const ProfilePage: React.FC<CommonProps> = (props) => {
+	const { className } = props;
+	const { id: authId } = useUnit($authUser)!;
 
 	/** TODO: Добавить загрузку */
 	return (
 		<Stack className={className} spacing={2}>
 			<Picture
-				className={classNames(ProfilePageStyle.image, 'fake-photo')}
+				className={cn(styles.image, 'fake-photo')}
 				oneXSrc='/images/bg/bg'
 				alt=''
 			/>
 			<ProfileInfo
-				className={ProfilePageStyle.userInfo}
-				user={user}
+				className={styles.userInfo}
 				AdditionalInfo={authId === id ? MeInfo : UserInfo}
 			/>
-			<Posts className={ProfilePageStyle.posts} />
+			<Posts className={styles.posts} />
 		</Stack>
 	);
 };

@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { Picture } from '@/components/Shared';
-import { URL } from '@/interfaces/common';
-import { StandardProps } from '@/interfaces/components';
+import { URL } from '@/types';
+import { CommonProps } from '@/types';
 
-import ChangedPhotoStyle from './ChangedPhoto.module.css';
+import styles from './ChangedPhoto.module.css';
 
 interface ChangePhoto {
 	readonly photo: URL | null;
@@ -13,7 +13,7 @@ interface ChangePhoto {
 }
 
 export interface ChangePhotoProps
-	extends StandardProps,
+	extends CommonProps,
 		Omit<ChangePhoto, 'newPhoto'> {}
 
 export const ChangedPhoto: FC<ChangePhotoProps> = ({
@@ -22,14 +22,8 @@ export const ChangedPhoto: FC<ChangePhotoProps> = ({
 	photo,
 }) => {
 	return (
-		<object
-			className={classNames(ChangedPhotoStyle.object, className)}
-			data={newPhotoURL ?? ''}>
-			<Picture
-				className={classNames(ChangedPhotoStyle.photo, className)}
-				oneXSrc={photo}
-				alt=''
-			/>
+		<object className={cn(styles.object, className)} data={newPhotoURL ?? ''}>
+			<Picture className={cn(styles.photo, className)} oneXSrc={photo} alt='' />
 		</object>
 	);
 };

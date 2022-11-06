@@ -3,11 +3,9 @@ import { ChangeProfile } from './ChangeProfile/ChangeProfile';
 import { ChangingStatus } from './ChangingStatus/ChangingStatus';
 import { ModalWindow, Button } from '../Shared';
 import { UserDescription } from '../UserDescription/UserDescription';
-import { updateProfileThunk } from '@/models/profile';
 import { User } from '@/models/users';
-import { useTypedDispatch } from '@/hooks';
 
-import MeInfoStyle from './MeInfo.module.css';
+import styles from './MeInfo.module.css';
 
 interface MeInfoProps {
 	readonly user: User;
@@ -16,7 +14,6 @@ interface MeInfoProps {
 /** TODO: Возможно не стоит делать этот блок, как отдельный компонент */
 export const MeInfo: FC<MeInfoProps> = ({ user }) => {
 	const [showChangeProfile, toggleChangeProfile] = useState<boolean>(false);
-	const dispatch = useTypedDispatch();
 	/* 	const updateProfile = useCallback(
 		({ userId, name: fullName, aboutMe, photo, ...contacts }) => {
 			dispatch(
@@ -40,7 +37,7 @@ export const MeInfo: FC<MeInfoProps> = ({ user }) => {
 				contacts={{}}
 			/>
 			<Button
-				className={MeInfoStyle.changeProfileButton}
+				className={styles.changeProfileButton}
 				onClick={toggleShowChangeProfile}>
 				Изменить профиль
 			</Button>

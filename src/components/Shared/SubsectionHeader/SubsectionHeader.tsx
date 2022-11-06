@@ -1,15 +1,12 @@
-import React, { FC } from 'react';
-import classNames from 'classnames';
-import { StandardProps } from '@/interfaces/components';
+import * as React from 'react';
+import cn from 'classnames';
+import { CommonProps } from '@/types';
 
-import SubsectionHeaderStyle from './SubsectionHeader.module.css';
+import styles from './SubsectionHeader.module.css';
 
-const SubsectionHeader: FC<StandardProps> = ({ className, children }) => {
-	return (
-		<h3 className={classNames(SubsectionHeaderStyle.header, className)}>
-			{children}
-		</h3>
-	);
+export const SubsectionHeader: React.FC<
+	React.PropsWithChildren<CommonProps>
+> = (props) => {
+	const { className, children } = props;
+	return <h3 className={cn(styles.header, className)}>{children}</h3>;
 };
-
-export { SubsectionHeader };

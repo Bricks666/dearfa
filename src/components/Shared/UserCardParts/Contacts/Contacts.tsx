@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { renderContact } from './renderContact';
 import { DataList, DataListItem } from '../..';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { Contacts as ContactsModel } from '@/models/profile';
-import { EmptyObject } from '@/interfaces/common';
+import { EmptyObject } from '@/types';
 
-import ContactsStyle from './Contacts.module.css';
+import styles from './Contacts.module.css';
 
-interface IContactsComponent extends StandardProps {
+interface IContactsComponent extends CommonProps {
 	readonly contacts: ContactsModel | EmptyObject;
 }
 
@@ -16,12 +16,10 @@ const Contacts: FC<IContactsComponent> = ({ contacts }) => {
 
 	return (
 		<DataListItem
-			className={ContactsStyle.contacts}
+			className={styles.contacts}
 			term='Контакты: '
 			description={
-				<DataList className={ContactsStyle.datalist}>
-					{contactsElement}
-				</DataList>
+				<DataList className={styles.datalist}>{contactsElement}</DataList>
 			}
 		/>
 	);

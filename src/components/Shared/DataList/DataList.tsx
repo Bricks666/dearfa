@@ -1,14 +1,10 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import { StandardProps } from '@/interfaces/components';
+import cn from 'classnames';
+import { CommonProps } from '@/types';
 
-import DataListStyle from './DataList.module.css';
+import styles from './DataList.module.css';
 
 /* TODO: Сделать, что бы в children могли быть только элементы DataListItem */
-export const DataList: FC<StandardProps> = ({ className, children }) => {
-	return (
-		<dl className={classNames(DataListStyle.datalist, className)}>
-			{children}
-		</dl>
-	);
+export const DataList: FC<CommonProps> = ({ className, children }) => {
+	return <dl className={cn(styles.datalist, className)}>{children}</dl>;
 };

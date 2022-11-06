@@ -1,6 +1,6 @@
-import classNames from 'classnames';
-import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import * as React from 'react';
+import cn from 'classnames';
+import { CommonProps } from '@/types';
 import { User } from '@/models/users';
 import { DataList } from '..';
 import { Button } from '../Button/Button';
@@ -9,34 +9,28 @@ import { FullName } from '../UserCardParts/FullName/FullName';
 import { Photo } from '../UserCardParts/Photo/Photo';
 import { Status } from '../UserCardParts/Status/Status';
 
-import UserCardStyle from './UserCard.module.css';
+import styles from './UserCard.module.css';
 
-interface UserCardProps extends StandardProps, User {}
+interface UserCardProps extends CommonProps, User {}
 
-export const UserCard: FC<UserCardProps> = ({
-	className,
-	followed,
-	id,
-	name,
-	photos,
-	status,
-}) => {
+export const UserCard: React.FC<UserCardProps> = (props) => {
+	const { className, followed, id, name, photos, status } = props;
 	return (
-		<li className={classNames(UserCardStyle.itemWrapper, className)}>
+		<li className={cn(styles.itemWrapper, className)}>
 			<FullName id={id}>{name}</FullName>
 			<DataList>
-				<Status className={UserCardStyle.status} status={status} />
+				<Status className={styles.status} status={status} />
 			</DataList>
 			<Photo
-				className={UserCardStyle.photo}
+				className={styles.photo}
 				id={id}
 				fullName={name}
 				photo={photos.large}
 			/>
-			<ButtonLink className={UserCardStyle.link} to={`/dialogs/${id}`}>
+			<ButtonLink className={styles.link} to={`/dialogs/${id}`}>
 				Написать
 			</ButtonLink>
-			<Button className={UserCardStyle.button}>
+			<Button className={styles.button}>
 				{followed ? 'Удалить из друзей' : 'Добавить в друзья'}
 			</Button>
 		</li>

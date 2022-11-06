@@ -1,13 +1,12 @@
-import React, { FC } from 'react';
-import classNames from 'classnames';
-import { StandardProps } from '@/interfaces/components';
+import * as React from 'react';
+import cn from 'classnames';
+import { CommonProps } from '@/types';
 
-import SectionHeaderStyle from './SectionHeader.module.css';
+import styles from './SectionHeader.module.css';
 
-export const SectionHeader: FC<StandardProps> = ({ className, children }) => {
-	return (
-		<h2 className={classNames(SectionHeaderStyle.header, className)}>
-			{children}
-		</h2>
-	);
+export const SectionHeader: React.FC<React.PropsWithChildren<CommonProps>> = (
+	props
+) => {
+	const { className, children } = props;
+	return <h2 className={cn(styles.header, className)}>{children}</h2>;
 };

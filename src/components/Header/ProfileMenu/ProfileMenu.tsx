@@ -1,10 +1,11 @@
-import React, { FC, useMemo, useRef } from 'react';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import * as React from 'react';
 import { To, Link } from 'react-router-dom';
+import { useUnit } from 'effector-react';
+import { IconButton, Menu, MenuItem } from '@mui/material';
 import { AccountCircleOutlined } from '@mui/icons-material';
-import { useToggle, useTypedDispatch, useTypedSelector } from '@/hooks';
-import { StandardProps } from '@/interfaces/components';
-import { logoutThunk, selectAuthId } from '@/models/auth';
+import { $authUser, logoutMutation } from '@/models/auth';
+import { useToggle } from '@/hooks';
+import { CommonProps } from '@/types';
 
 interface MenuOption {
 	readonly label: string;
@@ -12,12 +13,12 @@ interface MenuOption {
 	readonly onClick?: VoidFunction;
 }
 
-export const ProfileMenu: FC<StandardProps> = ({ className }) => {
+export const ProfileMenu: React.FC<CommonProps> = (props) => {
+	const { className } = props;
 	const { onToggle, toggled } = useToggle();
-	const anchor = useRef(null);
-	const authId = useTypedSelector(selectAuthId);
-	const dispatch = useTypedDispatch();
-	const menuOptions: MenuOption[] = useMemo(
+	const anchor = React.useRef(null);
+	const { id: authId } = useUnit($authUser)!;
+	const menuOptions: MenuOption[] = React.useMemo(
 		() => [
 			{
 				label: 'Профиль',
@@ -29,10 +30,10 @@ export const ProfileMenu: FC<StandardProps> = ({ className }) => {
 			},
 			{
 				label: 'Выйти',
-				onClick: () => dispatch(logoutThunk()),
+				onClick: logoutMutation.start,
 			},
 		],
-		[dispatch, authId]
+		[authId]
 	);
 	return (
 		<>

@@ -1,18 +1,13 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import CrossButtonStyle from './CrossButton.module.css';
+import styles from './CrossButton.module.css';
 
-interface CrossButtonProps extends StandardProps {
+interface CrossButtonProps extends CommonProps {
 	readonly title: string;
 }
 
 export const CrossButton: FC<CrossButtonProps> = ({ className, title }) => {
-	return (
-		<button
-			className={classNames(CrossButtonStyle.button, className)}
-			title={title}
-		/>
-	);
+	return <button className={cn(styles.button, className)} title={title} />;
 };

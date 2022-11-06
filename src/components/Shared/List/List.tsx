@@ -1,11 +1,11 @@
 import React, { ComponentType, ReactElement } from 'react';
-import classNames from 'classnames';
-import { ID } from '@/interfaces/common';
-import { StandardProps } from '@/interfaces/components';
+import cn from 'classnames';
+import { ID } from '@/types';
+import { CommonProps } from '@/types';
 
-import ListStyle from './List.module.css';
+import styles from './List.module.css';
 
-interface ListProps<T> extends StandardProps {
+interface ListProps<T> extends CommonProps {
 	readonly items: T[];
 	readonly Card: ComponentType<T>;
 }
@@ -16,7 +16,7 @@ type ListComponent = <T extends { id: ID }>(
 
 export const List: ListComponent = ({ Card, items, className }) => {
 	return (
-		<ul className={classNames(ListStyle.list, className)}>
+		<ul className={cn(styles.list, className)}>
 			{items.map((item) => {
 				return <Card {...item} key={item.id} />;
 			})}

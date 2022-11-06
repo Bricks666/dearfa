@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Photo } from '@/components/Shared';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { User } from '@/models/users';
 
-import FavoriteFriendCardStyle from './FavoritFriendCard.module.css';
+import styles from './FavoritFriendCard.module.css';
 
 interface FavoriteFriendCardProps
-	extends StandardProps,
+	extends CommonProps,
 		Pick<User, 'photos' | 'id' | 'name'> {}
 
 export const FavoritFriendCard: FC<FavoriteFriendCardProps> = ({
@@ -17,12 +17,7 @@ export const FavoritFriendCard: FC<FavoriteFriendCardProps> = ({
 }) => {
 	return (
 		<li className={className}>
-			<Photo
-				className={FavoriteFriendCardStyle.photo}
-				photo={small}
-				id={id}
-				fullName={name}
-			/>
+			<Photo className={styles.photo} photo={small} id={id} fullName={name} />
 		</li>
 	);
 };

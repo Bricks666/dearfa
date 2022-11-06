@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import { URL } from '@/interfaces/common';
-import { StandardProps } from '@/interfaces/components';
+import cn from 'classnames';
+import { URL } from '@/types';
+import { CommonProps } from '@/types';
 
-import PictureStyle from './Picture.module.css';
+import styles from './Picture.module.css';
 
-interface PictureProps extends StandardProps {
+interface PictureProps extends CommonProps {
 	readonly oneXSrc: URL | null;
 	readonly twoXSrc?: URL | null;
 	readonly alt: string;
@@ -18,7 +18,7 @@ export const Picture: FC<PictureProps> = ({
 	alt,
 }) => {
 	return (
-		<picture className={classNames(className)}>
+		<picture className={cn(className)}>
 			<source
 				srcSet={`${oneXSrc ?? ''}.avif 1x,${twoXSrc ?? ''}.avif 2x`}
 				type='image/avif'
@@ -28,7 +28,7 @@ export const Picture: FC<PictureProps> = ({
 				type='image/webp'
 			/>
 			<img
-				className={classNames(PictureStyle.photo, className)}
+				className={cn(styles.photo, className)}
 				src={`${oneXSrc ?? ''}.jpg 1x`}
 				srcSet={`${twoXSrc ?? ''}.jpg 2x,`}
 				alt={alt ?? ''}

@@ -1,7 +1,7 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-import { TypedObject } from '@/interfaces/common';
+import { TypedObject } from '@/types';
 
 type RenderPagesList = (
 	rootPath: string,
@@ -25,7 +25,7 @@ export const renderPagesList: RenderPagesList = (
 		pages.push(
 			<li
 				key={i}
-				className={classNames(styles.pageNumber, {
+				className={cn(styles.pageNumber, {
 					[styles.selected]: i === currentPage,
 				})}>
 				<Link className={styles.link} to={rootPath + i}>

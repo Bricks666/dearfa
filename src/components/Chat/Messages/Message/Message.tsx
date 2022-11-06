@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { Date } from '@/components/Shared';
 import { Message } from '@/models/messages';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import MessageStyle from './Message.module.css';
+import styles from './Message.module.css';
 
 interface MessageProps
-	extends StandardProps,
+	extends CommonProps,
 		Omit<Message, 'body' | 'id' | 'senderId'> {}
 
 export const MessageCard: FC<MessageProps> = ({
@@ -19,12 +19,12 @@ export const MessageCard: FC<MessageProps> = ({
 }) => {
 	return (
 		<article
-			className={classNames(MessageStyle.message, className, {
-				[MessageStyle.notViewed]: viewed === false,
+			className={cn(styles.message, className, {
+				[styles.notViewed]: viewed === false,
 			})}>
-			<span className={MessageStyle.author}>{senderName}</span>
-			<p className={MessageStyle.content}>{children}</p>
-			<Date className={MessageStyle.dateTime} date={addedAt} />
+			<span className={styles.author}>{senderName}</span>
+			<p className={styles.content}>{children}</p>
+			<Date className={styles.dateTime} date={addedAt} />
 		</article>
 	);
 };

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 /* import { Field as ReactField, Form as ReactForm } from "react-final-form"; */
 /* import { FORM_ERROR } from "final-form"; */
 import { Button, Field, ErrorMessage } from '../Shared';
@@ -10,7 +10,7 @@ import { Button, Field, ErrorMessage } from '../Shared';
 	RegistrationValidationError,
 } from "../../types/Components"; */
 
-import RegistrationFormStyle from './RegistrationForm.module.css';
+import styles from './RegistrationForm.module.css';
 
 const Form: FC = (/* {
 	handleSubmit,
@@ -21,7 +21,7 @@ const Form: FC = (/* {
 } */) => {
 	return null;
 	/* 		<form
-			className={classNames(RegistrationFormStyle.form, className)}
+			className={cn(styles.form, className)}
 			onSubmit={handleSubmit}
 		>
 			<ReactField name="name" render={Field}>
@@ -31,7 +31,7 @@ const Form: FC = (/* {
 				Почта
 			</ReactField>
 			{error && (
-				<ErrorMessage className={RegistrationFormStyle.error}>
+				<ErrorMessage className={styles.error}>
 					{error}
 				</ErrorMessage>
 			)}
@@ -42,7 +42,7 @@ const Form: FC = (/* {
 				Повторите пароль
 			</ReactField>
 			<Button
-				className={RegistrationFormStyle.button}
+				className={styles.button}
 				disabled={valid === false || submitting}
 			>
 				Зарегистрироваться

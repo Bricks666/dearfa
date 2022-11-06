@@ -1,13 +1,13 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SubsectionHeader, Picture } from '@/components/Shared';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { Dialog } from '@/models/dialogs';
 
-import DialogStyle from './Dialog.module.css';
+import styles from './Dialog.module.css';
 
-interface DialogProps extends StandardProps, Dialog {}
+interface DialogProps extends CommonProps, Dialog {}
 
 export const DialogCard: FC<DialogProps> = ({
 	className,
@@ -16,18 +16,18 @@ export const DialogCard: FC<DialogProps> = ({
 	photos: { small },
 }) => {
 	return (
-		<li className={classNames(DialogStyle.dialog, className)}>
+		<li className={cn(styles.dialog, className)}>
 			<NavLink
 				to={`/dialogs/${id}`}
 				className={({ isActive }) =>
-					classNames(DialogStyle.link, { [DialogStyle.linkActive]: isActive })
+					cn(styles.link, { [styles.linkActive]: isActive })
 				}
 				aria-label={`чат с ${userName}`}>
-				<SubsectionHeader className={DialogStyle.fullName}>
+				<SubsectionHeader className={styles.fullName}>
 					{userName}
 				</SubsectionHeader>
 				<Picture
-					className={classNames(DialogStyle.photo, 'fake-photo')}
+					className={cn(styles.photo, 'fake-photo')}
 					oneXSrc={small || '/Images/ProfileBackground/SunSet'}
 					alt={userName}
 				/>

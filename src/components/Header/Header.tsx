@@ -1,18 +1,18 @@
-import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
+import * as React from 'react';
+import { useUnit } from 'effector-react';
 import { Link } from 'react-router-dom';
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
-import { Logo } from './Logo/Logo';
-import { selectAuthLogin } from '@/models/auth';
-import { StandardProps } from '@/interfaces/components';
+import { $isAuth } from '@/models/auth';
+import { CommonProps } from '@/types';
+import { Logo } from './Logo';
 import { ProfileMenu } from './ProfileMenu';
 import { Navigation } from './Navigation';
 
-import HeaderStyle from './Header.module.css';
+import styles from './Header.module.css';
 
-export const Header: FC<StandardProps> = ({ className }) => {
-	const login = useSelector(selectAuthLogin);
-	const isLogin = !!login;
+export const Header: React.FC<CommonProps> = (props) => {
+	const { className } = props;
+	const isAuth = useUnit($isAuth);
 
 	return (
 		<AppBar className={className} position='static'>
@@ -20,10 +20,10 @@ export const Header: FC<StandardProps> = ({ className }) => {
 				<Typography className='visibility-hidden' variant='h1'>
 					Dear.Fa
 				</Typography>
-				{isLogin && <Navigation />}
-				<Logo className={HeaderStyle.logo} src='/Images/logo.svg' alt='Logo' />
-				<div className={HeaderStyle.authorization}>
-					{isLogin ? (
+				{isAuth && <Navigation />}
+				<Logo className={styles.logo} src='/Images/logo.svg' alt='Logo' />
+				<div className={styles.authorization}>
+					{isAuth ? (
 						<ProfileMenu />
 					) : (
 						<>

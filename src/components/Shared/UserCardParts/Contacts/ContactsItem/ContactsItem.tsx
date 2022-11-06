@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import ContactsStyle from './ContactsItem.module.css';
+import styles from './ContactsItem.module.css';
 
-interface ContactProps extends StandardProps {
+interface ContactProps extends CommonProps {
 	readonly term: string;
 	readonly description: string;
 }
@@ -17,13 +17,9 @@ const ContactsItem: FC<ContactProps> = ({ description, term }) => {
 	}${description}`;
 	return (
 		<>
-			<dt className={ContactsStyle.term}>{term}</dt>
-			<dd className={ContactsStyle.description}>
-				<a
-					className={ContactsStyle.link}
-					href={href}
-					target='_blank'
-					rel='noreferrer'>
+			<dt className={styles.term}>{term}</dt>
+			<dd className={styles.description}>
+				<a className={styles.link} href={href} target='_blank' rel='noreferrer'>
 					{description}
 				</a>
 			</dd>

@@ -1,10 +1,10 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC, ReactNode } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 
-import DataListItemStyle from './DataListItem.module.css';
+import styles from './DataListItem.module.css';
 
-export interface DataListItemProps extends StandardProps {
+export interface DataListItemProps extends CommonProps {
 	readonly term: ReactNode;
 	readonly description: ReactNode;
 	readonly termClass?: string;
@@ -19,11 +19,9 @@ export const DataListItem: FC<DataListItemProps> = ({
 	description,
 }) => {
 	return (
-		<div className={classNames(DataListItemStyle.item, className)}>
-			<dt className={classNames(DataListItemStyle.term, termClass)}>{term}</dt>
-			<dd className={classNames(DataListItemStyle.desc, descriptionClass)}>
-				{description}
-			</dd>
+		<div className={cn(styles.item, className)}>
+			<dt className={cn(styles.term, termClass)}>{term}</dt>
+			<dd className={cn(styles.desc, descriptionClass)}>{description}</dd>
 		</div>
 	);
 };

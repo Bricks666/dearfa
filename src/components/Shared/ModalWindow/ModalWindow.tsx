@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { FC } from 'react';
-import { StandardProps } from '@/interfaces/components';
+import { CommonProps } from '@/types';
 import { CrossButton } from '../CrossButton/CrossButton';
 
-import ModalWindowStyle from './ModalWindow.module.css';
+import styles from './ModalWindow.module.css';
 
-interface ModalWindowProps extends StandardProps {
+interface ModalWindowProps extends CommonProps {
 	readonly close: VoidFunction;
 	readonly condition: boolean;
 }
@@ -20,13 +20,13 @@ export const ModalWindow: FC<ModalWindowProps> = ({
 	children,
 }) => {
 	return condition ? (
-		<div className={ModalWindowStyle.wrapper} onClick={close}>
+		<div className={styles.wrapper} onClick={close}>
 			<div
-				className={classNames(ModalWindowStyle.inner, className)}
+				className={cn(styles.inner, className)}
 				onClick={(e) => e.stopPropagation()}>
 				<CrossButton
 					/* onClick={close} */
-					className={ModalWindowStyle.button}
+					className={styles.button}
 					/* disabled={false} */
 					title='Закрыть модальное окно'
 				/>
