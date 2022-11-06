@@ -1,14 +1,12 @@
-import { selectPosts } from "@/models/posts";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useTypedSelector } from ".";
+import { useEffect } from 'react';
+import { selectPosts } from '@/models/posts';
+import { useTypedSelector } from '.';
 
 export const usePosts = () => {
 	const posts = useTypedSelector(selectPosts);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
-		null;
+		console.log();
 	}, []);
 
 	return posts;

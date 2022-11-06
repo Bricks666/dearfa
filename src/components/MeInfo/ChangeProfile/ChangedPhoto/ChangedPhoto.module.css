@@ -22,7 +22,7 @@
 }
 
 .object::before {
-	content: url("../../../../Assets/Patterns/download.svg");
+	content: url('../../../../Assets/Patterns/download.svg');
 
 	position: absolute;
 	z-index: 10;

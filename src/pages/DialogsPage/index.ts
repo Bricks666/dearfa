@@ -1,1 +1,1 @@
-export { DialogsPage } from "./DialogsPage";
+export { DialogsPage as default } from './DialogsPage';

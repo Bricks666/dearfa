@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { useTypedDispatch, useTypedSelector } from ".";
+import { useEffect } from 'react';
+import { useTypedDispatch, useTypedSelector } from '.';
 import {
 	loadFavoriteFriendsThunk,
 	resetFavoriteFriends,
 	selectFavoriteFriends,
-} from "@/models/favoriteFriends";
+} from '@/models/favoriteFriends';
 
 export const useFavoritFriends = () => {
 	const friends = useTypedSelector(selectFavoriteFriends);

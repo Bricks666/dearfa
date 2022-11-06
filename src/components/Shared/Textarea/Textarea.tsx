@@ -1,8 +1,8 @@
-import { StandardProps } from "@/interfaces/components";
-import React, { FC } from "react";
-import { ErrorMessage } from "..";
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
+import { ErrorMessage } from '..';
 
-import TextareaStyle from "./Textarea.module.css";
+import TextareaStyle from './Textarea.module.css';
 
 interface TextareaProps extends StandardProps {
 	readonly input: object;

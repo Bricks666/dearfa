@@ -15,7 +15,7 @@
 }
 
 .messages::-webkit-scrollbar {
-  display: block;
+	display: block;
 	padding: 4px 0;
 
 	background-color: var(--blue-lightest);

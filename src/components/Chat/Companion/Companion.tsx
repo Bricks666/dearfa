@@ -1,9 +1,9 @@
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
-import React, { FC } from "react";
-import { Photo, FullName, Date } from "@/components/Shared";
+import classNames from 'classnames';
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
+import { Photo, FullName, Date } from '@/components/Shared';
 
-import CompanionStyle from "./Companion.module.css";
+import CompanionStyle from './Companion.module.css';
 
 interface CompanionProps extends StandardProps {
 	readonly dialogId: number;
@@ -15,16 +15,16 @@ export const Companion: FC<CompanionProps> = ({ className, dialogId }) => {
 		<header className={classNames(CompanionStyle.header, className)}>
 			<Photo
 				className={CompanionStyle.photo}
-				photo={/* companion.photo */ ""}
-				fullName={/* companion.name */ ""}
+				photo={/* companion.photo */ ''}
+				fullName={/* companion.name */ ''}
 				id={/* companion.id */ 0}
 			/>
 			<FullName className={CompanionStyle.name} id={/* companion.id */ 0}>
-				{/* companion.name */ ""}
+				{/* companion.name */ ''}
 			</FullName>
 			<Date
 				className={CompanionStyle.date}
-				date={/* companion.lastActive */ ""}
+				date={/* companion.lastActive */ ''}
 			/>
 		</header>
 	);

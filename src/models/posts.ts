@@ -1,7 +1,7 @@
-import { ID } from "@/interfaces/common";
-import { SetLoadingPayload } from "@/interfaces/models";
-import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Store } from ".";
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ID } from '@/interfaces/common';
+import { SetLoadingPayload } from '@/interfaces/models';
+import { Store } from '.';
 
 export interface Post {
 	readonly id: ID;
@@ -40,7 +40,7 @@ const initialState: PostsState = {
 
 const postsStore = createSlice({
 	initialState,
-	name: "posts",
+	name: 'posts',
 	reducers: {
 		setPosts: (state, { payload }: PayloadAction<SetPostsPayload>) => {
 			state.list = payload.posts;
@@ -71,10 +71,7 @@ export const { resetPosts, setPosts, setPostsLoading, addPost, toggleLike } =
 
 const selfSelector = (state: Store) => state.posts;
 
-export const selectPosts = createSelector(
-	selfSelector,
-	(state) => state.list
-);
+export const selectPosts = createSelector(selfSelector, (state) => state.list);
 
 export const selectLoadingPosts = createSelector(
 	selfSelector,

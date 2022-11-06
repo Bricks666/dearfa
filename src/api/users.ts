@@ -1,8 +1,8 @@
-import { URL } from "@/interfaces/common";
-import { ResponseWithUsers } from "@/interfaces/responses";
-import { makeGetRequest } from "./makeRequest";
+import { URL } from '@/interfaces/common';
+import { ResponseWithUsers } from '@/interfaces/responses';
+import { makeGetRequest } from './makeRequest';
 
-const baseURL: URL = "users/";
+const baseURL: URL = 'users/';
 
 export const getUsersApi = async (count: number, page: number) => {
 	const requestURL: URL = `${baseURL}?page=${count}&count=${page}`;

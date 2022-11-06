@@ -1,11 +1,11 @@
-import { getFriendsApi } from "@/api";
 import {
 	createAsyncThunk,
 	createSelector,
 	createSlice,
-} from "@reduxjs/toolkit";
-import { Store } from ".";
-import { unfollowUserThunk, User } from "./users";
+} from '@reduxjs/toolkit';
+import { getFriendsApi } from '@/api';
+import { Store } from '.';
+import { unfollowUserThunk, User } from './users';
 
 export interface FavoriteFriendsState {
 	readonly list: User[];
@@ -20,7 +20,7 @@ const initialState: FavoriteFriendsState = {
 };
 const favoriteFriendsStore = createSlice({
 	initialState,
-	name: "favoriteFriends",
+	name: 'favoriteFriends',
 	reducers: {
 		resetFavoriteFriends: (state) => {
 			Object.assign(state, initialState);
@@ -46,7 +46,7 @@ const favoriteFriendsStore = createSlice({
 });
 
 export const loadFavoriteFriendsThunk = createAsyncThunk(
-	"favoriteFriends/loadFavoriteFriends",
+	'favoriteFriends/loadFavoriteFriends',
 	async () => {
 		const response = await getFriendsApi(6, 1);
 		if (response.error) {

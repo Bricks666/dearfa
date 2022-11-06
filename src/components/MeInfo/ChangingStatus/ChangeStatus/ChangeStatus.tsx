@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import React, { FC } from "react";
-import { Button, Field, SubsectionHeader } from "../../../Shared";
+import classNames from 'classnames';
+import React, { FC } from 'react';
+import { Button, Field, SubsectionHeader } from '../../../Shared';
 
-import ChangeStatusStyle from "./ChangeStatus.module.css";
+import ChangeStatusStyle from './ChangeStatus.module.css';
 
 const ChangeStatusForm: FC = (/* {
 	handleSubmit,

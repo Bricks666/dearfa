@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { StandardProps } from "@/interfaces/components";
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
 
-import ContactsStyle from "./ContactsItem.module.css";
+import ContactsStyle from './ContactsItem.module.css';
 
 interface ContactProps extends StandardProps {
 	readonly term: string;
@@ -13,7 +13,7 @@ const ContactsItem: FC<ContactProps> = ({ description, term }) => {
 		return null;
 	}
 	const href = `${
-		description.includes("https://") ? "" : "https://"
+		description.includes('https://') ? '' : 'https://'
 	}${description}`;
 	return (
 		<>
@@ -22,9 +22,8 @@ const ContactsItem: FC<ContactProps> = ({ description, term }) => {
 				<a
 					className={ContactsStyle.link}
 					href={href}
-					target="_blank"
-					rel="noreferrer"
-				>
+					target='_blank'
+					rel='noreferrer'>
 					{description}
 				</a>
 			</dd>

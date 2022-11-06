@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import classNames from "classnames";
+import React, { FC } from 'react';
+import classNames from 'classnames';
 /* import { Field as ReactField, Form as ReactForm } from "react-final-form"; */
 /* import { FORM_ERROR } from "final-form"; */
-import { Button, Field, ErrorMessage } from "../Shared";
+import { Button, Field, ErrorMessage } from '../Shared';
 /* import {
 	IRegistrationComponent,
 	RegistrationFormComponent,
@@ -10,7 +10,7 @@ import { Button, Field, ErrorMessage } from "../Shared";
 	RegistrationValidationError,
 } from "../../types/Components"; */
 
-import RegistrationFormStyle from "./RegistrationForm.module.css";
+import RegistrationFormStyle from './RegistrationForm.module.css';
 
 const Form: FC = (/* {
 	handleSubmit,

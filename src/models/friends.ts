@@ -1,12 +1,12 @@
-import { getFriendsApi } from "@/api";
-import { ResponseWithItems } from "@/interfaces/responses";
 import {
 	createAsyncThunk,
 	createSelector,
 	createSlice,
-} from "@reduxjs/toolkit";
-import { Store } from ".";
-import { unfollowUserThunk, User } from "./users";
+} from '@reduxjs/toolkit';
+import { getFriendsApi } from '@/api';
+import { ResponseWithItems } from '@/interfaces/responses';
+import { Store } from '.';
+import { unfollowUserThunk, User } from './users';
 
 export interface FriendsState {
 	readonly list: User[];
@@ -26,7 +26,7 @@ const initialState: FriendsState = {
 
 const friendsStore = createSlice({
 	initialState,
-	name: "friends",
+	name: 'friends',
 	reducers: {
 		resetFriends: (state) => {
 			Object.assign(state, initialState);
@@ -60,7 +60,7 @@ interface LoadFriendsParams {
 export const loadFriendsThunk = createAsyncThunk<
 	ResponseWithItems<User>,
 	LoadFriendsParams
->("friends/loadFriends", async ({ currentPage, friendsCount }) => {
+>('friends/loadFriends', async ({ currentPage, friendsCount }) => {
 	const response = await getFriendsApi(friendsCount, currentPage);
 	if (response.error) {
 		throw new Error(response.error);

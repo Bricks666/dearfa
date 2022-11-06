@@ -2,11 +2,11 @@ import {
 	createAsyncThunk,
 	createSelector,
 	createSlice,
-} from "@reduxjs/toolkit";
-import { Photos, URL } from "@/interfaces/common";
-import { ResponseWithItems } from "@/interfaces/responses";
-import { followApi, getUsersApi, unfollowApi } from "@/api";
-import { Store } from ".";
+} from '@reduxjs/toolkit';
+import { Photos, URL } from '@/interfaces/common';
+import { ResponseWithItems } from '@/interfaces/responses';
+import { followApi, getUsersApi, unfollowApi } from '@/api';
+import { Store } from '.';
 
 export interface User {
 	readonly id: number;
@@ -35,7 +35,7 @@ const initialState: UsersState = {
 
 const usersStore = createSlice({
 	initialState,
-	name: "users",
+	name: 'users',
 	reducers: {
 		resetUsers: (state) => {
 			Object.assign(state, initialState);
@@ -78,17 +78,17 @@ interface LoadUsersParams {
 export const loadUsersThunk = createAsyncThunk<
 	ResponseWithItems<User>,
 	LoadUsersParams
->("users/loadUsers", async ({ usersCount, page }) => {
-	return await getUsersApi(usersCount, page);
+>('users/loadUsers', async ({ usersCount, page }) => {
+	return getUsersApi(usersCount, page);
 });
 
 export const followUserThunk = createAsyncThunk<number, number>(
-	"users/follow",
+	'users/follow',
 	async (userId) => {
 		const response = await followApi(userId);
 
 		if (response.resultCode) {
-			throw new Error(response.messages.join(", "));
+			throw new Error(response.messages.join(', '));
 		}
 
 		return userId;
@@ -96,12 +96,12 @@ export const followUserThunk = createAsyncThunk<number, number>(
 );
 
 export const unfollowUserThunk = createAsyncThunk<number, number>(
-	"users/unfollow",
+	'users/unfollow',
 	async (userId) => {
 		const response = await unfollowApi(userId);
 
 		if (response.resultCode) {
-			throw new Error(response.messages.join(", "));
+			throw new Error(response.messages.join(', '));
 		}
 
 		return userId;

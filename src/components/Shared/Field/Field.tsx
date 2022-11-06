@@ -1,9 +1,9 @@
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
-import React, { FC } from "react";
-import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
+import classNames from 'classnames';
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
-import FieldStyle from "./Field.module.css";
+import FieldStyle from './Field.module.css';
 
 interface FieldProps extends StandardProps {
 	readonly input: object;

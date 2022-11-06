@@ -1,11 +1,17 @@
-import { getAuthApi, getCaptchaURLApi, loginApi, logoutApi } from "@/api";
-import { URL } from "@/interfaces/common";
 import {
 	createAsyncThunk,
 	createSelector,
 	createSlice,
-} from "@reduxjs/toolkit";
-import { Store } from ".";
+} from '@reduxjs/toolkit';
+import {
+	getAuthApi,
+	getCaptchaURLApi,
+	loginApi,
+	LoginRequest,
+	logoutApi,
+} from '@/api';
+import { URL } from '@/interfaces/common';
+import { Store } from '.';
 
 export interface AuthState {
 	readonly userId: number;
@@ -16,14 +22,14 @@ export interface AuthState {
 
 const initialState: AuthState = {
 	userId: 0,
-	login: "asdsasd",
+	login: '',
 	isAuthorization: true,
 	captchaURL: null,
 };
 
 const authStore = createSlice({
 	initialState,
-	name: "auth",
+	name: 'auth',
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
@@ -47,7 +53,7 @@ const authStore = createSlice({
 	},
 });
 
-export const authThunk = createAsyncThunk("auth/auth", async () => {
+export const authThunk = createAsyncThunk('auth/auth', async () => {
 	const response = await getAuthApi();
 	if (response.resultCode) {
 		throw new Error();
@@ -57,35 +63,29 @@ export const authThunk = createAsyncThunk("auth/auth", async () => {
 });
 
 export const loadCaptchaThunk = createAsyncThunk(
-	"login/loadCaptcha",
+	'login/loadCaptcha',
 	async () => {
 		const response = await getCaptchaURLApi();
 		return response.url;
 	}
 );
 
-interface LoginParams {
-	readonly email: string;
-	readonly password: string;
-	readonly rememberMe: boolean;
-}
-
-export const loginThunk = createAsyncThunk<void, LoginParams>(
-	"login/login",
+export const loginThunk = createAsyncThunk<void, LoginRequest>(
+	'login/login',
 	async (credentials, { dispatch }) => {
 		const response = await loginApi(credentials);
 		if (response.resultCode) {
-			throw new Error(response.messages.join(", "));
+			throw new Error(response.messages.join(', '));
 		}
 
 		dispatch(authThunk());
 	}
 );
 
-export const logoutThunk = createAsyncThunk("login/logout", async () => {
+export const logoutThunk = createAsyncThunk('login/logout', async () => {
 	const response = await logoutApi();
 	if (response.resultCode) {
-		throw new Error(response.messages.join(", "));
+		throw new Error(response.messages.join(', '));
 	}
 });
 

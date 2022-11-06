@@ -1,14 +1,14 @@
 /* LINK */
 
 .link {
-  width: max-content;
+	width: max-content;
 
-  font-size: 22px;
-  text-decoration: none;
-  color: inherit;
+	font-size: 22px;
+	text-decoration: none;
+	color: inherit;
 }
 
 /* NAME */
 .name {
-  margin: 0;
+	margin: 0;
 }

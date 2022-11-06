@@ -1,5 +1,5 @@
-import { StandardProps } from "@/interfaces/components";
-import React, { FC } from "react";
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
 
 export const LookingJob: FC<StandardProps> = ({ className }) => {
 	return (

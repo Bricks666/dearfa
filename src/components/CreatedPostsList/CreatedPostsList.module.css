@@ -1,7 +1,7 @@
 /* CREATED POSTS */
 
 .createdPosts {
-  display: grid;
+	display: grid;
 
-  row-gap: 10px;
+	row-gap: 10px;
 }

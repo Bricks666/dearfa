@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import { renderPagesList } from "./renderPagesList";
-import { ButtonLink } from "../ButtonLink/ButtonLink";
-import { StandardProps } from "@/interfaces/components";
+import React, { FC } from 'react';
+import { renderPagesList } from './renderPagesList';
+import { ButtonLink } from '../ButtonLink/ButtonLink';
+import { StandardProps } from '@/interfaces/components';
 
-import PagesListStyle from "./PagesList.module.css";
+import PagesListStyle from './PagesList.module.css';
 
 interface PaginationProps extends StandardProps {
 	currentPage: number;

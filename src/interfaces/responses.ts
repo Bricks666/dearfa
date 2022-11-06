@@ -1,5 +1,5 @@
-import { User } from "@/models/users";
-import { EmptyObject } from "./common";
+import { User } from '@/models/users';
+import { EmptyObject } from './common';
 
 export interface ResponseWithItems<T> {
 	readonly items: T[];

@@ -1,15 +1,15 @@
-import { StandardProps } from "@/interfaces/components";
-import { User } from "@/models/users";
-import classNames from "classnames";
-import React, { FC } from "react";
-import { DataList } from "..";
-import { Button } from "../Button/Button";
-import { ButtonLink } from "../ButtonLink/ButtonLink";
-import { FullName } from "../UserCardParts/FullName/FullName";
-import { Photo } from "../UserCardParts/Photo/Photo";
-import { Status } from "../UserCardParts/Status/Status";
+import classNames from 'classnames';
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
+import { User } from '@/models/users';
+import { DataList } from '..';
+import { Button } from '../Button/Button';
+import { ButtonLink } from '../ButtonLink/ButtonLink';
+import { FullName } from '../UserCardParts/FullName/FullName';
+import { Photo } from '../UserCardParts/Photo/Photo';
+import { Status } from '../UserCardParts/Status/Status';
 
-import UserCardStyle from "./UserCard.module.css";
+import UserCardStyle from './UserCard.module.css';
 
 interface UserCardProps extends StandardProps, User {}
 
@@ -22,7 +22,6 @@ export const UserCard: FC<UserCardProps> = ({
 	status,
 }) => {
 	return (
-
 		<li className={classNames(UserCardStyle.itemWrapper, className)}>
 			<FullName id={id}>{name}</FullName>
 			<DataList>
@@ -38,7 +37,7 @@ export const UserCard: FC<UserCardProps> = ({
 				Написать
 			</ButtonLink>
 			<Button className={UserCardStyle.button}>
-				{followed ? "Удалить из друзей" : "Добавить в друзья"}
+				{followed ? 'Удалить из друзей' : 'Добавить в друзья'}
 			</Button>
 		</li>
 	);

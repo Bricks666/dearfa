@@ -1,15 +1,15 @@
 import {
-	getProfileWithStatusApi,
-	updatePhotoApi,
-	updateStatusApi,
-} from "@/api";
-import { EmptyObject, Photos, URL } from "@/interfaces/common";
-import {
 	createAsyncThunk,
 	createSelector,
 	createSlice,
-} from "@reduxjs/toolkit";
-import { Store } from ".";
+} from '@reduxjs/toolkit';
+import {
+	getProfileWithStatusApi,
+	updatePhotoApi,
+	updateStatusApi,
+} from '@/api';
+import { EmptyObject, Photos, URL } from '@/interfaces/common';
+import { Store } from '.';
 
 export interface ProfileState {
 	readonly info: ProfileInfo;
@@ -42,24 +42,24 @@ export interface Contacts {
 const initialState: ProfileState = {
 	info: {
 		userId: 0,
-		fullName: "",
-		aboutMe: "",
+		fullName: '',
+		aboutMe: '',
 		photos: {
-			large: "/Images/Ava/Cosmic-animals",
-			small: "/Images/Ava/Cosmic-animals",
+			large: '/Images/Ava/Cosmic-animals',
+			small: '/Images/Ava/Cosmic-animals',
 		},
 		contacts: {},
 		followed: false,
 		lookingForAJob: true,
-		lookingForAJobDescription: "",
-		status: "",
+		lookingForAJobDescription: '',
+		status: '',
 	},
 	isLoading: false,
 };
 
 const profileStore = createSlice({
 	initialState,
-	name: "profile",
+	name: 'profile',
 	reducers: {
 		resetProfile: (state) => {
 			Object.assign(state, initialState);
@@ -87,14 +87,14 @@ const profileStore = createSlice({
 });
 
 export const loadProfileThunk = createAsyncThunk<ProfileInfo, number>(
-	"profile/loadProfile",
+	'profile/loadProfile',
 	async (id) => {
-		return await getProfileWithStatusApi(id);
+		return getProfileWithStatusApi(id);
 	}
 );
 
 export const updateStatusThunk = createAsyncThunk<string, string>(
-	"profile/updateStatus",
+	'profile/updateStatus',
 	async (status) => {
 		await updateStatusApi(status);
 		return status;
@@ -102,11 +102,11 @@ export const updateStatusThunk = createAsyncThunk<string, string>(
 );
 
 export const updatePhotosThunk = createAsyncThunk<Photos, File>(
-	"profile/updatePhotos",
+	'profile/updatePhotos',
 	async (photo) => {
 		const response = await updatePhotoApi(photo);
 		if (response.resultCode) {
-			throw new Error(response.messages.join(", "));
+			throw new Error(response.messages.join(', '));
 		}
 
 		return response.data;
@@ -114,9 +114,9 @@ export const updatePhotosThunk = createAsyncThunk<Photos, File>(
 );
 
 export const updateProfileThunk = createAsyncThunk(
-	"profile/updateProfile",
+	'profile/updateProfile',
 	async () => {
-		null;
+		return undefined;
 	}
 );
 

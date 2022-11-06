@@ -1,10 +1,10 @@
-import React, { FC, useMemo, useRef } from "react";
-import { useToggle, useTypedDispatch, useTypedSelector } from "@/hooks";
-import { StandardProps } from "@/interfaces/components";
-import { Avatar, Button, Menu, MenuItem, MenuList } from "@mui/material";
-import { To, Link } from "react-router-dom";
-import { logoutThunk, selectAuthId } from "@/models/auth";
-import { AccountCircle } from "@mui/icons-material";
+import React, { FC, useMemo, useRef } from 'react';
+import { IconButton, Menu, MenuItem } from '@mui/material';
+import { To, Link } from 'react-router-dom';
+import { AccountCircleOutlined } from '@mui/icons-material';
+import { useToggle, useTypedDispatch, useTypedSelector } from '@/hooks';
+import { StandardProps } from '@/interfaces/components';
+import { logoutThunk, selectAuthId } from '@/models/auth';
 
 interface MenuOption {
 	readonly label: string;
@@ -20,15 +20,15 @@ export const ProfileMenu: FC<StandardProps> = ({ className }) => {
 	const menuOptions: MenuOption[] = useMemo(
 		() => [
 			{
-				label: "Профиль",
+				label: 'Профиль',
 				to: `/profile/${authId}`,
 			},
 			{
-				label: "Настройки",
-				to: "/settings",
+				label: 'Настройки',
+				to: '/settings',
 			},
 			{
-				label: "Выйти",
+				label: 'Выйти',
 				onClick: () => dispatch(logoutThunk()),
 			},
 		],
@@ -36,14 +36,13 @@ export const ProfileMenu: FC<StandardProps> = ({ className }) => {
 	);
 	return (
 		<>
-			<Avatar
+			<IconButton
 				className={className}
-				role="button"
 				onClick={onToggle}
 				ref={anchor}
-			>
-				<AccountCircle />
-			</Avatar>
+				color='inherit'>
+				<AccountCircleOutlined />
+			</IconButton>
 			<Menu open={toggled} anchorEl={anchor.current} onClose={onToggle}>
 				{menuOptions.map(({ label, onClick, to }) =>
 					to ? (

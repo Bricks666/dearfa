@@ -1,18 +1,20 @@
-import React, { FC, useCallback, useEffect } from "react";
-import classNames from "classnames";
-import { Route, Routes } from "react-router-dom";
-import { Box, Container } from "@mui/material";
-import { Navigation } from "@/components/Header/Navigation/Navigation";
-import { FavoritFriends } from "@/components/FavoritFriends";
-import { Header } from "@/components/Header";
-import { routes } from "@/routes";
-import { authThunk, selectAuthLogin } from "@/models/auth";
-import { useTypedDispatch, useTypedSelector } from "@/hooks";
+import React, { FC, Suspense, useCallback, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import {
+	CircularProgress,
+	Container,
+	LinearProgress,
+	Stack,
+} from '@mui/material';
+import { Header } from '@/components/Header';
+import { routes } from '@/routes';
+import { authThunk, selectAuthorization } from '@/models/auth';
+import { useTypedDispatch, useTypedSelector } from '@/hooks';
 
-import AppStyle from "./App.module.css";
+import AppStyle from './App.module.css';
 
 export const App: FC = () => {
-	const isLogin = !!useTypedSelector(selectAuthLogin);
+	const isAuthorizing = useTypedSelector(selectAuthorization);
 	const dispatch = useTypedDispatch();
 	const auth = useCallback(() => {
 		dispatch(authThunk());
@@ -22,26 +24,28 @@ export const App: FC = () => {
 		auth();
 	}, [auth]);
 
-	/**TODO: Добавить загрузку */
-
 	return (
-		<Box
-			className={classNames(AppStyle.page, {
-				[AppStyle.notLoginPage]: isLogin === false,
-			})}
-		>
+		<Stack spacing={isAuthorizing ? 0 : 4} alignItems='center'>
 			<Header className={AppStyle.header} />
-			<Navigation className={AppStyle.nav} />
-			<FavoritFriends className={AppStyle.lastFriends} />
-			<Routes>
-				{routes.map(({ Component, path }) => (
-					<Route
-						path={path}
-						element={<Component className={AppStyle.main} key={path} />}
-						key={path}
-					/>
-				))}
-			</Routes>
-		</Box>
+			{isAuthorizing ? (
+				<LinearProgress color='secondary' />
+			) : (
+				<Container maxWidth='xl'>
+					<Routes>
+						{routes.map(({ Component, path }) => (
+							<Route
+								path={path}
+								element={
+									<Suspense key={path} fallback={<CircularProgress />}>
+										<Component className={AppStyle.main} />
+									</Suspense>
+								}
+								key={path}
+							/>
+						))}
+					</Routes>
+				</Container>
+			)}
+		</Stack>
 	);
 };

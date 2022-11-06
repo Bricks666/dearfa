@@ -1,10 +1,11 @@
-import { StandardProps } from "@/interfaces/components";
-import { ProfileInfo } from "@/models/profile";
-import classNames from "classnames";
-import React, { ComponentType, FC } from "react";
-import { SubsectionHeader, Photo } from "../Shared";
+import { Typography } from '@mui/material';
+import classNames from 'classnames';
+import React, { ComponentType, FC } from 'react';
+import { ProfileInfo } from '@/models/profile';
+import { StandardProps } from '@/interfaces/components';
+import { SubsectionHeader, Photo } from '../Shared';
 
-import ProfileInfoStyle from "./ProfileInfo.module.css";
+import ProfileInfoStyle from './ProfileInfo.module.css';
 
 interface IProfileInfoComponent extends StandardProps {
 	readonly user: ProfileInfo;
@@ -18,9 +19,9 @@ const ProfileInfo: FC<IProfileInfoComponent> = ({
 }) => {
 	return (
 		<div className={classNames(ProfileInfoStyle.userInfo, className)}>
-			<SubsectionHeader className={ProfileInfoStyle.fullName}>
+			<Typography variant='h3' className={ProfileInfoStyle.fullName}>
 				{user.fullName}
-			</SubsectionHeader>
+			</Typography>
 			<Photo
 				className={ProfileInfoStyle.photo}
 				photo={user.photos.large}

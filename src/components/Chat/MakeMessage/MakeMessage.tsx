@@ -1,12 +1,12 @@
-import classNames from "classnames";
-import React, { FC } from "react";
+import classNames from 'classnames';
+import React, { FC } from 'react';
 
-import { Button, Textarea } from "../../Shared";
+import { Button, Textarea } from '../../Shared';
 
-import MakeMessageStyle from "./MakeMessage.module.css";
+import MakeMessageStyle from './MakeMessage.module.css';
 
 const Form: FC = () => {
-	/**TODO: Переписать форму добавления сообщения под hook form */
+	/** TODO: Переписать форму добавления сообщения под hook form */
 	return (
 		<form>
 			{/* 			<ReactField

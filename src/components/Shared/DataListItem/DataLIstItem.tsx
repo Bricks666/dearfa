@@ -1,8 +1,8 @@
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
-import React, { FC, ReactNode } from "react";
+import classNames from 'classnames';
+import React, { FC, ReactNode } from 'react';
+import { StandardProps } from '@/interfaces/components';
 
-import DataListItemStyle from "./DataListItem.module.css";
+import DataListItemStyle from './DataListItem.module.css';
 
 export interface DataListItemProps extends StandardProps {
 	readonly term: ReactNode;

@@ -1,9 +1,9 @@
-import React, { ComponentType, ReactElement } from "react";
-import classNames from "classnames";
-import { ID } from "@/interfaces/common";
-import { StandardProps } from "@/interfaces/components";
+import React, { ComponentType, ReactElement } from 'react';
+import classNames from 'classnames';
+import { ID } from '@/interfaces/common';
+import { StandardProps } from '@/interfaces/components';
 
-import ListStyle from "./List.module.css";
+import ListStyle from './List.module.css';
 
 interface ListProps<T> extends StandardProps {
 	readonly items: T[];

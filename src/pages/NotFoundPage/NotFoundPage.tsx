@@ -1,14 +1,13 @@
-import React, { FC } from "react";
-import classNames from "classnames";
-import { SectionHeader } from "@/components/Shared";
-import { StandardProps } from "@/interfaces/components";
-
-import NotFoundPageStyle from "./NotFoundPage.module.css";
+import React, { FC } from 'react';
+import { Box, Typography } from '@mui/material';
+import { StandardProps } from '@/interfaces/components';
 
 export const NotFoundPage: FC<StandardProps> = ({ className }) => {
 	return (
-		<main className={classNames(NotFoundPageStyle.main, className)}>
-			<SectionHeader>Страница не найдена</SectionHeader>
-		</main>
+		<Box className={className}>
+			<Typography variant='h2' align='center'>
+				Страница не найдена
+			</Typography>
+		</Box>
 	);
 };

@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { App } from "./app";
-import { store } from "./models";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { App } from './app';
+import { store } from './models';
 
-import "./index.css";
+import './index.css';
 
-const root = document.getElementById("root");
+const root = document.getElementById('root');
 
 ReactDOM.render(
 	<React.StrictMode>

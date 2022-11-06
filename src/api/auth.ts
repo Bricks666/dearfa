@@ -1,12 +1,12 @@
-import { StandardServerResponse } from "@/interfaces/responses";
-import { URL } from "@/interfaces/common";
+import { StandardServerResponse } from '@/interfaces/responses';
+import { URL } from '@/interfaces/common';
 import {
 	makeDeleteRequest,
 	makeGetRequest,
 	makePostRequest,
-} from "./makeRequest";
+} from './makeRequest';
 
-const baseURL: URL = "auth/";
+const baseURL: URL = 'auth/';
 
 export interface AuthResponse {
 	readonly id: number;
@@ -15,7 +15,7 @@ export interface AuthResponse {
 
 export const getAuthApi = async () => {
 	return await makeGetRequest<StandardServerResponse<AuthResponse>>(
-		baseURL + "me"
+		`${baseURL}me`
 	);
 };
 
@@ -32,9 +32,9 @@ export const loginApi = async (credentials: LoginRequest) => {
 	return await makePostRequest<
 		StandardServerResponse<LoginResponse>,
 		LoginRequest
-	>(baseURL + "login", credentials);
+	>(`${baseURL}login`, credentials);
 };
 
 export const logoutApi = async () => {
-	return await makeDeleteRequest<StandardServerResponse>(baseURL + "login");
+	return await makeDeleteRequest<StandardServerResponse>(`${baseURL}login`);
 };

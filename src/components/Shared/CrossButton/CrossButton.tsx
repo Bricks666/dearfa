@@ -1,8 +1,8 @@
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
-import React, { FC } from "react";
+import classNames from 'classnames';
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
 
-import CrossButtonStyle from "./CrossButton.module.css";
+import CrossButtonStyle from './CrossButton.module.css';
 
 interface CrossButtonProps extends StandardProps {
 	readonly title: string;

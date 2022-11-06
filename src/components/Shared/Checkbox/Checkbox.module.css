@@ -24,7 +24,7 @@
 }
 
 .label::before {
-	content: "";
+	content: '';
 
 	display: inline-block;
 
@@ -34,7 +34,7 @@
 	width: 24px;
 	height: 24px;
 
-	background-image: url("/src/assets/Patterns/checkbox.svg");
+	background-image: url('/src/assets/Patterns/checkbox.svg');
 	background-position: 0 1px;
 	background-repeat: no-repeat;
 	background-size: 24px auto;

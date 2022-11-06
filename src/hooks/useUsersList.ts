@@ -1,12 +1,12 @@
+import { useEffect } from 'react';
 import {
 	loadUsersThunk,
 	resetUsers,
 	selectUsers,
 	selectUsersCount,
-} from "@/models/users";
-import { useEffect } from "react";
-import { useTypedDispatch } from "./useTypedDispatch";
-import { useTypedSelector } from "./useTypedSelector";
+} from '@/models/users';
+import { useTypedDispatch } from './useTypedDispatch';
+import { useTypedSelector } from './useTypedSelector';
 
 export const useUsersList = (page: number) => {
 	const usersCount = useTypedSelector(selectUsersCount);

@@ -1,1 +1,1 @@
-export { DialogsList } from "./DialogsList";
+export { DialogsList } from './DialogsList';

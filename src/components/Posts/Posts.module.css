@@ -1,9 +1,9 @@
 /* POSTS */
 
 .posts {
-  display: grid;
+	display: grid;
 
-  row-gap: 20px;
+	row-gap: 20px;
 }
 
 /* HEADING */
@@ -13,5 +13,5 @@
 /* MAKE MESSAGE */
 
 .makeMessage {
-  min-height: 100px;
+	min-height: 100px;
 }

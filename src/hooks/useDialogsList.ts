@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
 import {
 	resetDialogs,
 	loadDialogsThunk,
 	selectDialogs,
-} from "@/models/dialogs";
-import { useEffect } from "react";
-import { useTypedDispatch, useTypedSelector } from ".";
+} from '@/models/dialogs';
+import { useTypedDispatch, useTypedSelector } from '.';
 
 export const useDialogs = () => {
 	const dialogs = useTypedSelector(selectDialogs);

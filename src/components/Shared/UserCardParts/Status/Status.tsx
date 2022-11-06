@@ -1,6 +1,6 @@
-import { StandardProps } from "@/interfaces/components";
-import React, { FC } from "react";
-import { DataListItem } from "../..";
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
+import { DataListItem } from '../..';
 
 interface StatusProps extends StandardProps {
 	readonly status: string;

@@ -1,11 +1,11 @@
+import { useEffect } from 'react';
 import {
 	loadMessagesThunk,
 	resetMessages,
 	selectMessages,
-} from "@/models/messages";
-import { useEffect } from "react";
-import { useTypedSelector } from ".";
-import { useTypedDispatch } from "./useTypedDispatch";
+} from '@/models/messages';
+import { useTypedSelector } from '.';
+import { useTypedDispatch } from './useTypedDispatch';
 
 export const useMessages = (dialogId: number, page = 1) => {
 	const messages = useTypedSelector(selectMessages);

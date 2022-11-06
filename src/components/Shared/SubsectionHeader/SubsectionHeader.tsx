@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
+import React, { FC } from 'react';
+import classNames from 'classnames';
+import { StandardProps } from '@/interfaces/components';
 
-import SubsectionHeaderStyle from "./SubsectionHeader.module.css";
+import SubsectionHeaderStyle from './SubsectionHeader.module.css';
 
 const SubsectionHeader: FC<StandardProps> = ({ className, children }) => {
 	return (

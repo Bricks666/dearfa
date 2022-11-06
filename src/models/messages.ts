@@ -1,11 +1,11 @@
-import { getMessagesApi, sendMessageApi } from "@/api";
-import { DateType } from "@/interfaces/common";
 import {
 	createAsyncThunk,
 	createSelector,
 	createSlice,
-} from "@reduxjs/toolkit";
-import { Store } from ".";
+} from '@reduxjs/toolkit';
+import { getMessagesApi, sendMessageApi } from '@/api';
+import { DateType } from '@/interfaces/common';
+import { Store } from '.';
 
 export interface Message {
 	readonly id: number;
@@ -28,7 +28,7 @@ const initialState: MessagesState = {
 
 const messagesStore = createSlice({
 	initialState,
-	name: "messages",
+	name: 'messages',
 	reducers: {
 		resetMessages: (state) => {
 			Object.assign(state, initialState);
@@ -60,7 +60,7 @@ interface LoadMessagesParams {
 export const loadMessagesThunk = createAsyncThunk<
 	Message[],
 	LoadMessagesParams
->("messages/loadMessages", async ({ dialogId, page }) => {
+>('messages/loadMessages', async ({ dialogId, page }) => {
 	const response = await getMessagesApi(dialogId, page);
 	return response.items;
 });
@@ -71,11 +71,11 @@ interface SendMessageParams {
 }
 
 export const sendMessageThunk = createAsyncThunk<Message, SendMessageParams>(
-	"messages/sendMessage",
+	'messages/sendMessage',
 	async ({ dialogId, message }) => {
 		const response = await sendMessageApi(dialogId, message);
 		if (response.resultCode) {
-			throw new Error(response.messages.join(", "));
+			throw new Error(response.messages.join(', '));
 		}
 		return response.data;
 	}

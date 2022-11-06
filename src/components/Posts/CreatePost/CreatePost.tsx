@@ -1,15 +1,15 @@
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
-import React, { FC, useCallback } from "react";
+import classNames from 'classnames';
+import React, { FC, useCallback } from 'react';
+import { StandardProps } from '@/interfaces/components';
 /* import { Form as ReactForm, Field as ReactField } from "react-final-form"; */
 /* import {
 	CreatePostFormComponent,
 	CreatePostHandler,
 	IOnlyClassComponent,
 } from "../../../types/Components"; */
-import { Button, Textarea } from "../../Shared";
+import { Button, Textarea } from '../../Shared';
 
-import CreatePostStyle from "./CreatePost.module.css";
+import CreatePostStyle from './CreatePost.module.css';
 
 const Form: FC = (/* {
 	className,

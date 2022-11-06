@@ -1,13 +1,13 @@
-import { URL } from "@/interfaces/common";
+import { URL } from '@/interfaces/common';
 import {
 	ResponseWithItems,
 	StandardServerResponse,
-} from "@/interfaces/responses";
-import { Dialog } from "@/models/dialogs";
-import { Message } from "@/models/messages";
-import { makeGetRequest, makePostRequest } from "./makeRequest";
+} from '@/interfaces/responses';
+import { Dialog } from '@/models/dialogs';
+import { Message } from '@/models/messages';
+import { makeGetRequest, makePostRequest } from './makeRequest';
 
-const baseURL: URL = "dialogs/";
+const baseURL: URL = 'dialogs/';
 
 export const getDialogsApi = async () => {
 	return await makeGetRequest<StandardServerResponse<Dialog[]>>(baseURL);

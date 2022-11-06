@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
 import {
 	loadFriendsThunk,
 	selectFriends,
 	selectFriendsCount,
-} from "@/models/friends";
-import { useEffect } from "react";
-import { useTypedDispatch, useTypedSelector } from ".";
+} from '@/models/friends';
+import { useTypedDispatch, useTypedSelector } from '.';
 
 export const useFriends = (page: number) => {
 	const friendsCount = useTypedSelector(selectFriendsCount);

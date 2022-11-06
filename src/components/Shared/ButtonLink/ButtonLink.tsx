@@ -1,9 +1,9 @@
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
-import React, { FC } from "react";
-import { Link, To } from "react-router-dom";
+import classNames from 'classnames';
+import React, { FC } from 'react';
+import { Link, To } from 'react-router-dom';
+import { StandardProps } from '@/interfaces/components';
 
-import ButtonLinkStyle from "./ButtonLink.module.css";
+import ButtonLinkStyle from './ButtonLink.module.css';
 
 export interface ButtonLinkProps extends StandardProps {
 	readonly to: To;

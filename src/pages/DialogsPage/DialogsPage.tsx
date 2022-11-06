@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import classNames from "classnames";
-import { SectionHeader } from "@/components/Shared";
-import { DialogsList } from "@/components/DialogsList";
-import { Chat } from "@/components/Chat";
-import { Route, Routes } from "react-router-dom";
-import { EmptyChat } from "@/components/EmptyChat";
-import { StandardProps } from "@/interfaces/components";
+import React, { FC } from 'react';
+import classNames from 'classnames';
+import { Route, Routes } from 'react-router-dom';
+import { SectionHeader } from '@/components/Shared';
+import { DialogsList } from '@/components/DialogsList';
+import { Chat } from '@/components/Chat';
+import { EmptyChat } from '@/components/EmptyChat';
+import { StandardProps } from '@/interfaces/components';
 
-import DialogsPageStyle from "./DialogsPage.module.css";
+import DialogsPageStyle from './DialogsPage.module.css';
 
 export const DialogsPage: FC<StandardProps> = ({ className }) => {
 	return (
@@ -18,11 +18,11 @@ export const DialogsPage: FC<StandardProps> = ({ className }) => {
 			<DialogsList className={DialogsPageStyle.dialogList} />
 			<Routes>
 				<Route
-					path=":id"
+					path=':id'
 					element={<Chat className={DialogsPageStyle.chat} />}
 				/>
 				<Route
-					path="*"
+					path='*'
 					element={<EmptyChat className={DialogsPageStyle.chat} />}
 				/>
 			</Routes>

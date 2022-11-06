@@ -1,12 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import auth, { AuthState } from "./auth";
-import dialogs, { DialogState } from "./dialogs";
-import favoriteFriends, { FavoriteFriendsState } from "./favoriteFriends";
-import friends, { FriendsState } from "./friends";
-import messages, { MessagesState } from "./messages";
-import posts, { PostsState } from "./posts";
-import profile, { ProfileState } from "./profile";
-import users, { UsersState } from "./users";
+import { configureStore } from '@reduxjs/toolkit';
+import auth, { AuthState } from './auth';
+import dialogs, { DialogState } from './dialogs';
+import favoriteFriends, { FavoriteFriendsState } from './favoriteFriends';
+import friends, { FriendsState } from './friends';
+import messages, { MessagesState } from './messages';
+import posts, { PostsState } from './posts';
+import profile, { ProfileState } from './profile';
+import users, { UsersState } from './users';
 
 export interface Store {
 	readonly profile: ProfileState;

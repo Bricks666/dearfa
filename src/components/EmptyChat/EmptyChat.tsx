@@ -1,6 +1,6 @@
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
-import React, { FC } from "react";
+import classNames from 'classnames';
+import React, { FC } from 'react';
+import { StandardProps } from '@/interfaces/components';
 
 export const EmptyChat: FC<StandardProps> = ({ className }) => {
 	return (

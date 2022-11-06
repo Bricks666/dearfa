@@ -1,22 +1,21 @@
-
 export const initialState = {
 	profile: {
 		userId: 0,
-		fullName: "",
-		aboutMe: "",
+		fullName: '',
+		aboutMe: '',
 		photos: {
-			large: "/Images/Ava/Cosmic-animals",
-			small: "/Images/Ava/Cosmic-animals",
+			large: '/Images/Ava/Cosmic-animals',
+			small: '/Images/Ava/Cosmic-animals',
 		},
 		contacts: {},
 		followed: false,
 		lookingForAJob: true,
-		lookingForAJobDescription: "",
-		status: "",
+		lookingForAJobDescription: '',
+		status: '',
 	},
 	auth: {
 		userId: 0,
-		login: "",
+		login: '',
 	},
 	dialogs: [],
 	messages: {},
@@ -42,7 +41,7 @@ export const initialState = {
 			date: new Date(),
 			authorId: 1,
 			content:
-				"Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?",
+				'Мы пришли за мандаринами, а что нужно тебе в такой прекрасный день для единорогопада?',
 
 			like: {
 				count: 175,
@@ -51,9 +50,9 @@ export const initialState = {
 		},
 		{
 			id: 2,
-			date: new Date("2021-05-04T15:02:00"),
+			date: new Date('2021-05-04T15:02:00'),
 			authorId: 1,
-			content: "Магия ВК",
+			content: 'Магия ВК',
 			like: {
 				count: 37,
 				isLiked: true,
@@ -61,9 +60,9 @@ export const initialState = {
 		},
 		{
 			id: 3,
-			date: new Date("2021-03-20T15:02:00"),
+			date: new Date('2021-03-20T15:02:00'),
 			authorId: 1,
-			content: "Как ты думаешь, мы хотим спать?",
+			content: 'Как ты думаешь, мы хотим спать?',
 			like: {
 				count: 15,
 				isLiked: true,
@@ -76,38 +75,38 @@ export const initialState = {
 	},
 	navigation: [
 		{
-			path: "/profile/",
-			text: "Профиль",
+			path: '/profile/',
+			text: 'Профиль',
 			id: 1,
 		},
 		{
-			path: "/dialogs",
-			text: "Сообщения",
+			path: '/dialogs',
+			text: 'Сообщения',
 			id: 2,
 		},
 		{
-			path: "/friends/1",
-			text: "Друзья",
+			path: '/friends/1',
+			text: 'Друзья',
 			id: 3,
 		},
 		{
-			path: "/news",
-			text: "Новости",
+			path: '/news',
+			text: 'Новости',
 			id: 4,
 		},
 		{
-			path: "/music",
-			text: "Музыка",
+			path: '/music',
+			text: 'Музыка',
 			id: 5,
 		},
 		{
-			path: "/users/1",
-			text: "Пользователи",
+			path: '/users/1',
+			text: 'Пользователи',
 			id: 6,
 		},
 		{
-			path: "/settings",
-			text: "Настройки",
+			path: '/settings',
+			text: 'Настройки',
 			id: 7,
 		},
 	],

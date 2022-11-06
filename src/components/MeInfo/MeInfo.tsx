@@ -1,19 +1,19 @@
-import React, { FC, useCallback, useState } from "react";
-import { ChangeProfile } from "./ChangeProfile/ChangeProfile";
-import { ChangingStatus } from "./ChangingStatus/ChangingStatus";
-import { ModalWindow, Button } from "../Shared";
-import { UserDescription } from "../UserDescription/UserDescription";
-import { updateProfileThunk } from "@/models/profile";
-import { User } from "@/models/users";
-import { useTypedDispatch } from "@/hooks";
+import React, { FC, useCallback, useState } from 'react';
+import { ChangeProfile } from './ChangeProfile/ChangeProfile';
+import { ChangingStatus } from './ChangingStatus/ChangingStatus';
+import { ModalWindow, Button } from '../Shared';
+import { UserDescription } from '../UserDescription/UserDescription';
+import { updateProfileThunk } from '@/models/profile';
+import { User } from '@/models/users';
+import { useTypedDispatch } from '@/hooks';
 
-import MeInfoStyle from "./MeInfo.module.css";
+import MeInfoStyle from './MeInfo.module.css';
 
 interface MeInfoProps {
 	readonly user: User;
 }
 
-/**TODO: Возможно не стоит делать этот блок, как отдельный компонент */
+/** TODO: Возможно не стоит делать этот блок, как отдельный компонент */
 export const MeInfo: FC<MeInfoProps> = ({ user }) => {
 	const [showChangeProfile, toggleChangeProfile] = useState<boolean>(false);
 	const dispatch = useTypedDispatch();
@@ -41,14 +41,12 @@ export const MeInfo: FC<MeInfoProps> = ({ user }) => {
 			/>
 			<Button
 				className={MeInfoStyle.changeProfileButton}
-				onClick={toggleShowChangeProfile}
-			>
+				onClick={toggleShowChangeProfile}>
 				Изменить профиль
 			</Button>
 			<ModalWindow
 				condition={showChangeProfile}
-				close={toggleShowChangeProfile}
-			>
+				close={toggleShowChangeProfile}>
 				<ChangeProfile /* {...user} onSubmit={updateProfile}  */ />
 			</ModalWindow>
 		</>

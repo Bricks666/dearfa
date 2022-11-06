@@ -1,10 +1,10 @@
-import { StandardProps } from "@/interfaces/components";
-import classNames from "classnames";
-import React, { FC, MouseEventHandler } from "react";
+import classNames from 'classnames';
+import React, { FC, MouseEventHandler } from 'react';
+import { StandardProps } from '@/interfaces/components';
 
-import ButtonStyle from "./Button.module.css";
+import ButtonStyle from './Button.module.css';
 
-type ButtonType = "submit" | "reset" | "button";
+type ButtonType = 'submit' | 'reset' | 'button';
 
 export interface ButtonProps extends StandardProps {
 	readonly disabled?: boolean;
@@ -27,8 +27,7 @@ const Button: FC<ButtonProps> = ({
 			type={type}
 			onClick={onClick}
 			disabled={disabled}
-			title={title}
-		>
+			title={title}>
 			{children}
 		</button>
 	);

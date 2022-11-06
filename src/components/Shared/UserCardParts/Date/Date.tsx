@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { DateType } from "@/interfaces/common";
-import { StandardProps } from "@/interfaces/components";
+import React, { FC } from 'react';
+import { DateType } from '@/interfaces/common';
+import { StandardProps } from '@/interfaces/components';
 
-import { parseDate } from "./ParseDate";
+import { parseDate } from './ParseDate';
 
 interface DateProps extends StandardProps {
 	readonly date: DateType;
@@ -10,7 +10,7 @@ interface DateProps extends StandardProps {
 
 export const Date: FC<DateProps> = ({ date, className, children }) => {
 	return (
-		<time className={className || ""} dateTime={date}>
+		<time className={className || ''} dateTime={date}>
 			{children} {parseDate(date)}
 		</time>
 	);

@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { Photo } from "@/components/Shared";
-import { StandardProps } from "@/interfaces/components";
-import { User } from "@/models/users";
+import React, { FC } from 'react';
+import { Photo } from '@/components/Shared';
+import { StandardProps } from '@/interfaces/components';
+import { User } from '@/models/users';
 
-import FavoriteFriendCardStyle from "./FavoritFriendCard.module.css";
+import FavoriteFriendCardStyle from './FavoritFriendCard.module.css';
 
 interface FavoriteFriendCardProps
 	extends StandardProps,
-		Pick<User, "photos" | "id" | "name"> {}
+		Pick<User, 'photos' | 'id' | 'name'> {}
 
 export const FavoritFriendCard: FC<FavoriteFriendCardProps> = ({
 	className,

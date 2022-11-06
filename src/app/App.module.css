@@ -2,11 +2,11 @@
 
 .page {
 	display: grid;
-
+	/*
 	grid-template-columns: 200px 1fr;
 	grid-template-rows: auto minmax(min-content, 500px) min-content 1fr;
 	grid-template-areas: "header header" "nav main" "friends main" ". main";
-
+ */
 	column-gap: 16px;
 	row-gap: 16px;
 
@@ -14,7 +14,7 @@
 }
 
 .notLoginPage {
-	grid-template-areas: "header header" "main main" "main main" "main main";
+	grid-template-areas: 'header header' 'main main' 'main main' 'main main';
 }
 
 /* HEADER */

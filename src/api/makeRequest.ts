@@ -1,10 +1,10 @@
-import { URL, EmptyObject } from "@/interfaces/common";
-import Axios, { AxiosRequestConfig } from "axios";
+import Axios, { AxiosRequestConfig } from 'axios';
+import { URL, EmptyObject } from '@/interfaces/common';
 
 const axiosInstance = Axios.create({
-	baseURL: "https://social-network.samuraijs.com/api/1.0/",
+	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
 	headers: {
-		"API-KEY": "b5d52611-1432-460b-9a90-98ff97a4eb1b",
+		'API-KEY': 'b5d52611-1432-460b-9a90-98ff97a4eb1b',
 	},
 	withCredentials: true,
 });

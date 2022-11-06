@@ -1,9 +1,9 @@
-import { ProfileInfo } from "@/models/profile";
-import React, { FC } from "react";
-import { ButtonLink } from "../Shared";
-import { UserDescription } from "../UserDescription/UserDescription";
+import React, { FC } from 'react';
+import { ProfileInfo } from '@/models/profile';
+import { ButtonLink } from '../Shared';
+import { UserDescription } from '../UserDescription/UserDescription';
 
-import UserInfoStyle from "./UserInfo.module.css";
+import UserInfoStyle from './UserInfo.module.css';
 
 interface UserInfoProps {
 	readonly user: ProfileInfo;
@@ -19,8 +19,7 @@ export const UserInfo: FC<UserInfoProps> = ({ user }) => {
 			/>
 			<ButtonLink
 				className={UserInfoStyle.button}
-				to={`/dialogs/${user.userId}`}
-			>
+				to={`/dialogs/${user.userId}`}>
 				Написать
 			</ButtonLink>
 		</>

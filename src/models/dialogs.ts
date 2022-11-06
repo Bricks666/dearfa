@@ -2,10 +2,10 @@ import {
 	createAsyncThunk,
 	createSelector,
 	createSlice,
-} from "@reduxjs/toolkit";
-import { DateType, Photos } from "@/interfaces/common";
-import { getDialogsApi } from "@/api";
-import { Store } from ".";
+} from '@reduxjs/toolkit';
+import { DateType, Photos } from '@/interfaces/common';
+import { getDialogsApi } from '@/api';
+import { Store } from '.';
 
 export interface Dialog {
 	readonly userName: string;
@@ -26,7 +26,7 @@ const initialState: DialogState = {
 
 const dialogsStore = createSlice({
 	initialState,
-	name: "dialogs",
+	name: 'dialogs',
 	reducers: {
 		resetDialogs: (state) => {
 			Object.assign(state, initialState);
@@ -48,7 +48,7 @@ const dialogsStore = createSlice({
 });
 
 export const loadDialogsThunk = createAsyncThunk(
-	"dialogs/loadDialogs",
+	'dialogs/loadDialogs',
 	async () => {
 		const response = await getDialogsApi();
 		return response.data;

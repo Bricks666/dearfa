@@ -1,16 +1,16 @@
-import React, { FC } from "react";
-import classNames from "classnames";
-import { Field, Button } from "@/components/Shared";
-import { ChangedPhoto } from "./ChangedPhoto/ChangedPhoto";
-import { FileInput } from "@/components/Shared/FileInput/FileInput";
-import { useProfile } from "@/hooks";
+import React, { FC } from 'react';
+import classNames from 'classnames';
+import { Field, Button } from '@/components/Shared';
+import { ChangedPhoto } from './ChangedPhoto/ChangedPhoto';
+import { FileInput } from '@/components/Shared/FileInput/FileInput';
+import { useProfile } from '@/hooks';
 /* import {
 	ChangeProfileForm,
 	ChangeProfileInitial,
 	IChangeProfileComponent,
 } from "../../../types/Components";
  */
-import ChangeProfileStyle from "./ChangeProfile.module.css";
+import ChangeProfileStyle from './ChangeProfile.module.css';
 
 const Form: FC = (/* {
 	handleSubmit,
@@ -84,7 +84,7 @@ const Form: FC = (/* {
 		</form> */
 };
 
-export const ChangeProfile: FC = (/*{
+export const ChangeProfile: FC = (/* {
 	className,
 	onSubmit,
 } */) => {

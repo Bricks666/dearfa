@@ -1,7 +1,7 @@
-import { EmptyObject } from "@/interfaces/common";
-import { Contacts } from "@/models/profile";
-import React, { ReactElement } from "react";
-import { ContactsItem } from "./ContactsItem/ContactsItem";
+import React, { ReactElement } from 'react';
+import { EmptyObject } from '@/interfaces/common';
+import { Contacts } from '@/models/profile';
+import { ContactsItem } from './ContactsItem/ContactsItem';
 
 type RenderContacts = (contacts: Contacts | EmptyObject) => ReactElement[];
 

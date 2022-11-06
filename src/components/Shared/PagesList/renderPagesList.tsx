@@ -1,7 +1,7 @@
-import { TypedObject } from "@/interfaces/common";
-import classNames from "classnames";
-import React, { ReactElement } from "react";
-import { Link } from "react-router-dom";
+import classNames from 'classnames';
+import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
+import { TypedObject } from '@/interfaces/common';
 
 type RenderPagesList = (
 	rootPath: string,
@@ -21,14 +21,13 @@ export const renderPagesList: RenderPagesList = (
 	const end =
 		start > 0 ? Math.min(currentPage + 5, pageCount) : Math.min(10, pageCount);
 
-	for (let i = start > 0 ? start : 1; i <= end; i++) {
+	for (let i = start > 0 ? start : 1; i <= end; i += 1) {
 		pages.push(
 			<li
 				key={i}
 				className={classNames(styles.pageNumber, {
 					[styles.selected]: i === currentPage,
-				})}
-			>
+				})}>
 				<Link className={styles.link} to={rootPath + i}>
 					{i}
 				</Link>

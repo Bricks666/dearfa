@@ -16,7 +16,7 @@
 }
 
 .notViewed::before {
-	content: "";
+	content: '';
 
 	position: absolute;
 
@@ -54,7 +54,7 @@
 
 /* DATE TIME */
 .dateTime {
-  justify-self: end;
+	justify-self: end;
 
-  font-size: 11px;
+	font-size: 11px;
 }

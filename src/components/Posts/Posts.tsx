@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import classNames from "classnames";
-import { CreatePost } from "./CreatePost/CreatePost";
-import { SubsectionHeader } from "../Shared";
-import { CreatedPostsList } from "../CreatedPostsList";
-import { StandardProps } from "@/interfaces/components";
+import React, { FC } from 'react';
+import classNames from 'classnames';
+import { CreatePost } from './CreatePost/CreatePost';
+import { SubsectionHeader } from '../Shared';
+import { CreatedPostsList } from '../CreatedPostsList';
+import { StandardProps } from '@/interfaces/components';
 
-import PostsStyle from "./Posts.module.css";
+import PostsStyle from './Posts.module.css';
 
 const Posts: FC<StandardProps> = ({ className }) => {
 	return (
