@@ -1,1 +1,0 @@
-export { CreatedPostsList } from './CreatedPostsList';

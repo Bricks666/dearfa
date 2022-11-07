@@ -15,10 +15,9 @@ import {
 	Forum,
 	Group,
 	Article,
-	MusicNote,
 	ImportContacts,
-	Settings,
 } from '@mui/icons-material';
+import { RouteInstance } from 'atomic-router';
 import { Link } from 'atomic-router-react';
 import { useUnit } from 'effector-react';
 import { $authUser } from '@/models/auth';
@@ -27,9 +26,17 @@ import { useToggle } from '@/hooks';
 import { Logo } from '../Logo';
 
 import styles from './Navigation.module.css';
+import {
+	dialogsRoute,
+	friendsRoute,
+	newsRoute,
+	profileRoute,
+	usersRoute,
+} from '@/routes';
 
 interface NavigationItem {
-	readonly to: string;
+	readonly to: RouteInstance<any>;
+	readonly params?: object;
 	readonly label: string;
 	readonly icon?: React.ReactNode;
 }
@@ -41,39 +48,36 @@ export const Navigation: React.FC<CommonProps> = (props) => {
 	const navigationItems: NavigationItem[] = React.useMemo(
 		() => [
 			{
-				to: `/profile/${authId}`,
+				to: profileRoute,
+				params: { id: authId },
 				label: 'Профиль',
 				icon: <AccountCircle />,
 			},
 			{
-				to: '/dialogs',
+				to: dialogsRoute,
 				label: 'Сообщения',
 				icon: <Forum />,
 			},
 			{
-				to: '/friends/1',
+				to: friendsRoute,
+				params: {
+					page: 1,
+				},
 				label: 'Друзья',
 				icon: <ImportContacts />,
 			},
 			{
-				to: '/news',
+				to: newsRoute,
 				label: 'Новости',
 				icon: <Article />,
 			},
 			{
-				to: '/music',
-				label: 'Музыка',
-				icon: <MusicNote />,
-			},
-			{
-				to: '/users/1',
+				to: usersRoute,
+				params: {
+					page: 1,
+				},
 				label: 'Пользователи',
 				icon: <Group />,
-			},
-			{
-				to: '/settings',
-				label: 'Настройки',
-				icon: <Settings />,
 			},
 		],
 		[authId]
@@ -91,9 +95,9 @@ export const Navigation: React.FC<CommonProps> = (props) => {
 				<Stack onClick={onToggle}>
 					<Logo src='/Images/logo.svg' alt='Logo' />
 					<List className={styles.list}>
-						{navigationItems.map(({ to, label, icon }) => (
+						{navigationItems.map(({ to, label, icon, params }) => (
 							<ListItem key={label} disablePadding>
-								<ListItemButton component={Link} to={to}>
+								<ListItemButton component={Link} to={to} params={params}>
 									<ListItemAvatar>{icon}</ListItemAvatar>
 									<ListItemText>{label}</ListItemText>
 								</ListItemButton>

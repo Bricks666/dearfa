@@ -5,7 +5,7 @@ import { DialogsGate } from '@/models/dialogs';
 import { CommonProps } from '@/types';
 import { useParam } from '@/hooks';
 import { dialogsRoute } from '@/routes';
-import { SectionHeader } from '@/components/Shared';
+import { SectionHeader } from '@/ui';
 import { DialogsList } from '@/components/DialogsList';
 import { Chat } from '@/components/Chat';
 import { EmptyChat } from '@/components/EmptyChat';

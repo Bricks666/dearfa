@@ -17,7 +17,7 @@ followUserFx.use(usersApi.follow);
 unfollowUserFx.use(usersApi.unfollow);
 
 sample({
-	clock: UsersGate.open,
+	clock: UsersGate.state,
 	target: getUsersQuery.start,
 });
 
@@ -27,7 +27,7 @@ sample({
 });
 
 sample({
-	clock: FriendsGate.open,
+	clock: FriendsGate.state,
 	target: getFriendsQuery.start,
 });
 

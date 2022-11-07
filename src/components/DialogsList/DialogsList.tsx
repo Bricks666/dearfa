@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useUnit } from 'effector-react';
 import { getDialogsQuery } from '@/models/dialogs';
 import { CommonProps } from '@/types';
-import { DialogCard } from './Dialog/Dialog';
+import { DialogCard } from './DialogCard/DialogCard';
 
 import styles from './DialogsList.module.css';
 

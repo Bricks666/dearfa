@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { CommonProps } from '@/types';
-import { PagesListWithRouting, SectionHeader } from '@/components/Shared';
+import { PagesListWithRouting, SectionHeader } from '@/ui';
 import { UsersList } from '@/components/UsersList';
 
 import styles from './UsersPage.module.css';

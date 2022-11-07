@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 import { Avatar } from '@mui/material';
 import { CommonProps } from '@/types';
-import { FullName, Date } from '@/components/Shared';
+import { FullName, Date } from '@/ui';
 
 import styles from './Companion.module.css';
 

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import * as React from 'react';
 
-import { Button, Textarea } from '../../Shared';
+import { Button, Textarea } from '../../../ui';
 
 import styles from './MakeMessage.module.css';
 

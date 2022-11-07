@@ -1,9 +1,9 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { CreatePost } from './CreatePost/CreatePost';
-import { SubsectionHeader } from '../Shared';
-import { CreatedPostsList } from '../CreatedPostsList';
+import { Typography } from '@mui/material';
 import { CommonProps } from '@/types';
+import { CreatePost } from './CreatePost/CreatePost';
+import { PostsList } from './PostsList';
 
 import styles from './Posts.module.css';
 
@@ -11,11 +11,11 @@ export const Posts: React.FC<CommonProps> = (props) => {
 	const { className } = props;
 	return (
 		<section className={cn(styles.posts, className)}>
-			<SubsectionHeader className={`${styles.heading}`}>
+			<Typography className={styles.heading} variant='h4' component='h2'>
 				Мои посты
-			</SubsectionHeader>
+			</Typography>
 			<CreatePost className={styles.makeMessage} />
-			<CreatedPostsList />
+			<PostsList />
 		</section>
 	);
 };

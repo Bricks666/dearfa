@@ -4,7 +4,7 @@ import { FriendsGate, getFriendsQuery } from '@/models/users';
 import { useParam } from '@/hooks';
 import { friendsRoute } from '@/routes';
 import { CommonProps } from '@/types';
-import { List, UserCard } from '../Shared';
+import { List, UserCard } from '../../ui';
 
 export const FriendsList: React.FC<CommonProps> = (props) => {
 	const { className } = props;

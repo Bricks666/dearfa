@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { SectionHeader } from '@/components/Shared';
+import { SectionHeader } from '@/ui';
 import { RegistrationForm } from '@/components/RegistrationForm';
 import { CommonProps } from '@/types';
 

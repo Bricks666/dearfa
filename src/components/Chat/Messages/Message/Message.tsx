@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { Date } from '@/components/Shared';
+import { Date } from '@/ui';
 import { Message } from '@/models/messages';
 import { CommonProps } from '@/types';
 

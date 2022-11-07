@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PagesListWithRouting, SectionHeader } from '@/components/Shared';
+import { PagesListWithRouting, SectionHeader } from '@/ui';
 import { FriendsList } from '@/components/FriendsList';
 import { CommonProps } from '@/types';
 

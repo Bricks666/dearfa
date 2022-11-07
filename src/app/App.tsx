@@ -9,6 +9,7 @@ import {
 import { AuthGate, authQuery } from '@/models/auth';
 import { Header } from '@/components/Header';
 import { AppRoutes } from '@/components/AppRoutes';
+import { Popups } from '@/components/Popups';
 
 import styles from './App.module.css';
 
@@ -18,7 +19,7 @@ export const App: React.FC = () => {
 	useGate(AuthGate);
 
 	return (
-		<Stack spacing={isAuthorizing ? 0 : 4} alignItems='center'>
+		<Stack spacing={isAuthorizing ? 0 : 2} alignItems='center'>
 			<Header className={styles.header} />
 			{isAuthorizing ? (
 				<LinearProgress color='secondary' />
@@ -26,6 +27,7 @@ export const App: React.FC = () => {
 				<Container maxWidth='xl'>
 					<React.Suspense fallback={<CircularProgress />}>
 						<AppRoutes className={styles.main} />
+						<Popups />
 					</React.Suspense>
 				</Container>
 			)}

@@ -20,10 +20,6 @@ sample({
 	target: authQuery.start,
 });
 
-loginMutation.finished.success.watch(console.debug);
-loginMutation.finished.skip.watch(console.debug);
-loginMutation.finished.failure.watch(console.debug);
-
 sample({
 	clock: [logoutMutation.finished.success],
 	fn: () => null,
@@ -31,7 +27,7 @@ sample({
 });
 
 sample({
-	clock: AuthGate.open,
+	clock: AuthGate.state,
 	target: authQuery.start,
 });
 

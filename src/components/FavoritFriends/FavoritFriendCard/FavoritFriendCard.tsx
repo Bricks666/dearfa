@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Photo } from '@/components/Shared';
+import { Photo } from '@/ui';
 import { CommonProps } from '@/types';
 import { User } from '@/models/users';
 

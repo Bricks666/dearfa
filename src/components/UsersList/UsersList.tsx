@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useParam } from '@/hooks';
 import { CommonProps } from '@/types';
-import { List, UserCard } from '../Shared';
+import { List, UserCard } from '../../ui';
 import { usersRoute } from '@/routes';
 
 export const UsersList: React.FC<CommonProps> = (props) => {

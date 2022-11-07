@@ -26,7 +26,7 @@ updatePhotoFx.use(profileApi.updatePhoto);
 updateStatusFx.use(profileApi.updateStatus);
 
 sample({
-	clock: ProfileGate.open,
+	clock: ProfileGate.state,
 	target: [getInfoQuery.start, getStatusQuery.start],
 });
 

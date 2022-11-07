@@ -22,7 +22,7 @@ export const Header: React.FC<CommonProps> = React.memo((props) => {
 					Dear.Fa
 				</Typography>
 				{isAuth && <Navigation />}
-				<Logo className={styles.logo} src='/Images/logo.svg' alt='Logo' />
+				<Logo className={styles.logo} src='/images/logo.svg' alt='Logo' />
 				<div className={styles.authorization}>
 					{isAuth ? (
 						<ProfileMenu />
