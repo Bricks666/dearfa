@@ -1,13 +1,12 @@
-import React, { FC } from 'react';
-import { useParams } from 'react-router-dom';
-import { List, UserCard } from '../Shared';
-import { useUsersList } from '@/hooks';
+import * as React from 'react';
+import { useParam } from '@/hooks';
 import { CommonProps } from '@/types';
-import { User } from '@/models/users';
+import { List, UserCard } from '../Shared';
+import { usersRoute } from '@/routes';
 
-export const UsersList: FC<CommonProps> = ({ className }) => {
-	const { page } = useParams();
-	const users = useUsersList(+page!);
+export const UsersList: React.FC<CommonProps> = (props) => {
+	const { className } = props;
+	const page = useParam(usersRoute, 'page');
 	/** TODO: Сделать загрузку */
-	return <List<User> className={className} items={users} Card={UserCard} />;
+	return <List className={className} items={[]} Card={UserCard} />;
 };

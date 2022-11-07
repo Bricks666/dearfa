@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import cn from 'classnames';
-import React, { FC } from 'react';
+import * as React from 'react';
 import { CommonProps } from '@/types';
 import { CrossButton } from '../CrossButton/CrossButton';
 

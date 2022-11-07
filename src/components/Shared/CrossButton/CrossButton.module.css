@@ -1,5 +1,3 @@
-/* BUTTON */
-
 .button {
 	padding: 0px;
 	margin: 0;
@@ -13,8 +11,6 @@
 .button:focus-visible {
 	background-color: inherit;
 }
-
-/* CROSS */
 
 .cross {
 	fill: var(--blue-light);

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { Box, Typography } from '@mui/material';
 import { CommonProps } from '@/types';
 

@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { FC, MouseEventHandler } from 'react';
+import * as React from 'react';
 import { CommonProps } from '@/types';
 
 import styles from './Button.module.css';

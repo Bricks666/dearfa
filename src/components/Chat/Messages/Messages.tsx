@@ -2,7 +2,6 @@ import * as React from 'react';
 import cn from 'classnames';
 import { useUnit } from 'effector-react';
 import { $authUser } from '@/models/auth';
-import { useMessages } from '@/hooks';
 import { CommonProps } from '@/types';
 import { MessageCard } from './Message/Message';
 
@@ -15,7 +14,7 @@ interface MessagesProps extends CommonProps {
 const Messages: React.FC<MessagesProps> = (props) => {
 	const { className, dialogId } = props;
 	const { id: authId } = useUnit($authUser)!;
-	const messages = useMessages(dialogId);
+	const messages = [];
 
 	/** TODO: Добавить загрузку */
 	return (

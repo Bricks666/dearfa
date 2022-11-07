@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { Photo } from '@/components/Shared';
 import { CommonProps } from '@/types';
 import { User } from '@/models/users';

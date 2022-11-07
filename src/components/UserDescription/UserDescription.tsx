@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { ComponentType, FC } from 'react';
+import * as React from 'react';
 import { EmptyObject } from '@/types';
 import { CommonProps } from '@/types';
 import { Contacts } from '@/models/profile';

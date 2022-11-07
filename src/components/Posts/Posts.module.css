@@ -1,16 +1,11 @@
-/* POSTS */
-
 .posts {
 	display: grid;
 
 	row-gap: 20px;
 }
 
-/* HEADING */
 .heading {
 }
-
-/* MAKE MESSAGE */
 
 .makeMessage {
 	min-height: 100px;

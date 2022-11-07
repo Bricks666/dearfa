@@ -1,10 +1,6 @@
-/* USERS */
-
 .users {
 	display: grid;
 }
-
-/* BUTTON */
 
 .button {
 	justify-self: center;

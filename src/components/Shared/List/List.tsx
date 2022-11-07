@@ -1,4 +1,4 @@
-import React, { ComponentType, ReactElement } from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 import { ID } from '@/types';
 import { CommonProps } from '@/types';

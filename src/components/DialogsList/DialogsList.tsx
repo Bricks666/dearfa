@@ -1,17 +1,17 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { useQuery } from '@farfetched/react';
+import { useUnit } from 'effector-react';
 import { getDialogsQuery } from '@/models/dialogs';
 import { CommonProps } from '@/types';
 import { DialogCard } from './Dialog/Dialog';
 
 import styles from './DialogsList.module.css';
 
-const DialogsList: React.FC<CommonProps> = React.memo((props) => {
+export const DialogsList: React.FC<CommonProps> = React.memo((props) => {
 	const { className } = props;
-	const { data: dialogs } = useQuery(getDialogsQuery);
+	const dialogs = useUnit(getDialogsQuery.$data);
 	/** TODO: Добавить загрузку */
-
+	console.log(dialogs);
 	return (
 		<ul className={cn(styles.dialogList, className)}>
 			{dialogs?.map((dialog) => (
@@ -20,5 +20,3 @@ const DialogsList: React.FC<CommonProps> = React.memo((props) => {
 		</ul>
 	);
 });
-
-export { DialogsList };

@@ -1,4 +1,3 @@
-/* FORM */
 .form {
 	display: grid;
 
@@ -6,13 +5,9 @@
 	column-gap: 5px;
 }
 
-/* TEXTAREA */
-
 .textarea {
 	height: max(70px, min-content);
 }
-
-/* BUTTON */
 
 .button {
 	align-self: end;

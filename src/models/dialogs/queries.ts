@@ -1,16 +1,7 @@
 import { createQuery } from '@farfetched/core';
-import { StandardServerResponse } from '@/types';
 import { Dialog } from './types';
 import { getDialogsFx } from './units';
 
-export const getDialogsQuery = createQuery<
-	void,
-	StandardServerResponse<Dialog[]>,
-	Error,
-	Dialog[]
->({
+export const getDialogsQuery = createQuery<void, Dialog[], Error>({
 	effect: getDialogsFx,
-	mapData: (data) => {
-		return data.data;
-	},
 });

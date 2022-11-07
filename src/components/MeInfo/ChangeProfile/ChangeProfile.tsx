@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 import { Field, Button } from '@/components/Shared';
 import { ChangedPhoto } from './ChangedPhoto/ChangedPhoto';

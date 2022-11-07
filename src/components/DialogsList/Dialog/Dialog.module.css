@@ -1,12 +1,8 @@
-/* DIALOG */
-
 .dialog {
 	list-style: none;
 
 	background-color: var(--white-lighter);
 }
-
-/* LINK */
 
 .link {
 	display: grid;
@@ -34,8 +30,6 @@
 		drop-shadow(-1px -1px 1px var(--grey-light));
 }
 
-/* FULL NAME */
-
 .fullName {
 	padding: 5px 10px;
 
@@ -46,8 +40,6 @@
 .linkActive .fullName {
 	font-weight: 500;
 }
-
-/* PHOTO */
 
 .photo {
 	order: -1;

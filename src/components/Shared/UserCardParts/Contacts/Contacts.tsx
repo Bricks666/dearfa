@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { renderContact } from './renderContact';
 import { DataList, DataListItem } from '../..';
 import { CommonProps } from '@/types';

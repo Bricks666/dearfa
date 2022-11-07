@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { createRoute, RouteInstance } from 'atomic-router';
 import { URL, CommonProps } from '@/types';
 
-interface Routes {
+interface Route {
 	readonly Component: React.ComponentType<CommonProps>;
 	readonly path: URL;
-	readonly onlyAuth?: boolean;
+	readonly route: RouteInstance<any>;
 }
 
 const LoginPage = React.lazy(() => import('../pages/LoginPage'));
@@ -16,41 +17,49 @@ const FriendsPage = React.lazy(() => import('../pages/FriendsPage'));
 const NewsPage = React.lazy(() => import('../pages/NewsPage'));
 const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'));
 
-export const routes: Routes[] = [
+export const loginRoute = createRoute();
+export const registrationRoute = createRoute();
+export const profileRoute = createRoute<{ id: number }>();
+export const dialogsRoute = createRoute<{ id?: number }>();
+export const usersRoute = createRoute<{ page: number }>();
+export const friendsRoute = createRoute<{ page: number }>();
+export const newsRoute = createRoute();
+export const notFoundedRoute = createRoute();
+
+export const routes: Route[] = [
 	{
 		Component: LoginPage,
 		path: '/login',
+		route: loginRoute,
 	},
 	{
 		Component: RegistrationPage,
 		path: '/registration',
+		route: registrationRoute,
 	},
 	{
 		Component: ProfilePage,
 		path: '/profile/:id',
-		onlyAuth: true,
+		route: profileRoute,
 	},
 	{
 		Component: DialogsPage,
-		path: '/dialogs/*',
-		onlyAuth: true,
+		path: '/dialogs/:id?',
+		route: dialogsRoute,
 	},
 	{
 		Component: UsersPage,
 		path: '/users/:page',
-		onlyAuth: true,
+		route: usersRoute,
 	},
 	{
 		Component: FriendsPage,
 		path: '/friends/:page',
-		onlyAuth: true,
+		route: friendsRoute,
 	},
 	{
 		Component: NewsPage,
 		path: '/news',
-	},
-	{
-		Component: NotFoundPage,
-		path: '*',
+		route: newsRoute,
 	},
 ];

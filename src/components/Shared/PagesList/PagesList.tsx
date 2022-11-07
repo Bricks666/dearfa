@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { renderPagesList } from './renderPagesList';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
 import { CommonProps } from '@/types';

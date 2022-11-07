@@ -1,5 +1,3 @@
-/* MAIN */
-
 .main {
 	display: grid;
 
@@ -8,13 +6,10 @@
 	justify-content: center;
 }
 
-/* HEADER */
-
 .header {
 	transform: translateX(50%);
 }
 
-/* FORM */
 .form {
 	margin: 0 auto;
 }

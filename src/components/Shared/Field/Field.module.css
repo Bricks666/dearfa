@@ -1,5 +1,3 @@
-/* LABEL */
-
 .label {
 	display: grid;
 
@@ -10,8 +8,6 @@
 	font-size: 14px;
 	font-weight: 500;
 }
-
-/* FIElD */
 
 .field {
 	width: 100%;
@@ -29,7 +25,6 @@
 
 	transition-property: border-color;
 	transition-timing-function: ease-out;
-	/* transition-duration: 0.15s; */
 }
 @keyframes fill-border {
 	from {
@@ -53,7 +48,6 @@
 	animation-fill-mode: both;
 }
 
-/* ERROR */
 .error {
 	padding: 15px 20px;
 

@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { FC } from 'react';
+import * as React from 'react';
 
 import { Button, Textarea } from '../../Shared';
 

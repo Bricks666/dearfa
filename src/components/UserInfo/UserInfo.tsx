@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { ProfileInfo } from '@/models/profile';
 import { ButtonLink } from '../Shared';
 import { UserDescription } from '../UserDescription/UserDescription';

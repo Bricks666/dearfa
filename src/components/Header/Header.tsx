@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useUnit } from 'effector-react';
-import { Link } from 'react-router-dom';
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
+import { Link } from 'atomic-router-react';
 import { $isAuth } from '@/models/auth';
+import { loginRoute, registrationRoute } from '@/routes';
 import { CommonProps } from '@/types';
 import { Logo } from './Logo';
 import { ProfileMenu } from './ProfileMenu';
@@ -28,18 +29,18 @@ export const Header: React.FC<CommonProps> = React.memo((props) => {
 					) : (
 						<>
 							<Button
-								to='/login'
-								component={Link}
 								variant='text'
-								color='inherit'>
+								color='inherit'
+								to={loginRoute}
+								component={Link}>
 								Войти
 							</Button>
 							/
 							<Button
-								to='/registration'
-								component={Link}
 								variant='text'
-								color='inherit'>
+								color='inherit'
+								to={registrationRoute}
+								component={Link}>
 								Зарегистрироваться
 							</Button>
 						</>

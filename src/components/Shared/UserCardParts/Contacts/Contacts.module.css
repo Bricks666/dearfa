@@ -1,5 +1,3 @@
-/* ABOUT LIST */
-
 .contacts {
 	display: grid;
 
@@ -8,7 +6,6 @@
 	width: max-content;
 }
 
-/* DATA LIST */
 .datalist {
 	grid-column: 1/-1;
 

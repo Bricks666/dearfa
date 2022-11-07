@@ -17,7 +17,7 @@ import {
 	updatePhotoFx,
 	updateStatusFx,
 } from './units';
-import { Info, ProfileInfo } from './types';
+import { ProfileInfo } from './types';
 
 getInfoFx.use(profileApi.getInfo);
 getStatusFx.use(profileApi.getStatus);

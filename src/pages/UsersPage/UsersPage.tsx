@@ -1,16 +1,18 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import cn from 'classnames';
+import { CommonProps } from '@/types';
 import { PagesListWithRouting, SectionHeader } from '@/components/Shared';
 import { UsersList } from '@/components/UsersList';
-import { CommonProps } from '@/types';
 
 import styles from './UsersPage.module.css';
 
-export const UsersPage: FC<CommonProps> = ({ className }) => {
+export const UsersPage: React.FC<CommonProps> = (props) => {
+	const { className } = props;
+
 	return (
 		<main className={cn(styles.users, className)}>
 			<SectionHeader>Все пользователи</SectionHeader>
-			<UsersList className={styles.list} />
+			<UsersList />
 			<PagesListWithRouting pageCount={10} />
 		</main>
 	);

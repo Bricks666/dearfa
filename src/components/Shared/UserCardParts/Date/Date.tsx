@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { DateType } from '@/types';
 import { CommonProps } from '@/types';
 

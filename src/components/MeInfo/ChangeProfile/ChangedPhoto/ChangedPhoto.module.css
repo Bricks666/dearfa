@@ -1,4 +1,3 @@
-/* PHOTO */
 .photo,
 .object {
 	justify-self: center;
@@ -16,7 +15,6 @@
 	filter: brightness(0.75);
 }
 
-/* OBJECT */
 .object {
 	position: relative;
 }

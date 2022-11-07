@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useUnit } from 'effector-react';
+import { router } from '@/routes';
 import { CommonProps } from '@/types';
 import { PagesList } from './PagesList';
 
@@ -10,9 +11,8 @@ export interface PaginationProps extends CommonProps {
 export const PagesListWithRouting: React.FC<PaginationProps> = React.memo(
 	(props) => {
 		const { className, pageCount } = props;
-		const { page } = useParams();
-		const { pathname } = useLocation();
-		const currentPage = typeof page === 'undefined' ? 1 : +page;
+		const pathname = useUnit(router.$path);
+		const currentPage = typeof 0 === 'undefined' ? 1 : +0;
 		const rootPath = pathname.replace(':page', '');
 		return (
 			<PagesList

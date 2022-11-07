@@ -1,5 +1,7 @@
 import { sample } from 'effector';
+import { redirect } from 'atomic-router';
 import { authApi } from '@/api';
+import { loginRoute, profileRoute } from '@/routes';
 import { authQuery, loginMutation, logoutMutation } from './queries';
 import { $authUser, authFx, AuthGate, loginFx, logoutFx } from './units';
 
@@ -31,4 +33,22 @@ sample({
 sample({
 	clock: AuthGate.open,
 	target: authQuery.start,
+});
+
+redirect({
+	clock: [logoutMutation.finished.success, authQuery.finished.failure],
+	route: loginRoute,
+});
+
+redirect({
+	clock: loginMutation.finished.success,
+	params: ({ data }) => {
+		const {
+			data: { userId },
+		} = data;
+		return {
+			id: userId,
+		};
+	},
+	route: profileRoute,
 });

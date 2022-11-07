@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { ChangeEventHandler, FC } from 'react';
+import * as React from 'react';
 import { CommonProps } from '@/types';
 import { Like as LikeModel } from '@/models/posts';
 

@@ -1,9 +1,7 @@
-/* USER DESCRIPTION */
 .userDescription {
 	row-gap: 4px;
 }
 
-/* CONTACTS */
 .contacts {
 	grid-template-columns: none;
 	row-gap: 4px;

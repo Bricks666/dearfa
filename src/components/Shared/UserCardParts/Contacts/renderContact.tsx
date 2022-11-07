@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import * as React from 'react';
 import { EmptyObject } from '@/types';
 import { Contacts } from '@/models/profile';
 import { ContactsItem } from './ContactsItem/ContactsItem';

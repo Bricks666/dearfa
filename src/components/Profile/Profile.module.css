@@ -1,5 +1,3 @@
-/* USER INFO */
-
 .userInfo {
 	display: grid;
 
@@ -10,7 +8,6 @@
 	row-gap: 12px;
 }
 
-/* PHOTO */
 .photo {
 	height: 170px;
 	order: -1;

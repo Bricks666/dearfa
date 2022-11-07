@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Route, Routes } from 'react-router-dom';
 import { useGate, useUnit } from 'effector-react';
 import {
 	CircularProgress,
@@ -7,9 +6,9 @@ import {
 	LinearProgress,
 	Stack,
 } from '@mui/material';
-import { routes } from '@/routes';
 import { AuthGate, authQuery } from '@/models/auth';
 import { Header } from '@/components/Header';
+import { AppRoutes } from '@/components/AppRoutes';
 
 import styles from './App.module.css';
 
@@ -25,19 +24,9 @@ export const App: React.FC = () => {
 				<LinearProgress color='secondary' />
 			) : (
 				<Container maxWidth='xl'>
-					<Routes>
-						{routes.map(({ Component, path }) => (
-							<Route
-								path={path}
-								element={
-									<React.Suspense key={path} fallback={<CircularProgress />}>
-										<Component className={styles.main} />
-									</React.Suspense>
-								}
-								key={path}
-							/>
-						))}
-					</Routes>
+					<React.Suspense fallback={<CircularProgress />}>
+						<AppRoutes className={styles.main} />
+					</React.Suspense>
 				</Container>
 			)}
 		</Stack>

@@ -19,8 +19,8 @@ import {
 	ImportContacts,
 	Settings,
 } from '@mui/icons-material';
+import { Link } from 'atomic-router-react';
 import { useUnit } from 'effector-react';
-import { NavLink, To } from 'react-router-dom';
 import { $authUser } from '@/models/auth';
 import { CommonProps } from '@/types';
 import { useToggle } from '@/hooks';
@@ -29,7 +29,7 @@ import { Logo } from '../Logo';
 import styles from './Navigation.module.css';
 
 interface NavigationItem {
-	readonly to: To;
+	readonly to: string;
 	readonly label: string;
 	readonly icon?: React.ReactNode;
 }
@@ -93,7 +93,7 @@ export const Navigation: React.FC<CommonProps> = (props) => {
 					<List className={styles.list}>
 						{navigationItems.map(({ to, label, icon }) => (
 							<ListItem key={label} disablePadding>
-								<ListItemButton component={NavLink} to={to}>
+								<ListItemButton component={Link} to={to}>
 									<ListItemAvatar>{icon}</ListItemAvatar>
 									<ListItemText>{label}</ListItemText>
 								</ListItemButton>

@@ -1,5 +1,3 @@
-/* NAVIGATION */
-
 .navigation {
 	padding: 10%;
 
@@ -9,8 +7,6 @@
 
 	background-color: var(--blue-light);
 }
-
-/* NAVIGATION LIST */
 
 .list {
 	display: grid;

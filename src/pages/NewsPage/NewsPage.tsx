@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { SectionHeader } from '@/components/Shared';
 import { CreatedPostsList } from '@/components/CreatedPostsList';
 import { CommonProps } from '@/types';

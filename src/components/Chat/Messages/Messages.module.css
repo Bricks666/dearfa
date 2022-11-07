@@ -1,4 +1,3 @@
-/* WRAPPER */
 .wrapper {
 	display: grid;
 
@@ -9,7 +8,6 @@
 	background-color: var(--blue-lightest);
 }
 
-/* MESSAGES */
 .messages {
 	display: grid;
 
@@ -21,7 +19,6 @@
 	margin: 0;
 }
 
-/* MESSAGE */
 .message {
 	width: 400px;
 }
@@ -29,7 +26,6 @@
 	content: none;
 }
 
-/* MY MESSAGE */
 .myMessage {
 	justify-self: end;
 }

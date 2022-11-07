@@ -1,13 +1,9 @@
-/* PROFILE */
-
 .profile {
 	display: grid;
 	row-gap: 20px;
 
 	background-color: var(--white-lighter);
 }
-
-/* PICTURE */
 
 .image {
 	min-width: 100%;
@@ -18,13 +14,9 @@
 	font-weight: 700;
 }
 
-/* USER PROFILE */
-
 .userInfo {
 	margin-bottom: 10px;
 }
-
-/* POSTS */
 
 .posts {
 	margin-bottom: 10px;

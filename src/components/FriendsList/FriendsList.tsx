@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useGate, useUnit } from 'effector-react';
-import { useParams } from 'react-router-dom';
 import { FriendsGate, getFriendsQuery } from '@/models/users';
+import { useParam } from '@/hooks';
+import { friendsRoute } from '@/routes';
 import { CommonProps } from '@/types';
 import { List, UserCard } from '../Shared';
 
 export const FriendsList: React.FC<CommonProps> = (props) => {
 	const { className } = props;
-	const { page } = useParams();
+	const page = useParam(friendsRoute, 'page');
 	const friends = useUnit(getFriendsQuery.$data) || [];
 	useGate(FriendsGate, { page: Number(page), count: 10 });
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link } from 'atomic-router-react';
 import { CommonProps } from '@/types';
 
 import styles from './FullName.module.css';

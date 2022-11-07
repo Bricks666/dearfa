@@ -1,4 +1,3 @@
-/* ITEM */
 .item {
 	display: grid;
 
@@ -11,12 +10,10 @@
 	height: max-content;
 }
 
-/* TERM */
 .term {
 	font-weight: 500;
 }
 
-/* DESC */
 .desc {
 	margin: 0;
 

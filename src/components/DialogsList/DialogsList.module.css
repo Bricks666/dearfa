@@ -1,5 +1,3 @@
-/* DIALOG LIST */
-
 .dialogList {
 	display: grid;
 
@@ -9,8 +7,6 @@
 
 	padding: 0;
 }
-
-/* DIALOG */
 
 .dialog {
 	margin: 0;

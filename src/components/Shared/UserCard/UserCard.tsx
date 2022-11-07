@@ -1,12 +1,14 @@
 import * as React from 'react';
 import cn from 'classnames';
+import { Avatar } from '@mui/material';
+import { Link } from 'atomic-router-react';
 import { CommonProps } from '@/types';
 import { User } from '@/models/users';
+import { profileRoute } from '@/routes';
 import { DataList } from '..';
 import { Button } from '../Button/Button';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
 import { FullName } from '../UserCardParts/FullName/FullName';
-import { Photo } from '../UserCardParts/Photo/Photo';
 import { Status } from '../UserCardParts/Status/Status';
 
 import styles from './UserCard.module.css';
@@ -21,11 +23,13 @@ export const UserCard: React.FC<UserCardProps> = (props) => {
 			<DataList>
 				<Status className={styles.status} status={status} />
 			</DataList>
-			<Photo
+			<Avatar
 				className={styles.photo}
-				id={id}
-				fullName={name}
-				photo={photos.large}
+				src={photos.large || ''}
+				alt={name}
+				to={profileRoute}
+				params={{ id }}
+				component={Link}
 			/>
 			<ButtonLink className={styles.link} to={`/dialogs/${id}`}>
 				Написать

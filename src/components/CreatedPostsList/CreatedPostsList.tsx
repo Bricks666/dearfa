@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 import { useUnit } from 'effector-react';
 import { $posts } from '@/models/posts';

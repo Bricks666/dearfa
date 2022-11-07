@@ -1,8 +1,9 @@
 import * as React from 'react';
 import cn from 'classnames';
+import { Avatar } from '@mui/material';
 import { Post } from '@/models/posts';
 import { CommonProps } from '@/types';
-import { Date, Photo, FullName, Like } from '..';
+import { Date, FullName } from '..';
 
 import styles from './PostCard.module.css';
 
@@ -16,12 +17,7 @@ export const PostCard: React.FC<PostCardProps> = React.memo((props) => {
 				Кирилл Цыганков
 			</FullName>
 			<Date className={styles.dateTime} date={date.toLocaleString()} />
-			<Photo
-				className={styles.photo}
-				photo=''
-				id={1}
-				fullName='Кирилл Цыганков'
-			/>
+			<Avatar className={styles.photo} src='' />
 			<p className={styles.content}>{content}</p>
 			{/* <Like className={styles.like} likeHandler={console.log} /> */}
 		</article>

@@ -12,7 +12,6 @@ export { SubsectionHeader } from './SubsectionHeader/SubsectionHeader';
 export { Contacts } from './UserCardParts/Contacts/Contacts';
 export { Date } from './UserCardParts/Date/Date';
 export { FullName } from './UserCardParts/FullName/FullName';
-export { Photo } from './UserCardParts/Photo/Photo';
 export { Status } from './UserCardParts/Status/Status';
 export { List } from './List/List';
 export { UserCard } from './UserCard/UserCard';

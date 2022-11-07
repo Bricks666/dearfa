@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-type Subscriber = (evt?: KeyboardEvent) => unknown;
+type Subscriber = (evt?: KeyboardEvent) => void;
 
 export const useEscListener = (subscriber: Subscriber, condition?: boolean) => {
 	useEffect(() => {

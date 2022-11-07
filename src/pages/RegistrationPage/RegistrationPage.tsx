@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 import { SectionHeader } from '@/components/Shared';
 import { RegistrationForm } from '@/components/RegistrationForm';

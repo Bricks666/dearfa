@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { CommonProps } from '@/types';
 
 import styles from './ContactsItem.module.css';

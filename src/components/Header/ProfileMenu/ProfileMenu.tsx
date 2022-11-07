@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { To, Link } from 'react-router-dom';
 import { useUnit } from 'effector-react';
+import { Link } from 'atomic-router-react';
 import { IconButton, Menu, MenuItem } from '@mui/material';
 import { AccountCircleOutlined } from '@mui/icons-material';
 import { $authUser, logoutMutation } from '@/models/auth';
@@ -9,7 +9,7 @@ import { useToggle } from '@/hooks';
 
 interface MenuOption {
 	readonly label: string;
-	readonly to?: To;
+	readonly to?: any;
 	readonly onClick?: VoidFunction;
 }
 

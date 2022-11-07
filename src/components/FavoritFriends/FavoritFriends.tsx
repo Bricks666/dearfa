@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 import { List, SubsectionHeader } from '../Shared';
 import { FavoritFriendCard } from './FavoritFriendCard/FavoritFriendCard';

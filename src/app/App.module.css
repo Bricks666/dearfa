@@ -1,5 +1,3 @@
-/* PAGE */
-
 .page {
 	display: grid;
 	/*
@@ -17,19 +15,13 @@
 	grid-template-areas: 'header header' 'main main' 'main main' 'main main';
 }
 
-/* HEADER */
-
 .header {
 	grid-area: header;
 }
 
-/* NAV */
-
 .nav {
 	grid-area: nav;
 }
-
-/* MAIN */
 
 .main {
 	grid-area: main;
@@ -37,21 +29,16 @@
 	padding-bottom: 50px;
 }
 
-/* LAST FRIENDS */
-
 .lastFriends {
 	grid-area: friends;
 
 	max-height: max-content;
 }
 
-/* FOOTER */
-
 .footer {
 	grid-area: footer;
 }
 
-/* LOADING */
 .loading {
 	height: 100vh;
 }

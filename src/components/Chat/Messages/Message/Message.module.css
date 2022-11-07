@@ -1,4 +1,3 @@
-/* MESSAGE */
 .message {
 	position: relative;
 
@@ -31,7 +30,6 @@
 	border-radius: 50%;
 }
 
-/* AUTHOR */
 .author {
 	margin: 0;
 
@@ -41,7 +39,6 @@
 	color: var(--black);
 }
 
-/* CONTENT */
 .content {
 	margin: 0;
 
@@ -52,7 +49,6 @@
 	filter: drop-shadow(1px 1px 1px var(--grey-light));
 }
 
-/* DATE TIME */
 .dateTime {
 	justify-self: end;
 

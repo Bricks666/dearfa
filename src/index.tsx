@@ -1,7 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { createInspector } from 'effector-inspector';
+import { RouterProvider } from 'atomic-router-react';
 import { App } from '@/app';
+import { router } from '@/routes';
 import '@/models/init';
 
 import './index.css';
@@ -11,8 +13,12 @@ const root = ReactDOM.createRoot(container);
 
 root.render(
 	<React.StrictMode>
-		<BrowserRouter>
+		<RouterProvider router={router}>
 			<App />
-		</BrowserRouter>
+		</RouterProvider>
 	</React.StrictMode>
 );
+
+if (import.meta.env.DEV) {
+	createInspector({});
+}

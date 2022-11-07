@@ -1,5 +1,3 @@
-/* FORM */
-
 .form {
 	display: flex;
 
@@ -11,21 +9,15 @@
 	row-gap: 10px;
 }
 
-/* HEADER */
-
 .header {
 	font-size: 18px;
 
 	flex-basis: 100%;
 }
 
-/* NEW STATUS */
-
 .newStatus {
 	width: 70%;
 }
-
-/* ACCEPT BUTTON */
 
 .acceptButton {
 	width: min-content;

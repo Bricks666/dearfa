@@ -1,14 +1,13 @@
+import * as React from 'react';
 import cn from 'classnames';
-import React, { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
-import { TypedObject } from '@/types';
+import { Link } from 'atomic-router-react';
 
 type RenderPagesList = (
 	rootPath: string,
 	currentPage: number,
 	pageCount: number,
-	styles: TypedObject<string>
-) => ReactElement[];
+	styles: Record<string, string>
+) => React.ReactElement[];
 
 export const renderPagesList: RenderPagesList = (
 	rootPath,

@@ -1,11 +1,9 @@
-/* CHAT */
 .chat {
 	display: grid;
 
 	grid-template-rows: min-content auto min-content;
 }
 
-/* MESSAGES */
 .messages {
 	margin-bottom: 10px;
 
@@ -26,15 +24,12 @@
 	background-color: var(--blue-light);
 }
 
-/* MAKE MESSAGE */
-
 .makeMessage {
 	grid-template-columns: 1fr min-content;
 
 	height: min-content;
 }
 
-/* WITHOUT CHAT */
 .withoutChat {
 	grid-column: 1/-1;
 	grid-row: 1/-1;

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 import { Picture } from '@/components/Shared';
 import { URL } from '@/types';
