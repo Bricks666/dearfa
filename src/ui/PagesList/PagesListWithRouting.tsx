@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useUnit } from 'effector-react';
-import { router } from '@/routes';
+import { router } from '@/models/routing';
 import { CommonProps } from '@/types';
 import { PagesList } from './PagesList';
 

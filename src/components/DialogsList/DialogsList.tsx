@@ -11,7 +11,6 @@ export const DialogsList: React.FC<CommonProps> = React.memo((props) => {
 	const { className } = props;
 	const dialogs = useUnit(getDialogsQuery.$data);
 	/** TODO: Добавить загрузку */
-	console.log(dialogs);
 	return (
 		<ul className={cn(styles.dialogList, className)}>
 			{dialogs?.map((dialog) => (

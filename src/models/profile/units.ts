@@ -1,22 +1,29 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { combine, createDomain } from 'effector-logger';
+import { createDomain } from 'effector-logger';
 import { createGate } from 'effector-react';
-import { UpdateInfoParams } from '@/api/profile';
-import { EmptyObject, Photos, StandardServerResponse } from '@/types';
+import {
+	UpdateInfoParams,
+	UpdatePhotoParams,
+	UpdateStatusParams,
+} from '@/api/profile';
+import { EmptyObject, StandardServerResponse } from '@/types';
 import { Info, ProfileInfo } from './types';
 
 const ProfileDomain = createDomain();
 
 export const getInfoFx = ProfileDomain.effect<number, Info>();
 export const getStatusFx = ProfileDomain.effect<number, string>();
-export const updateStatusFx = ProfileDomain.effect<string, EmptyObject>();
+export const updateStatusFx = ProfileDomain.effect<
+	UpdateStatusParams,
+	EmptyObject
+>();
 export const updateInfoFx = ProfileDomain.effect<
 	UpdateInfoParams,
-	UpdateInfoParams
+	StandardServerResponse
 >();
 export const updatePhotoFx = ProfileDomain.effect<
-	File,
-	StandardServerResponse<Photos>
+	UpdatePhotoParams,
+	StandardServerResponse<Pick<Info, 'photos'>>
 >();
 
 export const ProfileGate = createGate<number>({

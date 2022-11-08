@@ -15,7 +15,6 @@ const DialogsPage = React.lazy(() => import('../pages/DialogsPage'));
 const UsersPage = React.lazy(() => import('../pages/UsersPage'));
 const FriendsPage = React.lazy(() => import('../pages/FriendsPage'));
 const NewsPage = React.lazy(() => import('../pages/NewsPage'));
-const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'));
 
 export const loginRoute = createRoute();
 export const registrationRoute = createRoute();

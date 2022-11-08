@@ -22,6 +22,6 @@ export interface Contacts {
 	readonly youtube: URL | null;
 	readonly vk: URL | null;
 	readonly website: URL | null;
-	readonly mailLink: URL | null;
+	readonly mainLink: URL | null;
 	readonly instagram: URL | null;
 }

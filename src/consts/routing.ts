@@ -4,4 +4,6 @@ export const getParams = {
 
 export const popups = {
 	updateInfo: 'ui',
+	updateStatus: 'us',
+	updatePhoto: 'up',
 };

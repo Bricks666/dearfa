@@ -1,6 +1,11 @@
 import { sample } from 'effector';
 import { profileApi } from '@/api';
 import {
+	closeUpdateInfoPopup,
+	closeUpdatePhotoPopup,
+	closeUpdateStatusPopup,
+} from '../routing';
+import {
 	getInfoQuery,
 	getStatusQuery,
 	updateInfoMutation,
@@ -33,33 +38,50 @@ sample({
 sample({
 	clock: updateInfoMutation.finished.success,
 	source: getInfoQuery.$data,
-	fn: (info, { data }) => {
+	filter: Boolean,
+	fn: (info, { params }) => {
 		return {
-			...info!,
-			...data,
+			...info,
+			...params,
 		};
 	},
 	target: getInfoQuery.$data,
+});
+
+sample({
+	clock: updateInfoMutation.finished.success,
+	target: closeUpdateInfoPopup,
 });
 
 sample({
 	clock: updateStatusMutation.finished.success,
 	fn: ({ params }) => {
-		return params;
+		return params.status;
 	},
 	target: getStatusQuery.$data,
 });
 
 sample({
+	clock: updateStatusMutation.finished.success,
+	target: closeUpdateStatusPopup,
+});
+
+sample({
 	clock: updatePhotoMutation.finished.success,
 	source: getInfoQuery.$data,
+	filter: Boolean,
 	fn: (info, { data }) => {
 		return {
-			...info!,
-			photos: data.data,
+			...info,
+			photos: data.data.photos,
 		};
 	},
 	target: getInfoQuery.$data,
+});
+
+sample({
+	clock: updatePhotoMutation.finished.success,
+	target: closeUpdatePhotoPopup,
 });
 
 sample({
@@ -93,3 +115,5 @@ sample({
 	},
 	target: $profileInfoLoading,
 });
+
+getInfoQuery.$data.watch(console.debug);

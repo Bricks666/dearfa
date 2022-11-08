@@ -9,4 +9,3 @@ export {
 	registrationRoute,
 	usersRoute,
 } from './routes';
-export { router, controls } from './router';

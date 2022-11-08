@@ -15,7 +15,6 @@
 	--red: tomato;
 
 	--borderRadius: 15px;
-	--letterSpacing: 0.01em;
 }
 
 .fake-photo {
@@ -32,9 +31,10 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 
-	letter-spacing: var(--letterSpacing);
+	box-sizing: border-box;
 }
 
 *:focus-visible {
