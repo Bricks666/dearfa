@@ -1,8 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { createDomain } from 'effector-logger';
+import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
-import { Pagination, ResponseWithItems, StandardServerResponse } from '@/types';
 import { User } from './types';
+import { Pagination, ResponseWithItems, StandardServerResponse } from '@/types';
 
 const UsersDomain = createDomain();
 

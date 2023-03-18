@@ -1,6 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { createDomain } from 'effector-logger';
 import { createRouterControls, createHistoryRouter } from 'atomic-router';
+import { createDomain } from 'effector';
 import { routes } from '@/routes';
 
 const RoutingDomain = createDomain();

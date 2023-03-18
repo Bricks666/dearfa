@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { createDomain } from 'effector-logger';
+import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
+import { Message } from './types';
 import { CreateMessageParams, GetMessageParams } from '@/api/messages';
 import { ResponseWithItems, StandardServerResponse } from '@/types';
-import { Message } from './types';
 
 const MessagesDomain = createDomain();
 

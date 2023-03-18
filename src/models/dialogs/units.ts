@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { createDomain } from 'effector-logger';
+import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
 import { Dialog } from './types';
 

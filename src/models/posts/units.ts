@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { createDomain } from 'effector-logger';
+import { createDomain } from 'effector';
 import { Post } from './types';
 
 const PostsDomain = createDomain();
@@ -32,7 +31,7 @@ export const posts: Post[] = [
 
 		likeCount: 15,
 		liked: true,
-	},
+	}
 ];
 export const $posts = PostsDomain.store<Post[]>(posts);
 

@@ -1,13 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { createDomain } from 'effector-logger';
+import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
+import { Info, ProfileInfo } from './types';
 import {
 	UpdateInfoParams,
 	UpdatePhotoParams,
-	UpdateStatusParams,
+	UpdateStatusParams
 } from '@/api/profile';
 import { EmptyObject, StandardServerResponse } from '@/types';
-import { Info, ProfileInfo } from './types';
 
 const ProfileDomain = createDomain();
 

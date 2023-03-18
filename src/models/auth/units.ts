@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { createDomain } from 'effector-logger';
+import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
+import { AuthUser, LoginResponse } from './types';
 import { LoginRequest } from '@/api/auth';
 import { StandardServerResponse } from '@/types';
-import { AuthUser, LoginResponse } from './types';
 
 const LoginDomain = createDomain();
 
