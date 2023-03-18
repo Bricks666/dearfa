@@ -3,7 +3,7 @@ import { Link } from 'atomic-router-react';
 import cn from 'classnames';
 import { useGate, useUnit } from 'effector-react';
 import * as React from 'react';
-import { routes , getParams, popups } from '@/shared/configs';
+import { routes, getParams, popups } from '@/shared/configs';
 import styles from './Profile.module.css';
 import { UserDescription } from './UserDescription';
 import { useParam } from '@/hooks';
@@ -14,7 +14,6 @@ import {
 	ProfileGate
 } from '@/models/profile';
 import { CommonProps } from '@/types';
-
 
 export interface ProfileProps extends CommonProps {}
 

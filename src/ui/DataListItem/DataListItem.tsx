@@ -1,9 +1,8 @@
-import * as React from 'react';
-import cn from 'classnames';
 import { ListItem, Typography } from '@mui/material';
-import { CommonProps } from '@/types';
-
+import cn from 'classnames';
+import * as React from 'react';
 import styles from './DataListItem.module.css';
+import { CommonProps } from '@/types';
 
 export interface DataListItemProps extends CommonProps {
 	readonly term: React.ReactNode;
@@ -13,7 +12,7 @@ export interface DataListItemProps extends CommonProps {
 }
 
 export const DataListItem: React.FC<DataListItemProps> = (props) => {
-	const { className, termClass, descriptionClass, term, description } = props;
+	const { className, termClass, descriptionClass, term, description, } = props;
 	return (
 		<ListItem className={cn(styles.item, className)} component='div'>
 			<Typography className={cn(styles.term, termClass)} component='dt'>

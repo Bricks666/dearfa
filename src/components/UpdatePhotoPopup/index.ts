@@ -1,4 +1,4 @@
 export {
 	UpdatePhotoPopup,
-	type UpdatePhotoPopupProps,
+	type UpdatePhotoPopupProps
 } from './UpdatePhotoPopup';

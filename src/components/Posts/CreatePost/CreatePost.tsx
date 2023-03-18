@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import styles from './CreatePost.module.css';
 import { CommonProps } from '@/types';
 
-
 export const CreatePost: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 	const { register, handleSubmit, reset, } = useForm<{ content: string }>({

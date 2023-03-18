@@ -1,9 +1,8 @@
-import * as React from 'react';
-import cn from 'classnames';
 import { Link } from 'atomic-router-react';
-import { CommonProps } from '@/types';
-
+import cn from 'classnames';
+import * as React from 'react';
 import styles from './ButtonLink.module.css';
+import { CommonProps } from '@/types';
 
 export interface ButtonLinkProps extends CommonProps {
 	readonly to: any;

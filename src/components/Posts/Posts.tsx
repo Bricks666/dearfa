@@ -1,14 +1,14 @@
-import * as React from 'react';
-import cn from 'classnames';
 import { Typography } from '@mui/material';
-import { CommonProps } from '@/types';
+import cn from 'classnames';
+import * as React from 'react';
 import { CreatePost } from './CreatePost/CreatePost';
-import { PostsList } from './PostsList';
 
 import styles from './Posts.module.css';
+import { PostsList } from './PostsList';
+import { CommonProps } from '@/types';
 
 export const Posts: React.FC<CommonProps> = (props) => {
-	const { className } = props;
+	const { className, } = props;
 	return (
 		<section className={cn(styles.posts, className)}>
 			<Typography className={styles.heading} variant='h4' component='h2'>

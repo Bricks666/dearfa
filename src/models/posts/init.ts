@@ -7,7 +7,7 @@ sample({
 	fn: (posts, postId) => {
 		return posts.map((post) =>
 			post.id === postId
-				? { ...post, liked: true, likeCount: post.likeCount + 1 }
+				? { ...post, liked: true, likeCount: post.likeCount + 1, }
 				: post
 		);
 	},
@@ -20,7 +20,7 @@ sample({
 	fn: (posts, postId) => {
 		return posts.map((post) =>
 			post.id === postId
-				? { ...post, liked: false, likeCount: post.likeCount - 1 }
+				? { ...post, liked: false, likeCount: post.likeCount - 1, }
 				: post
 		);
 	},

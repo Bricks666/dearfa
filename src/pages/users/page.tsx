@@ -5,7 +5,6 @@ import { UsersList } from '@/components/UsersList';
 import { CommonProps } from '@/types';
 import { PagesListWithRouting, SectionHeader } from '@/ui';
 
-
 const UsersPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 

@@ -10,7 +10,6 @@ import { loginMutation } from '@/models/auth';
 import { CommonProps } from '@/types';
 import { Checkbox, Field } from '@/ui';
 
-
 const initialState: LoginRequest = {
 	email: '',
 	password: '',

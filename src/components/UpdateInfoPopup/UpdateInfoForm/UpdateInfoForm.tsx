@@ -11,7 +11,6 @@ import { updateInfoMutation } from '@/models/profile';
 import { CommonProps } from '@/types';
 import { Checkbox, Field } from '@/ui';
 
-
 export interface UpdateInfoFormProps extends CommonProps {
 	readonly defaultValues: UpdateInfoParams;
 }

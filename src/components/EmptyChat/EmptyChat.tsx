@@ -1,9 +1,9 @@
-import * as React from 'react';
 import cn from 'classnames';
+import * as React from 'react';
 import { CommonProps } from '@/types';
 
 export const EmptyChat: React.FC<CommonProps> = (props) => {
-	const { className } = props;
+	const { className, } = props;
 
 	return (
 		<section className={cn(className)}>

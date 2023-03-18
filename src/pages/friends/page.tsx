@@ -4,7 +4,6 @@ import { FriendsList } from '@/components/FriendsList';
 import { CommonProps } from '@/types';
 import { PagesListWithRouting, SectionHeader } from '@/ui';
 
-
 const FriendsPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 

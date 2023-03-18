@@ -10,7 +10,6 @@ import { updatePhotoMutation } from '@/models/profile';
 import { CommonProps } from '@/types';
 import { FileField } from '@/ui';
 
-
 export interface UpdatePhotoFormProps extends CommonProps {
 	readonly defaultValues: { photo: string | null };
 }

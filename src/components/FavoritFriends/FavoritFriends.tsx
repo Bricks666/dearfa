@@ -1,13 +1,13 @@
-import * as React from 'react';
-import cn from 'classnames';
 import { Typography } from '@mui/material';
+import cn from 'classnames';
+import * as React from 'react';
 import { List } from '../../ui';
 import { FavoritFriendCard } from './FavoritFriendCard/FavoritFriendCard';
+import styles from './FavoritFriends.module.css';
 import { CommonProps } from '@/types';
 
-import styles from './FavoritFriends.module.css';
-
-const FavoritFriends: FC<CommonProps> = ({ className }) => {
+const FavoritFriends: React.FC<CommonProps> = (props) => {
+	const { className, } = props;
 	/** TODO: Добавить загрузку */
 	return (
 		<aside className={cn(styles.lastCommunications, className)}>

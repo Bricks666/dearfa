@@ -1,9 +1,7 @@
-import * as React from 'react';
 import cn from 'classnames';
-import { URL } from '@/types';
-import { CommonProps } from '@/types';
-
+import * as React from 'react';
 import styles from './Picture.module.css';
+import { URL, CommonProps } from '@/types';
 
 interface PictureProps extends CommonProps {
 	readonly oneXSrc: URL | null;
@@ -11,12 +9,8 @@ interface PictureProps extends CommonProps {
 	readonly alt: string;
 }
 
-export const Picture: FC<PictureProps> = ({
-	className,
-	oneXSrc,
-	twoXSrc,
-	alt,
-}) => {
+export const Picture: React.FC<PictureProps> = (props) => {
+	const { className, oneXSrc, twoXSrc, alt, } = props;
 	return (
 		<picture className={cn(className)}>
 			<source

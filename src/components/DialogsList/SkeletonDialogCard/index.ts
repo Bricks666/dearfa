@@ -1,4 +1,4 @@
 export {
 	SkeletonDialogCard,
-	type SkeletonDialogCardProps,
+	type SkeletonDialogCardProps
 } from './SkeletonDialogCard';

@@ -11,7 +11,6 @@ import { updateStatusMutation } from '@/models/profile';
 import { CommonProps } from '@/types';
 import { Field } from '@/ui';
 
-
 export interface UpdateStatusFormProps extends CommonProps {
 	readonly defaultValues: UpdateStatusParams;
 }

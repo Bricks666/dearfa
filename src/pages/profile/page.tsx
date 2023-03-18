@@ -5,7 +5,6 @@ import { Posts } from '@/components/Posts';
 import { Profile } from '@/components/Profile';
 import { CommonProps } from '@/types';
 
-
 const ProfilePage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
 import { useUnit } from 'effector-react';
+import { useEffect, useMemo, useState } from 'react';
 import { $popup } from '@/models/routing';
 
 const parsePopups = (rawPopups: string) => {

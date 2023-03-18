@@ -1,6 +1,6 @@
-import * as React from 'react';
-import cn from 'classnames';
 import { Button, Input, InputLabel, InputProps } from '@mui/material';
+import cn from 'classnames';
+import * as React from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 import styles from './FileField.module.css';

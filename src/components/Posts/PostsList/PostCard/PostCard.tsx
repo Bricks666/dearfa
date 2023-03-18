@@ -15,7 +15,6 @@ import { Post } from '@/models/posts';
 import { CommonProps } from '@/types';
 import { Like } from '@/ui';
 
-
 export interface PostCardProps extends CommonProps, Post {}
 
 export const PostCard: React.FC<PostCardProps> = React.memo((props) => {

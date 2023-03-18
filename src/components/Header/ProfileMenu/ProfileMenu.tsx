@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { useUnit } from 'effector-react';
-import { Link } from 'atomic-router-react';
-import { IconButton, Menu, MenuItem } from '@mui/material';
 import { AccountCircleOutlined } from '@mui/icons-material';
+import { IconButton, Menu, MenuItem } from '@mui/material';
+import { Link } from 'atomic-router-react';
+import { useUnit } from 'effector-react';
+import * as React from 'react';
+import { useToggle } from '@/hooks';
 import { $authUser, logoutMutation } from '@/models/auth';
 import { CommonProps, VoidFunction } from '@/types';
-import { useToggle } from '@/hooks';
 
 interface MenuOption {
 	readonly label: string;
@@ -14,10 +14,10 @@ interface MenuOption {
 }
 
 export const ProfileMenu: React.FC<CommonProps> = React.memo((props) => {
-	const { className } = props;
-	const { onToggle, toggled } = useToggle();
+	const { className, } = props;
+	const { onToggle, toggled, } = useToggle();
 	const anchor = React.useRef(null);
-	const { id: authId } = useUnit($authUser)!;
+	const { id: authId, } = useUnit($authUser)!;
 	const logout = useUnit(logoutMutation.start);
 	const menuOptions: MenuOption[] = React.useMemo(
 		() => [
@@ -32,7 +32,7 @@ export const ProfileMenu: React.FC<CommonProps> = React.memo((props) => {
 			{
 				label: 'Выйти',
 				onClick: () => logout(),
-			},
+			}
 		],
 		[authId]
 	);
@@ -46,7 +46,7 @@ export const ProfileMenu: React.FC<CommonProps> = React.memo((props) => {
 				<AccountCircleOutlined />
 			</IconButton>
 			<Menu open={toggled} anchorEl={anchor.current} onClose={onToggle}>
-				{menuOptions.map(({ label, onClick, to }) =>
+				{menuOptions.map(({ label, onClick, to, }) =>
 					to ? (
 						<MenuItem key={label} component={Link} to={to}>
 							{label}

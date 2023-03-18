@@ -1,15 +1,15 @@
-import * as React from 'react';
-import cn from 'classnames';
 import { Stack } from '@mui/material';
+import cn from 'classnames';
 import { useUnit } from 'effector-react';
-import { $posts } from '@/models/posts';
-import { CommonProps } from '@/types';
+import * as React from 'react';
 import { PostCard } from './PostCard';
 
 import styles from './PostsList.module.css';
+import { $posts } from '@/models/posts';
+import { CommonProps } from '@/types';
 
 export const PostsList: React.FC<CommonProps> = (props) => {
-	const { className } = props;
+	const { className, } = props;
 	const posts = useUnit($posts);
 
 	return (

@@ -5,7 +5,6 @@ import { RegistrationForm } from '@/components/RegistrationForm';
 import { CommonProps } from '@/types';
 import { SectionHeader } from '@/ui';
 
-
 const RegistrationPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 

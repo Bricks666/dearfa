@@ -4,7 +4,7 @@ import {
 	getStatusFx,
 	updateInfoFx,
 	updatePhotoFx,
-	updateStatusFx,
+	updateStatusFx
 } from './units';
 
 export const getInfoQuery = createQuery({

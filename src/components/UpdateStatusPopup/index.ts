@@ -1,4 +1,4 @@
 export {
 	UpdateStatusPopup,
-	type UpdateStatusPopupProps,
+	type UpdateStatusPopupProps
 } from './UpdateStatusPopup';

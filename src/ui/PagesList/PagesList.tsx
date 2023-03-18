@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { renderPagesList } from './renderPagesList';
 import { ButtonLink } from '../ButtonLink/ButtonLink';
-import { CommonProps } from '@/types';
-
 import styles from './PagesList.module.css';
+import { renderPagesList } from './renderPagesList';
+import { CommonProps } from '@/types';
 
 interface PaginationProps extends CommonProps {
 	currentPage: number;
@@ -11,11 +10,8 @@ interface PaginationProps extends CommonProps {
 	pageCount: number;
 }
 
-export const PagesList: FC<PaginationProps> = ({
-	currentPage,
-	rootPath,
-	pageCount,
-}) => {
+export const PagesList: React.FC<PaginationProps> = (props) => {
+	const { currentPage, rootPath, pageCount, } = props;
 	const pages = renderPagesList(rootPath, currentPage, pageCount, {
 		pageNumber: styles.pageNumber,
 		selected: styles.selected,

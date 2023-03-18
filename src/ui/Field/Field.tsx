@@ -1,10 +1,10 @@
+import { TextField, TextFieldProps } from '@mui/material';
 import * as React from 'react';
 import {
 	FieldValues,
 	useController,
-	UseControllerProps,
+	UseControllerProps
 } from 'react-hook-form';
-import { TextField, TextFieldProps } from '@mui/material';
 import { CommonProps } from '@/types';
 
 export interface FieldProps<F extends FieldValues>
@@ -15,7 +15,7 @@ export interface FieldProps<F extends FieldValues>
 export const Field = <F extends FieldValues>(props: FieldProps<F>) => {
 	const { name, control, defaultValue, rules, shouldUnregister, ...rest } =
 		props;
-	const { field, fieldState } = useController({
+	const { field, fieldState, } = useController({
 		name,
 		control,
 		defaultValue,
@@ -23,7 +23,7 @@ export const Field = <F extends FieldValues>(props: FieldProps<F>) => {
 		shouldUnregister,
 	});
 	const { ref, ...state } = field;
-	const { error } = fieldState;
+	const { error, } = fieldState;
 	return (
 		<TextField
 			{...rest}

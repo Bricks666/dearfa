@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { Avatar, Card, CardHeader, Skeleton, Typography } from '@mui/material';
+import * as React from 'react';
 import { CommonProps } from '@/types';
 
 export interface SkeletonDialogCardProps extends CommonProps {}
 
 export const SkeletonDialogCard: React.FC<SkeletonDialogCardProps> = React.memo(
 	function SkeletonDialogCard(props) {
-		const { className } = props;
+		const { className, } = props;
 		return (
 			<Card className={className}>
 				<CardHeader

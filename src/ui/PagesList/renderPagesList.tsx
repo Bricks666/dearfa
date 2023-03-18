@@ -1,6 +1,6 @@
-import * as React from 'react';
-import cn from 'classnames';
 import { Link } from 'atomic-router-react';
+import cn from 'classnames';
+import * as React from 'react';
 
 type RenderPagesList = (
 	rootPath: string,

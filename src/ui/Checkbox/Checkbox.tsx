@@ -1,13 +1,13 @@
-import * as React from 'react';
 import {
 	FormControlLabel,
 	Checkbox as MUICheckbox,
-	CheckboxProps as MUICheckboxProps,
+	CheckboxProps as MUICheckboxProps
 } from '@mui/material';
+import * as React from 'react';
 import {
 	FieldValues,
 	useController,
-	UseControllerProps,
+	UseControllerProps
 } from 'react-hook-form';
 import { CommonProps } from '@/types';
 
@@ -28,7 +28,7 @@ export const Checkbox = <F extends FieldValues>(props: CheckboxProps<F>) => {
 		shouldUnregister,
 		...rest
 	} = props;
-	const { field } = useController({
+	const { field, } = useController({
 		name,
 		control,
 		defaultValue,

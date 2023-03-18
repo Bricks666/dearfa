@@ -1,15 +1,14 @@
-import * as React from 'react';
 import cn from 'classnames';
-import { Message } from '@/models/messages';
+import * as React from 'react';
+import { Message } from '@/shared/api';
+import styles from './Message.module.css';
 import { CommonProps } from '@/types';
 import { Date } from '@/ui';
-
-import styles from './Message.module.css';
 
 interface MessageProps extends CommonProps, Message {}
 
 export const MessageCard: React.FC<MessageProps> = React.memo((props) => {
-	const { className, senderName, viewed, addedAt, body } = props;
+	const { className, senderName, viewed, addedAt, body, } = props;
 	return (
 		<article
 			className={cn(styles.message, className, {

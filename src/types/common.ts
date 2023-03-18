@@ -15,7 +15,7 @@ export const photos = Record({
 
 export interface Photos extends Static<typeof photos> {}
 
-export const dateType = String.nullable();
+export const dateType = String;
 
 export type DateType = Static<typeof dateType>;
 

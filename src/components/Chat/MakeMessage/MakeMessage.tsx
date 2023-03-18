@@ -1,11 +1,11 @@
-import cn from 'classnames';
+// import cn from 'classnames';
 import * as React from 'react';
 
-import { Button, Textarea } from '../../../ui';
+import { Button } from '../../../ui';
 
 import styles from './MakeMessage.module.css';
 
-const Form: FC = () => {
+const Form: React.FC = () => {
 	/** TODO: Переписать форму добавления сообщения под hook form */
 	return (
 		<form>
@@ -22,6 +22,6 @@ const Form: FC = () => {
 	);
 };
 
-export const MakeMessage: FC = () => {
-	return null;
+export const MakeMessage: React.FC = () => {
+	return <Form />;
 };

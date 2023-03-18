@@ -4,7 +4,6 @@ import styles from './LoginPage.module.css';
 import { LoginForm } from '@/components/LoginForm';
 import { CommonProps } from '@/types';
 
-
 const LoginPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 

@@ -14,7 +14,6 @@ import { Header } from '@/components/Header';
 import { Popups } from '@/components/Popups';
 import { AuthGate, authQuery } from '@/models/auth';
 
-
 export const App = WithProviders(() => {
 	const status = useUnit(authQuery.$status);
 	const isAuthorizing = status === 'initial' || status === 'pending';

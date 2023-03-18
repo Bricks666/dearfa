@@ -1,4 +1,4 @@
 export {
 	UpdateStatusForm,
-	type UpdateStatusFormProps,
+	type UpdateStatusFormProps
 } from './UpdateStatusForm';

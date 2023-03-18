@@ -1,26 +1,21 @@
+/* eslint-disable react/button-has-type */
 import cn from 'classnames';
 import * as React from 'react';
-import { CommonProps } from '@/types';
-
 import styles from './Button.module.css';
+import { CommonProps } from '@/types';
 
 type ButtonType = 'submit' | 'reset' | 'button';
 
-export interface ButtonProps extends CommonProps {
+export interface ButtonProps extends CommonProps, React.PropsWithChildren {
 	readonly disabled?: boolean;
 	readonly type?: ButtonType;
 	readonly title?: string;
-	readonly onClick?: MouseEventHandler<HTMLButtonElement>;
+	readonly onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: FC<ButtonProps> = ({
-	className,
-	type,
-	onClick,
-	disabled,
-	children,
-	title,
-}) => {
+const Button: React.FC<ButtonProps> = (props) => {
+	const { className, type, onClick, disabled, children, title, } = props;
+
 	return (
 		<button
 			className={cn(styles.button, className)}
