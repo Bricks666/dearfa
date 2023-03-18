@@ -1,14 +1,14 @@
-import * as React from 'react';
 import { Stack } from '@mui/material';
 import { useUnit } from 'effector-react';
-import { getDialogsQuery } from '@/models/dialogs';
-import { getEmptyArray } from '@/consts';
-import { CommonProps } from '@/types';
+import * as React from 'react';
+import { getEmptyArray } from '@/shared/lib';
 import { DialogCard } from './DialogCard';
 import { SkeletonDialogCard } from './SkeletonDialogCard';
+import { getDialogsQuery } from '@/models/dialogs';
+import { CommonProps } from '@/types';
 
 export const DialogsList: React.FC<CommonProps> = React.memo((props) => {
-	const { className } = props;
+	const { className, } = props;
 	const dialogs = useUnit(getDialogsQuery.$data);
 
 	const isLoading = !dialogs;

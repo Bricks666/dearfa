@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { popups } from '@/consts';
-import { CommonProps } from '@/types';
+import { popups } from '@/shared/configs';
 import { UpdateInfoPopup } from '../UpdateInfoPopup';
-import { UpdateStatusPopup } from '../UpdateStatusPopup';
 import { UpdatePhotoPopup } from '../UpdatePhotoPopup';
+import { UpdateStatusPopup } from '../UpdateStatusPopup';
 import { usePopups } from './hooks';
+import { CommonProps } from '@/types';
 
 export interface PopupsProps extends CommonProps {}
 
@@ -15,7 +15,7 @@ const popupsMap = {
 };
 
 export const Popups: React.FC<PopupsProps> = React.memo(function Popups() {
-	const { mountedPopups, openPopups } = usePopups();
+	const { mountedPopups, openPopups, } = usePopups();
 	return (
 		<>
 			{mountedPopups.map((name) => {

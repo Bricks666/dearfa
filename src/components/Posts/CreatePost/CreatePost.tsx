@@ -1,20 +1,19 @@
-import * as React from 'react';
-import cn from 'classnames';
-import { useForm } from 'react-hook-form';
 import { Button, TextField } from '@mui/material';
+import cn from 'classnames';
+import * as React from 'react';
+import { useForm } from 'react-hook-form';
+import styles from './CreatePost.module.css';
 import { CommonProps } from '@/types';
 
-import styles from './CreatePost.module.css';
 
 export const CreatePost: React.FC<CommonProps> = (props) => {
-	const { className } = props;
-	const { register, handleSubmit, reset } = useForm<{ content: string }>({
+	const { className, } = props;
+	const { register, handleSubmit, reset, } = useForm<{ content: string }>({
 		defaultValues: {
 			content: '',
 		},
 	});
-	const onSubmit = (...args) => {
-		console.log(args);
+	const onSubmit = () => {
 		reset();
 	};
 	return (

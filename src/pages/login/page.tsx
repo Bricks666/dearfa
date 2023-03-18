@@ -1,12 +1,13 @@
-import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import { CommonProps } from '@/types';
-import { LoginForm } from '@/components/LoginForm';
-
+import * as React from 'react';
 import styles from './LoginPage.module.css';
+import { LoginForm } from '@/components/LoginForm';
+import { CommonProps } from '@/types';
 
-export const LoginPage: React.FC<CommonProps> = (props) => {
-	const { className } = props;
+
+const LoginPage: React.FC<CommonProps> = (props) => {
+	const { className, } = props;
+
 	return (
 		<Stack className={className} component='main'>
 			<Typography variant='h2' align='center'>
@@ -16,3 +17,5 @@ export const LoginPage: React.FC<CommonProps> = (props) => {
 		</Stack>
 	);
 };
+
+export default LoginPage;

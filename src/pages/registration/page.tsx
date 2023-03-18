@@ -1,14 +1,14 @@
-import * as React from 'react';
 import cn from 'classnames';
-import { SectionHeader } from '@/ui';
+import * as React from 'react';
+import styles from './page.module.css';
 import { RegistrationForm } from '@/components/RegistrationForm';
 import { CommonProps } from '@/types';
+import { SectionHeader } from '@/ui';
 
-import styles from './RegistrationPage.module.css';
 
-const RegistrationPage: FC<CommonProps> = ({ className }) => {
-	const onSubmit = useCallback((...data: unknown[]) => console.log(data), []);
-	console.log(onSubmit);
+const RegistrationPage: React.FC<CommonProps> = (props) => {
+	const { className, } = props;
+
 	return (
 		<main className={cn(styles.main, className)}>
 			<SectionHeader className={styles.header}>Регистрация</SectionHeader>
@@ -17,4 +17,4 @@ const RegistrationPage: FC<CommonProps> = ({ className }) => {
 	);
 };
 
-export { RegistrationPage };
+export default RegistrationPage;

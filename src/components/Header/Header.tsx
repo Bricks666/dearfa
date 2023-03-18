@@ -1,18 +1,18 @@
-import * as React from 'react';
-import { useUnit } from 'effector-react';
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
 import { Link } from 'atomic-router-react';
-import { $isAuth } from '@/models/auth';
-import { loginRoute, registrationRoute } from '@/routes';
-import { CommonProps } from '@/types';
-import { Logo } from './Logo';
-import { ProfileMenu } from './ProfileMenu';
-import { Navigation } from './Navigation';
-
+import { useUnit } from 'effector-react';
+import * as React from 'react';
+import { routes } from '@/shared/configs';
 import styles from './Header.module.css';
+import { Logo } from './Logo';
+import { Navigation } from './Navigation';
+import { ProfileMenu } from './ProfileMenu';
+
+import { $isAuth } from '@/models/auth';
+import { CommonProps } from '@/types';
 
 export const Header: React.FC<CommonProps> = React.memo((props) => {
-	const { className } = props;
+	const { className, } = props;
 	const isAuth = useUnit($isAuth);
 
 	return (
@@ -31,7 +31,7 @@ export const Header: React.FC<CommonProps> = React.memo((props) => {
 							<Button
 								variant='text'
 								color='inherit'
-								to={loginRoute}
+								to={routes.login}
 								component={Link}>
 								Войти
 							</Button>
@@ -39,7 +39,7 @@ export const Header: React.FC<CommonProps> = React.memo((props) => {
 							<Button
 								variant='text'
 								color='inherit'
-								to={registrationRoute}
+								to={routes.registration}
 								component={Link}>
 								Зарегистрироваться
 							</Button>

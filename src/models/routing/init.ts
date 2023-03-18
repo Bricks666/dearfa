@@ -1,16 +1,12 @@
+import { querySync } from 'atomic-router';
 import { sample } from 'effector';
-import { querySync, redirect } from 'atomic-router';
-import { createBrowserHistory } from 'history';
-import { newsRoute } from '@/routes';
-import { getParams, popups } from '@/consts';
+import { controls, getParams, popups } from '@/shared/configs';
 import {
 	$popup,
 	closeUpdateInfoPopup,
 	closePopup,
-	router,
-	controls,
 	closeUpdateStatusPopup,
-	closeUpdatePhotoPopup,
+	closeUpdatePhotoPopup
 } from './units';
 
 querySync({
@@ -45,10 +41,3 @@ sample({
 	fn: (popup, name) => popup.replaceAll(name, ''),
 	target: $popup,
 });
-
-redirect({
-	clock: router.routeNotFound,
-	route: newsRoute,
-});
-
-router.setHistory(createBrowserHistory());

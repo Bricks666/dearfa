@@ -1,13 +1,13 @@
-import * as React from 'react';
 import cn from 'classnames';
+import * as React from 'react';
+import styles from './page.module.css';
+import { UsersList } from '@/components/UsersList';
 import { CommonProps } from '@/types';
 import { PagesListWithRouting, SectionHeader } from '@/ui';
-import { UsersList } from '@/components/UsersList';
 
-import styles from './UsersPage.module.css';
 
-export const UsersPage: React.FC<CommonProps> = (props) => {
-	const { className } = props;
+const UsersPage: React.FC<CommonProps> = (props) => {
+	const { className, } = props;
 
 	return (
 		<main className={cn(styles.users, className)}>
@@ -17,3 +17,5 @@ export const UsersPage: React.FC<CommonProps> = (props) => {
 		</main>
 	);
 };
+
+export default UsersPage;

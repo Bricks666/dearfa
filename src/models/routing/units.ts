@@ -1,15 +1,6 @@
-import { createRouterControls, createHistoryRouter } from 'atomic-router';
 import { createDomain } from 'effector';
-import { routes } from '@/routes';
 
 const RoutingDomain = createDomain();
-
-export const controls = createRouterControls();
-
-export const router = createHistoryRouter({
-	routes,
-	controls,
-});
 
 export const $popup = RoutingDomain.store<string>('');
 

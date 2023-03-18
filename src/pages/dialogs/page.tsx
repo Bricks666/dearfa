@@ -1,20 +1,20 @@
-import * as React from 'react';
-import cn from 'classnames';
 import { Typography } from '@mui/material';
+import cn from 'classnames';
 import { useGate } from 'effector-react';
-import { DialogsGate } from '@/models/dialogs';
-import { CommonProps } from '@/types';
-import { useParam } from '@/hooks';
-import { dialogsRoute } from '@/routes';
-import { DialogsList } from '@/components/DialogsList';
+import * as React from 'react';
+import { routes } from '@/shared/configs';
+import styles from './page.module.css';
 import { Chat } from '@/components/Chat';
+import { DialogsList } from '@/components/DialogsList';
 import { EmptyChat } from '@/components/EmptyChat';
 
-import styles from './DialogsPage.module.css';
+import { useParam } from '@/hooks';
+import { DialogsGate } from '@/models/dialogs';
+import { CommonProps } from '@/types';
 
-export const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
-	const { className } = props;
-	const id = useParam(dialogsRoute, 'id');
+const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
+	const { className, } = props;
+	const id = useParam(routes.dialogs, 'id');
 	useGate(DialogsGate);
 
 	return (
@@ -31,3 +31,5 @@ export const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
 		</main>
 	);
 });
+
+export default DialogsPage;

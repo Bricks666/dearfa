@@ -3,12 +3,13 @@ import { runtypeContract } from '@farfetched/runtypes';
 import {
 	authUser,
 	AuthUser,
+	getStandardServerResponse,
 	LoginRequest,
 	LoginResponse,
-	loginResponse
+	loginResponse,
+	StandardServerResponse
 } from '@/shared/api';
 import { authFx, loginFx, logoutFx } from './units';
-import { StandardServerResponse, getStandardServerResponse } from '@/types';
 
 export const authQuery = createQuery<
 	void,

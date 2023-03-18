@@ -41,7 +41,6 @@ export const updatePhoto = async (params: UpdatePhotoParams) => {
 	return instance
 		.put(`${getBaseURL()}/photo`, {
 			body: formData,
-			headers: { 'Content-Type': 'multipart/form-data', },
 		})
 		.json<StandardServerResponse<Pick<Info, 'photos'>>>();
 };

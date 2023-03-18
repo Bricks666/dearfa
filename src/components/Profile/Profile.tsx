@@ -1,30 +1,29 @@
-import * as React from 'react';
+import { Avatar, Button, Skeleton, Typography } from '@mui/material';
+import { Link } from 'atomic-router-react';
 import cn from 'classnames';
 import { useGate, useUnit } from 'effector-react';
-import { Link } from 'atomic-router-react';
-import { Avatar, Button, Skeleton, Typography } from '@mui/material';
+import * as React from 'react';
+import { routes , getParams, popups } from '@/shared/configs';
+import styles from './Profile.module.css';
+import { UserDescription } from './UserDescription';
+import { useParam } from '@/hooks';
 import { $authUser } from '@/models/auth';
 import {
 	$profileInfo,
 	$profileInfoLoading,
-	ProfileGate,
+	ProfileGate
 } from '@/models/profile';
-import { dialogsRoute, profileRoute } from '@/routes';
-import { useParam } from '@/hooks';
 import { CommonProps } from '@/types';
-import { getParams, popups } from '@/consts';
-import { UserDescription } from './UserDescription';
 
-import styles from './Profile.module.css';
 
 export interface ProfileProps extends CommonProps {}
 
 export const Profile: React.FC<ProfileProps> = (props) => {
-	const { className } = props;
-	const userId = useParam(profileRoute, 'id');
+	const { className, } = props;
+	const userId = useParam(routes.profile, 'id');
 	const user = useUnit($profileInfo);
 	const isLoading = useUnit($profileInfoLoading);
-	const { id: authId } = useUnit($authUser)!;
+	const { id: authId, } = useUnit($authUser)!;
 	const isAuth = authId === Number(userId);
 	useGate(ProfileGate, Number(userId));
 
@@ -56,25 +55,25 @@ export const Profile: React.FC<ProfileProps> = (props) => {
 				<>
 					<Button
 						className={styles.button}
-						to={profileRoute}
-						params={{ id: userId }}
-						query={{ [getParams.popups]: popups.updatePhoto }}
+						to={routes.profile}
+						params={{ id: userId, }}
+						query={{ [getParams.popups]: popups.updatePhoto, }}
 						component={Link}>
 						Изменить фото
 					</Button>
 					<Button
 						className={styles.button}
-						to={profileRoute}
-						params={{ id: userId }}
-						query={{ [getParams.popups]: popups.updateInfo }}
+						to={routes.profile}
+						params={{ id: userId, }}
+						query={{ [getParams.popups]: popups.updateInfo, }}
 						component={Link}>
 						Изменить информацию
 					</Button>
 					<Button
 						className={styles.button}
-						to={profileRoute}
-						params={{ id: userId }}
-						query={{ [getParams.popups]: popups.updateStatus }}
+						to={routes.profile}
+						params={{ id: userId, }}
+						query={{ [getParams.popups]: popups.updateStatus, }}
 						component={Link}>
 						Изменить статус
 					</Button>
@@ -82,8 +81,8 @@ export const Profile: React.FC<ProfileProps> = (props) => {
 			) : (
 				<Button
 					className={styles.button}
-					to={dialogsRoute}
-					params={{ id: userId }}
+					to={routes.dialogs}
+					params={{ id: userId, }}
 					component={Link}>
 					Написать
 				</Button>
