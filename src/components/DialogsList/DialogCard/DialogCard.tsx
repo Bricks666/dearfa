@@ -1,13 +1,10 @@
 import cn from 'classnames';
 import * as React from 'react';
 import { Link } from 'atomic-router-react';
-import { Typography } from '@mui/material';
-import { Picture } from '@/ui';
-import { CommonProps } from '@/types';
+import { Avatar, Card, CardHeader, Typography } from '@mui/material';
 import { Dialog } from '@/models/dialogs';
 import { dialogsRoute } from '@/routes';
-
-import styles from './DialogCard.module.css';
+import { CommonProps } from '@/types';
 
 export interface DialogCardProps extends CommonProps, Dialog {}
 
@@ -19,20 +16,21 @@ export const DialogCard: React.FC<DialogCardProps> = React.memo((props) => {
 		photos: { small },
 	} = props;
 	return (
-		<li className={cn(styles.dialog, className)}>
-			<Link
-				className={styles.link}
-				activeClassName={styles.linkActive}
-				to={dialogsRoute}
-				params={{ id }}
-				aria-label={`чат с ${userName}`}>
-				<Typography className={styles.fullName}>{userName}</Typography>
-				<Picture
-					className={cn(styles.photo, 'fake-photo')}
-					oneXSrc={small || '/Images/ProfileBackground/SunSet'}
-					alt={userName}
-				/>
-			</Link>
-		</li>
+		<Card
+			className={className}
+			component={Link}
+			to={dialogsRoute}
+			params={{ id }}
+			aria-label={`чат с ${userName}`}>
+			<CardHeader
+				avatar={
+					<Avatar
+						src={small || '/images/ProfileBackground/SunSet'}
+						alt={userName}
+					/>
+				}
+				title={<Typography>{userName}</Typography>}
+			/>
+		</Card>
 	);
 });

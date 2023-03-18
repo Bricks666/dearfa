@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { Avatar } from '@mui/material';
+import { Avatar, Typography } from '@mui/material';
 import { CommonProps } from '@/types';
 import { FullName, Date } from '@/ui';
 
@@ -16,9 +16,9 @@ export const Companion: React.FC<CompanionProps> = (props) => {
 	return (
 		<header className={cn(styles.header, className)}>
 			<Avatar className={styles.photo} />
-			<FullName className={styles.name} id={/* companion.id */ 0}>
+			<Typography className={styles.name} id={/* companion.id */ 0}>
 				{/* companion.name */ ''}
-			</FullName>
+			</Typography>
 			<Date className={styles.date} date={/* companion.lastActive */ ''} />
 		</header>
 	);

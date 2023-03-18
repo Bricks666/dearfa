@@ -1,9 +1,12 @@
 import { sample } from 'effector';
+import { messagesApi } from '@/api';
 import { createMessageMutation, getMessagesQuery } from './queries';
-import { MessagesGate } from './units';
+import { getMessagesFx, MessagesGate } from './units';
+
+getMessagesFx.use(messagesApi.getAll);
 
 sample({
-	clock: MessagesGate.open,
+	clock: MessagesGate.state,
 	target: getMessagesQuery.start,
 });
 

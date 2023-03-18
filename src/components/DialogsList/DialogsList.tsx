@@ -1,21 +1,25 @@
 import * as React from 'react';
-import cn from 'classnames';
+import { Stack } from '@mui/material';
 import { useUnit } from 'effector-react';
 import { getDialogsQuery } from '@/models/dialogs';
+import { getEmptyArray } from '@/consts';
 import { CommonProps } from '@/types';
-import { DialogCard } from './DialogCard/DialogCard';
-
-import styles from './DialogsList.module.css';
+import { DialogCard } from './DialogCard';
+import { SkeletonDialogCard } from './SkeletonDialogCard';
 
 export const DialogsList: React.FC<CommonProps> = React.memo((props) => {
 	const { className } = props;
 	const dialogs = useUnit(getDialogsQuery.$data);
-	/** TODO: Добавить загрузку */
+
+	const isLoading = !dialogs;
+
+	const items = isLoading
+		? getEmptyArray(6).map((_, i) => <SkeletonDialogCard key={i} />)
+		: dialogs.map((dialog) => <DialogCard {...dialog} key={dialog.id} />);
+
 	return (
-		<ul className={cn(styles.dialogList, className)}>
-			{dialogs?.map((dialog) => (
-				<DialogCard className={styles.dialog} {...dialog} key={dialog.id} />
-			))}
-		</ul>
+		<Stack className={className} spacing={1.5}>
+			{items}
+		</Stack>
 	);
 });

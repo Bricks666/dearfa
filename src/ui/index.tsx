@@ -13,3 +13,4 @@ export { MainPopup, type MainPopupProps } from './MainPopup';
 export { Checkbox, type CheckboxProps } from './Checkbox';
 export { Field, type FieldProps } from './Field';
 export { FileField, type FileFieldProps } from './FileField';
+export { Date, type DateProps } from './Date';

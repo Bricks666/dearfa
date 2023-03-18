@@ -1,5 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
+import { useGate } from 'effector-react';
+import { MessagesGate } from '@/models/messages';
 import { useParam } from '@/hooks';
 import { dialogsRoute } from '@/routes';
 import { CommonProps } from '@/types';
@@ -12,6 +14,7 @@ import styles from './Chat.module.css';
 export const Chat: React.FC<CommonProps> = React.memo((props) => {
 	const { className } = props;
 	const id = useParam(dialogsRoute, 'id')!;
+	useGate(MessagesGate, { dialogId: id, count: 10, page: 1 });
 
 	return (
 		<section className={cn(styles.chat, className)}>

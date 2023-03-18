@@ -1,7 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material';
-import { createInspector } from 'effector-inspector';
 import { RouterProvider } from 'atomic-router-react';
 import { App } from '@/app';
 import { router } from '@/models/routing';
@@ -21,7 +20,3 @@ root.render(
 		</RouterProvider>
 	</React.StrictMode>
 );
-
-if (import.meta.env.DEV) {
-	createInspector({});
-}
