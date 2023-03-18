@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { UpdateInfoParams } from '@/api/profile';
+import { UpdateInfoParams } from '@/shared/api/profile';
 import { Contacts } from '@/models/profile';
 
 export const validateScheme = Joi.object<UpdateInfoParams>({

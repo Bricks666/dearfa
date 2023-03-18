@@ -1,7 +1,12 @@
 import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
-import { User } from './types';
-import { Pagination, ResponseWithItems, StandardServerResponse } from '@/types';
+import {
+	ResponseWithItems,
+	User,
+	StandardServerResponse,
+	Pagination,
+	FollowParams
+} from '@/shared/api';
 
 const UsersDomain = createDomain();
 
@@ -14,11 +19,11 @@ export const getFriendsFx = UsersDomain.effect<
 	ResponseWithItems<User>
 >();
 export const followUserFx = UsersDomain.effect<
-	number,
+	FollowParams,
 	StandardServerResponse
 >();
 export const unfollowUserFx = UsersDomain.effect<
-	number,
+	FollowParams,
 	StandardServerResponse
 >();
 

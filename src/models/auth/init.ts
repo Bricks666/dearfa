@@ -1,9 +1,9 @@
-import { sample } from 'effector';
 import { redirect } from 'atomic-router';
-import { authApi } from '@/api';
-import { loginRoute, profileRoute } from '@/routes';
+import { sample } from 'effector';
+import { authApi } from '@/shared/api';
 import { authQuery, loginMutation, logoutMutation } from './queries';
 import { $authUser, authFx, AuthGate, loginFx, logoutFx } from './units';
+import { loginRoute, profileRoute } from '@/routes';
 
 authFx.use(authApi.auth);
 loginFx.use(authApi.login);
@@ -38,9 +38,9 @@ redirect({
 
 redirect({
 	clock: loginMutation.finished.success,
-	params: ({ data }) => {
+	params: ({ data, }) => {
 		const {
-			data: { userId },
+			data: { userId, },
 		} = data;
 		return {
 			id: userId,

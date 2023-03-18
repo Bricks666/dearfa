@@ -1,9 +1,14 @@
 import { createMutation, createQuery } from '@farfetched/core';
 import { runtypeContract } from '@farfetched/runtypes';
-import { LoginRequest } from '@/api/auth';
-import { StandardServerResponse, getStandardServerResponse } from '@/types';
+import {
+	authUser,
+	AuthUser,
+	LoginRequest,
+	LoginResponse,
+	loginResponse
+} from '@/shared/api';
 import { authFx, loginFx, logoutFx } from './units';
-import { authUser, AuthUser, LoginResponse, loginResponse } from './types';
+import { StandardServerResponse, getStandardServerResponse } from '@/types';
 
 export const authQuery = createQuery<
 	void,

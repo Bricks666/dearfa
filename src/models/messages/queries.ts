@@ -1,7 +1,5 @@
 import { createMutation, createQuery } from '@farfetched/core';
-import { GetMessageParams } from '@/api/messages';
-import { ResponseWithItems } from '@/types';
-import { Message } from './types';
+import { GetMessageParams, Message, ResponseWithItems } from '@/shared/api';
 import { createMessageFx, getMessagesFx } from './units';
 
 export const getMessagesQuery = createQuery<
@@ -10,9 +8,10 @@ export const getMessagesQuery = createQuery<
 	Error,
 	Message[]
 >({
+	initialData: [],
 	effect: getMessagesFx,
-	mapData: (data) => {
-		return data.items;
+	mapData: ({ result, }) => {
+		return result.items;
 	},
 });
 

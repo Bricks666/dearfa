@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { LoginRequest } from '@/api/auth';
+import { LoginRequest } from '@/shared/api/auth';
 
 export const validateScheme = Joi.object<LoginRequest>({
 	email: Joi.string().required(),

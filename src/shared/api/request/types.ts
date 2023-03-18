@@ -1,6 +1,5 @@
 import { Record, String, Number, Array, Runtype } from 'runtypes';
-import { User } from '@/models/users';
-import { EmptyObject } from './common';
+import { EmptyObject } from '@/types';
 
 export const getResponseWithItems = <T>(type: Runtype<T>) => {
 	return Record({
@@ -36,5 +35,3 @@ export interface Pagination {
 	readonly count: number;
 	readonly page: number;
 }
-
-export type ResponseWithUsers = ResponseWithItems<User>;

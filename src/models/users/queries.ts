@@ -1,12 +1,11 @@
 import { createMutation, createQuery } from '@farfetched/core';
-import { Pagination, ResponseWithItems } from '@/types';
+import { Pagination, ResponseWithItems, User } from '@/shared/api';
 import {
-	followUserFx,
-	getFriendsFx,
 	getUsersFx,
-	unfollowUserFx,
+	getFriendsFx,
+	followUserFx,
+	unfollowUserFx
 } from './units';
-import { User } from './types';
 
 export const getUsersQuery = createQuery<
 	Pagination,
@@ -14,9 +13,10 @@ export const getUsersQuery = createQuery<
 	Error,
 	User[]
 >({
+	initialData: [],
 	effect: getUsersFx,
-	mapData: (data) => {
-		return data.items;
+	mapData: ({ result, }) => {
+		return result.items;
 	},
 });
 
@@ -26,9 +26,10 @@ export const getFriendsQuery = createQuery<
 	Error,
 	User[]
 >({
+	initialData: [],
 	effect: getFriendsFx,
-	mapData: (data) => {
-		return data.items;
+	mapData: ({ result, }) => {
+		return result.items;
 	},
 });
 

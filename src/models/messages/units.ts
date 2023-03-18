@@ -1,8 +1,12 @@
 import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
-import { Message } from './types';
-import { CreateMessageParams, GetMessageParams } from '@/api/messages';
-import { ResponseWithItems, StandardServerResponse } from '@/types';
+import {
+	GetMessageParams,
+	ResponseWithItems,
+	CreateMessageParams,
+	StandardServerResponse,
+	Message
+} from '@/shared/api';
 
 const MessagesDomain = createDomain();
 

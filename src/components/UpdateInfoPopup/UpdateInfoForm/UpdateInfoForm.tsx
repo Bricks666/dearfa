@@ -1,16 +1,16 @@
-import * as React from 'react';
-import cn from 'classnames';
-import { useUnit } from 'effector-react';
-import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { Button, Typography } from '@mui/material';
+import cn from 'classnames';
+import { useUnit } from 'effector-react';
+import * as React from 'react';
+import { useForm } from 'react-hook-form';
+import { UpdateInfoParams } from '@/shared/api/profile';
+import styles from './UpdateInfoForm.module.css';
+import { validateScheme } from './validate';
 import { updateInfoMutation } from '@/models/profile';
-import { UpdateInfoParams } from '@/api/profile';
 import { CommonProps } from '@/types';
 import { Checkbox, Field } from '@/ui';
-import { validateScheme } from './validate';
 
-import styles from './UpdateInfoForm.module.css';
 
 export interface UpdateInfoFormProps extends CommonProps {
 	readonly defaultValues: UpdateInfoParams;
@@ -18,16 +18,16 @@ export interface UpdateInfoFormProps extends CommonProps {
 
 export const UpdateInfoForm: React.FC<UpdateInfoFormProps> = React.memo(
 	function UpdateInfoForm(props) {
-		const { className, defaultValues } = props;
+		const { className, defaultValues, } = props;
 		const updateInfo = useUnit(updateInfoMutation.start);
-		const { control, handleSubmit, watch, formState } =
+		const { control, handleSubmit, watch, formState, } =
 			useForm<UpdateInfoParams>({
 				defaultValues,
 				resolver: joiResolver(validateScheme),
 			});
 
 		const lookingForAJob = watch('lookingForAJob');
-		const { isSubmitting, isDirty } = formState;
+		const { isSubmitting, isDirty, } = formState;
 		const disabled = isSubmitting || !isDirty;
 
 		return (

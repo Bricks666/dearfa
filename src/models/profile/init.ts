@@ -1,16 +1,16 @@
 import { sample } from 'effector';
-import { profileApi } from '@/api';
+import { profileApi, ProfileInfo } from '@/shared/api';
 import {
 	closeUpdateInfoPopup,
 	closeUpdatePhotoPopup,
-	closeUpdateStatusPopup,
+	closeUpdateStatusPopup
 } from '../routing';
 import {
 	getInfoQuery,
 	getStatusQuery,
 	updateInfoMutation,
 	updatePhotoMutation,
-	updateStatusMutation,
+	updateStatusMutation
 } from './queries';
 import {
 	$profileInfo,
@@ -20,9 +20,8 @@ import {
 	ProfileGate,
 	updateInfoFx,
 	updatePhotoFx,
-	updateStatusFx,
+	updateStatusFx
 } from './units';
-import { ProfileInfo } from './types';
 
 getInfoFx.use(profileApi.getInfo);
 getStatusFx.use(profileApi.getStatus);
@@ -39,7 +38,7 @@ sample({
 	clock: updateInfoMutation.finished.success,
 	source: getInfoQuery.$data,
 	filter: Boolean,
-	fn: (info, { params }) => {
+	fn: (info, { params, }) => {
 		return {
 			...info,
 			...params,
@@ -55,7 +54,7 @@ sample({
 
 sample({
 	clock: updateStatusMutation.finished.success,
-	fn: ({ params }) => {
+	fn: ({ params, }) => {
 		return params.status;
 	},
 	target: getStatusQuery.$data,
@@ -70,10 +69,10 @@ sample({
 	clock: updatePhotoMutation.finished.success,
 	source: getInfoQuery.$data,
 	filter: Boolean,
-	fn: (info, { data }) => {
+	fn: (info, { result, }) => {
 		return {
 			...info,
-			photos: data.data.photos,
+			photos: result.data.photos,
 		};
 	},
 	target: getInfoQuery.$data,
@@ -115,5 +114,3 @@ sample({
 	},
 	target: $profileInfoLoading,
 });
-
-getInfoQuery.$data.watch(console.debug);

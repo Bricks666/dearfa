@@ -1,12 +1,13 @@
 import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
-import { Info, ProfileInfo } from './types';
 import {
+	Info,
+	UpdateStatusParams,
 	UpdateInfoParams,
+	StandardServerResponse,
 	UpdatePhotoParams,
-	UpdateStatusParams
-} from '@/api/profile';
-import { EmptyObject, StandardServerResponse } from '@/types';
+	ProfileInfo
+} from '@/shared/api';
 
 const ProfileDomain = createDomain();
 
@@ -14,7 +15,7 @@ export const getInfoFx = ProfileDomain.effect<number, Info>();
 export const getStatusFx = ProfileDomain.effect<number, string>();
 export const updateStatusFx = ProfileDomain.effect<
 	UpdateStatusParams,
-	EmptyObject
+	StandardServerResponse<string>
 >();
 export const updateInfoFx = ProfileDomain.effect<
 	UpdateInfoParams,

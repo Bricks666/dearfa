@@ -1,5 +1,5 @@
 import { sample } from 'effector';
-import { messagesApi } from '@/api';
+import { messagesApi } from '@/shared/api';
 import { createMessageMutation, getMessagesQuery } from './queries';
 import { getMessagesFx, MessagesGate } from './units';
 
@@ -13,8 +13,8 @@ sample({
 sample({
 	clock: createMessageMutation.finished.success,
 	source: getMessagesQuery.$data,
-	fn: (messages, { data }) => {
-		return [...(messages ?? []), data.data];
+	fn: (messages, { result, }) => {
+		return [...messages, result.data];
 	},
 	target: getMessagesQuery.$data,
 });

@@ -1,5 +1,11 @@
 import { Number, Record, Static, String } from 'runtypes';
 
+export interface LoginRequest {
+	readonly email: string;
+	readonly password: string;
+	readonly rememberMe: boolean;
+}
+
 export const authUser = Record({
 	id: Number,
 	login: String,

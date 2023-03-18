@@ -1,15 +1,15 @@
-import * as React from 'react';
+import { Avatar, Button } from '@mui/material';
 import cn from 'classnames';
 import { useUnit } from 'effector-react';
-import { Avatar, Button } from '@mui/material';
+import * as React from 'react';
 import { useForm } from 'react-hook-form';
-import { updatePhotoMutation } from '@/models/profile';
-import { UpdatePhotoParams } from '@/api/profile';
+import { UpdatePhotoParams } from '@/shared/api/profile';
+import styles from './UpdatePhotoForm.module.css';
 import { useURL } from '@/hooks';
+import { updatePhotoMutation } from '@/models/profile';
 import { CommonProps } from '@/types';
 import { FileField } from '@/ui';
 
-import styles from './UpdatePhotoForm.module.css';
 
 export interface UpdatePhotoFormProps extends CommonProps {
 	readonly defaultValues: { photo: string | null };
@@ -17,13 +17,13 @@ export interface UpdatePhotoFormProps extends CommonProps {
 
 export const UpdatePhotoForm: React.FC<UpdatePhotoFormProps> = React.memo(
 	function UpdatePhotoForm(props) {
-		const { className, defaultValues } = props;
-		const { handleSubmit, watch, formState, register } =
+		const { className, defaultValues, } = props;
+		const { handleSubmit, watch, formState, register, } =
 			useForm<UpdatePhotoParams>();
 		const updatePhoto = useUnit(updatePhotoMutation.start);
 
 		const photo = watch('photo');
-		const { isDirty, isSubmitting } = formState;
+		const { isDirty, isSubmitting, } = formState;
 		const disabled = isSubmitting || !isDirty;
 		const data = useURL((photo && photo[0]) || defaultValues.photo);
 		return (
@@ -41,7 +41,7 @@ export const UpdatePhotoForm: React.FC<UpdatePhotoFormProps> = React.memo(
 				/>
 				<FileField
 					label='Выбрать фото'
-					inputProps={{ accept: '.jpg, .jpeg' }}
+					inputProps={{ accept: '.jpg, .jpeg', }}
 					{...register('photo')}
 				/>
 				<Button type='submit' disabled={disabled}>

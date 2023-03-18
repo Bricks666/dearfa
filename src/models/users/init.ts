@@ -1,20 +1,19 @@
 import { sample } from 'effector';
-import { usersApi } from '@/api';
+import { followsApi, User, usersApi } from '@/shared/api';
+import { getFriendsQuery, getUsersQuery } from './queries';
 import {
 	getUsersFx,
 	UsersGate,
 	FriendsGate,
 	unfollowUserFx,
 	followUserFx,
-	getFriendsFx,
+	getFriendsFx
 } from './units';
-import { getFriendsQuery, getUsersQuery } from './queries';
-import { User } from './types';
 
 getUsersFx.use(usersApi.getAll);
 getFriendsFx.use(usersApi.getFriends);
-followUserFx.use(usersApi.follow);
-unfollowUserFx.use(usersApi.unfollow);
+followUserFx.use(followsApi.follow);
+unfollowUserFx.use(followsApi.unfollow);
 
 sample({
 	clock: UsersGate.state,
@@ -39,10 +38,10 @@ sample({
 sample({
 	clock: followUserFx.done,
 	source: getUsersQuery.$data,
-	fn: (users, { params: userId }) => {
+	fn: (users, { params, }) => {
 		return (
-			users?.map<User>((user) =>
-				user.id === userId ? { ...user, followed: true } : user
+			users.map<User>((user) =>
+				user.id === params.userId ? { ...user, followed: true, } : user
 			) ?? null
 		);
 	},
@@ -52,10 +51,10 @@ sample({
 sample({
 	clock: unfollowUserFx.done,
 	source: getUsersQuery.$data,
-	fn: (users, { params: userId }) => {
+	fn: (users, { params, }) => {
 		return (
-			users?.map<User>((user) =>
-				user.id === userId ? { ...user, followed: false } : user
+			users.map<User>((user) =>
+				user.id === params.userId ? { ...user, followed: false, } : user
 			) ?? null
 		);
 	},
@@ -65,10 +64,10 @@ sample({
 sample({
 	clock: unfollowUserFx.done,
 	source: getFriendsQuery.$data,
-	fn: (users, { params: userId }) => {
+	fn: (users, { params, }) => {
 		return (
-			users?.map<User>((user) =>
-				user.id === userId ? { ...user, followed: false } : user
+			users.map<User>((user) =>
+				user.id === params.userId ? { ...user, followed: false, } : user
 			) ?? null
 		);
 	},
