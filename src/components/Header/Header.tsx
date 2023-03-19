@@ -16,7 +16,7 @@ export const Header: React.FC<CommonProps> = React.memo((props) => {
 	const isAuth = useUnit($isAuth);
 
 	return (
-		<AppBar className={className} position='static'>
+		<AppBar className={className} position='static' variant='outlined'>
 			<Toolbar>
 				<Typography className='visibility-hidden' variant='h1'>
 					Dear.Fa

@@ -1,20 +1,24 @@
+import { Typography } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
 import { CommonProps } from '@/shared/types';
-import { PagesListWithRouting, SectionHeader } from '@/shared/ui';
+import { pageLoadModel } from './model';
 import styles from './page.module.css';
-import { UsersList } from '@/components/UsersList';
+import { UsersList } from './ui';
 
 const UsersPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 
 	return (
 		<main className={cn(styles.users, className)}>
-			<SectionHeader>Все пользователи</SectionHeader>
+			<Typography variant='h4' component='h2'>
+				Все пользователи
+			</Typography>
 			<UsersList />
-			<PagesListWithRouting pageCount={10} />
 		</main>
 	);
 };
+
+pageLoadModel.loaded();
 
 export default UsersPage;

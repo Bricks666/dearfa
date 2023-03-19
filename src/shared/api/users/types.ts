@@ -4,7 +4,7 @@ import { photos, url } from '@/shared/types';
 export const user = Record({
 	id: Number,
 	name: String,
-	status: String,
+	status: String.nullable(),
 	followed: Boolean,
 	uniqueUrlName: url,
 	photos,

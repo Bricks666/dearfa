@@ -8,7 +8,7 @@ const getBaseURL = () => {
 export const getAll = async (params: Pagination) => {
 	const { count, page, } = params;
 
-	const requestURL = `${getBaseURL()}?page=${count}&count=${page}`;
+	const requestURL = `${getBaseURL()}?page=${page}&count=${count}`;
 	return instance.get(requestURL).json<ResponseWithItems<User>>();
 };
 
