@@ -5,11 +5,11 @@ import { useUnit } from 'effector-react';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { UpdateInfoParams } from '@/shared/api/profile';
+import { CommonProps } from '@/shared/types';
+import { Checkbox, Field } from '@/shared/ui';
 import styles from './UpdateInfoForm.module.css';
 import { validateScheme } from './validate';
 import { updateInfoMutation } from '@/models/profile';
-import { CommonProps } from '@/types';
-import { Checkbox, Field } from '@/ui';
 
 export interface UpdateInfoFormProps extends CommonProps {
 	readonly defaultValues: UpdateInfoParams;

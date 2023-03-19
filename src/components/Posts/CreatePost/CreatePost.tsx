@@ -2,8 +2,8 @@ import { Button, TextField } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
+import { CommonProps } from '@/shared/types';
 import styles from './CreatePost.module.css';
-import { CommonProps } from '@/types';
 
 export const CreatePost: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

@@ -1,6 +1,6 @@
+import { StandardServerResponse, URL } from '@/shared/types';
 import { instance } from '../request';
 import { Dialog } from './types';
-import { StandardServerResponse, URL } from '@/types';
 
 const baseURL: URL = 'dialogs';
 

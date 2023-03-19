@@ -1,5 +1,5 @@
 import { Boolean, Number, Record, Static, String } from 'runtypes';
-import { photos, url } from '@/types';
+import { photos, url } from '@/shared/types';
 
 export const user = Record({
 	id: Number,

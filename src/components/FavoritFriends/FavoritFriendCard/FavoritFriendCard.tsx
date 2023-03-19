@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
+import { Photo } from '@/shared/ui';
 import styles from './FavoritFriendCard.module.css';
 import { User } from '@/models/users';
-import { CommonProps } from '@/types';
-import { Photo } from '@/ui';
 
 interface FavoriteFriendCardProps
 	extends CommonProps,

@@ -1,8 +1,8 @@
 import { Button, Stack, TextField } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
 import styles from './RegistrationForm.module.css';
-import { CommonProps } from '@/types';
 
 export const RegistrationForm: React.FC<CommonProps> = React.memo((props) => {
 	const { className, } = props;

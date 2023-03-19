@@ -1,6 +1,6 @@
 import { Avatar, Card, CardHeader, Skeleton, Typography } from '@mui/material';
 import * as React from 'react';
-import { CommonProps } from '@/types';
+import { CommonProps } from '@/shared/types';
 
 export interface SkeletonDialogCardProps extends CommonProps {}
 

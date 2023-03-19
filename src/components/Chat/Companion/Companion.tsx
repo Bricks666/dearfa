@@ -1,10 +1,10 @@
 import { Avatar, Typography } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
+import { Date } from '@/shared/ui';
 import styles from './Companion.module.css';
-import { CommonProps } from '@/types';
-import { Date } from '@/ui';
-// import { FullName, Date } from '@/ui';
+// import { FullName, Date } from '@/shared/ui';
 
 export interface CompanionProps extends CommonProps {
 	readonly dialogId: number;

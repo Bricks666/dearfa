@@ -5,11 +5,11 @@ import { useUnit } from 'effector-react';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { UpdateStatusParams } from '@/shared/api/profile';
+import { CommonProps } from '@/shared/types';
+import { Field } from '@/shared/ui';
 import styles from './UpdateStatusForm.module.css';
 import { validateScheme } from './validate';
 import { updateStatusMutation } from '@/models/profile';
-import { CommonProps } from '@/types';
-import { Field } from '@/ui';
 
 export interface UpdateStatusFormProps extends CommonProps {
 	readonly defaultValues: UpdateStatusParams;

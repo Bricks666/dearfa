@@ -1,7 +1,7 @@
 import { createDomain } from 'effector';
 import { createGate } from 'effector-react';
 import { AuthUser, LoginRequest, LoginResponse } from '@/shared/api';
-import { StandardServerResponse } from '@/types';
+import { StandardServerResponse } from '@/shared/types';
 
 const LoginDomain = createDomain();
 

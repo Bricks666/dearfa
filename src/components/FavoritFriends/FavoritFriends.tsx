@@ -1,10 +1,10 @@
 import { Typography } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
-import { List } from '../../ui';
+import { CommonProps } from '@/shared/types';
+import { List } from '../../shared/ui';
 import { FavoritFriendCard } from './FavoritFriendCard/FavoritFriendCard';
 import styles from './FavoritFriends.module.css';
-import { CommonProps } from '@/types';
 
 const FavoritFriends: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { CommonProps } from '@/types';
-import { SectionHeader } from '@/ui';
+import { CommonProps } from '@/shared/types';
+import { SectionHeader } from '@/shared/ui';
 
 const NewsPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

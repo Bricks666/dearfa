@@ -1,5 +1,5 @@
 import { Record, String, Number, Array, Runtype } from 'runtypes';
-import { EmptyObject } from '@/types';
+import { EmptyObject } from '@/shared/types';
 
 export const getResponseWithItems = <T>(type: Runtype<T>) => {
 	return Record({

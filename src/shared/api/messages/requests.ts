@@ -1,10 +1,10 @@
+import { URL } from '@/shared/types';
 import { GetMessageParams, CreateMessageParams, Message } from '../messages';
 import {
 	instance,
 	ResponseWithItems,
 	StandardServerResponse
 } from '../request';
-import { URL } from '@/types';
 
 const getBaseURL = (dialogId: number): NonNullable<URL> => {
 	return `dialogs/${dialogId}/messages`;

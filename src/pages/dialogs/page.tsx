@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { useGate } from 'effector-react';
 import * as React from 'react';
 import { routes } from '@/shared/configs';
+import { CommonProps } from '@/shared/types';
 import styles from './page.module.css';
 import { Chat } from '@/components/Chat';
 import { DialogsList } from '@/components/DialogsList';
@@ -10,7 +11,6 @@ import { EmptyChat } from '@/components/EmptyChat';
 
 import { useParam } from '@/hooks';
 import { DialogsGate } from '@/models/dialogs';
-import { CommonProps } from '@/types';
 
 const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
 	const { className, } = props;

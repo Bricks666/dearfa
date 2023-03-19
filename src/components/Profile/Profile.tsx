@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { useGate, useUnit } from 'effector-react';
 import * as React from 'react';
 import { routes, getParams, popups } from '@/shared/configs';
+import { CommonProps } from '@/shared/types';
 import styles from './Profile.module.css';
 import { UserDescription } from './UserDescription';
 import { useParam } from '@/hooks';
@@ -13,7 +14,6 @@ import {
 	$profileInfoLoading,
 	ProfileGate
 } from '@/models/profile';
-import { CommonProps } from '@/types';
 
 export interface ProfileProps extends CommonProps {}
 

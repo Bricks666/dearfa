@@ -1,5 +1,5 @@
 import { Boolean, Number, Record, Static, String, Union } from 'runtypes';
-import { emptyObject, photos, url } from '@/types';
+import { emptyObject, photos, url } from '@/shared/types';
 
 export const contacts = Record({
 	github: url,

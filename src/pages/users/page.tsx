@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
+import { PagesListWithRouting, SectionHeader } from '@/shared/ui';
 import styles from './page.module.css';
 import { UsersList } from '@/components/UsersList';
-import { CommonProps } from '@/types';
-import { PagesListWithRouting, SectionHeader } from '@/ui';
 
 const UsersPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

@@ -21,12 +21,12 @@ import { Link } from 'atomic-router-react';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
 import { routes } from '@/shared/configs';
+import { CommonProps } from '@/shared/types';
 import { Logo } from '../Logo';
 import styles from './Navigation.module.css';
 import { useToggle } from '@/hooks';
 import { $authUser } from '@/models/auth';
 
-import { CommonProps } from '@/types';
 
 interface NavigationItem {
 	readonly to: RouteInstance<any>;

@@ -1,8 +1,8 @@
 import { Link } from 'atomic-router-react';
 import * as React from 'react';
+import { EmptyObject } from '@/shared/types';
+import { DataListItem } from '@/shared/ui';
 import { Contacts } from '@/models/profile';
-import { EmptyObject } from '@/types';
-import { DataListItem } from '@/ui';
 
 export const renderContact = (contacts: Contacts | EmptyObject) => {
 	return Object.entries(contacts)

@@ -2,11 +2,11 @@ import { useUnit } from 'effector-react';
 import * as React from 'react';
 // import cn from 'classnames';
 import { UpdateInfoParams } from '@/shared/api/profile';
+import { BasePopupProps, CommonProps } from '@/shared/types';
+import { MainPopup } from '@/shared/ui';
 import { UpdateInfoForm } from './UpdateInfoForm';
 import { getInfoQuery } from '@/models/profile';
 import { closeUpdateInfoPopup } from '@/models/routing';
-import { BasePopupProps, CommonProps } from '@/types';
-import { MainPopup } from '@/ui';
 
 // import styles from './UpdateInfoPopup.module.css';
 

@@ -3,13 +3,13 @@ import { Link } from 'atomic-router-react';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
 import { routes } from '@/shared/configs';
+import { CommonProps } from '@/shared/types';
 import styles from './Header.module.css';
 import { Logo } from './Logo';
 import { Navigation } from './Navigation';
 import { ProfileMenu } from './ProfileMenu';
 
 import { $isAuth } from '@/models/auth';
-import { CommonProps } from '@/types';
 
 export const Header: React.FC<CommonProps> = React.memo((props) => {
 	const { className, } = props;

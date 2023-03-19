@@ -1,7 +1,7 @@
 // import cn from 'classnames';
 import * as React from 'react';
 
-import { Button } from '../../../ui';
+import { Button } from '../../../shared/ui';
 
 import styles from './MakeMessage.module.css';
 

@@ -2,10 +2,10 @@ import { Stack } from '@mui/material';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
 import { getEmptyArray } from '@/shared/lib';
+import { CommonProps } from '@/shared/types';
 import { DialogCard } from './DialogCard';
 import { SkeletonDialogCard } from './SkeletonDialogCard';
 import { getDialogsQuery } from '@/models/dialogs';
-import { CommonProps } from '@/types';
 
 export const DialogsList: React.FC<CommonProps> = React.memo((props) => {
 	const { className, } = props;

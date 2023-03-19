@@ -1,6 +1,6 @@
 import { Boolean, Number, Record, Static, String } from 'runtypes';
+import { dateType } from '@/shared/types';
 import { Pagination } from '../request';
-import { dateType } from '@/types';
 
 export const message = Record({
 	id: Number,

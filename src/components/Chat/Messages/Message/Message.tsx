@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import * as React from 'react';
 import { Message } from '@/shared/api';
+import { CommonProps } from '@/shared/types';
+import { Date } from '@/shared/ui';
 import styles from './Message.module.css';
-import { CommonProps } from '@/types';
-import { Date } from '@/ui';
 
 interface MessageProps extends CommonProps, Message {}
 

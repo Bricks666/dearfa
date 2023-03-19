@@ -1,9 +1,9 @@
 import { Stack } from '@mui/material';
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
 import styles from './page.module.css';
 import { Posts } from '@/components/Posts';
 import { Profile } from '@/components/Profile';
-import { CommonProps } from '@/types';
 
 const ProfilePage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

@@ -1,11 +1,11 @@
 import { List } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
+import { CommonProps, EmptyObject } from '@/shared/types';
+import { DataListItem } from '@/shared/ui';
 import { renderContact } from './renderContact';
 import styles from './UserDescription.module.css';
 import { Contacts } from '@/models/profile';
-import { CommonProps, EmptyObject } from '@/types';
-import { DataListItem } from '@/ui';
 
 export interface UserDescriptionProps extends CommonProps {
 	readonly contacts: Contacts | EmptyObject;

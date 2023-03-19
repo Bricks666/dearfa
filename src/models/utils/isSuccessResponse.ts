@@ -1,4 +1,4 @@
-import { ResponseWithItems, StandardServerResponse } from '@/types';
+import { ResponseWithItems, StandardServerResponse } from '@/shared/types';
 
 export const isSuccessResponse = <T>(
 	response: StandardServerResponse<T> | ResponseWithItems<T>

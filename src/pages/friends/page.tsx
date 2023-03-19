@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
+import { PagesListWithRouting, SectionHeader } from '@/shared/ui';
 import styles from './page.module.css';
 import { FriendsList } from '@/components/FriendsList';
-import { CommonProps } from '@/types';
-import { PagesListWithRouting, SectionHeader } from '@/ui';
 
 const FriendsPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

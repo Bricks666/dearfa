@@ -4,11 +4,11 @@ import cn from 'classnames';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { LoginRequest } from '@/shared/api/auth';
+import { CommonProps } from '@/shared/types';
+import { Checkbox, Field } from '@/shared/ui';
 import styles from './LoginForm.module.css';
 import { validateScheme } from './validating';
 import { loginMutation } from '@/models/auth';
-import { CommonProps } from '@/types';
-import { Checkbox, Field } from '@/ui';
 
 const initialState: LoginRequest = {
 	email: '',

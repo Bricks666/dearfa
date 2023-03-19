@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { popups } from '@/shared/configs';
+import { CommonProps } from '@/shared/types';
 import { UpdateInfoPopup } from '../UpdateInfoPopup';
 import { UpdatePhotoPopup } from '../UpdatePhotoPopup';
 import { UpdateStatusPopup } from '../UpdateStatusPopup';
 import { usePopups } from './hooks';
-import { CommonProps } from '@/types';
 
 export interface PopupsProps extends CommonProps {}
 

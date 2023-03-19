@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
 import { CreatePost } from './CreatePost/CreatePost';
 
 import styles from './Posts.module.css';
 import { PostsList } from './PostsList';
-import { CommonProps } from '@/types';
 
 export const Posts: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

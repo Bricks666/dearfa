@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
+import { SectionHeader } from '@/shared/ui';
 import styles from './page.module.css';
 import { RegistrationForm } from '@/components/RegistrationForm';
-import { CommonProps } from '@/types';
-import { SectionHeader } from '@/ui';
 
 const RegistrationPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

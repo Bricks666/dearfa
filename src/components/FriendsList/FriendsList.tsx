@@ -1,10 +1,10 @@
 import { useGate, useUnit } from 'effector-react';
 import * as React from 'react';
 import { routes } from '@/shared/configs';
-import { List, UserCard } from '../../ui';
+import { CommonProps } from '@/shared/types';
+import { List, UserCard } from '../../shared/ui';
 import { useParam } from '@/hooks';
 import { FriendsGate, getFriendsQuery } from '@/models/users';
-import { CommonProps } from '@/types';
 
 export const FriendsList: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

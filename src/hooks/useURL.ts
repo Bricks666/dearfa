@@ -1,4 +1,4 @@
-import { URL } from '@/types';
+import { URL } from '@/shared/types';
 
 export const useURL = (fileOrURL: URL | File | FileList | null): URL => {
 	if (fileOrURL === null) {

@@ -1,12 +1,12 @@
 // import cn from 'classnames';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
+import { BasePopupProps, CommonProps } from '@/shared/types';
+import { MainPopup } from '@/shared/ui';
 import { UpdateStatusForm } from './UpdateStatusForm';
 // import styles from './UpdateStatusPopup.module.css';
 import { getStatusQuery } from '@/models/profile';
 import { closeUpdateStatusPopup } from '@/models/routing';
-import { BasePopupProps, CommonProps } from '@/types';
-import { MainPopup } from '@/ui';
 
 export interface UpdateStatusPopupProps extends CommonProps, BasePopupProps {}
 

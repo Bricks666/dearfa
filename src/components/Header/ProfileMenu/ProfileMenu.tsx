@@ -3,9 +3,9 @@ import { IconButton, Menu, MenuItem } from '@mui/material';
 import { Link } from 'atomic-router-react';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
+import { CommonProps, VoidFunction } from '@/shared/types';
 import { useToggle } from '@/hooks';
 import { $authUser, logoutMutation } from '@/models/auth';
-import { CommonProps, VoidFunction } from '@/types';
 
 interface MenuOption {
 	readonly label: string;

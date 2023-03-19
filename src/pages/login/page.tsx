@@ -1,8 +1,8 @@
 import { Stack, Typography } from '@mui/material';
 import * as React from 'react';
+import { CommonProps } from '@/shared/types';
 import styles from './LoginPage.module.css';
 import { LoginForm } from '@/components/LoginForm';
-import { CommonProps } from '@/types';
 
 const LoginPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

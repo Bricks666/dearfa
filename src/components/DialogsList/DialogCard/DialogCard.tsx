@@ -9,8 +9,8 @@ import {
 import { Link } from 'atomic-router-react';
 import * as React from 'react';
 import { routes } from '@/shared/configs';
+import { CommonProps } from '@/shared/types';
 import { Dialog } from '@/models/dialogs';
-import { CommonProps } from '@/types';
 
 export interface DialogCardProps extends CommonProps, Dialog {}
 

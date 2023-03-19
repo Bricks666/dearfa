@@ -10,10 +10,10 @@ import { Link } from 'atomic-router-react';
 import cn from 'classnames';
 import * as React from 'react';
 import { routes } from '@/shared/configs';
+import { CommonProps } from '@/shared/types';
+import { Like } from '@/shared/ui';
 import styles from './PostCard.module.css';
 import { Post } from '@/models/posts';
-import { CommonProps } from '@/types';
-import { Like } from '@/ui';
 
 export interface PostCardProps extends CommonProps, Post {}
 

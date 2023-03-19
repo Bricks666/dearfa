@@ -1,5 +1,5 @@
 import { Number, Record, Static, String } from 'runtypes';
-import { photos, dateType } from '@/types';
+import { photos, dateType } from '@/shared/types';
 
 export const dialog = Record({
 	id: Number,
