@@ -1,7 +1,6 @@
 import { cache, createQuery } from '@farfetched/core';
 import { runtypeContract } from '@farfetched/runtypes';
 import { createDomain } from 'effector';
-import { debug } from 'patronum';
 import { getResponseWithItems, message, messagesApi } from '@/shared/api';
 
 const messages = createDomain();
@@ -19,5 +18,3 @@ export const query = createQuery({
 });
 
 cache(query);
-
-debug(query.$data, query.finished.failure);

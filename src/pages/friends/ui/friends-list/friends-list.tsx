@@ -48,7 +48,7 @@ export const FriendsList: React.FC<FriendsListProps> = (props) => {
 				renderItem={(item) => {
 					return (
 						<PaginationItem
-							to={routes.users}
+							to={routes.friends}
 							params={{ page: item.page, }}
 							component={Link}
 							{...item}

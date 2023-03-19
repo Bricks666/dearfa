@@ -16,8 +16,8 @@ export const DialogsList: React.FC<DialogsListProps> = (props) => {
 	const dialogs = useUnit(dialogsModel.query);
 
 	let items;
-	const { data, pending, } = dialogs;
-	if (pending) {
+	const { data, pending, stale, } = dialogs;
+	if (pending && !stale) {
 		items = getEmptyArray(5).map((_, i) => <SkeletonDialogItem key={i} />);
 	} else {
 		items = data.map((dialog) => <DialogItem {...dialog} key={dialog.id} />);

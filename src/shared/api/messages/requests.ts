@@ -1,5 +1,10 @@
 import { URL } from '@/shared/types';
-import { GetMessageParams, CreateMessageParams, Message } from '../messages';
+import {
+	GetMessageParams,
+	CreateMessageParams,
+	Message,
+	CreateMessageResponse
+} from '../messages';
 import {
 	instance,
 	ResponseWithItems,
@@ -22,5 +27,5 @@ export const create = async (params: CreateMessageParams) => {
 		.post(getBaseURL(dialogId), {
 			json: { body, },
 		})
-		.json<StandardServerResponse<Message>>();
+		.json<StandardServerResponse<CreateMessageResponse>>();
 };

@@ -4,8 +4,8 @@ import { createDomain, sample } from 'effector';
 import { createForm } from 'effector-forms';
 import {
 	CreateMessageParams,
+	createMessageResponse,
 	getStandardServerResponse,
-	message,
 	messagesApi
 } from '@/shared/api';
 
@@ -15,7 +15,7 @@ const handlerFx = createMessage.effect(messagesApi.create);
 
 export const mutation = createMutation({
 	effect: handlerFx,
-	contract: runtypeContract(getStandardServerResponse(message)),
+	contract: runtypeContract(getStandardServerResponse(createMessageResponse)),
 });
 
 export interface CreateMessageForm extends Pick<CreateMessageParams, 'body'> {}
@@ -31,5 +31,5 @@ export const form = createForm<CreateMessageForm>({
 
 sample({
 	clock: mutation.start,
-	target: form.formValidated,
+	target: form.reset,
 });

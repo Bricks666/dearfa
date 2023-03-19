@@ -1,13 +1,11 @@
-export { Button } from './Button/Button';
-export { SectionHeader } from './SectionHeader/SectionHeader';
-export { List } from './List/List';
 export { DataListItem } from './DataListItem/DataListItem';
 export { DataList } from './DataList/DataList';
 export { PostCard } from '../../components/Posts/PostsList/PostCard';
 export { Like } from './Like/Like';
-export { MainPopup, type MainPopupProps } from './MainPopup';
-export { Checkbox, type CheckboxProps } from './Checkbox';
+export * from './MainPopup';
+export * from './checkbox';
 export * from './_Field';
 export * from './field';
-export { FileField, type FileFieldProps } from './FileField';
+export * from './FileField';
 export * from './date';
+export * from './main-layout';

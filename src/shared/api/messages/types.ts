@@ -11,7 +11,28 @@ export const message = Record({
 	viewed: Boolean,
 }).asReadonly();
 
+export const createMessageResponse = Record({
+	message: Record({
+		id: String,
+		body: String,
+		senderName: String,
+		senderId: Number,
+		recipientId: Number,
+		recipientName: String,
+		deletedBySender: Boolean,
+		deletedByRecipient: Boolean,
+		isSpam: Boolean,
+		distributionId: Number.nullable(),
+		addedAt: dateType,
+		viewed: Boolean,
+		translatedBody: String.nullable(),
+	}).asReadonly(),
+});
+
 export interface Message extends Static<typeof message> {}
+
+export interface CreateMessageResponse
+	extends Static<typeof createMessageResponse> {}
 
 export interface GetMessageParams extends Pagination {
 	readonly dialogId: number;

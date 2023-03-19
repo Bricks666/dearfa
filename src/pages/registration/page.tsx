@@ -1,18 +1,20 @@
-import cn from 'classnames';
+import { Typography } from '@mui/material';
 import * as React from 'react';
 import { CommonProps } from '@/shared/types';
-import { SectionHeader } from '@/shared/ui';
-import styles from './page.module.css';
+import { MainLayout } from '@/shared/ui';
+import { Header } from '@/components/Header';
 import { RegistrationForm } from '@/components/RegistrationForm';
 
 const RegistrationPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 
 	return (
-		<main className={cn(styles.main, className)}>
-			<SectionHeader className={styles.header}>Регистрация</SectionHeader>
+		<MainLayout className={className} header={<Header />}>
+			<Typography variant='h4' align='center' component='h2'>
+				Регистрация
+			</Typography>
 			<RegistrationForm /* onSubmit={onSubmit} */ />
-		</main>
+		</MainLayout>
 	);
 };
 

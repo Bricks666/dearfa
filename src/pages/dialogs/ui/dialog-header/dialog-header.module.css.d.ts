@@ -1,7 +1,7 @@
 declare const styles: {
+	readonly bar: string;
 	readonly header: string;
-	readonly photo: string;
-	readonly name: string;
+	readonly info: string;
 	readonly date: string;
 };
 export = styles;

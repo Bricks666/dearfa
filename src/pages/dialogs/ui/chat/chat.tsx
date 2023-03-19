@@ -14,8 +14,8 @@ export const Chat: React.FC<ChatProps> = (props) => {
 
 	return (
 		<section className={cn(styles.chat, className)}>
-			<DialogHeader dialogId={0} />
-			<MessagesList className={styles.messages} dialogId={0} />
+			<DialogHeader />
+			<MessagesList className={styles.messages} />
 			<CreateMessage className={styles.create} />
 		</section>
 	);

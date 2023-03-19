@@ -1,13 +1,17 @@
+import { Typography } from '@mui/material';
 import * as React from 'react';
 import { CommonProps } from '@/shared/types';
-import { SectionHeader } from '@/shared/ui';
+import { MainLayout } from '@/shared/ui';
+import { Header } from '@/components/Header';
 
 const NewsPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 	return (
-		<main className={className}>
-			<SectionHeader>Новости</SectionHeader>
-		</main>
+		<MainLayout className={className} header={<Header />}>
+			<Typography variant='h4' align='center' component='h2'>
+				Новости
+			</Typography>
+		</MainLayout>
 	);
 };
 

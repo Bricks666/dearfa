@@ -8,9 +8,7 @@ import { CommonProps } from '@/shared/types';
 import styles from './messages-list.module.css';
 import { $authUser } from '@/models/auth';
 
-export interface MessagesListProps extends CommonProps {
-	readonly dialogId: number;
-}
+export interface MessagesListProps extends CommonProps {}
 
 export const MessagesList: React.FC<MessagesListProps> = (props) => {
 	const { className, } = props;
@@ -28,6 +26,7 @@ export const MessagesList: React.FC<MessagesListProps> = (props) => {
 								[styles.myMessage]: authId === message.senderId,
 							})}
 							{...message}
+							key={message.id}
 						/>
 					);
 				})}

@@ -1,4 +1,8 @@
 import { routes } from '@/shared/configs';
 import { createPageLoadModel } from '@/shared/lib';
 
-export const pageLoadModel = createPageLoadModel(routes.dialogs);
+export const { $isLoaded, currentRoute, loaded, paramsAndQueryLoaded, } =
+	createPageLoadModel(routes.dialogs);
+
+export const $id = currentRoute.$params.map((params) => params.id);
+export const $hasId = $id.map((id) => Boolean(id));

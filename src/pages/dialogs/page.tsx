@@ -3,10 +3,12 @@ import cn from 'classnames';
 import * as React from 'react';
 import { routes } from '@/shared/configs';
 import { CommonProps } from '@/shared/types';
-import { pageLoadModel } from './models';
+import { MainLayout } from '@/shared/ui';
+import { pageModel } from './models';
 import styles from './page.module.css';
 import { Chat, DialogsList } from './ui';
 import { EmptyChat } from '@/components/EmptyChat';
+import { Header } from '@/components/Header';
 
 import { useParam } from '@/hooks';
 
@@ -15,7 +17,7 @@ const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
 	const id = useParam(routes.dialogs, 'id');
 
 	return (
-		<main className={cn(styles.dialogs, className)}>
+		<MainLayout className={cn(styles.dialogs, className)} header={<Header />}>
 			<Typography className={styles.heading} variant='h4' component='h2'>
 				Диалоги
 			</Typography>
@@ -25,10 +27,10 @@ const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
 			) : (
 				<EmptyChat className={styles.chat} />
 			)}
-		</main>
+		</MainLayout>
 	);
 });
 
-pageLoadModel.loaded();
+pageModel.loaded();
 
 export default DialogsPage;

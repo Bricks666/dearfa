@@ -13,6 +13,6 @@ export const dialog = Record({
 
 export interface Dialog extends Static<typeof dialog> {}
 
-export interface UpdateDialogParams {
+export interface UpDialogParams {
 	readonly userId: number;
 }

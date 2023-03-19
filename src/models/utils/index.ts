@@ -1,1 +1,0 @@
-export { isSuccessResponse } from './isSuccessResponse';
