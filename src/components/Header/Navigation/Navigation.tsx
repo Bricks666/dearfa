@@ -27,7 +27,6 @@ import styles from './Navigation.module.css';
 import { useToggle } from '@/hooks';
 import { $authUser } from '@/models/auth';
 
-
 interface NavigationItem {
 	readonly to: RouteInstance<any>;
 	readonly params?: object;
@@ -87,7 +86,7 @@ export const Navigation: React.FC<CommonProps> = (props) => {
 				onClose={onToggle}
 				anchor='left'>
 				<Stack onClick={onToggle}>
-					<Logo src='/Images/logo.svg' alt='Logo' />
+					<Logo src='/images/logo.svg' alt='Logo' />
 					<List className={styles.list}>
 						{navigationItems.map(({ to, label, icon, params, }) => (
 							<ListItem key={label} disablePadding>

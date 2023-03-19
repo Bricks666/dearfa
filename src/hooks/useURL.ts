@@ -8,7 +8,7 @@ export const useURL = (fileOrURL: URL | File | FileList | null): URL => {
 	if (typeof fileOrURL === 'string') {
 		return fileOrURL;
 	}
-	if ('length' in fileOrURL) {
+	if (Symbol.iterator in fileOrURL) {
 		return useURL(fileOrURL[0] ?? null);
 	}
 
