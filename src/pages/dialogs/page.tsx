@@ -5,8 +5,7 @@ import { routes } from '@/shared/configs';
 import { CommonProps } from '@/shared/types';
 import { pageLoadModel } from './models';
 import styles from './page.module.css';
-import { DialogsList } from './ui';
-import { Chat } from '@/components/Chat';
+import { Chat, DialogsList } from './ui';
 import { EmptyChat } from '@/components/EmptyChat';
 
 import { useParam } from '@/hooks';
@@ -21,7 +20,7 @@ const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
 				Диалоги
 			</Typography>
 			<DialogsList className={styles.list} />
-			{id !== null ? (
+			{id !== undefined ? (
 				<Chat className={styles.chat} />
 			) : (
 				<EmptyChat className={styles.chat} />

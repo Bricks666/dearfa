@@ -1,0 +1,33 @@
+.chat {
+	display: grid;
+	grid-template-rows: min-content 1fr min-content;
+
+	height: 100%;
+}
+
+.messages {
+	border-radius: 0;
+
+	overflow-y: scroll;
+
+	scrollbar-color: var(--blue-light) var(--blue-lightest);
+}
+
+.messages::-webkit-scrollbar {
+	display: block;
+	padding: 4px 0;
+
+	background-color: var(--blue-lightest);
+}
+.messages::-webkit-scrollbar-thumb {
+	width: calc(100% - 2px);
+
+	background-color: var(--blue-light);
+}
+
+.create {
+	width: 100%;
+
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+}

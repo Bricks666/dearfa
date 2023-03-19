@@ -21,6 +21,7 @@ export const UnfollowButton: React.FC<UnfollowButtonProps> = (props) => {
 		<IconButton
 			className={className}
 			onClick={onClick}
+			color='error'
 			disabled={unfollow.pending}>
 			<PersonRemoveIcon />{' '}
 		</IconButton>

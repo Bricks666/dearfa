@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import { joiResolver } from '@hookform/resolvers/joi';
 import { Button, Stack } from '@mui/material';
 import cn from 'classnames';
@@ -5,7 +6,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { LoginRequest } from '@/shared/api/auth';
 import { CommonProps } from '@/shared/types';
-import { Checkbox, Field } from '@/shared/ui';
+import { Checkbox, _Field } from '@/shared/ui';
 import styles from './LoginForm.module.css';
 import { validateScheme } from './validating';
 import { loginMutation } from '@/models/auth';
@@ -31,7 +32,7 @@ export const LoginForm: React.FC<CommonProps> = React.memo((props) => {
 			spacing={1}
 			component='form'
 			onSubmit={handleSubmit(loginMutation.start)}>
-			<Field
+			<_Field
 				className={styles.field}
 				name='email'
 				control={control}
@@ -40,7 +41,7 @@ export const LoginForm: React.FC<CommonProps> = React.memo((props) => {
 				error={!!email}
 				helperText={email?.message}
 			/>
-			<Field
+			<_Field
 				className={styles.field}
 				name='password'
 				control={control}

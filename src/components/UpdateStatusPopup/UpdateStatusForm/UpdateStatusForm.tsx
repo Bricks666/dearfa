@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import { joiResolver } from '@hookform/resolvers/joi';
 import { Button, Stack } from '@mui/material';
 import cn from 'classnames';
@@ -6,7 +7,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { UpdateStatusParams } from '@/shared/api/profile';
 import { CommonProps } from '@/shared/types';
-import { Field } from '@/shared/ui';
+import { _Field } from '@/shared/ui';
 import styles from './UpdateStatusForm.module.css';
 import { validateScheme } from './validate';
 import { updateStatusMutation } from '@/models/profile';
@@ -33,7 +34,7 @@ export const UpdateStatusForm: React.FC<UpdateStatusFormProps> = React.memo(
 				onSubmit={handleSubmit(updateStatus)}
 				spacing={1}
 				component='form'>
-				<Field name='status' control={control} label='Статус' />
+				<_Field name='status' control={control} label='Статус' />
 				<Button type='submit' disabled={disabled}>
 					Сохранить
 				</Button>

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import { joiResolver } from '@hookform/resolvers/joi';
 import { Button, Typography } from '@mui/material';
 import cn from 'classnames';
@@ -6,7 +7,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { UpdateInfoParams } from '@/shared/api/profile';
 import { CommonProps } from '@/shared/types';
-import { Checkbox, Field } from '@/shared/ui';
+import { Checkbox, _Field } from '@/shared/ui';
 import styles from './UpdateInfoForm.module.css';
 import { validateScheme } from './validate';
 import { updateInfoMutation } from '@/models/profile';
@@ -33,10 +34,10 @@ export const UpdateInfoForm: React.FC<UpdateInfoFormProps> = React.memo(
 			<form
 				className={cn(styles.form, className)}
 				onSubmit={handleSubmit(updateInfo)}>
-				<Field name='fullName' control={control} label='Полное имя' />
-				<Field name='aboutMe' control={control} label='Обо мне' />
+				<_Field name='fullName' control={control} label='Полное имя' />
+				<_Field name='aboutMe' control={control} label='Обо мне' />
 				<Checkbox name='lookingForAJob' control={control} label='Ищу работу' />
-				<Field
+				<_Field
 					name='lookingForAJobDescription'
 					control={control}
 					label='Описание поиска'
@@ -46,14 +47,14 @@ export const UpdateInfoForm: React.FC<UpdateInfoFormProps> = React.memo(
 					<Typography className={styles.legend} component='legend'>
 						Контакты
 					</Typography>
-					<Field name='contacts.github' control={control} label='GitHub' />
-					<Field name='contacts.facebook' control={control} label='Facebook' />
-					<Field name='contacts.twitter' control={control} label='Twitter' />
-					<Field name='contacts.youtube' control={control} label='YouTube' />
-					<Field name='contacts.vk' control={control} label='VK' />
-					<Field name='contacts.mainLink' control={control} label='Main' />
-					<Field name='contacts.website' control={control} label='WebSite' />
-					<Field
+					<_Field name='contacts.github' control={control} label='GitHub' />
+					<_Field name='contacts.facebook' control={control} label='Facebook' />
+					<_Field name='contacts.twitter' control={control} label='Twitter' />
+					<_Field name='contacts.youtube' control={control} label='YouTube' />
+					<_Field name='contacts.vk' control={control} label='VK' />
+					<_Field name='contacts.mainLink' control={control} label='Main' />
+					<_Field name='contacts.website' control={control} label='WebSite' />
+					<_Field
 						name='contacts.instagram'
 						control={control}
 						label='Instagram'

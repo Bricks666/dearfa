@@ -3,7 +3,7 @@ import { dateType } from '@/shared/types';
 import { Pagination } from '../request';
 
 export const message = Record({
-	id: Number,
+	id: String,
 	body: String,
 	senderName: String,
 	senderId: Number,

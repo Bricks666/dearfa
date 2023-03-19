@@ -21,6 +21,7 @@ export const FollowButton: React.FC<FollowButtonProps> = (props) => {
 		<IconButton
 			className={className}
 			onClick={onClick}
+			color='primary'
 			disabled={follow.pending}>
 			<PersonAddIcon />{' '}
 		</IconButton>
