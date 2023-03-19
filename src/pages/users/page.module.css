@@ -1,5 +1,6 @@
 .users {
 	display: grid;
+  gap: 16px;
 }
 
 .button {

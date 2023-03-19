@@ -1,4 +1,4 @@
-.list {
-	margin: 0;
-	margin-left: 20px;
+.friends {
+	display: grid;
+  gap: 16px;
 }

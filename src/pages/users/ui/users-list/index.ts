@@ -1,1 +1,1 @@
-export * from './users-list';
+export { UsersList, type UsersListProps } from './users-list';

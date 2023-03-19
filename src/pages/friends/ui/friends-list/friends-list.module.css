@@ -1,0 +1,10 @@
+.section {
+	display: grid;
+	gap: 16px;
+}
+
+.pagination {
+	justify-self: center;
+
+	/* width: max-content; */
+}

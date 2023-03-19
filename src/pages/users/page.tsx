@@ -11,7 +11,7 @@ const UsersPage: React.FC<CommonProps> = (props) => {
 
 	return (
 		<main className={cn(styles.users, className)}>
-			<Typography variant='h4' component='h2'>
+			<Typography variant='h4' textAlign='center' component='h2'>
 				Все пользователи
 			</Typography>
 			<UsersList />

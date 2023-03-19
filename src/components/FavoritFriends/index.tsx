@@ -1,1 +1,0 @@
-export { FavoritFriends } from './FavoritFriends';
