@@ -10,10 +10,10 @@ import * as React from 'react';
 import { UserItem } from '@/widgets/users';
 import { useUsers } from '@/entities/users';
 import { FETCH_COUNT, routes } from '@/shared/configs';
+import { useParam } from '@/shared/lib';
 import { CommonProps } from '@/shared/types';
 
 import styles from './users-list.module.css';
-import { useParam } from '@/hooks';
 
 export interface UsersListProps extends CommonProps {}
 

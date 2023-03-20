@@ -1,7 +1,7 @@
 import { Boolean, Number, Record, Static, String, Union } from 'runtypes';
 import { emptyObject, photos, url } from '@/shared/types';
 
-export const contacts = Record({
+export const TContacts = Record({
 	github: url,
 	facebook: url,
 	twitter: url,
@@ -12,20 +12,27 @@ export const contacts = Record({
 	instagram: url,
 }).asReadonly();
 
-export interface Contacts extends Static<typeof contacts> {}
+export interface Contacts extends Static<typeof TContacts> {}
 
-export const info = Record({
+export const TInfo = Record({
 	userId: Number,
 	fullName: String,
 	photos,
-	contacts: Union(contacts, emptyObject),
-	followed: Boolean,
-	aboutMe: String,
+	contacts: Union(TContacts, emptyObject),
+	aboutMe: String.nullable(),
 	lookingForAJob: Boolean,
-	lookingForAJobDescription: String,
+	lookingForAJobDescription: String.nullable(),
 });
 
-export interface Info extends Static<typeof info> {}
+export const TStatus = String.nullable();
+
+export interface GetProfileParams {
+	readonly id: number;
+}
+
+export interface Info extends Static<typeof TInfo> {}
+
+export type Status = Static<typeof TStatus>;
 
 export interface ProfileInfo extends Info {
 	readonly status: string;

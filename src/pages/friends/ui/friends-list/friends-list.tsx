@@ -10,10 +10,10 @@ import * as React from 'react';
 import { UserItem } from '@/widgets/users';
 import { useFriends } from '@/entities/users';
 import { FETCH_COUNT, routes } from '@/shared/configs';
+import { useParam } from '@/shared/lib';
 import { CommonProps } from '@/shared/types';
 
 import styles from './friends-list.module.css';
-import { useParam } from '@/hooks';
 
 export interface FriendsListProps extends CommonProps {}
 

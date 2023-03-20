@@ -22,10 +22,10 @@ import { useUnit } from 'effector-react';
 import * as React from 'react';
 import { authUserModel } from '@/entities/auth-user';
 import { routes } from '@/shared/configs';
+import { useToggle } from '@/shared/lib';
 import { CommonProps } from '@/shared/types';
 import { Logo } from '../Logo';
 import styles from './Navigation.module.css';
-import { useToggle } from '@/hooks';
 
 interface NavigationItem {
 	readonly to: RouteInstance<any>;

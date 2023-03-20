@@ -2,7 +2,7 @@ export { DataListItem } from './DataListItem/DataListItem';
 export { DataList } from './DataList/DataList';
 export { PostCard } from '../../components/Posts/PostsList/PostCard';
 export { Like } from './Like/Like';
-export * from './MainPopup';
+export * from './main-popup';
 export * from './checkbox';
 export * from './_Field';
 export * from './field';

@@ -1,20 +1,23 @@
 import { instance, StandardServerResponse } from '../request';
 import {
+	GetProfileParams,
 	Info,
 	UpdateInfoParams,
 	UpdatePhotoParams,
 	UpdateStatusParams
 } from './types';
 
-export const getBaseURL = () => {
+const getBaseURL = () => {
 	return 'profile';
 };
 
-export const getInfo = async (id: number) => {
+export const getInfo = async (params: GetProfileParams) => {
+	const { id, } = params;
 	return instance.get(`${getBaseURL()}/${id}`).json<Info>();
 };
 
-export const getStatus = async (id: number) => {
+export const getStatus = async (params: GetProfileParams) => {
+	const { id, } = params;
 	return instance.get(`${getBaseURL()}/status/${id}`).json<string>();
 };
 

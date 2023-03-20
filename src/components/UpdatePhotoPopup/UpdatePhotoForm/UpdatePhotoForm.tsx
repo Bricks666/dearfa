@@ -4,10 +4,10 @@ import { useUnit } from 'effector-react';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { UpdatePhotoParams } from '@/shared/api/profile';
+import { useURL } from '@/shared/lib';
 import { CommonProps } from '@/shared/types';
 import { FileField } from '@/shared/ui';
 import styles from './UpdatePhotoForm.module.css';
-import { useURL } from '@/hooks';
 import { updatePhotoMutation } from '@/models/profile';
 
 export interface UpdatePhotoFormProps extends CommonProps {

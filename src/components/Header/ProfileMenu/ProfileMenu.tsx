@@ -5,8 +5,8 @@ import { useUnit } from 'effector-react';
 import * as React from 'react';
 import { logoutModel } from '@/features/auth';
 import { authUserModel } from '@/entities/auth-user';
+import { useToggle } from '@/shared/lib';
 import { CommonProps, VoidFunction } from '@/shared/types';
-import { useToggle } from '@/hooks';
 
 interface MenuOption {
 	readonly label: string;
