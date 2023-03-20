@@ -1,4 +1,5 @@
 import { StyledEngineProvider } from '@mui/material';
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import * as React from 'react';
 
 export const WithStyles = (
@@ -6,9 +7,11 @@ export const WithStyles = (
 ): React.ComponentType => {
 	return () => {
 		return (
-			<StyledEngineProvider injectFirst>
-				<Component />
-			</StyledEngineProvider>
+			<CssVarsProvider>
+				<StyledEngineProvider injectFirst>
+					<Component />
+				</StyledEngineProvider>
+			</CssVarsProvider>
 		);
 	};
 };

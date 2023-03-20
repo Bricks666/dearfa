@@ -12,14 +12,21 @@ import { routes } from '@/shared/configs';
 import { CommonProps } from '@/shared/types';
 import { Date } from '@/shared/ui';
 
-export interface DialogItemProps extends CommonProps, Dialog {}
+export interface DialogItemProps extends CommonProps, Dialog {
+	readonly selected: boolean;
+}
 
 export const DialogItem: React.FC<DialogItemProps> = (props) => {
-	const { className, id, lastUserActivityDate, photos, userName, } = props;
+	const { className, id, lastUserActivityDate, photos, userName, selected, } =
+		props;
 
 	return (
-		<ListItem className={className}>
-			<ListItemButton to={routes.dialogs} params={{ id, }} component={Link}>
+		<ListItem className={className} disablePadding>
+			<ListItemButton
+				to={routes.dialogs}
+				params={{ id, }}
+				selected={selected}
+				component={Link}>
 				<ListItemAvatar>
 					<Avatar src={photos.small!} alt={userName} />
 				</ListItemAvatar>

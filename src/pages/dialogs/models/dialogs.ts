@@ -1,11 +1,10 @@
 import { update } from '@farfetched/core';
 import { createEvent, createStore, sample } from 'effector';
-import { debug } from 'patronum';
 import { upDialogModel } from '@/features/dialgos';
 import { createMessageModel } from '@/features/messages';
 import { dialogsModel } from '@/entities/dialogs';
 import { Dialog } from '@/shared/api';
-import { $id, currentRoute, paramsAndQueryLoaded } from './page';
+import { $hasId, $id, currentRoute, paramsAndQueryLoaded } from './page';
 
 sample({
 	clock: [currentRoute.opened, paramsAndQueryLoaded],
@@ -63,6 +62,7 @@ sample({
 		dialogs: dialogsModel.query.$data,
 		id: $id,
 	},
+	filter: $hasId,
 	fn: ({ dialogs, id, }) => {
 		return dialogs.find((dialog) => dialog.id === Number(id)) ?? null;
 	},
@@ -112,5 +112,3 @@ update(dialogsModel.query, {
 		},
 	},
 });
-
-debug(dialogsModel.query.$data);

@@ -9,6 +9,10 @@
 	gap: 20px;
 }
 
+.link {
+	color: inherit;
+}
+
 .info {
 	display: grid;
 	gap: 4px;
@@ -16,4 +20,10 @@
 
 .date {
 	font-size: 12px;
+}
+
+.close {
+	margin-left: auto;
+
+	color: inherit;
 }
