@@ -1,4 +1,4 @@
-import { Container, Stack } from '@mui/material';
+import { Container } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
 import { CommonProps } from '@/shared/types';
@@ -13,7 +13,7 @@ export const MainLayout: React.FC<MainLayoutProps> = (props) => {
 	const { header, className, children, } = props;
 
 	return (
-		<Stack className={styles.wrapper} spacing={2}>
+		<div className={styles.wrapper}>
 			{header}
 			<Container
 				className={cn(styles.container, className)}
@@ -21,6 +21,6 @@ export const MainLayout: React.FC<MainLayoutProps> = (props) => {
 				component='main'>
 				{children}
 			</Container>
-		</Stack>
+		</div>
 	);
 };

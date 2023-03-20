@@ -1,15 +1,11 @@
-.main {
-	display: grid;
-
-	grid-template-rows: repeat(2, min-content);
-
+.layout {
+	display: flex;
+	align-items: center;
 	justify-content: center;
-}
 
-.header {
-	transform: translateX(50%);
+	margin: 0 auto;
 }
 
 .form {
-	margin: 0 auto;
+	width: 460px;
 }

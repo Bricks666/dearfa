@@ -1,15 +1,17 @@
 import { CircularProgress } from '@mui/material';
 import { useGate, useUnit } from 'effector-react';
 import * as React from 'react';
+import { pageModel } from '@/entities/app';
 import { Pages } from '@/pages';
+import { authUserModel } from '@/entities/auth-user';
 import { WithProviders } from './providers';
 import { Popups } from '@/components/Popups';
-import { AuthGate, authQuery } from '@/models/auth';
+import '@/processes/auth';
 
 export const App = WithProviders(() => {
-	const status = useUnit(authQuery.$status);
+	const status = useUnit(authUserModel.query.$status);
 	const isAuthorizing = status === 'initial' || status === 'pending';
-	useGate(AuthGate);
+	useGate(pageModel.Gate);
 
 	return isAuthorizing ? (
 		<CircularProgress color='secondary' />

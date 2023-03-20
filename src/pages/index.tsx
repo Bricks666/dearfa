@@ -3,7 +3,6 @@ import * as React from 'react';
 import { routes } from '@/shared/configs';
 
 const LoginPage = React.lazy(() => import('./login'));
-const RegistrationPage = React.lazy(() => import('./registration'));
 const ProfilePage = React.lazy(() => import('./profile'));
 const DialogsPage = React.lazy(() => import('./dialogs'));
 const UsersPage = React.lazy(() => import('./users'));
@@ -15,10 +14,6 @@ const View = createRoutesView({
 		{
 			route: routes.login,
 			view: LoginPage,
-		},
-		{
-			route: routes.registration,
-			view: RegistrationPage,
 		},
 		{
 			route: routes.profile,

@@ -11,10 +11,6 @@ const router = createHistoryRouter({
 			route: routes.login,
 		},
 		{
-			path: '/registration',
-			route: routes.registration,
-		},
-		{
 			path: '/profile/:id',
 			route: routes.profile,
 		},

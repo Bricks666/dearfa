@@ -1,1 +1,1 @@
-export { CreateMessage, type CreateMessageProps } from './ui';
+export { CreateMessage, type CreateMessageProps } from './create-message';

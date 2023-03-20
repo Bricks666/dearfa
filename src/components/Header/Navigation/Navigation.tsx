@@ -20,12 +20,12 @@ import { RouteInstance } from 'atomic-router';
 import { Link } from 'atomic-router-react';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
+import { authUserModel } from '@/entities/auth-user';
 import { routes } from '@/shared/configs';
 import { CommonProps } from '@/shared/types';
 import { Logo } from '../Logo';
 import styles from './Navigation.module.css';
 import { useToggle } from '@/hooks';
-import { $authUser } from '@/models/auth';
 
 interface NavigationItem {
 	readonly to: RouteInstance<any>;
@@ -36,7 +36,7 @@ interface NavigationItem {
 
 export const Navigation: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
-	const { id: authId, } = useUnit($authUser)!;
+	const { id: authId, } = useUnit(authUserModel.$user)!;
 	const { toggled, onToggle, } = useToggle();
 	const navigationItems: NavigationItem[] = React.useMemo(
 		() => [

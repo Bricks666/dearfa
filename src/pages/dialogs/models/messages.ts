@@ -10,7 +10,6 @@ sample({
 	clock: [currentRoute.opened, currentRoute.updated, paramsAndQueryLoaded],
 	filter: $hasId,
 	fn: ({ params, }) => {
-		console.log('filter pass');
 		return {
 			dialogId: params.id!,
 			page: 1,

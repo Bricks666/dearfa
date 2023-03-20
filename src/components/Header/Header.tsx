@@ -2,6 +2,7 @@ import { AppBar, Button, Toolbar, Typography } from '@mui/material';
 import { Link } from 'atomic-router-react';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
+import { authUserModel } from '@/entities/auth-user';
 import { routes } from '@/shared/configs';
 import { CommonProps } from '@/shared/types';
 import styles from './Header.module.css';
@@ -9,11 +10,9 @@ import { Logo } from './Logo';
 import { Navigation } from './Navigation';
 import { ProfileMenu } from './ProfileMenu';
 
-import { $isAuth } from '@/models/auth';
-
 export const Header: React.FC<CommonProps> = React.memo((props) => {
 	const { className, } = props;
-	const isAuth = useUnit($isAuth);
+	const isAuth = useUnit(authUserModel.$isAuth);
 
 	return (
 		<AppBar className={className} position='static' variant='outlined'>
@@ -37,10 +36,8 @@ export const Header: React.FC<CommonProps> = React.memo((props) => {
 							</Button>
 							/
 							<Button
-								variant='text'
-								color='inherit'
-								to={routes.registration}
-								component={Link}>
+								href='https://social-network.samuraijs.com/signUp'
+								target='_blank'>
 								Зарегистрироваться
 							</Button>
 						</>

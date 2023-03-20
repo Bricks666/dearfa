@@ -3,9 +3,10 @@ import { IconButton, Menu, MenuItem } from '@mui/material';
 import { Link } from 'atomic-router-react';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
+import { logoutModel } from '@/features/auth';
+import { authUserModel } from '@/entities/auth-user';
 import { CommonProps, VoidFunction } from '@/shared/types';
 import { useToggle } from '@/hooks';
-import { $authUser, logoutMutation } from '@/models/auth';
 
 interface MenuOption {
 	readonly label: string;
@@ -17,8 +18,8 @@ export const ProfileMenu: React.FC<CommonProps> = React.memo((props) => {
 	const { className, } = props;
 	const { onToggle, toggled, } = useToggle();
 	const anchor = React.useRef(null);
-	const { id: authId, } = useUnit($authUser)!;
-	const logout = useUnit(logoutMutation.start);
+	const { id: authId, } = useUnit(authUserModel.$user)!;
+	const logout = useUnit(logoutModel.mutation.start);
 	const menuOptions: MenuOption[] = React.useMemo(
 		() => [
 			{
@@ -31,7 +32,7 @@ export const ProfileMenu: React.FC<CommonProps> = React.memo((props) => {
 			},
 			{
 				label: 'Выйти',
-				onClick: () => logout(),
+				onClick: logout,
 			}
 		],
 		[authId]

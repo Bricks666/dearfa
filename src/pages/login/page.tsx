@@ -1,19 +1,17 @@
-import { Typography } from '@mui/material';
+import cn from 'classnames';
 import * as React from 'react';
+import { LoginForm } from '@/features/auth';
 import { CommonProps } from '@/shared/types';
 import { MainLayout } from '@/shared/ui';
-import styles from './LoginPage.module.css';
+import styles from './page.module.css';
 import { Header } from '@/components/Header';
-import { LoginForm } from '@/components/LoginForm';
+import './model';
 
 const LoginPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 
 	return (
-		<MainLayout className={className} header={<Header />}>
-			<Typography variant='h4' align='center' component='h4'>
-				Вход
-			</Typography>
+		<MainLayout className={cn(styles.layout, className)} header={<Header />}>
 			<LoginForm className={styles.form} />
 		</MainLayout>
 	);

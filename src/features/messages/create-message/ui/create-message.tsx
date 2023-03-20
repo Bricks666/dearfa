@@ -7,7 +7,7 @@ import { CommonProps } from '@/shared/types';
 import { Field } from '@/shared/ui';
 import { form } from '../model';
 
-import styles from './styles.module.css';
+import styles from './create-message.module.css';
 
 export interface CreateMessageProps extends CommonProps {}
 

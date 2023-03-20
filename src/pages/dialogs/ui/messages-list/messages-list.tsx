@@ -2,17 +2,17 @@ import { Paper, Stack } from '@mui/material';
 import cn from 'classnames';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
+import { authUserModel } from '@/entities/auth-user';
 import { messagesModel, TemplateMessageItem } from '@/entities/messages';
 import { CommonProps } from '@/shared/types';
 
 import styles from './messages-list.module.css';
-import { $authUser } from '@/models/auth';
 
 export interface MessagesListProps extends CommonProps {}
 
 export const MessagesList: React.FC<MessagesListProps> = (props) => {
 	const { className, } = props;
-	const { id: authId, } = useUnit($authUser)!;
+	const { id: authId, } = useUnit(authUserModel.$user)!;
 	const messages = useUnit(messagesModel.query);
 
 	/** TODO: Добавить загрузку */

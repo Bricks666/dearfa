@@ -3,12 +3,12 @@ import { Link } from 'atomic-router-react';
 import cn from 'classnames';
 import { useGate, useUnit } from 'effector-react';
 import * as React from 'react';
+import { authUserModel } from '@/entities/auth-user';
 import { routes, getParams, popups } from '@/shared/configs';
 import { CommonProps } from '@/shared/types';
 import styles from './Profile.module.css';
 import { UserDescription } from './UserDescription';
 import { useParam } from '@/hooks';
-import { $authUser } from '@/models/auth';
 import {
 	$profileInfo,
 	$profileInfoLoading,
@@ -22,7 +22,7 @@ export const Profile: React.FC<ProfileProps> = (props) => {
 	const userId = useParam(routes.profile, 'id');
 	const user = useUnit($profileInfo);
 	const isLoading = useUnit($profileInfoLoading);
-	const { id: authId, } = useUnit($authUser)!;
+	const { id: authId, } = useUnit(authUserModel.$user)!;
 	const isAuth = authId === Number(userId);
 	useGate(ProfileGate, Number(userId));
 
