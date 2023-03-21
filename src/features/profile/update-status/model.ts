@@ -10,7 +10,7 @@ import {
 	UpdateStatusParams
 } from '@/shared/api';
 import { POPUP_NAMES } from '@/shared/configs';
-import { emptyObject } from '@/shared/types';
+import { RTEmptyObject } from '@/shared/types';
 
 const updateStatus = createDomain();
 
@@ -20,7 +20,7 @@ export const popup = createPopupControlModel(POPUP_NAMES.updateStatus);
 
 export const mutation = createMutation({
 	effect: handlerFx,
-	contract: runtypeContract(getStandardServerResponse(emptyObject)),
+	contract: runtypeContract(getStandardServerResponse(RTEmptyObject)),
 });
 
 export const form = createForm<UpdateStatusParams>({

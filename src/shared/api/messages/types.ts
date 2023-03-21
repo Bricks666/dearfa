@@ -1,5 +1,5 @@
 import { Boolean, Number, Record, Static, String } from 'runtypes';
-import { dateType } from '@/shared/types';
+import { RTDateType } from '@/shared/types';
 import { Pagination } from '../request';
 
 export const message = Record({
@@ -7,7 +7,7 @@ export const message = Record({
 	body: String,
 	senderName: String,
 	senderId: Number,
-	addedAt: dateType,
+	addedAt: RTDateType,
 	viewed: Boolean,
 }).asReadonly();
 
@@ -23,7 +23,7 @@ export const createMessageResponse = Record({
 		deletedByRecipient: Boolean,
 		isSpam: Boolean,
 		distributionId: Number.nullable(),
-		addedAt: dateType,
+		addedAt: RTDateType,
 		viewed: Boolean,
 		translatedBody: String.nullable(),
 	}).asReadonly(),

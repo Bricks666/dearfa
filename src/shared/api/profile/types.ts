@@ -1,15 +1,15 @@
 import { Boolean, Number, Record, Static, String } from 'runtypes';
-import { photos, url } from '@/shared/types';
+import { RTPhotos, RTUrl } from '@/shared/types';
 
 export const TContacts = Record({
-	github: url,
-	facebook: url,
-	twitter: url,
-	youtube: url,
-	vk: url,
-	website: url,
-	mainLink: url,
-	instagram: url,
+	github: RTUrl,
+	facebook: RTUrl,
+	twitter: RTUrl,
+	youtube: RTUrl,
+	vk: RTUrl,
+	website: RTUrl,
+	mainLink: RTUrl,
+	instagram: RTUrl,
 }).asReadonly();
 
 export interface Contacts extends Static<typeof TContacts> {}
@@ -17,7 +17,7 @@ export interface Contacts extends Static<typeof TContacts> {}
 export const TInfo = Record({
 	userId: Number,
 	fullName: String,
-	photos,
+	photos: RTPhotos,
 	contacts: TContacts,
 	aboutMe: String.nullable(),
 	lookingForAJob: Boolean,
@@ -48,3 +48,10 @@ export type UpdateInfoParams = Omit<Info, 'photos' | 'followed' | 'userId'>;
 export interface UpdatePhotoParams {
 	readonly photo: FileList;
 }
+
+export const RTUpdatePhotoResponse = Record({
+	photos: RTPhotos,
+});
+
+export interface UpdatePhotoResponse
+	extends Static<typeof RTUpdatePhotoResponse> {}

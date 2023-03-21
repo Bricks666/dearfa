@@ -13,7 +13,7 @@ export const ContactsList: React.FC<ContactsListProps> = (props) => {
 	const { contacts, className, } = props;
 
 	return (
-		<List className={className} dense component='dl'>
+		<List className={className} disablePadding component='dl'>
 			{Object.entries(contacts)
 				.filter((pair): pair is [string, string] => Boolean(pair[1]))
 				.map((pair) => {

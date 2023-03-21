@@ -1,13 +1,16 @@
+.loading {
+	display: block;
+
+	margin: 0 auto;
+}
+
 .form {
 	display: grid;
-	grid-template-columns: minmax(auto, 150px) 1fr;
-	grid-template-rows: repeat(2, max-content);
+	justify-items: center;
 	gap: 1em;
 }
 
 .photo {
-	grid-row: span 2;
-
 	width: 150px;
 	height: 150px;
 

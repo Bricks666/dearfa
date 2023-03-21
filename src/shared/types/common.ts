@@ -1,23 +1,23 @@
 import { Record, Static, String } from 'runtypes';
 
-export const url = String.nullable();
+export const RTUrl = String.nullable();
 
-export type URL = Static<typeof url>;
+export type URL = Static<typeof RTUrl>;
 
-export const emptyObject = Record({});
+export const RTEmptyObject = Record({});
 
-export interface EmptyObject extends Static<typeof emptyObject> {}
+export interface EmptyObject extends Static<typeof RTEmptyObject> {}
 
-export const photos = Record({
-	large: url,
-	small: url,
+export const RTPhotos = Record({
+	large: RTUrl,
+	small: RTUrl,
 }).asReadonly();
 
-export interface Photos extends Static<typeof photos> {}
+export interface Photos extends Static<typeof RTPhotos> {}
 
-export const dateType = String;
+export const RTDateType = String;
 
-export type DateType = Static<typeof dateType>;
+export type DateType = Static<typeof RTDateType>;
 
 export type ID = number | string;
 

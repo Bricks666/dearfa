@@ -1,14 +1,14 @@
 import { Boolean, Number, Record, Static, String } from 'runtypes';
-import { photos, dateType } from '@/shared/types';
+import { RTPhotos, RTDateType } from '@/shared/types';
 
 export const dialog = Record({
 	id: Number,
 	userName: String,
-	lastUserActivityDate: dateType,
-	lastDialogActivityDate: dateType,
+	lastUserActivityDate: RTDateType,
+	lastDialogActivityDate: RTDateType,
 	newMessagesCount: Number,
 	hasNewMessages: Boolean,
-	photos,
+	photos: RTPhotos,
 });
 
 export interface Dialog extends Static<typeof dialog> {}

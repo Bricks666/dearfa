@@ -5,6 +5,7 @@ import {
 	NullableStatus,
 	UpdateInfoParams,
 	UpdatePhotoParams,
+	UpdatePhotoResponse,
 	UpdateStatusParams
 } from './types';
 
@@ -46,5 +47,5 @@ export const updatePhoto = async (params: UpdatePhotoParams) => {
 		.put(`${getBaseURL()}/photo`, {
 			body: formData,
 		})
-		.json<StandardServerResponse<Pick<Info, 'photos'>>>();
+		.json<StandardServerResponse<UpdatePhotoResponse>>();
 };

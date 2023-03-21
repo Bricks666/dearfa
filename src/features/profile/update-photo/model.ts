@@ -7,48 +7,33 @@ import { profileInfoModel } from '@/entities/profile';
 import {
 	getStandardServerResponse,
 	profileApi,
-	UpdateInfoParams
+	RTUpdatePhotoResponse,
+	UpdatePhotoParams
 } from '@/shared/api';
 import { POPUP_NAMES } from '@/shared/configs';
-import { RTEmptyObject } from '@/shared/types';
 
-const updateInfo = createDomain();
+const updatePhoto = createDomain();
 
-const handlerFx = updateInfo.effect(profileApi.updateInfo);
+const handlerFx = updatePhoto.effect(profileApi.updatePhoto);
 
-export const popup = createPopupControlModel(POPUP_NAMES.updateInfo);
+export const popup = createPopupControlModel(POPUP_NAMES.updatePhoto);
 
 export const mutation = createMutation({
 	effect: handlerFx,
-	contract: runtypeContract(getStandardServerResponse(RTEmptyObject)),
+	contract: runtypeContract(getStandardServerResponse(RTUpdatePhotoResponse)),
 });
 
-export const form = createForm<UpdateInfoParams>({
+export const form = createForm<{ photo: FileList | null }>({
 	fields: {
-		aboutMe: {
-			init: '',
+		photo: {
+			init: null,
 		},
-		contacts: {
-			init: {
-				facebook: null,
-				github: null,
-				instagram: null,
-				mainLink: null,
-				twitter: null,
-				vk: null,
-				website: null,
-				youtube: null,
-			},
-		},
-		fullName: { init: '', },
-		lookingForAJob: { init: false, },
-		lookingForAJobDescription: { init: '', },
 	},
-	domain: updateInfo,
 });
 
 sample({
 	clock: form.formValidated,
+	filter: (values): values is UpdatePhotoParams => Boolean(values.photo),
 	target: mutation.start,
 });
 
@@ -58,15 +43,8 @@ sample({
 });
 
 sample({
-	clock: popup.close,
+	clock: popup.closed,
 	target: form.reset,
-});
-
-sample({
-	clock: [popup.opened, profileInfoModel.query.finished.success],
-	source: profileInfoModel.query.$data,
-	filter: popup.$isOpen,
-	target: form.setForm,
 });
 
 update(profileInfoModel.query, {
@@ -76,7 +54,7 @@ update(profileInfoModel.query, {
 			if (!query) {
 				return {
 					refresh: true,
-					result: null as any,
+					result: '',
 				};
 			}
 
@@ -88,7 +66,10 @@ update(profileInfoModel.query, {
 			}
 
 			return {
-				result: { ...query.result, ...mutation.params, },
+				result: {
+					...query.result,
+					photos: mutation.result.data.photos,
+				},
 				refetch: false,
 			};
 		},
