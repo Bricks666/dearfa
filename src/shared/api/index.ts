@@ -5,3 +5,4 @@ export * from './users';
 export * from './follows';
 export * from './profile';
 export * from './messages';
+export * from './posts';

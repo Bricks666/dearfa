@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { Popups } from '@/widgets/popups';
 import { ProfileInfo } from '@/widgets/profile';
+import { CreatePost } from '@/features/posts';
 import { UpdateInfo, UpdatePhoto, UpdateStatus } from '@/features/profile';
 import { POPUP_NAMES } from '@/shared/configs';
 import { BasePopupProps, CommonProps } from '@/shared/types';
 import { MainLayout } from '@/shared/ui';
 import { pageModel } from './models';
 import styles from './page.module.css';
+import { PostsList } from './ui';
 import { Header } from '@/components/Header';
-import { Posts } from '@/components/Posts';
 
 const popupsMap: Record<string, React.ComponentType<BasePopupProps>> = {
 	[POPUP_NAMES.updateInfo]: UpdateInfo,
@@ -22,7 +23,8 @@ const ProfilePage: React.FC<CommonProps> = (props) => {
 	return (
 		<MainLayout className={className} header={<Header />}>
 			<ProfileInfo className={styles.userInfo} />
-			<Posts className={styles.posts} />
+			<CreatePost />
+			<PostsList className={styles.posts} />
 			<Popups popupsMap={popupsMap} />
 		</MainLayout>
 	);
