@@ -2,6 +2,7 @@ import { instance, StandardServerResponse } from '../request';
 import {
 	GetProfileParams,
 	Info,
+	NullableStatus,
 	UpdateInfoParams,
 	UpdatePhotoParams,
 	UpdateStatusParams
@@ -18,13 +19,13 @@ export const getInfo = async (params: GetProfileParams) => {
 
 export const getStatus = async (params: GetProfileParams) => {
 	const { id, } = params;
-	return instance.get(`${getBaseURL()}/status/${id}`).json<string>();
+	return instance.get(`${getBaseURL()}/status/${id}`).json<NullableStatus>();
 };
 
 export const updateStatus = async (params: UpdateStatusParams) => {
 	return instance
 		.put(`${getBaseURL()}/status`, { json: params, })
-		.json<StandardServerResponse<string>>();
+		.json<StandardServerResponse>();
 };
 
 export const updateInfo = async (params: UpdateInfoParams) => {

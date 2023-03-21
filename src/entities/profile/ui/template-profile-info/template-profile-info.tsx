@@ -8,7 +8,7 @@ import { ContactsList } from '../contacts-list';
 import styles from './template-profile-info.module.css';
 
 export interface TemplateProfileInfoProps extends CommonProps, Info {
-	readonly status: Status;
+	readonly status: Status | null;
 	readonly actions?: null | React.ReactElement;
 }
 

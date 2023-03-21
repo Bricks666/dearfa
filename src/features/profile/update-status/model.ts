@@ -3,48 +3,32 @@ import { runtypeContract } from '@farfetched/runtypes';
 import { createDomain, sample } from 'effector';
 import { createForm } from 'effector-forms';
 import { createPopupControlModel } from '@/entities/popups';
-import { profileInfoModel } from '@/entities/profile';
+import { profileStatusModel } from '@/entities/profile';
 import {
 	getStandardServerResponse,
 	profileApi,
-	UpdateInfoParams
+	UpdateStatusParams
 } from '@/shared/api';
 import { POPUP_NAMES } from '@/shared/configs';
 import { emptyObject } from '@/shared/types';
 
-const updateInfo = createDomain();
+const updateStatus = createDomain();
 
-const handlerFx = updateInfo.effect(profileApi.updateInfo);
+const handlerFx = updateStatus.effect(profileApi.updateStatus);
 
-export const popup = createPopupControlModel(POPUP_NAMES.updateInfo);
+export const popup = createPopupControlModel(POPUP_NAMES.updateStatus);
 
 export const mutation = createMutation({
 	effect: handlerFx,
 	contract: runtypeContract(getStandardServerResponse(emptyObject)),
 });
 
-export const form = createForm<UpdateInfoParams>({
+export const form = createForm<UpdateStatusParams>({
 	fields: {
-		aboutMe: {
+		status: {
 			init: '',
 		},
-		contacts: {
-			init: {
-				facebook: null,
-				github: null,
-				instagram: null,
-				mainLink: null,
-				twitter: null,
-				vk: null,
-				website: null,
-				youtube: null,
-			},
-		},
-		fullName: { init: '', },
-		lookingForAJob: { init: false, },
-		lookingForAJobDescription: { init: '', },
 	},
-	domain: updateInfo,
 });
 
 sample({
@@ -63,20 +47,21 @@ sample({
 });
 
 sample({
-	clock: [popup.opened, profileInfoModel.query.finished.success],
-	source: profileInfoModel.query.$data,
+	clock: [popup.opened, profileStatusModel.query.finished.success],
+	source: profileStatusModel.query.$data,
 	filter: popup.$isOpen,
+	fn: (status) => ({ status: status ?? '', }),
 	target: form.setForm,
 });
 
-update(profileInfoModel.query, {
+update(profileStatusModel.query, {
 	on: mutation,
 	by: {
 		success: ({ query, mutation, }) => {
 			if (!query) {
 				return {
 					refresh: true,
-					result: null as any,
+					result: '',
 				};
 			}
 
@@ -88,7 +73,7 @@ update(profileInfoModel.query, {
 			}
 
 			return {
-				result: { ...query.result, ...mutation.params, },
+				result: mutation.params.status,
 				refetch: false,
 			};
 		},

@@ -24,7 +24,7 @@ export const TInfo = Record({
 	lookingForAJobDescription: String.nullable(),
 });
 
-export const TStatus = String.nullable();
+export const TStatus = String;
 
 export interface GetProfileParams {
 	readonly id: number;
@@ -33,6 +33,7 @@ export interface GetProfileParams {
 export interface Info extends Static<typeof TInfo> {}
 
 export type Status = Static<typeof TStatus>;
+export type NullableStatus = Status | null;
 
 export interface ProfileInfo extends Info {
 	readonly status: string;

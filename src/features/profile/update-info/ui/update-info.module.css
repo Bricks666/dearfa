@@ -1,12 +1,15 @@
-.updateInfoPopup {
-}
-
 .form {
 	display: grid;
 	grid-template-columns: repeat(2, auto);
 	gap: 1em 0.5em;
 
 	padding: 1em;
+}
+
+.loading {
+	display: block;
+
+	margin: 0 auto;
 }
 
 .fieldset {

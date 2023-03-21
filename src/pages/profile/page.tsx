@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Popups } from '@/widgets/popups';
 import { ProfileInfo } from '@/widgets/profile';
-import { UpdateInfo } from '@/features/profile';
+import { UpdateInfo, UpdateStatus } from '@/features/profile';
 import { POPUP_NAMES } from '@/shared/configs';
 import { BasePopupProps, CommonProps } from '@/shared/types';
 import { MainLayout } from '@/shared/ui';
@@ -12,6 +12,7 @@ import { Posts } from '@/components/Posts';
 
 const popupsMap: Record<string, React.ComponentType<BasePopupProps>> = {
 	[POPUP_NAMES.updateInfo]: UpdateInfo,
+	[POPUP_NAMES.updateStatus]: UpdateStatus,
 };
 
 const ProfilePage: React.FC<CommonProps> = (props) => {
