@@ -10,8 +10,16 @@ const handlerFx = info.effect(profileApi.getInfo);
 export const query = createQuery({
 	initialData: {
 		aboutMe: '',
-		contacts: {},
-		followed: false,
+		contacts: {
+			github: '',
+			facebook: '',
+			vk: '',
+			twitter: '',
+			mainLink: '',
+			website: '',
+			youtube: '',
+			instagram: '',
+		},
 		fullName: '',
 		lookingForAJob: false,
 		lookingForAJobDescription: '',

@@ -1,8 +1,10 @@
 import { createHistoryRouter, redirect } from 'atomic-router';
 import { RouterProvider } from 'atomic-router-react';
+import { sample } from 'effector';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
-import { controls, routes } from '@/shared/configs';
+import { popupsModel } from '@/entities/popups';
+import { controls, GET_PARAMS, routes } from '@/shared/configs';
 
 const router = createHistoryRouter({
 	routes: [
@@ -37,6 +39,16 @@ const router = createHistoryRouter({
 redirect({
 	clock: router.routeNotFound,
 	route: routes.news,
+});
+
+/*
+Иначе при старте страницы попапы не отображаются
+*/
+sample({
+	clock: router.initialized,
+	source: router.$query,
+	fn: (query) => query[GET_PARAMS.popups] ?? '',
+	target: popupsModel.$popups,
 });
 
 router.setHistory(createBrowserHistory());

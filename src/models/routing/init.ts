@@ -1,6 +1,6 @@
 import { querySync } from 'atomic-router';
 import { sample } from 'effector';
-import { controls, getParams, popups } from '@/shared/configs';
+import { controls, GET_PARAMS, POPUP_NAMES } from '@/shared/configs';
 import {
 	$popup,
 	closeUpdateInfoPopup,
@@ -12,26 +12,26 @@ import {
 querySync({
 	controls,
 	source: {
-		[getParams.popups]: $popup,
+		[GET_PARAMS.popups]: $popup,
 	},
 	cleanup: true,
 });
 
 sample({
 	clock: closeUpdateInfoPopup,
-	fn: () => popups.updateInfo,
+	fn: () => POPUP_NAMES.updateInfo,
 	target: closePopup,
 });
 
 sample({
 	clock: closeUpdateStatusPopup,
-	fn: () => popups.updateStatus,
+	fn: () => POPUP_NAMES.updateStatus,
 	target: closePopup,
 });
 
 sample({
 	clock: closeUpdatePhotoPopup,
-	fn: () => popups.updatePhoto,
+	fn: () => POPUP_NAMES.updatePhoto,
 	target: closePopup,
 });
 

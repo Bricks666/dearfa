@@ -1,13 +1,13 @@
 import { useUnit } from 'effector-react';
 import { useEffect, useMemo, useState } from 'react';
-import { $popup } from '@/models/routing';
+import { popupsModel } from '@/entities/popups';
 
 const parsePopups = (rawPopups: string) => {
 	return rawPopups.split(',');
 };
 
 export const usePopups = () => {
-	const rawPopups = useUnit($popup);
+	const rawPopups = useUnit(popupsModel.$popups);
 	const [mountedPopups, setMountedPopups] = useState(() =>
 		parsePopups(rawPopups)
 	);

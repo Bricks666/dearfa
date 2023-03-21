@@ -1,5 +1,5 @@
-import { Boolean, Number, Record, Static, String, Union } from 'runtypes';
-import { emptyObject, photos, url } from '@/shared/types';
+import { Boolean, Number, Record, Static, String } from 'runtypes';
+import { photos, url } from '@/shared/types';
 
 export const TContacts = Record({
 	github: url,
@@ -18,7 +18,7 @@ export const TInfo = Record({
 	userId: Number,
 	fullName: String,
 	photos,
-	contacts: Union(TContacts, emptyObject),
+	contacts: TContacts,
 	aboutMe: String.nullable(),
 	lookingForAJob: Boolean,
 	lookingForAJobDescription: String.nullable(),

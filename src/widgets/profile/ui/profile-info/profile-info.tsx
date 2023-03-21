@@ -10,7 +10,7 @@ import {
 	profileStatusModel,
 	TemplateProfileInfo
 } from '@/entities/profile';
-import { routes, getParams, popups } from '@/shared/configs';
+import { routes, GET_PARAMS, POPUP_NAMES } from '@/shared/configs';
 import { useParam } from '@/shared/lib';
 import { CommonProps } from '@/shared/types';
 import styles from './profile-info.module.css';
@@ -50,7 +50,7 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
 							className={styles.button}
 							to={routes.profile as RouteInstance<any>}
 							params={{ id: userId, }}
-							query={{ [getParams.popups]: popups.updatePhoto, }}
+							query={{ [GET_PARAMS.popups]: POPUP_NAMES.updatePhoto, }}
 							component={Link}>
 							Изменить фото
 						</Button>
@@ -58,7 +58,7 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
 							className={styles.button}
 							to={routes.profile as RouteInstance<any>}
 							params={{ id: userId, }}
-							query={{ [getParams.popups]: popups.updateInfo, }}
+							query={{ [GET_PARAMS.popups]: POPUP_NAMES.updateInfo, }}
 							component={Link}>
 							Изменить информацию
 						</Button>
@@ -66,7 +66,7 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
 							className={styles.button}
 							to={routes.profile as RouteInstance<any>}
 							params={{ id: userId, }}
-							query={{ [getParams.popups]: popups.updateStatus, }}
+							query={{ [GET_PARAMS.popups]: POPUP_NAMES.updateStatus, }}
 							component={Link}>
 							Изменить статус
 						</Button>

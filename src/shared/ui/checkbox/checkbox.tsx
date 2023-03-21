@@ -21,6 +21,8 @@ export const Checkbox: React.FC<CheckboxProps> = React.memo((props) => {
 	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (evt) => {
 		onChange(evt.target.checked);
 	};
+	console.log(rest);
+
 	return (
 		<FormControlLabel
 			control={<CheckboxMUI {...rest} onChange={handleChange} />}

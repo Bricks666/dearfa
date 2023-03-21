@@ -5,7 +5,6 @@ import { pageModel } from '@/entities/app';
 import { Pages } from '@/pages';
 import { authUserModel } from '@/entities/auth-user';
 import { WithProviders } from './providers';
-import { Popups } from '@/components/Popups';
 import '@/processes/auth';
 
 export const App = WithProviders(() => {
@@ -18,7 +17,6 @@ export const App = WithProviders(() => {
 	) : (
 		<React.Suspense fallback={<CircularProgress />}>
 			<Pages />
-			<Popups />
 		</React.Suspense>
 	);
 });
