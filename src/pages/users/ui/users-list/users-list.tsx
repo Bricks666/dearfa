@@ -4,6 +4,7 @@ import {
 	Pagination,
 	PaginationItem
 } from '@mui/material';
+import { RouteInstance } from 'atomic-router';
 import { Link } from 'atomic-router-react';
 import cn from 'classnames';
 import * as React from 'react';
@@ -48,7 +49,7 @@ export const UsersList: React.FC<UsersListProps> = (props) => {
 				renderItem={(item) => {
 					return (
 						<PaginationItem
-							to={routes.users}
+							to={routes.users as RouteInstance<any>}
 							params={{ page: item.page, }}
 							component={Link}
 							{...item}

@@ -7,28 +7,30 @@ const info = createDomain();
 
 const handlerFx = info.effect(profileApi.getInfo);
 
-export const query = createQuery({
-	initialData: {
-		aboutMe: '',
-		contacts: {
-			github: '',
-			facebook: '',
-			vk: '',
-			twitter: '',
-			mainLink: '',
-			website: '',
-			youtube: '',
-			instagram: '',
-		},
-		fullName: '',
-		lookingForAJob: false,
-		lookingForAJobDescription: '',
-		photos: {
-			large: '',
-			small: '',
-		},
-		userId: -1,
+export const DEFAULT_VALUES: Info = {
+	aboutMe: '',
+	contacts: {
+		github: '',
+		facebook: '',
+		vk: '',
+		twitter: '',
+		mainLink: '',
+		website: '',
+		youtube: '',
+		instagram: '',
 	},
+	fullName: '',
+	lookingForAJob: false,
+	lookingForAJobDescription: '',
+	photos: {
+		large: '',
+		small: '',
+	},
+	userId: -1,
+};
+
+export const query = createQuery({
+	initialData: DEFAULT_VALUES,
 	effect: handlerFx,
 	contract: runtypeContract(TInfo),
 }) as Query<GetProfileParams, Info, Error, Info>;

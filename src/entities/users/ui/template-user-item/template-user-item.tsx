@@ -8,6 +8,7 @@ import {
 	ListItemText,
 	Typography
 } from '@mui/material';
+import { RouteInstance } from 'atomic-router';
 import { Link } from 'atomic-router-react';
 import * as React from 'react';
 import { User } from '@/shared/api';
@@ -29,8 +30,8 @@ export const TemplateUserItem: React.FC<TemplateUserItemProps> = (props) => {
 		<ListItem className={className}>
 			<ListItemAvatar>
 				<Avatar
-					src={photos.small}
-					to={routes.profile}
+					src={photos.small ?? ''}
+					to={routes.profile as RouteInstance<any>}
 					params={{ id, }}
 					component={Link}
 				/>

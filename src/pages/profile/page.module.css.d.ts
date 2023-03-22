@@ -1,7 +1,4 @@
 declare const styles: {
-	readonly profile: string;
-	readonly image: string;
-	readonly userInfo: string;
-	readonly posts: string;
+	readonly layout: string;
 };
 export = styles;

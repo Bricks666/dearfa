@@ -1,4 +1,5 @@
 declare const styles: {
+	readonly wrapper: string;
 	readonly title: string;
 	readonly form: string;
 	readonly field: string;

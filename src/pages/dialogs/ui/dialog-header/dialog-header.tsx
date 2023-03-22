@@ -21,10 +21,10 @@ export const DialogHeader: React.FC<DialogHeaderProps> = (props) => {
 		<AppBar className={styles.bar} position='static' variant='outlined'>
 			<Toolbar className={cn(styles.header, className)}>
 				<Link to={routes.profile} params={{ id, }}>
-					<Avatar src={photos?.small} />
+					<Avatar src={photos?.small ?? ''} />
 				</Link>
 				<div className={styles.info}>
-					<Typography className={styles.name}>
+					<Typography>
 						<Link className={styles.link} to={routes.profile} params={{ id, }}>
 							{userName}
 						</Link>

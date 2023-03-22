@@ -54,7 +54,7 @@ update(profileInfoModel.query, {
 			if (!query) {
 				return {
 					refresh: true,
-					result: '',
+					result: profileInfoModel.DEFAULT_VALUES,
 				};
 			}
 

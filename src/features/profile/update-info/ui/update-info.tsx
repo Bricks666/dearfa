@@ -69,7 +69,7 @@ export const UpdateInfo: React.FC<UpdateInfoProps> = React.memo(
 							label='Обо мне'
 						/>
 						<Checkbox
-							value={lookingForAJob.value}
+							checked={lookingForAJob.value}
 							onChange={lookingForAJob.onChange}
 							name={lookingForAJob.name}
 							label='Ищу работу'

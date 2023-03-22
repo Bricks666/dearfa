@@ -1,5 +1,6 @@
 declare const styles: {
-	readonly navigation: string;
+	readonly logoContainer: string;
+	readonly logo: string;
 	readonly list: string;
 };
 export = styles;
