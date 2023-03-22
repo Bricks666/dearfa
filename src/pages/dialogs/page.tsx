@@ -1,12 +1,12 @@
 import { Typography } from '@mui/material';
 import cn from 'classnames';
 import * as React from 'react';
+import { Header } from '@/widgets/page';
 import { CommonProps } from '@/shared/types';
 import { MainLayout } from '@/shared/ui';
 import { pageModel } from './models';
 import styles from './page.module.css';
 import { Chat, DialogsList } from './ui';
-import { Header } from '@/components/Header';
 
 const DialogsPage: React.FC<CommonProps> = React.memo((props) => {
 	const { className, } = props;

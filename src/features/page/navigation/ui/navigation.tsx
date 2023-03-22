@@ -7,6 +7,7 @@ import {
 	ImportContacts
 } from '@mui/icons-material';
 import {
+	Divider,
 	Drawer,
 	IconButton,
 	List,
@@ -24,8 +25,7 @@ import { authUserModel } from '@/entities/auth-user';
 import { routes } from '@/shared/configs';
 import { useToggle } from '@/shared/lib';
 import { CommonProps } from '@/shared/types';
-import { Logo } from '../Logo';
-import styles from './Navigation.module.css';
+import styles from './navigation.module.css';
 
 interface NavigationItem {
 	readonly to: RouteInstance<any>;
@@ -36,7 +36,7 @@ interface NavigationItem {
 
 export const Navigation: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
-	const { id: authId, } = useUnit(authUserModel.$user)!;
+	const authId = useUnit(authUserModel.$id);
 	const { toggled, onToggle, } = useToggle();
 	const navigationItems: NavigationItem[] = React.useMemo(
 		() => [
@@ -86,7 +86,10 @@ export const Navigation: React.FC<CommonProps> = (props) => {
 				onClose={onToggle}
 				anchor='left'>
 				<Stack onClick={onToggle}>
-					<Logo src='/images/logo.svg' alt='Logo' />
+					<div className={styles.logoContainer}>
+						<img className={styles.logo} src='/images/logo.svg' alt='Logo' />
+					</div>
+					<Divider />
 					<List className={styles.list}>
 						{navigationItems.map(({ to, label, icon, params, }) => (
 							<ListItem key={label} disablePadding>

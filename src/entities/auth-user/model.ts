@@ -13,6 +13,7 @@ const auth = createDomain();
 
 export const $user = auth.store<AuthUser | null>(null);
 export const $isAuth = $user.map((user) => Boolean(user));
+export const $id = $user.map((user) => user?.id ?? -1);
 
 const handlerFx = auth.effect(authApi.auth);
 
@@ -23,7 +24,6 @@ export const query = createQuery({
 }) as Query<void, AuthUser | null, Error>;
 
 sample({
-	clock: query.finished.success,
-	fn: ({ result, }) => result,
+	clock: query.$data,
 	target: $user,
 });

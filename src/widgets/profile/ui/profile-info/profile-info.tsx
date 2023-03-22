@@ -20,7 +20,7 @@ export interface ProfileInfoProps extends CommonProps {}
 export const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
 	const { className, } = props;
 	const userId = useParam(routes.profile, 'id');
-	const { id: authId, } = useUnit(authUserModel.$user)!;
+	const authId = useUnit(authUserModel.$id);
 	const isAuth = authId === Number(userId);
 	const info = useUnit(profileInfoModel.query);
 	const status = useUnit(profileStatusModel.query);

@@ -1,10 +1,10 @@
 import { Typography } from '@mui/material';
 import * as React from 'react';
+import { Header } from '@/widgets/page';
 import { CommonProps } from '@/shared/types';
 import { MainLayout } from '@/shared/ui';
 import { pageModel } from './models';
 import { PostsList } from './ui';
-import { Header } from '@/components/Header';
 
 const NewsPage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;

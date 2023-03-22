@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import * as React from 'react';
+import { Header } from '@/widgets/page';
 import { LoginForm } from '@/features/auth';
 import { CommonProps } from '@/shared/types';
 import { MainLayout } from '@/shared/ui';
 import styles from './page.module.css';
-import { Header } from '@/components/Header';
 import './model';
 
 const LoginPage: React.FC<CommonProps> = (props) => {

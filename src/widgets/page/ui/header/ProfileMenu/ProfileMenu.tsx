@@ -18,7 +18,7 @@ export const ProfileMenu: React.FC<CommonProps> = React.memo((props) => {
 	const { className, } = props;
 	const { onToggle, toggled, } = useToggle();
 	const anchor = React.useRef(null);
-	const { id: authId, } = useUnit(authUserModel.$user)!;
+	const authId = useUnit(authUserModel.$id);
 	const logout = useUnit(logoutModel.mutation.start);
 	const menuOptions: MenuOption[] = React.useMemo(
 		() => [

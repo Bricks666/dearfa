@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import * as React from 'react';
+import { Header } from '@/widgets/page';
 import { Popups } from '@/widgets/popups';
 import { ProfileInfo } from '@/widgets/profile';
 import { CreatePost } from '@/features/posts';
@@ -10,7 +11,6 @@ import { MainLayout } from '@/shared/ui';
 import { pageModel } from './models';
 import styles from './page.module.css';
 import { PostsList } from './ui';
-import { Header } from '@/components/Header';
 
 const popupsMap: Record<string, React.ComponentType<BasePopupProps>> = {
 	[POPUP_NAMES.updateInfo]: UpdateInfo,
