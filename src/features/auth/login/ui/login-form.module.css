@@ -1,0 +1,27 @@
+.wrapper {
+	padding: 1.5em;
+}
+
+.title {
+	grid-column: 1 / -1;
+
+	text-align: center;
+}
+
+.form {
+	display: grid;
+	grid-template-columns: max-content auto;
+	width: 100%;
+}
+
+.field {
+	grid-column: span 2;
+}
+
+.checkbox {
+	width: max-content;
+}
+
+.button {
+	justify-self: end;
+}

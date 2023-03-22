@@ -1,0 +1,12 @@
+.posts {
+	display: grid;
+
+	row-gap: 20px;
+}
+
+.heading {
+}
+
+.makeMessage {
+	min-height: 100px;
+}

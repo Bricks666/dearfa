@@ -1,0 +1,13 @@
+.users {
+	display: grid;
+  gap: 16px;
+}
+
+.button {
+	justify-self: center;
+
+	width: 200px;
+	height: min-content;
+
+	font-size: 24px;
+}

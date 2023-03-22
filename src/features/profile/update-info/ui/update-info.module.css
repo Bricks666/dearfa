@@ -1,0 +1,31 @@
+.form {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	gap: 1em 0.5em;
+
+	padding: 1em;
+}
+
+.loading {
+	display: block;
+
+	margin: 0 auto;
+}
+
+.fieldset {
+	grid-column: 1 / -1;
+
+	display: inherit;
+	grid-template-columns: inherit;
+	gap: inherit;
+
+	border: none;
+}
+
+.legend {
+	margin-bottom: 0.5em;
+}
+
+.button {
+	grid-column: 2;
+}

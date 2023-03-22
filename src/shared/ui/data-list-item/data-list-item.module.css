@@ -1,0 +1,21 @@
+.item {
+	display: grid;
+
+	grid-template-columns: max-content 1fr;
+	align-items: baseline;
+
+	column-gap: 10px;
+
+	width: max-content;
+	height: max-content;
+}
+
+.term {
+	font-weight: 500;
+}
+
+.desc {
+	margin: 0;
+
+	font-size: 14px;
+}
