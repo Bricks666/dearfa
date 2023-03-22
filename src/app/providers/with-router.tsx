@@ -6,6 +6,9 @@ import * as React from 'react';
 import { popupsModel } from '@/entities/popups';
 import { controls, GET_PARAMS, routes } from '@/shared/configs';
 
+const baseURL =
+	import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+
 const router = createHistoryRouter({
 	routes: [
 		{
@@ -34,6 +37,7 @@ const router = createHistoryRouter({
 		}
 	],
 	controls,
+	base: baseURL,
 });
 
 redirect({
