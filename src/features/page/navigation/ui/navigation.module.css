@@ -1,0 +1,16 @@
+.logoContainer {
+	padding: 1em;
+}
+
+.logo {
+	filter: invert(1);
+}
+
+.list {
+	display: grid;
+
+	row-gap: 10px;
+
+	padding: 0;
+	margin: 0;
+}

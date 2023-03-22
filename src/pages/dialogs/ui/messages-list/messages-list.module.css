@@ -1,0 +1,28 @@
+.wrapper {
+	display: grid;
+
+	align-items: end;
+
+	height: 100%;
+}
+
+.messages {
+	display: grid;
+  gap: 8px;
+
+	height: min-content;
+
+	padding: 2em;;
+}
+
+.message {
+	width: clamp(200px, 50%, 500px);
+}
+
+.message:not(.myMessage)::before {
+	content: none;
+}
+
+.myMessage {
+	margin-left: auto;
+}

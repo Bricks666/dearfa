@@ -1,0 +1,25 @@
+.dialogs {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	grid-template-rows: repeat(2, max-content) 1fr;
+	gap: 1em;
+}
+
+.heading {
+	grid-column: 1;
+}
+
+.list {
+  grid-row: 2;
+  grid-template-columns: 1;
+
+	width: 320px;
+  height: max-content;
+}
+
+.chat {
+  grid-column: 2;
+	grid-row: 1 / -1;
+
+	height: 800px;
+}

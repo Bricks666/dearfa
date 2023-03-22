@@ -1,0 +1,19 @@
+.loading {
+	display: block;
+
+	margin: 0 auto;
+}
+
+.form {
+	display: grid;
+	justify-items: center;
+	gap: 1em;
+}
+
+.photo {
+	width: 150px;
+	height: 150px;
+
+	object-fit: cover;
+	object-position: center;
+}
