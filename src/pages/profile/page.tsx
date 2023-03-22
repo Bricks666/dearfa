@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import * as React from 'react';
 import { Popups } from '@/widgets/popups';
 import { ProfileInfo } from '@/widgets/profile';
@@ -21,10 +22,12 @@ const ProfilePage: React.FC<CommonProps> = (props) => {
 	const { className, } = props;
 
 	return (
-		<MainLayout className={className} header={<Header />}>
-			<ProfileInfo className={styles.userInfo} />
-			<CreatePost />
-			<PostsList className={styles.posts} />
+		<MainLayout className={cn(styles.layout, className)} header={<Header />}>
+			<ProfileInfo />
+			<div>
+				<CreatePost />
+				<PostsList />
+			</div>
 			<Popups popupsMap={popupsMap} />
 		</MainLayout>
 	);

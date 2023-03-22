@@ -13,3 +13,7 @@ export const RTPost = Record({
 export interface Post extends Static<typeof RTPost> {}
 
 export interface CreatePostParams extends Pick<Post, 'content'> {}
+
+export interface MarkPostParams {
+	readonly id: number;
+}

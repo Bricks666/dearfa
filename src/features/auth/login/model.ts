@@ -28,7 +28,7 @@ export const form = createForm<LoginRequest>({
 			init: '',
 		},
 		rememberMe: {
-			init: false,
+			init: true,
 		},
 	},
 	domain: login,

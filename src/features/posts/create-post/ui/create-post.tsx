@@ -20,6 +20,7 @@ export const CreatePost: React.FC<CommonProps> = (props) => {
 		<Paper
 			className={cn(styles.form, className)}
 			onSubmit={onSubmit}
+			variant='outlined'
 			component='form'>
 			<Field
 				placeholder='Чем хотите поделиться'

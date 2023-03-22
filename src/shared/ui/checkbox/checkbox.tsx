@@ -10,8 +10,9 @@ import { CommonProps } from '@/shared/types';
 
 export interface CheckboxProps
 	extends CommonProps,
-		Pick<ConnectedField<any>, 'name' | 'onChange' | 'value'>,
+		Pick<ConnectedField<any>, 'name' | 'onChange'>,
 		Omit<MUICheckboxProps, keyof ConnectedField<any>> {
+	readonly checked: boolean;
 	readonly label?: string | null;
 }
 
@@ -21,7 +22,6 @@ export const Checkbox: React.FC<CheckboxProps> = React.memo((props) => {
 	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (evt) => {
 		onChange(evt.target.checked);
 	};
-	console.log(rest);
 
 	return (
 		<FormControlLabel

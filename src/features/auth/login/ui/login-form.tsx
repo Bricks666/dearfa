@@ -1,4 +1,5 @@
 import { Button, Paper, Stack, Typography } from '@mui/material';
+import cn from 'classnames';
 import { useForm } from 'effector-forms';
 import { useUnit } from 'effector-react';
 import * as React from 'react';
@@ -19,7 +20,7 @@ export const LoginForm: React.FC<LoginFormProps> = React.memo((props) => {
 	const onSubmit = useSubmit(submit);
 
 	return (
-		<Paper className={className} variant='outlined'>
+		<Paper className={cn(styles.wrapper, className)} variant='outlined'>
 			<Stack
 				className={styles.form}
 				spacing={1}
@@ -52,7 +53,7 @@ export const LoginForm: React.FC<LoginFormProps> = React.memo((props) => {
 
 				<Checkbox
 					className={styles.checkbox}
-					value={rememberMe.value}
+					checked={rememberMe.value}
 					onChange={rememberMe.onChange}
 					name={rememberMe.name}
 					label='Запомнить меня'
